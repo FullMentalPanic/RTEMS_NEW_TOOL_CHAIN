@@ -1,0 +1,23 @@
+src/rfs/rtems-rfs-dir-hash.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-dir-hash.c \
+ ../config.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rfs/rtems-rfs-dir-hash.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/endian.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h
+
+../config.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rfs/rtems-rfs-dir-hash.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/endian.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h:

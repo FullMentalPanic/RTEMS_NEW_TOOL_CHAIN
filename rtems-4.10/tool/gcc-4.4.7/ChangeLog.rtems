@@ -1,0 +1,20 @@
+2012-09-27	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* Backport from gcc-4_5-branch:
+
+	2010-01-07  Ralf Wildenhues  <Ralf.Wildenhues@gmx.de>
+
+	PR bootstrap/41818
+	* Makefile.tpl (BASE_TARGET_EXPORTS): Only add TARGET_LIB_PATH
+	to $(RPATH_ENVVAR) if bootstrapping.  Fix typo in comment.
+	* Makefile.in: Regenerate.
+
+2011-04-20	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* configure, configure.ac (PPL): Merge gcc-4.6.0's ppl detection 
+	  (Work-around build breakdown on fedora 15).
+
+		Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* configure, configure.ac (skipdirs): Add target-libiberty.
+

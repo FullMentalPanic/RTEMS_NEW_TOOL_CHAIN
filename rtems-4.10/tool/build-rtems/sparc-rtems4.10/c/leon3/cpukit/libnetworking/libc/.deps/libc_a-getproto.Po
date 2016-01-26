@@ -1,0 +1,16 @@
+libc/libc_a-getproto.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/getproto.c \
+ ../config.h ../../cpukit/../../../leon3/lib/include/netdb.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/bsdnet/_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h
+
+../config.h:
+
+../../cpukit/../../../leon3/lib/include/netdb.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/bsdnet/_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:

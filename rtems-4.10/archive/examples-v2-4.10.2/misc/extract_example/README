@@ -1,0 +1,6 @@
+#
+#  $Id: README,v 1.1 2009/09/24 13:40:31 joel Exp $
+#
+
+This directory contains a Makefile demonstrating how to extract information
+from an installed RTEMS.

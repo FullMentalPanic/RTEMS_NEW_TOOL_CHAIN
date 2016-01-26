@@ -1,0 +1,116 @@
+shell/libshell_a-hexsyntax.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexsyntax.c \
+ ../config.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_default_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/lock.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/cdefs.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/strings.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/locale.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexdump.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/wchar.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/getopt.h
+
+../config.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_default_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/lock.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h:
+
+../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/cdefs.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/strings.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/locale.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h:
+
+../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexdump.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/wchar.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/getopt.h:

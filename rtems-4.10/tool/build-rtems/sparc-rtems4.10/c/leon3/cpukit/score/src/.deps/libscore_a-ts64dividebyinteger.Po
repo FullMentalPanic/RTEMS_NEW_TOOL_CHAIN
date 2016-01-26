@@ -1,0 +1,89 @@
+src/libscore_a-ts64dividebyinteger.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/score/src/ts64dividebyinteger.c \
+ ../config.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_default_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/lock.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/system.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/timestamp.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/timespec.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/time.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/time.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h
+
+../config.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_default_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/lock.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/system.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/timestamp.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/timespec.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/time.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/time.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h:

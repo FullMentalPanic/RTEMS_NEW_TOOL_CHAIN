@@ -1,0 +1,3 @@
+ac_cv_env_RTEMS_CPU_MODEL="leon3"
+ac_cv_env_CPU_CFLAGS="-mcpu=cypress -msoft-float"
+ac_cv_env_CFLAGS_OPTIMIZE_V="-O2 -g"

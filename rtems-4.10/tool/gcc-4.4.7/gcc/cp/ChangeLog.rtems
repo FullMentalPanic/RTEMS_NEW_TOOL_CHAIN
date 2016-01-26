@@ -1,0 +1,5 @@
+2011-08-29	Ralf Corsépius <ralf.corsepius@rtems.org> 
+	and Eric Norum <wenorum@lbl.gov>
+
+	Fix bootstrap breakdowns on OS X 10.7.1 (Lion):
+	* cfns.h: Regenerate.

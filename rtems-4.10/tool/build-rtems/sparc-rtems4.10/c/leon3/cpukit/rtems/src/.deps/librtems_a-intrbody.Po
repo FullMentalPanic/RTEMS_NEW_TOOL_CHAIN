@@ -1,0 +1,43 @@
+src/librtems_a-intrbody.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/rtems/src/intrbody.c \
+ ../config.h ../../cpukit/../../../leon3/lib/include/rtems/system.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/status.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/status.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/isr.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/isr.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/intr.h
+
+../config.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/system.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/status.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/status.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/isr.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/isr.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/intr.h:

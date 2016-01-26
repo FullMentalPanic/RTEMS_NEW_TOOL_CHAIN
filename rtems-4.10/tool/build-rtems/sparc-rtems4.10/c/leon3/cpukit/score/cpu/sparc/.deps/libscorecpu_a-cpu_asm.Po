@@ -1,0 +1,20 @@
+libscorecpu_a-cpu_asm.o: \
+ ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/score/cpu/sparc/cpu_asm.S \
+ ../../../config.h \
+ ../../../../cpukit/../../../leon3/lib/include/rtems/asm.h \
+ ../../../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
+ ../../../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h \
+ ../../../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h \
+ ../../../../cpukit/../../../leon3/lib/include/rtems/concat.h
+
+../../../config.h:
+
+../../../../cpukit/../../../leon3/lib/include/rtems/asm.h:
+
+../../../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h:
+
+../../../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h:
+
+../../../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h:
+
+../../../../cpukit/../../../leon3/lib/include/rtems/concat.h:

@@ -1,0 +1,106 @@
+@node setlocale
+@section @code{setlocale}, @code{localeconv}---select or query locale
+@findex setlocale
+@findex localeconv
+@findex _setlocale_r
+@findex _localeconv_r
+@strong{Synopsis}
+@example
+#include <locale.h>
+char *setlocale(int @var{category}, const char *@var{locale});
+lconv *localeconv(void);
+
+char *_setlocale_r(void *@var{reent},
+    int @var{category}, const char *@var{locale});
+lconv *_localeconv_r(void *@var{reent});
+
+@end example
+@strong{Description}@*
+@code{setlocale} is the facility defined by ANSI C to condition the
+execution environment for international collating and formatting
+information; @code{localeconv} reports on the settings of the current
+locale.
+
+This is a minimal implementation, supporting only the required @code{"POSIX"}
+and @code{"C"} values for @var{locale}; strings representing other locales are not
+honored unless _MB_CAPABLE is defined.
+
+If _MB_CAPABLE is defined, POSIX locale strings are allowed, following
+the form
+
+language[_TERRITORY][.charset][@@modifier]
+
+@code{"language"} is a two character string per ISO 639.  @code{"TERRITORY"} is a
+country code per ISO 3166.  For @code{"charset"} and @code{"modifier"} see below.
+
+Additionally to the POSIX specifier, seven extensions are supported for
+backward compatibility with older implementations using newlib:
+@code{"C-UTF-8"}, @code{"C-JIS"}, @code{"C-eucJP"}, @code{"C-SJIS"}, @code{C-KOI8-R},
+@code{C-KOI8-U}, @code{"C-ISO-8859-x"} with 1 <= x <= 15, or @code{"C-CPxxx"} with
+xxx in [437, 720, 737, 775, 850, 852, 855, 857, 858, 862, 866, 874, 1125,
+1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258].
+
+Instead of @code{"C-"}, you can specify also @code{"C."}.  Both variations allow
+to specify language neutral locales while using other charsets than ASCII,
+for instance @code{"C.UTF-8"}, which keeps all settings as in the C locale,
+but uses the UTF-8 charset.
+
+Even when using POSIX locale strings, the only charsets allowed are
+@code{"UTF-8"}, @code{"JIS"}, @code{"EUCJP"}, @code{"SJIS"}, @code{KOI8-R}, @code{KOI8-U},
+@code{"ISO-8859-x"} with 1 <= x <= 15, or @code{"CPxxx"} with xxx in
+[437, 720, 737, 775, 850, 852, 855, 857, 858, 862, 866, 874, 1125, 1250,
+1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258].
+Charsets are case insensitive.  For instance, @code{"EUCJP"} and @code{"eucJP"}
+are equivalent.  @code{"UTF-8"} can also be written without dash, as in
+@code{"UTF8"} or @code{"utf8"}.
+
+(@code{""} is also accepted; if given, the settings are read from the
+corresponding LC_* environment variables and $LANG according to POSIX rules.
+
+Under Cygwin, this implementation additionally supports the charsets
+@code{"GBK"}, @code{"eucKR"}, and @code{"Big5"}.
+
+This implementation also supports a single modifier, @code{"cjknarrow"}.
+Any other modifier is ignored.  @code{"cjknarrow"}, in conjunction with one
+of the language specifiers @code{"ja"}, @code{"ko"}, and @code{"zh"} specifies
+how the functions @code{wcwidth} and @code{wcswidth} handle characters from
+the "CJK Ambiguous Width" character class described in
+http://www.unicode.org/unicode/reports/tr11/.  Usually these characters
+have a width of 1, unless you specify one of the aforementioned
+languages, in which case these characters have a width of 2.  By
+specifying the @code{"cjknarrow"} modifier, these characters will have a
+width of one in the languages @code{"ja"}, @code{"ko"}, and @code{"zh"} as well.
+
+If you use @code{NULL} as the @var{locale} argument, @code{setlocale} returns a
+pointer to the string representing the current locale.  The acceptable
+values for @var{category} are defined in `@code{locale.h}' as macros
+beginning with @code{"LC_"}.
+
+@code{localeconv} returns a pointer to a structure (also defined in
+`@code{locale.h}') describing the locale-specific conventions currently
+in effect.  
+
+@code{_localeconv_r} and @code{_setlocale_r} are reentrant versions of
+@code{localeconv} and @code{setlocale} respectively.  The extra argument
+@var{reent} is a pointer to a reentrancy structure.
+
+@*
+@strong{Returns}@*
+A successful call to @code{setlocale} returns a pointer to a string
+associated with the specified category for the new locale.  The string
+returned by @code{setlocale} is such that a subsequent call using that
+string will restore that category (or all categories in case of LC_ALL),
+to that state.  The application shall not modify the string returned
+which may be overwritten by a subsequent call to @code{setlocale}.
+On error, @code{setlocale} returns @code{NULL}.
+
+@code{localeconv} returns a pointer to a structure of type @code{lconv},
+which describes the formatting and collating conventions in effect (in
+this implementation, always those of the C locale).
+
+@*
+@strong{Portability}@*
+ANSI C requires @code{setlocale}, but the only locale required across all
+implementations is the C locale.
+
+@*

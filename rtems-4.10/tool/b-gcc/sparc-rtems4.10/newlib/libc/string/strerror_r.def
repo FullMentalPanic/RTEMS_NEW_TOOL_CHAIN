@@ -1,0 +1,31 @@
+@node strerror_r
+@section @code{strerror_r}---convert error number to string and copy to buffer
+@findex strerror_r
+@strong{Synopsis}
+@example
+#include <string.h>
+char *strerror_r(int @var{errnum}, char *@var{buffer}, size_t @var{n});
+
+@end example
+@strong{Description}@*
+@code{strerror_r} converts the error number @var{errnum} into a
+string and copies the result into the supplied @var{buffer} for
+a length up to @var{n}, including the NUL terminator. The value of 
+@var{errnum} is usually a copy of @code{errno}.  If @code{errnum} is not a known 
+error number, the result is the empty string.
+
+See @code{strerror} for how strings are mapped to @code{errnum}.
+
+@*
+@strong{Returns}@*
+This function returns a pointer to a string.  Your application must
+not modify that string.
+
+@*
+@strong{Portability}@*
+@code{strerror_r} is a GNU extension.
+
+@code{strerror_r} requires no supporting OS subroutines.
+
+
+@*

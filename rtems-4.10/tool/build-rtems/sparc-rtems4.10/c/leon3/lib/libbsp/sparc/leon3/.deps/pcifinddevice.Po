@@ -1,0 +1,11 @@
+pcifinddevice.o: \
+ ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/pci/pcifinddevice.c \
+ ../../../../../.././leon3/lib/include/pci.h \
+ ../../../../../.././leon3/lib/include/rtems/bspIo.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h
+
+../../../../../.././leon3/lib/include/pci.h:
+
+../../../../../.././leon3/lib/include/rtems/bspIo.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h:

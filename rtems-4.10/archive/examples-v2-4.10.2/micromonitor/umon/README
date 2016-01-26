@@ -1,0 +1,17 @@
+#
+#  $Id: README,v 1.1 2009/08/06 23:23:20 joel Exp $
+#
+
+This is a demonstration of using Micromonitor capabilities from an
+RTEMS application.  
+
+The following files are from umon-1.17:
+
+monlib.c
+monlib.h
+tfs.h
+cli.h
+
+After printing the arguments, it will attempt to cat the contents
+of mon_getenv("TFSFS_FILENAME") followed by "csbboot" and "boot"
+from the TFS filesystem.

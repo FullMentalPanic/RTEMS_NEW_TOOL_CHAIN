@@ -1,0 +1,70 @@
+src/libscore_a-watchdog.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/score/src/watchdog.c \
+ ../config.h ../../cpukit/../../../leon3/lib/include/rtems/system.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/isr.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/isr.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/object.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/chain.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/address.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/address.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/bspIo.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/object.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.inl
+
+../config.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/system.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/isr.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/isr.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/object.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/chain.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/address.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/address.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/bspIo.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/object.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.inl:

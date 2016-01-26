@@ -1,0 +1,50 @@
+_lt_sf.o: ../../../.././gcc/fp-bit.c ../../../.././gcc/tconfig.h \
+ ../../../.././gcc/auto-host.h \
+ ../../../../../gcc-4.4.7/libgcc/../include/ansidecl.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/coretypes.h \
+ ../../../.././gcc/tm.h ../../../.././gcc/options.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sparc.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/vxworks-dummy.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/dbxelf.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/elfos.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/svr4.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sysv4.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sp-elf.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/rtemself.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/rtems.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/defaults.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/fp-bit.h
+
+../../../.././gcc/tconfig.h:
+
+../../../.././gcc/auto-host.h:
+
+../../../../../gcc-4.4.7/libgcc/../include/ansidecl.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/coretypes.h:
+
+../../../.././gcc/tm.h:
+
+../../../.././gcc/options.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sparc.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/vxworks-dummy.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/dbxelf.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/elfos.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/svr4.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sysv4.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sp-elf.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/rtemself.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/rtems.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/defaults.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/fp-bit.h:

@@ -1,0 +1,8 @@
+#
+#  $Id: README,v 1.1 2009/12/14 13:07:19 joel Exp $
+#
+
+This program deliberately writes past the end of an array and
+corrupts another variable.  This is done so the program can
+be used to demonstrate how the gdb "watch" command can be used
+to track down this type of programming error.

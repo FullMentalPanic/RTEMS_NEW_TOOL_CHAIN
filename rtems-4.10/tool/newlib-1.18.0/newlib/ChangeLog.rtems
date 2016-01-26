@@ -1,0 +1,301 @@
+2011-01-14	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libm/common/s_ilogb.c, libm/common/s_llround.c,
+	libm/common/s_log2.c, libm/common/s_lrint.c, 
+	libm/common/s_lround.c, libm/common/s_rint.c,
+	libm/common/sf_ilogb.c, libm/common/sf_log2.c,
+	libm/common/sf_rint.c: Import from newlib-cvs.
+
+2011-01-14	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libm/common/fdlibm.h: 
+	Add SAFE_LEFT_SHIFT, SAFE_RIGHT_SHIFT from newlib-cvs.
+
+2011-01-07	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libc/stdio/open_memstream.c: Replace 64 * 1024 with 0x10000 to 
+	avoid integer overflow on h8300.
+
+2011-01-05	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libm/common/s_llrint.c: Back-port from newlib-cvs.
+
+2011-01-05	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libc/stdio/tmpnam.c: Include <stdint.h>.
+	Use intptr_t instead of _POINTER_INT for improved portability.
+	* libc/misc/__dprintf.c: Include <stdint.h>
+	Use intptr_t instead of _POINTER_INT for improved portability.
+
+2011-01-05	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libm/common/s_round.c: Cast const int to __int32_t.
+
+2011-01-04	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* doc/makedoc.c: Add cludge to make makedoc 64bit compliant.
+
+2011-01-04	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libm/math/e_scalb.c: Include <limits.h>.
+	Don't rely on 65000 being a valid int.
+
+2011-01-04	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libc/posix/readdir.c:	Include <stdint.h>.
+	Cast to intptr_t instead of int.
+
+2011-01-04	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libc/string/memccpy.c, libc/string/memchr.c,
+	libc/string/memcmp.c, libc/string/memcpy.c,
+	libc/string/memmove.c, libc/string/mempcpy.c,
+	libc/string/memset.c, libc/string/stpcpy.c,
+	libc/string/stpncpy.c, libc/string/strcpy.c,
+	libc/string/strlen.c, libc/string/strncat.c,
+	libc/string/strncpy.c (UNALIGNED):
+	Include <stdint.h>.
+	Cast to intptr_t instead of long.
+
+2011-01-04	Ralf Corsépius  <ralf.corsepius@rtems.org>
+
+	* libc/stdio/open_memstream.c (internal_open_memstream_r):
+	Don't limit c->max to 64*1024 on targets with SIZE_MAX < 64*1024.
+
+2010-10-05  Eric Blake  <eblake@redhat.com>
+
+	memmem, strstr, strcasestr: fix bug with long periodic needle
+    	* lib/str-two-way.h (two_way_long_needle): Avoid bug with long
+	periodic needle having false positive.
+
+2010-08-24  Sebastian Huber <sebastian.huber@embedded-brains.de>
+
+	* libc/posix/opendir.c: Added missing memory free.
+
+2010-08-10	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	PR 1475/newlib:
+	* libc/include/stdint.h: Fall back to compute SIZE_MAX based on
+	__SIZEOF_SIZE_T__ and __CHAR_BIT__ if available.
+
+2010-08-04	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/string/strcat.c: 
+	Include <stdint.h>. Use uintptr_t instead of long in ALIGNED.
+	* libc/string/strchr.c, libc/string/strcmp.c, libc/string/strncmp.c:
+	Include <stdint.h>. Use uintptr_t instead of long in UNALIGNED.
+	* libc/include/sys/unistd.h: Activate decls for 
+	getsid, setegid, seteuid.
+
+2010-07-08	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* configure.host: Add -D_COMPILING_NEWLIB to newlib_cflags.
+	* libc/string/index.c, libc/string/rindex.c: Include <string.h>.
+	* libc/stdlib/putenv_r.c: Include <strings.h>
+
+2010-07-06  Corinna Vinschen  <corinna@vinschen.de>
+
+	* libc/posix/rewinddir.c (rewinddir): Remove incorrect cast to off_t.
+	* libc/sys/rtems/sys/dirent.h (_seekdir): Add prototype.
+
+2010-06-17	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/machine/_types.h: Special case for sparc64.
+
+2010-04-23	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/machine/_types.h: Add _mode_t.
+	* libc/include/sys/types.h: Derive mode_t from  _mode_t.
+
+2010-04-02	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/include/sched.h, libc/include/sys/sched.h:
+	Adopt newlib-cvs's versions.
+
+2010-03-25	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/include/strings.h: New (split-out from string.h).
+	* libc/include/string.h: Remove bcmp, bcopy, bzero, ffs, index, rindex,
+	strcasecmp, strncasecmp (Moved to strings.h).
+	Remove strcmpi, stricmp, strncmpi, strnicmp.
+	* libc/misc/ffs.c: Use <strings.h> instead of <string.h>.
+	* libc/string/bcmp.c: Use <strings.h> instead of <string.h>.
+	* libc/string/bzero.c: Use <strings.h> instead of <string.h>.
+	* libc/string/rindex.c: Use <strings.h> instead of <string.h>.
+	* libc/string/strcasecmp.c: Use <strings.h> instead of <string.h>.
+	* libc/string/strcasecmp.c: Use <strings.h> instead of <string.h>.
+
+2010-03-23	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/machine/_types.h: Add i386 to 64bit off_t targets.
+
+2010-03-10	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/posix/telldir.c: Adopt newlib-cvs's telldir.c
+
+2010-02-10	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/machine/_types.h: Use __int64_t for _off_t, fpos_t for 
+	selected targets.
+
+2010-02-05	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/posix/telldir.c: Remove bogus nested prototype of lseek().
+
+2010-01-11  Sebastian Huber <sebastian.huber@embedded-brains.de>
+
+	* libc/posix/telldir.c (_cleanupdir): Fixed usage of freed memory.
+
+2009-12-18	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/search/db_local.h:
+	Use __uint32_t instead of u_int (prototype mismatches).
+	* libc/search/extern.h (__buf_init): 
+	Use __uint32_t instead of int (16 bit target portability).
+	* libc/search/hash_buf.c: Use ptrdiff_t instead of __uint32_t,
+	use __uint32_t instead of int (16 bit target portability).
+	* libc/search/hash.h: Use __uint32_it instead of int
+	(16 bit target portability).
+	* libm/common/modfl.c: Add cast to (double*) to avoid GCC warning.
+	* libm/common/sf_llrint.c, libm/common/sf_round.c: Add explicit 
+	casts to __uint32_t to avoid overflows on implicit casts.
+
+2009-12-18	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	Merger with newlib-1.18.0.
+
+2009-10-29	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/machine/_types.h: Rework.
+	* libc/sys/rtems/machine/stdint.h: Remove.
+	* libc/include/inttypes.h: 
+	Rework logic to determine PRI*PTR.
+	Prefer long64 over longlong64.
+	* libc/include/machine/_default_types.h: 
+	Sync logic for __int32 with stdint.h (Prefer long over int).
+	* libc/include/stdint.h:
+	Remove __SPU__ hack.
+	Prefer int for int16_t (sync with _default_types.h).
+	Rework intptr_t determination.
+
+2009-10-28	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/machine/_types.h: New.
+	Add custom time for _ssize_t.
+	* libc/stdlib/assert.c: Sync with newlib-CVS.
+	* configure.host: Add -DHAVE_ASSERT_FUNC to newlib_cflags.
+
+2009-10-27	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/include/sys/pthread.h: 
+	Add pthread_atfork (Mandated by IEEE Std 1003.1-2008).
+	Add pthread_rwlock_unlock (Formerly missing)
+
+2009-10-26	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/include/sys/signal.h: Sync with newlib-CVS.
+
+2009-10-09	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/include/sys/signal.h: Use pid_t as 1st arg to kill()
+	(mandated by POSIX).
+
+2009-09-22	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/sys/queue.h: Update copyright (from FreeBSD).
+	Remove CIRCLEQ_*.
+	* libc/search/hcreate.c: Don't include sys/queue.h.
+
+2009-09-18  Christopher Faylor  <me+cygwin@cgf.cx>
+
+	* libc/include/sys/unistd.h: Declare getpagesize as returning
+	POSIX-mandated int.
+
+2009-09-15	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/include/stdlib.h: Add posix_memalign.
+
+2009-09-11	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* configure.host (m32c): Remove -D_ABORT_PROVIDED.
+
+2009-09-10	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* configure.host: Add -D_NO_POPEN.
+	* libc/sys/rtems/crt0.c: Don't provide waitpid unless used.
+
+2009-09-09	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* configure.host: Add -D_NO_WORDEXP.
+
+2009-09-06	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/crt0.c: Add issetugid.
+
+2009-09-02	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/crt0.c: Rework. Introduce macro RTEMS_STUB.
+
+2009-07-27	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/crt0.c: Add _isatty_r.
+
+2009-07-06	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* libc/include/sys/features.h: Define _UNIX98_THREAD_MUTEX_ATTRIBUTES.
+
+2009-05-05	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* configure.host: Remove -DMISSING_SYSCALL_NAMES.
+
+2009-03-11	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/stdlib/assert.c: Don't build __assert_func.
+	* libc/sys/rtems/crt0.c: Add __assert_func.
+
+2009-03-09	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/machine/powerpc/times.c: Remove.
+	* libc/machine/powerpc/Makefile.am: Remove times.c.
+	* libc/machine/powerpc/Makefile.in: Regenerate.
+
+2009-02-24	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/unix/ttyname.c: Sync with newlib-cvs.
+	* configure.host: Add -DHAVE_BLKSIZE to newlib_cflags.
+
+2009-02-22	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/machine/stdint.h: Add __lm32__.
+	* libc/machine/lm32/configure.in: Set AC_CONFIG_SRC to setjmp.S.
+	* libc/machine/lm32/configure: Regenerate.
+
+2009-02-20	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/unix/Makefile.in: Regenerate.
+
+2009-02-20  Craig Howland <howland@LGSInnovations.com> on behalf of
+	Sebastian Huber <sebastian.huber@embedded-brains.de>
+
+	* libc/unix/ttyname.c:  Remove ttyname_r() (to a new file to avoid
+	coupling ttyname_r() and ttyname() due to the latter's large buffer).
+	* libc/unix/ttyname_r.c:  New file to hold ttyname_r(), previously in
+	ttyname.c.
+	* libc/unix/ttyname.h:  New file (common size definition for the 2
+	ttyname*c files that are now split).
+	* libc/unix/Makefile.am (ELIX_2_SOURCES):  Add ttyname_r.c.
+
+2009-02-16	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/sys/rtems/sys/param.h:
+	Update copyright notice from FreeBSD.
+	Remove HZ.
+	Add #include <sys/priority.h>
+	Remove priority handling (moved to sys/priority.h).
+	Remove CLBYTES (Unused, abandoned in BSD).
+
+2009-02-06	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* libc/include/sched.h:
+	Remove (collides with RTEMS's schedul.h).
+

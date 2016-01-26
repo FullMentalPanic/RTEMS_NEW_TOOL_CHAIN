@@ -1,0 +1,5 @@
+src/libposix_a-usleep.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/usleep.c \
+ ../config.h
+
+../config.h:

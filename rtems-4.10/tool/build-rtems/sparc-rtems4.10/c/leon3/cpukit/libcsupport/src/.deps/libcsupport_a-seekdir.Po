@@ -1,0 +1,5 @@
+src/libcsupport_a-seekdir.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/seekdir.c \
+ ../config.h
+
+../config.h:

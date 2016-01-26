@@ -1,0 +1,5 @@
+		Jon Beniston <jon@beniston.com>
+
+	* libgcc/config/lm32/t-elf, libgcc/config/lm32/t-uclinux,
+	libgcc/config/lm32/t-uclinux: New (lm32 port).
+	* libgcc/config.host: Add lm32* targets.

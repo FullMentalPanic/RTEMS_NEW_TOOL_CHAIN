@@ -1,0 +1,60 @@
+2011-08-29	Ralf Corsépius <ralf.corsepius@rtems.org> 
+	and Eric Norum <wenorum@lbl.gov>
+
+	Fix bootstrap breakdowns on OS X 10.7.1 (Lion):
+	* toplev.h, toplev.c: Switch-off "extern inline" if using clang.
+
+2011-02-20	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* config/rs6000/t-rtems: Remove -mcpu=601 multilib.
+	* config/rs6000/t-rtems: Remove -Dmpc8260 multilib.
+
+2010-03-15	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	Patch from Thomas Doerfler <Thomas.Doerfler@embedded-brains.de>:
+	* config/arm/rtems-elf.h, config/arm/t-rtems: Add optional support
+	for vfp FPU model
+
+2010-02-10	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* config/rtems.h: Abandon -qrtems_debug.
+
+2009-12-01	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* config/avr/avr.h (LINK_SPEC): Pass -m avrN to ld for -mmcu=avrN.
+
+2009-11-04	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* config/m32c/rtems.h, config/m68k/rtemself.h,
+	config/m68k/rtemself.h, config/sh/rtemself.h,
+	config/sparc/rtemself.h: Undef WCHAR_TYPE_SIZE, WCHAR_TYPE. 
+	(Resets WCHAR_TYPE's to defaults. Prevents broken GCC tm_files 
+	to interfere and cause wchar_t/wint_t incompatibilities).
+
+2009-10-15	Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* config/avr/t-rtems: Don't build _exit.
+
+		Jon Beniston <jon@beniston.com>
+
+	* config/lm32/arithmetic.c, config/lm32/crti.S, 
+	config/lm32/crtn.S, config/lm32/lib1funcs.S,
+	config/lm32/lm32.c, config/lm32/lm32.h,
+	config/lm32/lm32.md, config/lm32/lm32.opt,
+	config/lm32/lm32-protos.h, config/lm32/predicates.md,
+	config/lm32/rtems.h, config/lm32/sfp-machine.h,
+	config/lm32/t-fprules-softfp, config/lm32/t-lm32,
+	config/lm32/uclinux-elf.h: New (lm32 port).
+	* config.gcc: Add lm32* targets.
+	* doc/contrib.texi, doc/invoke.texi: Add lm32.
+
+		Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* config/rs6000/rtems.h: Support for custom RTEMS multilibs.
+	Support TARGET_E500.
+	* config/rs6000/t-rtems: Custom RTEMS multilibs. 
+
+		Ralf Corsépius <ralf.corsepius@rtems.org>
+
+	* config/mips/elf.h: Remove NO_IMPLICIT_EXTERN_C.
+	

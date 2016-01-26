@@ -1,0 +1,5 @@
+src/libcsupport_a-scandir.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/scandir.c \
+ ../config.h
+
+../config.h:

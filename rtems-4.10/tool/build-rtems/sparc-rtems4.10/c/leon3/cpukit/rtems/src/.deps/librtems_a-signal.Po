@@ -1,0 +1,265 @@
+src/librtems_a-signal.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/rtems/src/signal.c \
+ ../config.h ../../cpukit/../../../leon3/lib/include/rtems/system.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/status.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/status.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/asr.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/modes.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/isr.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/isr.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/modes.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/asr.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/signal.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/object.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/chain.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/address.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/address.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/bspIo.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/object.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/types.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/heap.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/heap.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/priority.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/priority.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/bitfield.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/tod.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/timestamp.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/timespec.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/time.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_default_types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/lock.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/time.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/tod.inl \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/mpci.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/mppkt.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/mppkt.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/states.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/states.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/thread.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/context.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/stack.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/stack.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/tqdata.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/threadsync.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/tqdata.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/thread.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/sysstate.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/sysstate.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/threadmp.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/threadmp.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/threadq.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/threadq.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/signalmp.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/tasks.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/eventset.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/eventset.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/attr.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/attr.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/tasks.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/taskmp.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/options.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/options.inl
+
+../config.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/system.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/cpu.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/sparc.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/status.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/status.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/asr.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/modes.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/isr.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/isr.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/modes.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/asr.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/signal.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/object.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/chain.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/address.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/address.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/bspIo.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/object.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/objectmp.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/types.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/heap.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/heap.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/priority.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/priority.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/bitfield.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/tod.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/timestamp.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/timespec.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/time.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/_default_types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/lock.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/time.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/tod.inl:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/watchdog.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/mpci.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/mppkt.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/mppkt.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/states.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/states.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/thread.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/context.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/stack.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/stack.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/tqdata.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/threadsync.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/tqdata.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/thread.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/sysstate.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/sysstate.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/threadmp.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/threadmp.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/threadq.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/threadq.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/signalmp.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/tasks.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/eventset.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/eventset.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/attr.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/attr.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/tasks.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/taskmp.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/options.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/options.inl:

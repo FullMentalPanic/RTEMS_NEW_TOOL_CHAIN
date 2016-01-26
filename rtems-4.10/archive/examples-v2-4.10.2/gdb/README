@@ -1,0 +1,9 @@
+#
+#  $Id: README,v 1.1 2009/12/14 13:07:36 joel Exp $
+#
+
+This directory contains a collection of programs designed
+to demonstrate how to use gdb in various ways.  Most of them
+contain deliberate bugs. :)
+
+--joel

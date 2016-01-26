@@ -1,0 +1,4 @@
+.;
+soft;@msoft-float
+v8;@mcpu=v8
+soft/v8;@msoft-float@mcpu=v8

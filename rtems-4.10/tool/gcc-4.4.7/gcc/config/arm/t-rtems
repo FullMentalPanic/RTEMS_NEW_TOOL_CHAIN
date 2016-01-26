@@ -1,0 +1,45 @@
+# Custom rtems multilibs
+
+MULTILIB_OPTIONS     = marm/mthumb
+MULTILIB_DIRNAMES    = arm thumb
+MULTILIB_EXCEPTIONS  = 
+MULTILIB_MATCHES     = marm=mno-thumb
+
+MULTILIB_OPTIONS    += mhard-float/mfloat-abi=softfp
+MULTILIB_DIRNAMES   += fpu softfp
+MULTILIB_EXCEPTIONS += *mthumb*/*mhard-float* *mthumb*/*mfloat-abi=softfp*
+MULTILIB_MATCHES     =
+
+MULTILIB_OPTIONS    += mfpu=vfp
+MULTILIB_DIRNAMES   += vfp
+MULTILIB_EXCEPTIONS += *mhard-float*/*mfpu=vfp* *marm*/*mfloat-abi=softfp*/*mfpu=fpa*
+MULTILIB_EXCLUSIONS += !mthumb/mfloat-abi=softfp/!mfpu=vfp
+
+# default float model is fpa, so don't create a explicit copy of it
+MULTILIB_EXCEPTIONS += *marm*/*mfpa*
+
+# permutations of the options which are useful (+) or make no sense (-),
+# defaults are in brackets:
+# + (arm/soft/fpa)
+# + (arm/soft)/vfp
+# - (arm)/softfp(/fpa)
+# + (arm)/softfp/vfp
+# + (arm)/hard-float(/fpa)
+# - (arm)/hard-float/vfp
+# + thumb/(soft/fpa)
+# + thumb/(soft/)vfp
+# - thumb/softfp/fpa
+# - thumb/softfp/vfp
+# - thumb/hard-float/fpa
+# - thumb/hard-float/vfp
+
+# subdirs to be used for multilibs and their respective options:
+#/thumb/vfp  -> thumb/soft/vfp
+#/thumb/fpa  -> thumb/soft/fpa
+#/thumb      -> thumb/soft/fpa
+#/vfp        -> arm/soft/vfp
+#/softfp/vfp -> arm/softfp/cfp
+#/fpu/fpa    -> arm/hard/fpa
+#/fpu        -> arm/hard/fpa
+#/fpa        -> arm/soft/fpa
+#.           -> arm/soft/fpa

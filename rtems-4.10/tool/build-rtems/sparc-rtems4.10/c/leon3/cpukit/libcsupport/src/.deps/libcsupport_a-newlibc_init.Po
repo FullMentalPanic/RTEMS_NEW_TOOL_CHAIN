@@ -1,0 +1,5 @@
+src/libcsupport_a-newlibc_init.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/newlibc_init.c \
+ ../config.h
+
+../config.h:

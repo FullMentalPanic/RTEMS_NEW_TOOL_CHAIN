@@ -1,0 +1,7 @@
+#
+# $Id: README,v 1.2 2009/08/06 23:42:04 joel Exp $
+#
+
+Example C++ library submitted by Ralf Corsepius <corsepiu@faw.uni-ulm.de>.
+
+The C++ is just place holders to illustrate the Makefile mechanics needed.

@@ -1,0 +1,69 @@
+@node mktemp
+@section @code{mktemp}, @code{mkstemp}, @code{mkstemps}---generate unused file name
+@findex mktemp
+@findex mkdtemp
+@findex mkstemp
+@findex mkstemps
+@findex _mktemp_r
+@findex _mkdtemp_r
+@findex _mkstemp_r
+@findex _mkstemps_r
+@strong{Synopsis}
+@example
+#include <stdlib.h>
+char *mktemp(char *@var{path});
+char *mkdtemp(char *@var{path});
+int mkstemp(char *@var{path});
+int mkstemps(char *@var{path}, int @var{suffixlen});
+
+char *_mktemp_r(struct _reent *@var{reent}, char *@var{path});
+char *_mkdtemp_r(struct _reent *@var{reent}, char *@var{path});
+int *_mkstemp_r(struct _reent *@var{reent}, char *@var{path});
+int *_mkstemps_r(struct _reent *@var{reent}, char *@var{path}, int @var{len});
+
+@end example
+@strong{Description}@*
+@code{mktemp}, @code{mkstemp}, and @code{mkstemps} attempt to generate a file name
+that is not yet in use for any existing file.  @code{mkstemp} and @code{mkstemps}
+create the file and open it for reading and writing; @code{mktemp} simply
+generates the file name (making @code{mktemp} a security risk).  @code{mkdtemp}
+attempts to create a directory instead of a file, with a permissions
+mask of 0700.
+
+You supply a simple pattern for the generated file name, as the string
+at @var{path}.  The pattern should be a valid filename (including path
+information if you wish) ending with at least six `@code{X}'
+characters.  The generated filename will match the leading part of the
+name you supply, with the trailing `@code{X}' characters replaced by some
+combination of digits and letters.  With @code{mkstemps}, the `@code{X}'
+characters end @var{suffixlen} bytes before the end of the string.
+
+The alternate functions @code{_mktemp_r}, @code{_mkdtemp_r}, @code{_mkstemp_r},
+and @code{_mkstemps_r} are reentrant versions.  The extra argument @var{reent}
+is a pointer to a reentrancy structure.
+
+@*
+@strong{Returns}@*
+@code{mktemp} returns the pointer @var{path} to the modified string
+representing an unused filename, unless it could not generate one, or
+the pattern you provided is not suitable for a filename; in that case,
+it returns @code{NULL}.
+
+@code{mkdtemp} returns the pointer @var{path} to the modified string if the
+directory was created, otherwise it returns @code{NULL}.
+
+@code{mkstemp} and @code{mkstemps} return a file descriptor to the newly created
+file, unless it could not generate an unused filename, or the pattern you
+provided is not suitable for a filename; in that case, it returns
+@code{-1}.
+
+@*
+@strong{Portability}@*
+ANSI C does not require either @code{mktemp} or @code{mkstemp}; the System
+V Interface Definition requires @code{mktemp} as of Issue 2.  POSIX 2001
+requires @code{mkstemp}, and POSIX 2008 requires @code{mkdtemp}, but
+@code{mkstemps} is not standardized.
+
+Supporting OS subroutines required: @code{getpid}, @code{mkdir}, @code{open}, @code{stat}.
+
+@*

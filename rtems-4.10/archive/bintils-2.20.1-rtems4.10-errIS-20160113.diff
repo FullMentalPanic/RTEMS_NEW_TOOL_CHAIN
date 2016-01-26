@@ -1,0 +1,553 @@
+Only in ../tool/binutils-2.20.1/bfd: ChangeLog.rtems
+diff -rc binutils-2.20.1/bfd/doc/bfd.texinfo ../tool/binutils-2.20.1/bfd/doc/bfd.texinfo
+*** binutils-2.20.1/bfd/doc/bfd.texinfo	2009-09-02 00:18:38.000000000 -0700
+--- ../tool/binutils-2.20.1/bfd/doc/bfd.texinfo	2016-01-10 22:42:22.020698607 -0800
+***************
+*** 1,7 ****
+  \input texinfo.tex
+  @setfilename bfd.info
+  @c Copyright 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1997, 2000,
+! @c 2001, 2002, 2003, 2006, 2007, 2008, 2009
+  @c Free Software Foundation, Inc.
+  @c 
+  @synindex fn cp
+--- 1,7 ----
+  \input texinfo.tex
+  @setfilename bfd.info
+  @c Copyright 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1997, 2000,
+! @c 2001, 2002, 2003, 2006, 2007, 2008, 2009, 2013
+  @c Free Software Foundation, Inc.
+  @c 
+  @synindex fn cp
+***************
+*** 17,23 ****
+  @copying
+  This file documents the BFD library.
+  
+! Copyright @copyright{} 1991, 2000, 2001, 2003, 2006, 2007, 2008 Free Software Foundation, Inc.
+  
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3 or
+--- 17,24 ----
+  @copying
+  This file documents the BFD library.
+  
+! Copyright @copyright{} 1991, 2000, 2001, 2003, 2006, 2007, 2008, 2013
+! Free Software Foundation, Inc.
+  
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3 or
+***************
+*** 65,71 ****
+  @end tex
+  
+  @vskip 0pt plus 1filll
+! Copyright @copyright{} 1991, 2001, 2003, 2006, 2008 Free Software Foundation, Inc.
+  
+        Permission is granted to copy, distribute and/or modify this document
+        under the terms of the GNU Free Documentation License, Version 1.3
+--- 66,73 ----
+  @end tex
+  
+  @vskip 0pt plus 1filll
+! Copyright @copyright{} 1991, 2001, 2003, 2006, 2008, 2013
+! Free Software Foundation, Inc.
+  
+        Permission is granted to copy, distribute and/or modify this document
+        under the terms of the GNU Free Documentation License, Version 1.3
+***************
+*** 323,329 ****
+  @printindex cp
+  
+  @tex
+! % I think something like @colophon should be in texinfo.  In the
+  % meantime:
+  \long\def\colophon{\hbox to0pt{}\vfill
+  \centerline{The body of this manual is set in}
+--- 325,331 ----
+  @printindex cp
+  
+  @tex
+! % I think something like @@colophon should be in texinfo.  In the
+  % meantime:
+  \long\def\colophon{\hbox to0pt{}\vfill
+  \centerline{The body of this manual is set in}
+***************
+*** 334,340 ****
+  \centerline{{\sl\fontname\tensl\/}}
+  \centerline{are used for emphasis.}\vfill}
+  \page\colophon
+! % Blame: doc@cygnus.com, 28mar91.
+  @end tex
+  
+  @bye
+--- 336,342 ----
+  \centerline{{\sl\fontname\tensl\/}}
+  \centerline{are used for emphasis.}\vfill}
+  \page\colophon
+! % Blame: doc@@cygnus.com, 28mar91.
+  @end tex
+  
+  @bye
+diff -rc binutils-2.20.1/bfd/doc/ChangeLog ../tool/binutils-2.20.1/bfd/doc/ChangeLog
+*** binutils-2.20.1/bfd/doc/ChangeLog	2009-08-29 15:10:58.000000000 -0700
+--- ../tool/binutils-2.20.1/bfd/doc/ChangeLog	2016-01-10 22:42:22.020698607 -0800
+***************
+*** 1,3 ****
+--- 1,7 ----
++ 2013-01-07  Patrice Dumas  <pertusus@free.fr>
++ 
++ 	* bfd.texinfo: Replace @ with @@ when it is part of the text.
++ 
+  2009-08-29  Martin Thuresson  <martin@mtme.org>
+  
+  	* chew.c (newentry, add_intrinsic): Rename variable new to
+diff -rc binutils-2.20.1/bfd/elflink.c ../tool/binutils-2.20.1/bfd/elflink.c
+*** binutils-2.20.1/bfd/elflink.c	2009-09-10 04:47:12.000000000 -0700
+--- ../tool/binutils-2.20.1/bfd/elflink.c	2016-01-10 22:42:22.036698607 -0800
+***************
+*** 4154,4160 ****
+  	h = (struct elf_link_hash_entry *) h->root.u.i.link;
+  
+        *sym_hash = h;
+!       h->unique_global = (flags & BSF_GNU_UNIQUE) != 0;
+  
+        new_weakdef = FALSE;
+        if (dynamic
+--- 4154,4161 ----
+  	h = (struct elf_link_hash_entry *) h->root.u.i.link;
+  
+        *sym_hash = h;
+!       if (is_elf_hash_table (htab))
+! 	h->unique_global = (flags & BSF_GNU_UNIQUE) != 0;
+  
+        new_weakdef = FALSE;
+        if (dynamic
+diff -rc binutils-2.20.1/bfd/Makefile.am ../tool/binutils-2.20.1/bfd/Makefile.am
+*** binutils-2.20.1/bfd/Makefile.am	2010-03-03 05:31:55.000000000 -0800
+--- ../tool/binutils-2.20.1/bfd/Makefile.am	2016-01-10 22:42:22.036698607 -0800
+***************
+*** 4,10 ****
+  ACLOCAL_AMFLAGS = -I . -I .. -I ../config
+  
+  # Uncomment the following line when doing a release.
+! # RELEASE=y
+  
+  INCDIR = $(srcdir)/../include
+  CSEARCH = -I. -I$(srcdir) -I$(INCDIR)
+--- 4,10 ----
+  ACLOCAL_AMFLAGS = -I . -I .. -I ../config
+  
+  # Uncomment the following line when doing a release.
+! RELEASE=y
+  
+  INCDIR = $(srcdir)/../include
+  CSEARCH = -I. -I$(srcdir) -I$(INCDIR)
+diff -rc binutils-2.20.1/bfd/Makefile.in ../tool/binutils-2.20.1/bfd/Makefile.in
+*** binutils-2.20.1/bfd/Makefile.in	2010-03-03 05:59:15.000000000 -0800
+--- ../tool/binutils-2.20.1/bfd/Makefile.in	2016-01-10 22:42:22.040698607 -0800
+***************
+*** 317,323 ****
+  ACLOCAL_AMFLAGS = -I . -I .. -I ../config
+  
+  # Uncomment the following line when doing a release.
+! # RELEASE=y
+  INCDIR = $(srcdir)/../include
+  CSEARCH = -I. -I$(srcdir) -I$(INCDIR)
+  SUBDIRS = doc po
+--- 317,323 ----
+  ACLOCAL_AMFLAGS = -I . -I .. -I ../config
+  
+  # Uncomment the following line when doing a release.
+! RELEASE = y
+  INCDIR = $(srcdir)/../include
+  CSEARCH = -I. -I$(srcdir) -I$(INCDIR)
+  SUBDIRS = doc po
+diff -rc binutils-2.20.1/binutils/ar.c ../tool/binutils-2.20.1/binutils/ar.c
+*** binutils-2.20.1/binutils/ar.c	2009-09-14 04:43:25.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/ar.c	2016-01-10 22:42:22.040698607 -0800
+***************
+*** 38,44 ****
+  #include "filenames.h"
+  #include "binemul.h"
+  #include "plugin.h"
+- #include <sys/stat.h>
+  
+  #ifdef __GO32___
+  #define EXT_NAME_LEN 3		/* Bufflen of addition to name if it's MS-DOS.  */
+--- 38,43 ----
+diff -rc binutils-2.20.1/binutils/bucomm.c ../tool/binutils-2.20.1/binutils/bucomm.c
+*** binutils-2.20.1/binutils/bucomm.c	2009-09-14 04:43:26.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/bucomm.c	2016-01-10 22:42:22.040698607 -0800
+***************
+*** 29,35 ****
+  #include "filenames.h"
+  #include "libbfd.h"
+  
+- #include <sys/stat.h>
+  #include <time.h>		/* ctime, maybe time_t */
+  #include <assert.h>
+  #include "bucomm.h"
+--- 29,34 ----
+diff -rc binutils-2.20.1/binutils/budbg.h ../tool/binutils-2.20.1/binutils/budbg.h
+*** binutils-2.20.1/binutils/budbg.h	2009-09-02 00:22:31.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/budbg.h	2016-01-10 22:42:22.040698607 -0800
+***************
+*** 1,5 ****
+  /* budbg.c -- Interfaces to the generic debugging information routines.
+!    Copyright 1995, 1996, 2002, 2003, 2005, 2007, 2008
+     Free Software Foundation, Inc.
+     Written by Ian Lance Taylor <ian@cygnus.com>.
+  
+--- 1,5 ----
+  /* budbg.c -- Interfaces to the generic debugging information routines.
+!    Copyright 1995, 1996, 2002, 2003, 2005, 2007, 2008, 2012
+     Free Software Foundation, Inc.
+     Written by Ian Lance Taylor <ian@cygnus.com>.
+  
+***************
+*** 23,30 ****
+  #ifndef BUDBG_H
+  #define BUDBG_H
+  
+- #include <stdio.h>
+- 
+  /* Routine used to read generic debugging information.  */
+  
+  extern void *read_debugging_info (bfd *, asymbol **, long, bfd_boolean);
+--- 23,28 ----
+diff -rc binutils-2.20.1/binutils/ChangeLog ../tool/binutils-2.20.1/binutils/ChangeLog
+*** binutils-2.20.1/binutils/ChangeLog	2010-02-22 00:06:49.000000000 -0800
+--- ../tool/binutils-2.20.1/binutils/ChangeLog	2016-01-10 22:42:22.040698607 -0800
+***************
+*** 1,3 ****
+--- 1,24 ----
++ 2014-02-14  Ralf Corsépius  <ralf.corsepius@rtems.org>
++ 
++ 	Backport from master:
++ 	2012-02-09  Alan Modra  <amodra@gmail.com>
++ 
++ 	* sysdep.h: Include sys/stat.h here.
++ 	* ar.c: Don't include headers already included by sysdep.h.
++ 	* bucomm.c: Likewise.
++ 	* budbg.h: Likewise.
++ 	* dlltool.h: Likewise.
++ 	* nlmconv.c: Likewise.
++ 	* objcopy.c: Likewise.
++ 	* objdump.c: Likewise.
++ 	* readelf.c: Likewise.
++ 	* rename.c: Likewise.
++ 	* resrc.c: Likewise.
++ 	* strings.c: Likewise.
++ 	* dllwrap.c: Remove alloca pragma handled by sysdep.h, and
++ 	remove duplicate headers.
++ 	* dlltool.c: Likewise and ensure #include sysdep.h is first.
++ 
+  2010-02-05  Christophe Lyon  <christophe.lyon@st.com>
+  
+  	* objdump.c (disassemble_bytes): Clear aux->reloc before printing
+diff -rc binutils-2.20.1/binutils/dlltool.c ../tool/binutils-2.20.1/binutils/dlltool.c
+*** binutils-2.20.1/binutils/dlltool.c	2009-10-20 01:38:12.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/dlltool.c	2016-01-10 22:42:22.040698607 -0800
+***************
+*** 254,261 ****
+  #include "safe-ctype.h"
+  
+  #include <time.h>
+- #include <sys/stat.h>
+- #include <stdarg.h>
+  #include <assert.h>
+  
+  #ifdef DLLTOOL_ARM
+--- 254,259 ----
+***************
+*** 307,312 ****
+--- 305,312 ----
+  #endif /* defined (_WIN32) && ! defined (__CYGWIN32__) */
+  #endif /* ! HAVE_SYS_WAIT_H */
+  
++ #define show_allnames 0
++ 
+  /* ifunc and ihead data structures: ttk@cygnus.com 1997
+  
+     When IMPORT declarations are encountered in a .def file the
+diff -rc binutils-2.20.1/binutils/dlltool.h ../tool/binutils-2.20.1/binutils/dlltool.h
+*** binutils-2.20.1/binutils/dlltool.h	2009-09-02 00:22:32.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/dlltool.h	2016-01-10 22:42:22.040698607 -0800
+***************
+*** 1,5 ****
+  /* dlltool.h -- header file for dlltool
+!    Copyright 1997, 1998, 2003, 2004, 2005, 2007 Free Software Foundation, Inc.
+  
+     This file is part of GNU Binutils.
+  
+--- 1,6 ----
+  /* dlltool.h -- header file for dlltool
+!    Copyright 1997, 1998, 2003, 2004, 2005, 2007, 2009, 2012
+!    Free Software Foundation, Inc.
+  
+     This file is part of GNU Binutils.
+  
+***************
+*** 18,26 ****
+     Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
+     02110-1301, USA.  */
+  
+- #include "ansidecl.h"
+- #include <stdio.h>
+- 
+  extern void def_code (int);
+  extern void def_data (int);
+  extern void def_description (const char *);
+--- 19,24 ----
+diff -rc binutils-2.20.1/binutils/dllwrap.c ../tool/binutils-2.20.1/binutils/dllwrap.c
+*** binutils-2.20.1/binutils/dllwrap.c	2007-07-05 09:54:45.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/dllwrap.c	2016-01-10 22:42:22.048698608 -0800
+***************
+*** 20,32 ****
+     Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
+     02110-1301, USA.  */
+  
+- /* AIX requires this to be the first thing in the file.  */
+- #ifndef __GNUC__
+- # ifdef _AIX
+-  #pragma alloca
+- #endif
+- #endif
+- 
+  #include "sysdep.h"
+  #include "bfd.h"
+  #include "libiberty.h"
+--- 20,25 ----
+***************
+*** 35,41 ****
+  #include "bucomm.h"
+  
+  #include <time.h>
+- #include <sys/stat.h>
+  
+  #ifdef HAVE_SYS_WAIT_H
+  #include <sys/wait.h>
+--- 28,33 ----
+diff -rc binutils-2.20.1/binutils/nlmconv.c ../tool/binutils-2.20.1/binutils/nlmconv.c
+*** binutils-2.20.1/binutils/nlmconv.c	2009-09-02 00:22:32.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/nlmconv.c	2016-01-10 22:42:22.048698608 -0800
+***************
+*** 1,6 ****
+  /* nlmconv.c -- NLM conversion program
+     Copyright 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
+!    2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+  
+     This file is part of GNU Binutils.
+  
+--- 1,7 ----
+  /* nlmconv.c -- NLM conversion program
+     Copyright 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
+!    2003, 2004, 2005, 2006, 2007, 2008, 2009, 2011, 2012
+!    Free Software Foundation, Inc.
+  
+     This file is part of GNU Binutils.
+  
+***************
+*** 41,48 ****
+  
+  #include "ansidecl.h"
+  #include <time.h>
+- #include <sys/stat.h>
+- #include <sys/file.h>
+  #include <assert.h>
+  #include "getopt.h"
+  
+--- 42,47 ----
+diff -rc binutils-2.20.1/binutils/objcopy.c ../tool/binutils-2.20.1/binutils/objcopy.c
+*** binutils-2.20.1/binutils/objcopy.c	2010-01-14 02:48:23.000000000 -0800
+--- ../tool/binutils-2.20.1/binutils/objcopy.c	2016-01-10 22:42:22.048698608 -0800
+***************
+*** 30,36 ****
+  #include "filenames.h"
+  #include "fnmatch.h"
+  #include "elf-bfd.h"
+- #include <sys/stat.h>
+  #include "libbfd.h"
+  #include "coff/internal.h"
+  #include "libcoff.h"
+--- 30,35 ----
+diff -rc binutils-2.20.1/binutils/objdump.c ../tool/binutils-2.20.1/binutils/objdump.c
+*** binutils-2.20.1/binutils/objdump.c	2010-02-22 00:06:49.000000000 -0800
+--- ../tool/binutils-2.20.1/binutils/objdump.c	2016-01-10 22:42:22.048698608 -0800
+***************
+*** 69,76 ****
+  #include <sys/mman.h>
+  #endif
+  
+- #include <sys/stat.h>
+- 
+  /* Internal headers for the ELF .stab-dump code - sorry.  */
+  #define	BYTES_IN_WORD	32
+  #include "aout/aout64.h"
+--- 69,74 ----
+diff -rc binutils-2.20.1/binutils/readelf.c ../tool/binutils-2.20.1/binutils/readelf.c
+*** binutils-2.20.1/binutils/readelf.c	2010-01-14 02:48:23.000000000 -0800
+--- ../tool/binutils-2.20.1/binutils/readelf.c	2016-01-10 22:42:22.048698608 -0800
+***************
+*** 41,50 ****
+    ELF file than is provided by objdump.  In particular it can display DWARF
+    debugging information which (at the moment) objdump cannot.  */
+  
+- #include "config.h"
+  #include "sysdep.h"
+  #include <assert.h>
+- #include <sys/stat.h>
+  #include <time.h>
+  #ifdef HAVE_ZLIB_H
+  #include <zlib.h>
+--- 41,48 ----
+diff -rc binutils-2.20.1/binutils/rename.c ../tool/binutils-2.20.1/binutils/rename.c
+*** binutils-2.20.1/binutils/rename.c	2009-09-02 00:22:32.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/rename.c	2016-01-10 22:42:22.052698608 -0800
+***************
+*** 22,29 ****
+  #include "bfd.h"
+  #include "bucomm.h"
+  
+- #include <sys/stat.h>
+- 
+  #ifdef HAVE_GOOD_UTIME_H
+  #include <utime.h>
+  #else /* ! HAVE_GOOD_UTIME_H */
+--- 22,27 ----
+diff -rc binutils-2.20.1/binutils/resrc.c ../tool/binutils-2.20.1/binutils/resrc.c
+*** binutils-2.20.1/binutils/resrc.c	2008-07-29 21:34:56.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/resrc.c	2016-01-10 22:42:22.052698608 -0800
+***************
+*** 32,42 ****
+  #include "windres.h"
+  
+  #include <assert.h>
+- #include <errno.h>
+- #include <sys/stat.h>
+- #ifdef HAVE_UNISTD_H
+- #include <unistd.h>
+- #endif
+  
+  #ifdef HAVE_SYS_WAIT_H
+  #include <sys/wait.h>
+--- 32,37 ----
+diff -rc binutils-2.20.1/binutils/strings.c ../tool/binutils-2.20.1/binutils/strings.c
+*** binutils-2.20.1/binutils/strings.c	2009-09-14 04:43:26.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/strings.c	2016-01-10 22:42:22.052698608 -0800
+***************
+*** 65,71 ****
+  #include "getopt.h"
+  #include "libiberty.h"
+  #include "safe-ctype.h"
+- #include <sys/stat.h>
+  #include "bucomm.h"
+  
+  #define STRING_ISGRAPHIC(c) \
+--- 65,70 ----
+diff -rc binutils-2.20.1/binutils/sysdep.h ../tool/binutils-2.20.1/binutils/sysdep.h
+*** binutils-2.20.1/binutils/sysdep.h	2009-03-18 04:27:17.000000000 -0700
+--- ../tool/binutils-2.20.1/binutils/sysdep.h	2016-01-10 22:42:22.052698608 -0800
+***************
+*** 1,6 ****
+  /* sysdep.h -- handle host dependencies for binutils
+     Copyright 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
+!    2001, 2002, 2003, 2005, 2006, 2007, 2008, 2009
+     Free Software Foundation, Inc.
+  
+     This file is part of GNU Binutils.
+--- 1,6 ----
+  /* sysdep.h -- handle host dependencies for binutils
+     Copyright 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
+!    2001, 2002, 2003, 2005, 2006, 2007, 2008, 2009, 2012
+     Free Software Foundation, Inc.
+  
+     This file is part of GNU Binutils.
+***************
+*** 69,74 ****
+--- 69,78 ----
+  #endif
+  #endif
+  
++ #ifdef HAVE_SYS_STAT_H
++ #include <sys/stat.h>
++ #endif
++ 
+  #include "binary-io.h"
+  
+  #if !HAVE_DECL_STPCPY
+diff -rc binutils-2.20.1/gas/config/tc-sparc.c ../tool/binutils-2.20.1/gas/config/tc-sparc.c
+*** binutils-2.20.1/gas/config/tc-sparc.c	2009-09-02 00:24:20.000000000 -0700
+--- ../tool/binutils-2.20.1/gas/config/tc-sparc.c	2016-01-10 23:15:27.592761305 -0800
+***************
+*** 2651,2656 ****
+--- 2651,2662 ----
+  	      s += 4;
+  	      continue;
+  
++ 	    case '@':
++ 	      if (strncmp (s, "%err", 4) != 0)
++ 		break;
++ 	      s += 4;
++ 	      continue;
++ 
+  	    case 'x':
+  	      {
+  		char *push = input_line_pointer;
+diff -rc binutils-2.20.1/opcodes/sparc-dis.c ../tool/binutils-2.20.1/opcodes/sparc-dis.c
+*** binutils-2.20.1/opcodes/sparc-dis.c	2009-09-02 00:20:30.000000000 -0700
+--- ../tool/binutils-2.20.1/opcodes/sparc-dis.c	2016-01-10 22:52:42.564718202 -0800
+***************
+*** 77,83 ****
+    "f48", "f49", "f50", "f51", "f52", "f53", "f54", "f55",
+    "f56", "f57", "f58", "f59", "f60", "f61", "f62", "f63",
+  /* psr, wim, tbr, fpsr, cpsr are v8 only.  */
+!   "y", "psr", "wim", "tbr", "pc", "npc", "fpsr", "cpsr"
+  };
+  
+  #define	freg_names	(&reg_names[4 * 8])
+--- 77,83 ----
+    "f48", "f49", "f50", "f51", "f52", "f53", "f54", "f55",
+    "f56", "f57", "f58", "f59", "f60", "f61", "f62", "f63",
+  /* psr, wim, tbr, fpsr, cpsr are v8 only.  */
+!   "y", "psr", "wim", "tbr", "pc", "npc", "fpsr", "cpsr","err"
+  };
+  
+  #define	freg_names	(&reg_names[4 * 8])
+***************
+*** 902,907 ****
+--- 902,911 ----
+  		    (*info->fprintf_func) (stream, "%%wim");
+  		    break;
+  
++ 		  case '@'://add new err reg
++ 		    (*info->fprintf_func) (stream, "%%err");
++ 		    break;
++ 
+  		  case 'x':
+  		    (*info->fprintf_func) (stream, "%ld",
+  					   ((X_LDST_I (insn) << 8)
+diff -rc binutils-2.20.1/opcodes/sparc-opc.c ../tool/binutils-2.20.1/opcodes/sparc-opc.c
+*** binutils-2.20.1/opcodes/sparc-opc.c	2009-09-02 00:20:30.000000000 -0700
+--- ../tool/binutils-2.20.1/opcodes/sparc-opc.c	2016-01-10 23:44:45.072816801 -0800
+***************
+*** 860,865 ****
+--- 860,866 ----
+  { "rd",	F3(2, 0x29, 0),			F3(~2, ~0x29, ~0)|RS1_G0|SIMM13(~0),	"p,d", 0, v6notv9 }, /* rd %psr,r */
+  { "rd",	F3(2, 0x2a, 0),			F3(~2, ~0x2a, ~0)|RS1_G0|SIMM13(~0),	"w,d", 0, v6notv9 }, /* rd %wim,r */
+  { "rd",	F3(2, 0x2b, 0),			F3(~2, ~0x2b, ~0)|RS1_G0|SIMM13(~0),	"t,d", 0, v6notv9 }, /* rd %tbr,r */
++ { "rd", F3(2, 0x2c, 0),			F3(~2, ~0x2c, ~0)|RS1_G0|SIMM13(~0),	"@,d", 0, v6notv9 },
+  
+  { "rd",	F3(2, 0x28, 0)|RS1(2),		F3(~2, ~0x28, ~0)|RS1(~2)|SIMM13(~0),	"E,d", 0, v9 }, /* rd %ccr,r */
+  { "rd",	F3(2, 0x28, 0)|RS1(3),		F3(~2, ~0x28, ~0)|RS1(~3)|SIMM13(~0),	"o,d", 0, v9 }, /* rd %asi,r */
+***************
+*** 907,912 ****
+--- 908,914 ----
+  { "mov",	F3(2, 0x29, 0), F3(~2, ~0x29, ~0)|RS1_G0|SIMM13(~0),	"p,d", F_ALIAS, v6notv9 }, /* rd %psr,r */
+  { "mov",	F3(2, 0x2a, 0), F3(~2, ~0x2a, ~0)|RS1_G0|SIMM13(~0),	"w,d", F_ALIAS, v6notv9 }, /* rd %wim,r */
+  { "mov",	F3(2, 0x2b, 0), F3(~2, ~0x2b, ~0)|RS1_G0|SIMM13(~0),	"t,d", F_ALIAS, v6notv9 }, /* rd %tbr,r */
++ { "mov",	F3(2, 0x2c, 0), F3(~2, ~0x2c, ~0)|RS1_G0|SIMM13(~0),	"@,d", F_ALIAS, v6notv9 },
+  
+  { "mov",	F3(2, 0x30, 0), F3(~2, ~0x30, ~0)|ASI_RS2(~0),		"1,m", F_ALIAS, v8 }, /* wr rs1,%g0,%asrX */
+  { "mov",	F3(2, 0x30, 1), F3(~2, ~0x30, ~1),			"i,m", F_ALIAS, v8 }, /* wr %g0,i,%asrX */

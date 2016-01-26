@@ -1,0 +1,18 @@
+#
+# pkg-config support file for RTEMS BSP leon3
+#
+# Warning: This stuff is experimental and may be changed at any time.
+#
+prefix=/opt/rtems-4.10
+exec_prefix=/opt/rtems-4.10/sparc-rtems4.10
+libdir=${exec_prefix}/leon3/lib
+includedir=${exec_prefix}/leon3/lib/include
+
+CFLAGS=-mcpu=cypress -msoft-float -O2 -g -Wall -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs
+RTEMS_BSP=leon3
+
+Name: sparc-rtems4.10-leon3
+Version: 4.10.2
+Description: RTEMS BSP leon3
+Libs:
+Cflags: -qrtems -B${exec_prefix}/lib/ -B${libdir}/ --specs bsp_specs ${CFLAGS}

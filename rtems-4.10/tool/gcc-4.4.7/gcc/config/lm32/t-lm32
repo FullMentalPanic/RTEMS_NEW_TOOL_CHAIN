@@ -1,0 +1,19 @@
+LIB1ASMSRC = lm32/lib1funcs.S
+LIB1ASMFUNCS = _ashlsi3 _ashrsi3 _lshrsi3
+
+LM32_LIB1CSRC = $(srcdir)/config/lm32/arithmetic.c
+LIB2FUNCS_EXTRA = _mulsi3.c \
+                  _udivmodsi4.c _divsi3.c _modsi3.c _udivsi3.c _umodsi3.c 
+# Size optimised versions: _ashlsi3.c _ashrsi3.c _lshrsi3.c 
+	          	          
+# The fixed-point arithmetic code is in one file
+# similar to libgcc2.c (or the old libgcc1.c).  We need to
+# "split it up" with one file per define.
+$(LIB2FUNCS_EXTRA): $(LM32_LIB1CSRC)
+	name=`echo $@ | sed -e 's,.*/,,' | sed -e 's,.c$$,,'`; \
+	echo "#define L$$name" > tmp-$@ \
+	&& echo '#include "$<"' >> tmp-$@ \
+	&& mv -f tmp-$@ $@
+
+MULTILIB_OPTIONS = mmultiply-enabled mbarrel-shift-enabled 
+# Don't bother building multilib with mdivide-enabled, not much of a gain

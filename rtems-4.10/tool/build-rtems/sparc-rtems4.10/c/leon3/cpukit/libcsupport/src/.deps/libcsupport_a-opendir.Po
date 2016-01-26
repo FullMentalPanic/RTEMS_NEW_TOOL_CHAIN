@@ -1,0 +1,5 @@
+src/libcsupport_a-opendir.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/opendir.c \
+ ../config.h
+
+../config.h:

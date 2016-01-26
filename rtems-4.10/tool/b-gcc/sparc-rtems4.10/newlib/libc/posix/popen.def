@@ -1,0 +1,46 @@
+@node popen
+@section @code{popen}, @code{pclose}---tie a stream to a command string
+@findex popen
+@findex pclose
+@strong{Synopsis}
+@example
+#include <stdio.h>
+FILE *popen(const char *@var{s}, const char *@var{mode});
+
+int pclose(FILE *@var{f});
+
+@end example
+@strong{Description}@*
+Use @code{popen} to create a stream to a child process executing a
+command string @code{*@var{s}} as processed by @code{/bin/sh} on your system.
+The argument @var{mode} must start with either `@code{r}', where the stream
+reads from the child's @code{stdout}, or `@code{w}', where the stream writes
+to the child's @code{stdin}.  As an extension, @var{mode} may also contain
+`@code{e}' to set the close-on-exec bit of the parent's file descriptor.
+The stream created by @code{popen} must be closed by @code{pclose} to avoid
+resource leaks.
+
+Streams created by prior calls to @code{popen} are not visible in
+subsequent @code{popen} children, regardless of the close-on-exec bit.
+
+Use ``@code{system(NULL)}'' to test whether your system has @code{/bin/sh}
+available.
+
+@*
+@strong{Returns}@*
+@code{popen} returns a file stream opened with the specified @var{mode},
+or @code{NULL} if a child process could not be created.  @code{pclose}
+returns -1 if the stream was not created by @code{popen} or if the
+application used @code{wait} or similar to steal the status; otherwise
+it returns the exit status of the child which can be interpreted
+in the same manner as a status obtained by @code{waitpid}.
+
+@*
+@strong{Portability}@*
+POSIX.2 requires @code{popen} and @code{pclose}, but only specifies a mode
+of just @code{r} or @code{w}.  Where @code{sh} is found is left unspecified.
+
+Supporting OS subroutines required: @code{_exit}, @code{_execve}, @code{_fork_r},
+@code{_wait_r}, @code{pipe}, @code{fcntl}, @code{sbrk}.
+
+@*

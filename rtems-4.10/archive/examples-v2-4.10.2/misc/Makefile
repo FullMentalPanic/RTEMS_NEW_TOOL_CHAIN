@@ -1,0 +1,14 @@
+#
+#  $Id: Makefile,v 1.5 2010/04/08 16:38:29 joel Exp $
+#
+
+include $(RTEMS_MAKEFILE_PATH)/Makefile.inc
+include $(RTEMS_CUSTOM)
+include $(RTEMS_ROOT)/make/directory.cfg
+
+SUBDIRS=minimum bspcmdline extract_example
+
+# If the POSIX API isn't enabled, we can't build these
+ifeq ($(RTEMS_HAS_POSIX_API),yes)
+# SUBDIRS += adamain
+endif

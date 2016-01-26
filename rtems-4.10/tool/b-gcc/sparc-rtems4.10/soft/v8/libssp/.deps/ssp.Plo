@@ -1,0 +1,90 @@
+ssp.lo: ../../../../../gcc-4.4.7/libssp/ssp.c config.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/alloca.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h \
+ /opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/soft/v8/newlib/targ-include/newlib.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/config.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/ieeefp.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/reent.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/_types.h \
+ /opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/soft/v8/newlib/targ-include/machine/_types.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/_default_types.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/lock.h \
+ /opt/rtems-4.10/tool/b-gcc/./gcc/include/stddef.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/string.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/string.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/unistd.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/unistd.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/types.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/types.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/features.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/sched.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/fcntl.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/fcntl.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/_default_fcntl.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/stat.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/time.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/time.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/signal.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/signal.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/paths.h
+
+config.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/alloca.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h:
+
+/opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/soft/v8/newlib/targ-include/newlib.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/config.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/ieeefp.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/reent.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/_types.h:
+
+/opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/soft/v8/newlib/targ-include/machine/_types.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/_default_types.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/lock.h:
+
+/opt/rtems-4.10/tool/b-gcc/./gcc/include/stddef.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/string.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/string.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/unistd.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/unistd.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/types.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/types.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/features.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/sched.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/fcntl.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/fcntl.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/_default_fcntl.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/stat.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/time.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/time.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/signal.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/signal.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/paths.h:

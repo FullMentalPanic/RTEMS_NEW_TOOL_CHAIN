@@ -1,0 +1,17 @@
+bspidle.o: \
+ ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/startup/bspidle.S \
+ ../../../../../.././leon3/lib/include/rtems/asm.h \
+ ../../../../../.././leon3/lib/include/rtems/score/cpuopts.h \
+ ../../../../../.././leon3/lib/include/rtems/score/cpu.h \
+ ../../../../../.././leon3/lib/include/rtems/score/sparc.h \
+ ../../../../../.././leon3/lib/include/rtems/concat.h
+
+../../../../../.././leon3/lib/include/rtems/asm.h:
+
+../../../../../.././leon3/lib/include/rtems/score/cpuopts.h:
+
+../../../../../.././leon3/lib/include/rtems/score/cpu.h:
+
+../../../../../.././leon3/lib/include/rtems/score/sparc.h:
+
+../../../../../.././leon3/lib/include/rtems/concat.h:

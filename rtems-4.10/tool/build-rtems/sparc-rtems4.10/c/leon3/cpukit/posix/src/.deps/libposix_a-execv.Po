@@ -1,0 +1,5 @@
+src/libposix_a-execv.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/execv.c \
+ ../config.h
+
+../config.h:

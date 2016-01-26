@@ -1,0 +1,20 @@
+syscall/syscall_rel-syscall.o: \
+ ../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc/syscall/syscall.S \
+ ../../../../.././leon3/lib/include/rtems/asm.h \
+ ../../../../.././leon3/lib/include/rtems/score/cpuopts.h \
+ ../../../../.././leon3/lib/include/rtems/score/cpu.h \
+ ../../../../.././leon3/lib/include/rtems/score/sparc.h \
+ ../../../../.././leon3/lib/include/rtems/concat.h \
+ ../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc/syscall/syscall.h
+
+../../../../.././leon3/lib/include/rtems/asm.h:
+
+../../../../.././leon3/lib/include/rtems/score/cpuopts.h:
+
+../../../../.././leon3/lib/include/rtems/score/cpu.h:
+
+../../../../.././leon3/lib/include/rtems/score/sparc.h:
+
+../../../../.././leon3/lib/include/rtems/concat.h:
+
+../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc/syscall/syscall.h:

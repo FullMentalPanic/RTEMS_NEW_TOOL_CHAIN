@@ -1,0 +1,5 @@
+src/libcsupport_a-telldir.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/telldir.c \
+ ../config.h
+
+../config.h:

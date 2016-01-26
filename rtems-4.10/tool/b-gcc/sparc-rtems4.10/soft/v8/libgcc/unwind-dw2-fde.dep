@@ -1,0 +1,80 @@
+unwind-dw2-fde.o: ../../../../../gcc-4.4.7/libgcc/../gcc/unwind-dw2-fde.c \
+ ../../../.././gcc/tconfig.h ../../../.././gcc/auto-host.h \
+ ../../../../../gcc-4.4.7/libgcc/../include/ansidecl.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/tsystem.h \
+ /opt/rtems-4.10/tool/b-gcc/./gcc/include/stddef.h \
+ /opt/rtems-4.10/tool/b-gcc/./gcc/include/float.h \
+ ../../../../../gcc-4.4.7/libgcc/../include/filenames.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/coretypes.h \
+ ../../../.././gcc/tm.h ../../../.././gcc/options.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sparc.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/vxworks-dummy.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/dbxelf.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/elfos.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/svr4.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sysv4.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sp-elf.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/rtemself.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/config/rtems.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/defaults.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/dwarf2.h \
+ /opt/rtems-4.10/tool/b-gcc/./gcc/include/unwind.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/unwind-pe.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/unwind-dw2-fde.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/gthr.h \
+ ../../../.././gcc/gthr-default.h \
+ ../../../../../gcc-4.4.7/libgcc/../gcc/gthr-rtems.h
+
+../../../.././gcc/tconfig.h:
+
+../../../.././gcc/auto-host.h:
+
+../../../../../gcc-4.4.7/libgcc/../include/ansidecl.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/tsystem.h:
+
+/opt/rtems-4.10/tool/b-gcc/./gcc/include/stddef.h:
+
+/opt/rtems-4.10/tool/b-gcc/./gcc/include/float.h:
+
+../../../../../gcc-4.4.7/libgcc/../include/filenames.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/coretypes.h:
+
+../../../.././gcc/tm.h:
+
+../../../.././gcc/options.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sparc.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/vxworks-dummy.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/dbxelf.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/elfos.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/svr4.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sysv4.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/sp-elf.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/sparc/rtemself.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/config/rtems.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/defaults.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/dwarf2.h:
+
+/opt/rtems-4.10/tool/b-gcc/./gcc/include/unwind.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/unwind-pe.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/unwind-dw2-fde.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/gthr.h:
+
+../../../.././gcc/gthr-default.h:
+
+../../../../../gcc-4.4.7/libgcc/../gcc/gthr-rtems.h:

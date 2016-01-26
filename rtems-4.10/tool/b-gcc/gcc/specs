@@ -1,0 +1,172 @@
+*asm:
+%{v:-V} %{Qy:} %{!Qn:-Qy} %{n} %{T} %{Ym,*} %{Wa,*:%*} -s    %{fpic|fpie|fPIC|fPIE:-K PIC} %(asm_cpu)
+
+*asm_debug:
+%{!g0:%{gstabs*:--gstabs}%{!gstabs*:%{g*:--gdwarf2}}} %{fdebug-prefix-map=*:--debug-prefix-map %*}
+
+*asm_final:
+
+
+*asm_options:
+%{--target-help:%:print-asm-header()} %{v} %{w:-W} %{I*} %a %Y %{c:%W{o*}%{!o*:-o %w%b%O}}%{!c:-o %d%w%u%O}
+
+*invoke_as:
+%{!S:-o %|.s |
+ as %(asm_options) %|.s %A }
+
+*cpp:
+%(cpp_cpu) %(cpp_arch) %(cpp_endian) %(cpp_subtarget)
+
+*cpp_options:
+%(cpp_unique_options) %1 %{m*} %{std*&ansi&trigraphs} %{W*&pedantic*} %{w} %{f*} %{g*:%{!g0:%{g*} %{!fno-working-directory:-fworking-directory}}} %{O*} %{undef} %{save-temps:-fpch-preprocess}
+
+*cpp_debug_options:
+%{d*}
+
+*cpp_unique_options:
+%{C|CC:%{!E:%eGCC does not support -C or -CC without -E}} %{!Q:-quiet} %{nostdinc*} %{C} %{CC} %{v} %{I*&F*} %{P} %I %{MD:-MD %{!o:%b.d}%{o*:%.d%*}} %{MMD:-MMD %{!o:%b.d}%{o*:%.d%*}} %{M} %{MM} %{MF*} %{MG} %{MP} %{MQ*} %{MT*} %{!E:%{!M:%{!MM:%{!MT:%{!MQ:%{MD|MMD:%{o*:-MQ %*}}}}}}} %{remap} %{g3|ggdb3|gstabs3|gcoff3|gxcoff3|gvms3:-dD} %{H} %C %{D*&U*&A*} %{i*} %Z %i %{fmudflap:-D_MUDFLAP -include mf-runtime.h} %{fmudflapth:-D_MUDFLAP -D_MUDFLAPTH -include mf-runtime.h} %{E|M|MM:%W{o*}}
+
+*trad_capable_cpp:
+cc1 -E %{traditional|ftraditional|traditional-cpp:-traditional-cpp}
+
+*cc1:
+%{sun4:} %{target:} %{mcypress:-mcpu=cypress} %{msparclite:-mcpu=sparclite} %{mf930:-mcpu=f930} %{mf934:-mcpu=f934} %{mv8:-mcpu=v8} %{msupersparc:-mcpu=supersparc} 
+
+*cc1_options:
+%{pg:%{fomit-frame-pointer:%e-pg and -fomit-frame-pointer are incompatible}} %1 %{!Q:-quiet} -dumpbase %B %{d*} %{m*} %{a*} %{c|S:%{o*:-auxbase-strip %*}%{!o*:-auxbase %b}}%{!c:%{!S:-auxbase %b}} %{g*} %{O*} %{W*&pedantic*} %{w} %{std*&ansi&trigraphs} %{v:-version} %{pg:-p} %{p} %{f*} %{undef} %{Qn:-fno-ident} %{--help:--help} %{--target-help:--target-help} %{--help=*:--help=%(VALUE)} %{!fsyntax-only:%{S:%W{o*}%{!o*:-o %b.s}}} %{fsyntax-only:-o %j} %{-param*} %{fmudflap|fmudflapth:-fno-builtin -fno-merge-constants} %{coverage:-fprofile-arcs -ftest-coverage}
+
+*cc1plus:
+
+
+*link_gcc_c_sequence:
+%G %L %G
+
+*link_ssp:
+%{fstack-protector|fstack-protector-all:-lssp_nonshared -lssp}
+
+*endfile:
+
+
+*link:
+
+
+*lib:
+%{!qrtems: %{!shared:%{g*:-lg} %{!p:%{!pg:-lc}}%{p:-lc_p}%{pg:-lc_p}}} %{!nostdlib: %{qrtems: --start-group  -lrtemsbsp -lrtemscpu  -lc -lgcc --end-group %{!qnolinkcmds: -T linkcmds%s}}}
+
+*mfwrap:
+ %{static: %{fmudflap|fmudflapth:  --wrap=malloc --wrap=free --wrap=calloc --wrap=realloc --wrap=mmap --wrap=munmap --wrap=alloca} %{fmudflapth: --wrap=pthread_create}} %{fmudflap|fmudflapth: --wrap=main}
+
+*mflib:
+%{fmudflap|fmudflapth: -export-dynamic}
+
+*link_gomp:
+
+
+*libgcc:
+-lgcc
+
+*startfile:
+crt0.o%s
+
+*switches_need_spaces:
+
+
+*cross_compile:
+1
+
+*version:
+4.4.7
+
+*multilib:
+. !msoft-float !mcpu=v8;soft msoft-float !mcpu=v8;v8 !msoft-float mcpu=v8;soft/v8 msoft-float mcpu=v8;
+
+*multilib_defaults:
+
+
+*multilib_extra:
+
+
+*multilib_matches:
+mno-fpu msoft-float;mv8 mcpu=v8;msoft-float msoft-float;mcpu=v8 mcpu=v8;
+
+*multilib_exclusions:
+
+
+*multilib_options:
+msoft-float mcpu=v8
+
+*linker:
+collect2
+
+*link_libgcc:
+%D
+
+*md_exec_prefix:
+
+
+*md_startfile_prefix:
+
+
+*md_startfile_prefix_1:
+
+
+*startfile_prefix_spec:
+
+
+*sysroot_spec:
+--sysroot=%R
+
+*sysroot_suffix_spec:
+
+
+*sysroot_hdrs_suffix_spec:
+
+
+*cpp_cpu:
+%{msoft-float:-D_SOFT_FLOAT} %{mcypress:} %{msparclite:-D__sparclite__} %{mf930:-D__sparclite__} %{mf934:-D__sparclite__} %{mv8:-D__sparc_v8__} %{msupersparc:-D__supersparc__ -D__sparc_v8__} %{mcpu=sparclet:-D__sparclet__} %{mcpu=tsc701:-D__sparclet__} %{mcpu=sparclite:-D__sparclite__} %{mcpu=f930:-D__sparclite__} %{mcpu=f934:-D__sparclite__} %{mcpu=v8:-D__sparc_v8__} %{mcpu=supersparc:-D__supersparc__ -D__sparc_v8__} %{mcpu=hypersparc:-D__hypersparc__ -D__sparc_v8__} %{mcpu=sparclite86x:-D__sparclite86x__} %{mcpu=v9:-D__sparc_v9__} %{mcpu=ultrasparc:-D__sparc_v9__} %{mcpu=ultrasparc3:-D__sparc_v9__} %{mcpu=niagara:-D__sparc_v9__} %{mcpu=niagara2:-D__sparc_v9__} %{!mcpu*:%{!mcypress:%{!msparclite:%{!mf930:%{!mf934:%{!mv8:%{!msupersparc:%(cpp_cpu_default)}}}}}}} 
+
+*cpp_cpu_default:
+
+
+*cpp_arch32:
+
+
+*cpp_arch64:
+-D__arch64__
+
+*cpp_arch_default:
+
+
+*cpp_arch:
+%{m32:%(cpp_arch32)} %{m64:%(cpp_arch64)} %{!m32:%{!m64:%(cpp_arch_default)}} 
+
+*cpp_endian:
+%{mlittle-endian:-D__LITTLE_ENDIAN__} %{mlittle-endian-data:-D__LITTLE_ENDIAN_DATA__}
+
+*cpp_subtarget:
+
+
+*asm_cpu:
+%{mcpu=sparclet:-Asparclet} %{mcpu=tsc701:-Asparclet} %{msparclite:-Asparclite} %{mf930:-Asparclite} %{mf934:-Asparclite} %{mcpu=sparclite:-Asparclite} %{mcpu=sparclite86x:-Asparclite} %{mcpu=f930:-Asparclite} %{mcpu=f934:-Asparclite} %{mv8plus:-Av8plus} %{mcpu=v9:-Av9} %{mcpu=ultrasparc:%{!mv8plus:-Av9a}} %{mcpu=ultrasparc3:%{!mv8plus:-Av9b}} %{mcpu=niagara:%{!mv8plus:-Av9b}} %{mcpu=niagara2:%{!mv8plus:-Av9b}} %{!mcpu*:%{!mcypress:%{!msparclite:%{!mf930:%{!mf934:%{!mv8:%{!msupersparc:%(asm_cpu_default)}}}}}}} 
+
+*asm_cpu_default:
+
+
+*asm_arch32:
+-32
+
+*asm_arch64:
+-64 -no-undeclared-regs
+
+*asm_relax:
+%{!mno-relax:-relax}
+
+*asm_arch_default:
+-32
+
+*asm_arch:
+%{m32:%(asm_arch32)} %{m64:%(asm_arch64)} %{!m32:%{!m64:%(asm_arch_default)}} 
+
+*link_command:
+%{!fsyntax-only:%{!c:%{!M:%{!MM:%{!E:%{!S:    %(linker) %l %{pie:-pie} %X %{o*} %{A} %{d} %{e*} %{m} %{N} %{n} %{r}    %{s} %{t} %{u*} %{x} %{z} %{Z} %{!A:%{!nostdlib:%{!nostartfiles:%S}}}    %{static:} %{L*} %(mfwrap) %(link_libgcc) %o    %{fopenmp|ftree-parallelize-loops=*:%:include(libgomp.spec)%(link_gomp)} %(mflib)    %{fprofile-arcs|fprofile-generate|coverage:-lgcov}    %{!nostdlib:%{!nodefaultlibs:%(link_ssp) %(link_gcc_c_sequence)}}    %{!A:%{!nostdlib:%{!nostartfiles:%E}}} %{T*} }}}}}}
+

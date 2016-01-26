@@ -1,0 +1,44 @@
+strncpy-chk.lo: ../../../gcc-4.4.7/libssp/strncpy-chk.c config.h \
+ ssp/ssp.h /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/string.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h \
+ /opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/newlib/targ-include/newlib.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/config.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/ieeefp.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/reent.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/_types.h \
+ /opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/newlib/targ-include/machine/_types.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/_default_types.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/lock.h \
+ /opt/rtems-4.10/tool/b-gcc/./gcc/include/stddef.h \
+ /opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/string.h
+
+config.h:
+
+ssp/ssp.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/string.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h:
+
+/opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/newlib/targ-include/newlib.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/config.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/ieeefp.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/reent.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/_ansi.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/_types.h:
+
+/opt/rtems-4.10/tool/b-gcc/sparc-rtems4.10/newlib/targ-include/machine/_types.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/machine/_default_types.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/lock.h:
+
+/opt/rtems-4.10/tool/b-gcc/./gcc/include/stddef.h:
+
+/opt/rtems-4.10/tool/gcc-4.4.7/newlib/libc/include/sys/string.h:

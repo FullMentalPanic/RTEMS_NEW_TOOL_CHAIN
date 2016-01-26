@@ -1,0 +1,10 @@
+src/libcsupport_a-putk.o: \
+ ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/putk.c \
+ ../config.h ../../cpukit/../../../leon3/lib/include/rtems/bspIo.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h
+
+../config.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/bspIo.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h:
