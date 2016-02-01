@@ -1,5 +1,5 @@
 libpppd_a-ipcp.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ipcp.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ipcp.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -124,12 +124,12 @@ libpppd_a-ipcp.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
  ../../cpukit/../../../leon3/lib/include/arpa/inet.h \
  ../../cpukit/../../../leon3/lib/include/resolv.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h \
  ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ipcp.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pathnames.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ipcp.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pathnames.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsdnet/servers.h
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h:
@@ -380,16 +380,16 @@ libpppd_a-ipcp.o: \
 
 ../../cpukit/../../../leon3/lib/include/resolv.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h:
 
 ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ipcp.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ipcp.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pathnames.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pathnames.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/bsdnet/servers.h:

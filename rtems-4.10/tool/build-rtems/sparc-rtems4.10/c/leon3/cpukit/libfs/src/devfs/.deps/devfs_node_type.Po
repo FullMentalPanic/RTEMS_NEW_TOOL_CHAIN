@@ -1,7 +1,7 @@
 src/devfs/devfs_node_type.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs_node_type.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs_node_type.c \
  ../config.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libio_.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
@@ -135,7 +135,7 @@ src/devfs/devfs_node_type.o: \
 
 ../config.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/libio_.h:
 

@@ -1,5 +1,5 @@
 src/libsapi_a-exinit.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/sapi/src/exinit.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/sapi/src/exinit.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
@@ -143,7 +143,16 @@ src/libsapi_a-exinit.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/timer.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/timer.inl \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/rtemsapi.h \
- ../../cpukit/../../../leon3/lib/include/rtems/posix/posixapi.h
+ ../../cpukit/../../../leon3/lib/include/rtems/posix/posixapi.h \
+ ../../cpukit/../../../leon3/lib/include/drvmgr/drvmgr.h \
+ ../../cpukit/../../../leon3/lib/include/rtems.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/barrier.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/corebarrier.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/score/corebarrier.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/barrier.inl \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/cache.h \
+ ../../cpukit/../../../leon3/lib/include/rtems/rtems/object.h \
+ ../../cpukit/../../../leon3/lib/include/drvmgr/drvmgr_list.h
 
 ../config.h:
 
@@ -434,3 +443,21 @@ src/libsapi_a-exinit.o: \
 ../../cpukit/../../../leon3/lib/include/rtems/rtems/rtemsapi.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/posix/posixapi.h:
+
+../../cpukit/../../../leon3/lib/include/drvmgr/drvmgr.h:
+
+../../cpukit/../../../leon3/lib/include/rtems.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/barrier.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/corebarrier.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/score/corebarrier.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/barrier.inl:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/cache.h:
+
+../../cpukit/../../../leon3/lib/include/rtems/rtems/object.h:
+
+../../cpukit/../../../leon3/lib/include/drvmgr/drvmgr_list.h:

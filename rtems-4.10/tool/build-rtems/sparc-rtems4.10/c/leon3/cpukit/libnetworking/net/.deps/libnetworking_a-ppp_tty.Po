@@ -1,7 +1,7 @@
 net/libnetworking_a-ppp_tty.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/net/ppp_tty.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/net/ppp_tty.c \
  ../config.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/opt_ppp.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/opt_ppp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
@@ -32,7 +32,7 @@ net/libnetworking_a-ppp_tty.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/sys/systm.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems_bsdnet_internal.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
@@ -163,7 +163,7 @@ net/libnetworking_a-ppp_tty.o: \
 
 ../config.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/opt_ppp.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/opt_ppp.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h:
 
@@ -225,7 +225,7 @@ net/libnetworking_a-ppp_tty.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/sys/systm.h:
 

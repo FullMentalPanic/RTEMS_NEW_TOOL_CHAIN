@@ -1,5 +1,5 @@
 shell/libshell_a-dd-misc.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/dd-misc.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/dd-misc.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -31,8 +31,8 @@ shell/libshell_a-dd-misc.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/dd.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-dd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/dd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-dd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
@@ -100,9 +100,9 @@ shell/libshell_a-dd-misc.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/dd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/dd.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-dd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-dd.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h:
 

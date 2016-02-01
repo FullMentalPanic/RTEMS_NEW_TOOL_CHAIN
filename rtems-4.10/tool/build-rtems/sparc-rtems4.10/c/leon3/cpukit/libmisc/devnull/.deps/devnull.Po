@@ -1,5 +1,5 @@
 devnull/devnull.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/devnull/devnull.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/devnull/devnull.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \

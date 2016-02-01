@@ -1,4 +1,4 @@
-rtems-bin2c.o: ../../../rtems-4.10.2/tools/build/rtems-bin2c.c \
+rtems-bin2c.o: ../../../rtems-4.10/tools/build/rtems-bin2c.c \
  /usr/include/stdc-predef.h /usr/include/ctype.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \

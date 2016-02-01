@@ -1,5 +1,5 @@
 rtc/librtcio_a-mc146818a_ioreg.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/rtc/mc146818a_ioreg.c \
+ ../../../../../rtems-4.10/c/src/libchip/rtc/mc146818a_ioreg.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -111,8 +111,11 @@ rtc/librtcio_a-mc146818a_ioreg.o: \
  ../../../leon3/lib/include/bsp.h ../../../leon3/lib/include/bspopts.h \
  ../../../leon3/lib/include/leon.h ../../../leon3/lib/include/amba.h \
  ../../../leon3/lib/include/ambapp.h \
+ ../../../leon3/lib/include/ambapp_ids.h \
+ ../../../leon3/lib/include/grlib.h \
  ../../../leon3/lib/include/rtems/clockdrv.h \
- ../../../leon3/lib/include/rtems/console.h
+ ../../../leon3/lib/include/rtems/console.h \
+ ../../../leon3/lib/include/rtems/irq-extension.h
 
 ../../../leon3/lib/include/rtems.h:
 
@@ -340,6 +343,12 @@ rtc/librtcio_a-mc146818a_ioreg.o: \
 
 ../../../leon3/lib/include/ambapp.h:
 
+../../../leon3/lib/include/ambapp_ids.h:
+
+../../../leon3/lib/include/grlib.h:
+
 ../../../leon3/lib/include/rtems/clockdrv.h:
 
 ../../../leon3/lib/include/rtems/console.h:
+
+../../../leon3/lib/include/rtems/irq-extension.h:

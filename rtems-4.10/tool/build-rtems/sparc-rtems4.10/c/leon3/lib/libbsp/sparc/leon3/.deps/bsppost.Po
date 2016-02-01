@@ -1,5 +1,5 @@
 bsppost.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../shared/bsppost.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../shared/bsppost.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/fcntl.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/fcntl.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/_default_fcntl.h \

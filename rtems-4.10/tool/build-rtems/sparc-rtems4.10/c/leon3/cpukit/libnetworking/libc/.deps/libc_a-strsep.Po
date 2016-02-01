@@ -1,5 +1,5 @@
 libc/libc_a-strsep.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/strsep.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/strsep.c \
  ../config.h
 
 ../config.h:

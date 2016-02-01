@@ -1,5 +1,5 @@
 leon_smc91111_rel-leon_smc91111.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/leon_smc91111/leon_smc91111.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/leon_smc91111/leon_smc91111.c \
  ../../../../../.././leon3/lib/include/bsp.h \
  ../../../../../.././leon3/lib/include/bspopts.h \
  ../../../../../.././leon3/lib/include/rtems.h \
@@ -113,8 +113,11 @@ leon_smc91111_rel-leon_smc91111.o: \
  ../../../../../.././leon3/lib/include/leon.h \
  ../../../../../.././leon3/lib/include/amba.h \
  ../../../../../.././leon3/lib/include/ambapp.h \
+ ../../../../../.././leon3/lib/include/ambapp_ids.h \
+ ../../../../../.././leon3/lib/include/grlib.h \
  ../../../../../.././leon3/lib/include/rtems/clockdrv.h \
  ../../../../../.././leon3/lib/include/rtems/console.h \
+ ../../../../../.././leon3/lib/include/rtems/irq-extension.h \
  ../../../../../.././leon3/lib/include/libchip/smc91111exp.h
 
 ../../../../../.././leon3/lib/include/bsp.h:
@@ -343,8 +346,14 @@ leon_smc91111_rel-leon_smc91111.o: \
 
 ../../../../../.././leon3/lib/include/ambapp.h:
 
+../../../../../.././leon3/lib/include/ambapp_ids.h:
+
+../../../../../.././leon3/lib/include/grlib.h:
+
 ../../../../../.././leon3/lib/include/rtems/clockdrv.h:
 
 ../../../../../.././leon3/lib/include/rtems/console.h:
+
+../../../../../.././leon3/lib/include/rtems/irq-extension.h:
 
 ../../../../../.././leon3/lib/include/libchip/smc91111exp.h:

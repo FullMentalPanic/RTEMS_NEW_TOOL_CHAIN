@@ -1,5 +1,5 @@
 rtc/librtcio_a-ds1375.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/rtc/ds1375.c \
+ ../../../../../rtems-4.10/c/src/libchip/rtc/ds1375.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

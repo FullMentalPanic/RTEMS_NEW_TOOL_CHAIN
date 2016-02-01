@@ -1,5 +1,5 @@
 shell/libshell_a-hexdump-odsyntax.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexdump-odsyntax.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/hexdump-odsyntax.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/cdefs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
@@ -17,7 +17,7 @@ shell/libshell_a-hexdump-odsyntax.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h \
@@ -37,7 +37,7 @@ shell/libshell_a-hexdump-odsyntax.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexdump.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/hexdump.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/wchar.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/getopt.h
 
@@ -75,7 +75,7 @@ shell/libshell_a-hexdump-odsyntax.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h:
 
@@ -115,7 +115,7 @@ shell/libshell_a-hexdump-odsyntax.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexdump.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/hexdump.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/wchar.h:
 

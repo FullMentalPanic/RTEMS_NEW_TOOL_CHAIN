@@ -1,6 +1,5 @@
 libmd_a-md4.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmd/md4.c \
- ../config.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmd/md4.c ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -19,7 +18,7 @@ libmd_a-md4.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmd/md4.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmd/md4.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h
 
@@ -61,7 +60,7 @@ libmd_a-md4.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmd/md4.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmd/md4.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
 

@@ -1,5 +1,5 @@
 network/libnetchip_a-greth.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/network/greth.c \
+ ../../../../../rtems-4.10/c/src/libchip/network/greth.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -111,8 +111,11 @@ network/libnetchip_a-greth.o: \
  ../../../leon3/lib/include/bsp.h ../../../leon3/lib/include/bspopts.h \
  ../../../leon3/lib/include/leon.h ../../../leon3/lib/include/amba.h \
  ../../../leon3/lib/include/ambapp.h \
+ ../../../leon3/lib/include/ambapp_ids.h \
+ ../../../leon3/lib/include/grlib.h \
  ../../../leon3/lib/include/rtems/clockdrv.h \
  ../../../leon3/lib/include/rtems/console.h \
+ ../../../leon3/lib/include/rtems/irq-extension.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
@@ -123,7 +126,7 @@ network/libnetchip_a-greth.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
  ../../../leon3/lib/include/rtems/error.h \
  ../../../leon3/lib/include/rtems/rtems_bsdnet.h \
- ../../../../../rtems-4.10.2/c/src/libchip/network/greth.h \
+ ../../../../../rtems-4.10/c/src/libchip/network/greth.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/endian.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
@@ -377,9 +380,15 @@ network/libnetchip_a-greth.o: \
 
 ../../../leon3/lib/include/ambapp.h:
 
+../../../leon3/lib/include/ambapp_ids.h:
+
+../../../leon3/lib/include/grlib.h:
+
 ../../../leon3/lib/include/rtems/clockdrv.h:
 
 ../../../leon3/lib/include/rtems/console.h:
+
+../../../leon3/lib/include/rtems/irq-extension.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h:
 
@@ -401,7 +410,7 @@ network/libnetchip_a-greth.o: \
 
 ../../../leon3/lib/include/rtems/rtems_bsdnet.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/network/greth.h:
+../../../../../rtems-4.10/c/src/libchip/network/greth.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h:
 

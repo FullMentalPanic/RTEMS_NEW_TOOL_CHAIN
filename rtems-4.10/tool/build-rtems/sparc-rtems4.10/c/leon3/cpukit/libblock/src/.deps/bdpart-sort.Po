@@ -1,5 +1,5 @@
 src/bdpart-sort.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libblock/src/bdpart-sort.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libblock/src/bdpart-sort.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \

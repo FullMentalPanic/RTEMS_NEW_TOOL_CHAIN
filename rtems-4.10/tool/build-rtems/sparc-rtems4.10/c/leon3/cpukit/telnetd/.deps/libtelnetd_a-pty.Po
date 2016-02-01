@@ -1,5 +1,5 @@
 libtelnetd_a-pty.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/telnetd/pty.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/telnetd/pty.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/termios.h \
  ../../cpukit/../../../leon3/lib/include/sys/termios.h \

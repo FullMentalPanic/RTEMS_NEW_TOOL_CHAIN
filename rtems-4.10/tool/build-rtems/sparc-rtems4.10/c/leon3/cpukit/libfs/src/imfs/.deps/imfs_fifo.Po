@@ -1,5 +1,5 @@
 src/imfs/imfs_fifo.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs_fifo.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs_fifo.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
@@ -135,7 +135,7 @@ src/imfs/imfs_fifo.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
  ../../cpukit/../../../leon3/lib/include/rtems/userenv.h \
  ../../cpukit/../../../leon3/lib/include/rtems/seterr.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/pipe.h
 
 ../config.h:
@@ -408,6 +408,6 @@ src/imfs/imfs_fifo.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/seterr.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/pipe.h:

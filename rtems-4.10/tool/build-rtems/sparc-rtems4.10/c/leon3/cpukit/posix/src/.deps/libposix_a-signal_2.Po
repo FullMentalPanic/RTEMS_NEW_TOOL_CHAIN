@@ -1,5 +1,5 @@
 src/libposix_a-signal_2.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/signal_2.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/posix/src/signal_2.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

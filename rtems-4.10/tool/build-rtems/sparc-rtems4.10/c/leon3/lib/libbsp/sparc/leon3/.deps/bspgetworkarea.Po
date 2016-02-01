@@ -1,5 +1,5 @@
 bspgetworkarea.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/bspgetworkarea.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/bspgetworkarea.c \
  ../../../../../.././leon3/lib/include/bsp.h \
  ../../../../../.././leon3/lib/include/bspopts.h \
  ../../../../../.././leon3/lib/include/rtems.h \
@@ -113,8 +113,11 @@ bspgetworkarea.o: \
  ../../../../../.././leon3/lib/include/leon.h \
  ../../../../../.././leon3/lib/include/amba.h \
  ../../../../../.././leon3/lib/include/ambapp.h \
+ ../../../../../.././leon3/lib/include/ambapp_ids.h \
+ ../../../../../.././leon3/lib/include/grlib.h \
  ../../../../../.././leon3/lib/include/rtems/clockdrv.h \
  ../../../../../.././leon3/lib/include/rtems/console.h \
+ ../../../../../.././leon3/lib/include/rtems/irq-extension.h \
  ../../../../../.././leon3/lib/include/bsp/bootcard.h
 
 ../../../../../.././leon3/lib/include/bsp.h:
@@ -343,8 +346,14 @@ bspgetworkarea.o: \
 
 ../../../../../.././leon3/lib/include/ambapp.h:
 
+../../../../../.././leon3/lib/include/ambapp_ids.h:
+
+../../../../../.././leon3/lib/include/grlib.h:
+
 ../../../../../.././leon3/lib/include/rtems/clockdrv.h:
 
 ../../../../../.././leon3/lib/include/rtems/console.h:
+
+../../../../../.././leon3/lib/include/rtems/irq-extension.h:
 
 ../../../../../.././leon3/lib/include/bsp/bootcard.h:

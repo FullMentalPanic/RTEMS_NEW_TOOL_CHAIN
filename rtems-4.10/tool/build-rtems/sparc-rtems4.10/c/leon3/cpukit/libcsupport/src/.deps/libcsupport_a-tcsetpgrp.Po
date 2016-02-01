@@ -1,5 +1,5 @@
 src/libcsupport_a-tcsetpgrp.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/tcsetpgrp.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/tcsetpgrp.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \

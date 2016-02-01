@@ -1,5 +1,5 @@
 src/libcsupport_a-truncate.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/truncate.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/truncate.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \

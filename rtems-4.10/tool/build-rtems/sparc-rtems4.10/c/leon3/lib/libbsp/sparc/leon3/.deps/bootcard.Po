@@ -1,5 +1,5 @@
 bootcard.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../shared/bootcard.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../shared/bootcard.c \
  ../../../../../.././leon3/lib/include/rtems.h \
  ../../../../../.././leon3/lib/include/rtems/system.h \
  ../../../../../.././leon3/lib/include/rtems/score/cpuopts.h \

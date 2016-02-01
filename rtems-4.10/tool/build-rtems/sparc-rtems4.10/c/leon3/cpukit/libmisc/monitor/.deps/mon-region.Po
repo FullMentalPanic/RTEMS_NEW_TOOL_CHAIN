@@ -1,5 +1,5 @@
 monitor/mon-region.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/monitor/mon-region.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/monitor/mon-region.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -108,7 +108,7 @@ monitor/mon-region.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/monitor/monitor.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/monitor/monitor.h \
  ../../cpukit/../../../leon3/lib/include/rtems/error.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/attr.inl \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
@@ -332,7 +332,7 @@ monitor/mon-region.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/monitor/monitor.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/monitor/monitor.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/error.h:
 

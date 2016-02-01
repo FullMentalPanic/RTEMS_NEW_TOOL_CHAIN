@@ -1,5 +1,5 @@
 network/libnetchip_a-cs8900.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/network/cs8900.c \
+ ../../../../../rtems-4.10/c/src/libchip/network/cs8900.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h \
@@ -22,7 +22,7 @@ network/libnetchip_a-cs8900.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
- ../../../../../rtems-4.10.2/c/src/libchip/network/cs8900.h \
+ ../../../../../rtems-4.10/c/src/libchip/network/cs8900.h \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -187,7 +187,7 @@ network/libnetchip_a-cs8900.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/network/cs8900.h:
+../../../../../rtems-4.10/c/src/libchip/network/cs8900.h:
 
 ../../../leon3/lib/include/rtems.h:
 

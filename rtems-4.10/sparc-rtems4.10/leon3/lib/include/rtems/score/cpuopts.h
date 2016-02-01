@@ -25,6 +25,9 @@
 /* if networking is enabled */
 #define RTEMS_NETWORKING 1
 
+/* if driver manager api is supported */
+#define RTEMS_DRVMGR_STARTUP 1
+
 /* RTEMS version string */
 #define RTEMS_VERSION "4.10.2"
 

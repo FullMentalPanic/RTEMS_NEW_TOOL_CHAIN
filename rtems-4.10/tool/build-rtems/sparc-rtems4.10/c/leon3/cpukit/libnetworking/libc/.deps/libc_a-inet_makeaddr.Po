@@ -1,5 +1,5 @@
 libc/libc_a-inet_makeaddr.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/inet_makeaddr.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/inet_makeaddr.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
@@ -23,7 +23,7 @@ libc/libc_a-inet_makeaddr.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/netinet/in.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsdnet/_types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
@@ -167,7 +167,7 @@ libc/libc_a-inet_makeaddr.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/netinet/in.h:
 

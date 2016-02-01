@@ -1,5 +1,5 @@
 src/dosfs/msdos_dir.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/msdos_dir.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/msdos_dir.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -138,14 +138,14 @@ src/dosfs/msdos_dir.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/userenv.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/dirent.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/dirent.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat.h \
  ../../cpukit/../../../leon3/lib/include/rtems/seterr.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bdbuf.h \
  ../../cpukit/../../../leon3/lib/include/rtems/blkdev.h \
  ../../cpukit/../../../leon3/lib/include/rtems/diskdevs.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat_fat_operations.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat_file.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/msdos.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat_fat_operations.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat_file.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/msdos.h
 
 ../config.h:
 
@@ -423,7 +423,7 @@ src/dosfs/msdos_dir.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/dirent.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/seterr.h:
 
@@ -433,8 +433,8 @@ src/dosfs/msdos_dir.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/diskdevs.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat_fat_operations.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat_fat_operations.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat_file.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat_file.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/msdos.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/msdos.h:

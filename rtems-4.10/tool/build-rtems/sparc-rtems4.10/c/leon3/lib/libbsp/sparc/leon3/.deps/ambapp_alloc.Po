@@ -1,0 +1,8 @@
+ambapp_alloc.o: \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/amba/ambapp_alloc.c \
+ ../../../../../.././leon3/lib/include/ambapp.h \
+ ../../../../../.././leon3/lib/include/ambapp_ids.h
+
+../../../../../.././leon3/lib/include/ambapp.h:
+
+../../../../../.././leon3/lib/include/ambapp_ids.h:

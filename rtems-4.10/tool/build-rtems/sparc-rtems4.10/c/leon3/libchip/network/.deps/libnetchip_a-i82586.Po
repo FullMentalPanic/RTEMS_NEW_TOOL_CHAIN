@@ -1,5 +1,5 @@
 network/libnetchip_a-i82586.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/network/i82586.c \
+ ../../../../../rtems-4.10/c/src/libchip/network/i82586.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -147,8 +147,8 @@ network/libnetchip_a-i82586.o: \
  ../../../leon3/lib/include/netinet/in.h \
  ../../../leon3/lib/include/netinet/if_ether.h \
  ../../../leon3/lib/include/net/if_arp.h \
- ../../../../../rtems-4.10.2/c/src/libchip/network/i82586reg.h \
- ../../../../../rtems-4.10.2/c/src/libchip/network/i82586var.h
+ ../../../../../rtems-4.10/c/src/libchip/network/i82586reg.h \
+ ../../../../../rtems-4.10/c/src/libchip/network/i82586var.h
 
 ../../../leon3/lib/include/rtems.h:
 
@@ -444,6 +444,6 @@ network/libnetchip_a-i82586.o: \
 
 ../../../leon3/lib/include/net/if_arp.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/network/i82586reg.h:
+../../../../../rtems-4.10/c/src/libchip/network/i82586reg.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/network/i82586var.h:
+../../../../../rtems-4.10/c/src/libchip/network/i82586var.h:

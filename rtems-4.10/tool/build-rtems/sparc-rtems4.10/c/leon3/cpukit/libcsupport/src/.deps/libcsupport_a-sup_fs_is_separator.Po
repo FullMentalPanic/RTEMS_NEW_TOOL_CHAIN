@@ -1,2 +1,2 @@
 src/libcsupport_a-sup_fs_is_separator.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/sup_fs_is_separator.c
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/sup_fs_is_separator.c

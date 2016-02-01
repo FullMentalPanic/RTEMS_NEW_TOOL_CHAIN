@@ -1,7 +1,7 @@
 display/libdisplay_a-font_hcms29xx.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/display/font_hcms29xx.c \
+ ../../../../../rtems-4.10/c/src/libchip/display/font_hcms29xx.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
- ../../../../../rtems-4.10.2/c/src/libchip/display/disp_fonts.h \
+ ../../../../../rtems-4.10/c/src/libchip/display/disp_fonts.h \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -112,7 +112,7 @@ display/libdisplay_a-font_hcms29xx.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/display/disp_fonts.h:
+../../../../../rtems-4.10/c/src/libchip/display/disp_fonts.h:
 
 ../../../leon3/lib/include/rtems.h:
 

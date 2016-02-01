@@ -1,5 +1,5 @@
 src/rpc/librpc_a-pmap_prot.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/librpc/src/rpc/pmap_prot.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/librpc/src/rpc/pmap_prot.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rpc/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h \

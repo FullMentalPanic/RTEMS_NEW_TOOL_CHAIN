@@ -1,2 +1,2 @@
 network/libnetchip_a-if_fxp.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/network/if_fxp.c
+ ../../../../../rtems-4.10/c/src/libchip/network/if_fxp.c

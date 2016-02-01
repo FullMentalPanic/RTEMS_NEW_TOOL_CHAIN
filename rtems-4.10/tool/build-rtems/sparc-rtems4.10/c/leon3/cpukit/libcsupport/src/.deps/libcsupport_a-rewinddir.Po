@@ -1,5 +1,5 @@
 src/libcsupport_a-rewinddir.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/rewinddir.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/rewinddir.c \
  ../config.h
 
 ../config.h:

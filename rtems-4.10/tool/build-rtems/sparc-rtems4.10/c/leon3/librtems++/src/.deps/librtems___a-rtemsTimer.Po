@@ -1,5 +1,5 @@
 src/librtems___a-rtemsTimer.o: \
- ../../../../../rtems-4.10.2/c/src/librtems++/src/rtemsTimer.cc \
+ ../../../../../rtems-4.10/c/src/librtems++/src/rtemsTimer.cc \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/c++/4.4.7/cstring \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/c++/4.4.7/sparc-rtems4.10/soft/bits/c++config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/c++/4.4.7/sparc-rtems4.10/soft/bits/os_defines.h \

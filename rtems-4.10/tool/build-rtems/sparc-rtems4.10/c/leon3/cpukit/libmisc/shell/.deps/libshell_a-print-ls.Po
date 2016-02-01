@@ -1,5 +1,5 @@
 shell/libshell_a-print-ls.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/print-ls.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/print-ls.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
@@ -132,13 +132,13 @@ shell/libshell_a-print-ls.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/endian.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/limits.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/fts.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/fts.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/grp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/pwd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
@@ -146,7 +146,7 @@ shell/libshell_a-print-ls.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-ls.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-ls.h
 
 ../config.h:
 
@@ -412,7 +412,7 @@ shell/libshell_a-print-ls.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/limits.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h:
 
@@ -424,7 +424,7 @@ shell/libshell_a-print-ls.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/fts.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/fts.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/grp.h:
 
@@ -440,4 +440,4 @@ shell/libshell_a-print-ls.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-ls.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-ls.h:

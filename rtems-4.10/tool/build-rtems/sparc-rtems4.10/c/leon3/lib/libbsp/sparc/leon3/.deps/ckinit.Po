@@ -1,5 +1,5 @@
 ckinit.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/clock/ckinit.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/clock/ckinit.c \
  ../../../../../.././leon3/lib/include/bsp.h \
  ../../../../../.././leon3/lib/include/bspopts.h \
  ../../../../../.././leon3/lib/include/rtems.h \
@@ -113,12 +113,11 @@ ckinit.o: \
  ../../../../../.././leon3/lib/include/leon.h \
  ../../../../../.././leon3/lib/include/amba.h \
  ../../../../../.././leon3/lib/include/ambapp.h \
+ ../../../../../.././leon3/lib/include/ambapp_ids.h \
+ ../../../../../.././leon3/lib/include/grlib.h \
  ../../../../../.././leon3/lib/include/rtems/clockdrv.h \
  ../../../../../.././leon3/lib/include/rtems/console.h \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/clock/../../../shared/clockdrv_shell.h \
- /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
- /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
- /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h
+ ../../../../../.././leon3/lib/include/rtems/irq-extension.h
 
 ../../../../../.././leon3/lib/include/bsp.h:
 
@@ -346,14 +345,12 @@ ckinit.o: \
 
 ../../../../../.././leon3/lib/include/ambapp.h:
 
+../../../../../.././leon3/lib/include/ambapp_ids.h:
+
+../../../../../.././leon3/lib/include/grlib.h:
+
 ../../../../../.././leon3/lib/include/rtems/clockdrv.h:
 
 ../../../../../.././leon3/lib/include/rtems/console.h:
 
-../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/clock/../../../shared/clockdrv_shell.h:
-
-/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h:
-
-/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h:
-
-/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
+../../../../../.././leon3/lib/include/rtems/irq-extension.h:

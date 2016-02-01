@@ -1,5 +1,5 @@
 src/libposix_a-execve.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/execve.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/posix/src/execve.c \
  ../config.h
 
 ../config.h:

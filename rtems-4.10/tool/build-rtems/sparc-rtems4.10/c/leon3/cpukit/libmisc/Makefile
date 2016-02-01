@@ -15,7 +15,7 @@
 
 
 
-VPATH = ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc
+VPATH = ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc
 pkgdatadir = $(datadir)/rtems-cpukit
 pkgincludedir = $(includedir)/rtems-cpukit
 pkglibdir = $(libdir)/rtems-cpukit
@@ -55,6 +55,7 @@ am__aclocal_m4_deps = $(top_srcdir)/aclocal/canonical-target-name.m4 \
 	$(top_srcdir)/aclocal/check-posix.m4 \
 	$(top_srcdir)/aclocal/check-rtems-debug.m4 \
 	$(top_srcdir)/aclocal/check-tool.m4 \
+	$(top_srcdir)/aclocal/enable-drvmgr.m4 \
 	$(top_srcdir)/aclocal/enable-httpd.m4 \
 	$(top_srcdir)/aclocal/enable-itron.m4 \
 	$(top_srcdir)/aclocal/enable-multiprocessing.m4 \
@@ -188,7 +189,8 @@ am__libshell_a_SOURCES_DIST = shell/cat_file.c shell/cmds.c \
 	shell/hexdump-parse.c shell/hexsyntax.c shell/main_time.c \
 	shell/main_mknod.c shell/main_setenv.c shell/main_getenv.c \
 	shell/main_unsetenv.c shell/main_mkrfs.c shell/main_debugrfs.c \
-	shell/main_ifconfig.c shell/main_route.c shell/main_netstats.c
+	shell/main_drvmgr.c shell/main_pci.c shell/main_ifconfig.c \
+	shell/main_route.c shell/main_netstats.c
 am__objects_3 = shell/libshell_a-main_ifconfig.$(OBJEXT) \
 	shell/libshell_a-main_route.$(OBJEXT) \
 	shell/libshell_a-main_netstats.$(OBJEXT)
@@ -283,6 +285,8 @@ am_libshell_a_OBJECTS =  \
 	shell/libshell_a-main_unsetenv.$(OBJEXT) \
 	shell/libshell_a-main_mkrfs.$(OBJEXT) \
 	shell/libshell_a-main_debugrfs.$(OBJEXT) \
+	shell/libshell_a-main_drvmgr.$(OBJEXT) \
+	shell/libshell_a-main_pci.$(OBJEXT) \
 	$(am__objects_3)
 libshell_a_OBJECTS = $(am_libshell_a_OBJECTS)
 libstackchk_a_AR = $(AR) $(ARFLAGS)
@@ -343,13 +347,13 @@ DIST_SOURCES = $(libbspcmdline_a_SOURCES) $(libcapture_a_SOURCES) \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10.2/ampolish3
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10/ampolish3
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
 AR = sparc-rtems4.10-ar
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CC = sparc-rtems4.10-gcc --pipe
 CCAS = sparc-rtems4.10-gcc --pipe
@@ -379,7 +383,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 MULTIBUILDTOP = 
 MULTISUBDIR = 
@@ -409,9 +413,9 @@ SHELL = /bin/bash
 STRIP = sparc-rtems4.10-strip
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/libmisc
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10/c/src/../../cpukit/libmisc
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10.2/c/src/../../cpukit
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10/c/src/../../cpukit
 ac_ct_CC = 
 am__include = include
 am__leading_dot = .
@@ -439,14 +443,14 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = /opt/rtems-4.10/sparc-rtems4.10/leon3/lib/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = /opt/rtems-4.10/sparc-rtems4.10/leon3/lib$(MULTISUBDIR)
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
 mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
-multilib_basedir = ../../../../../rtems-4.10.2/c/src/../../cpukit/..
+multilib_basedir = ../../../../../rtems-4.10/c/src/../../cpukit/..
 oldincludedir = /usr/include
 pdfdir = ${docdir}
 prefix = /opt/rtems-4.10
@@ -456,12 +460,12 @@ project_libdir = $(libdir)
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc
+srcdir = ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc
 sysconfdir = ${prefix}/etc
 target_alias = sparc-rtems4.10
 top_build_prefix = ../
 top_builddir = ..
-top_srcdir = ../../../../../../rtems-4.10.2/c/src/../../cpukit
+top_srcdir = ../../../../../../rtems-4.10/c/src/../../cpukit
 AM_CPPFLAGS = -I$(top_builddir) -I$(PROJECT_INCLUDE)
 AM_CFLAGS = 
 AM_CCASFLAGS = -DASM $(CFLAGS)
@@ -539,6 +543,7 @@ libshell_a_SOURCES = shell/cat_file.c shell/cmds.c \
 	shell/main_mknod.c shell/main_setenv.c \
 	shell/main_getenv.c shell/main_unsetenv.c \
 	shell/main_mkrfs.c shell/main_debugrfs.c \
+	shell/main_drvmgr.c shell/main_pci.c \
 	$(am__append_4)
 libserdbg_a_SOURCES = serdbg/serdbg.c serdbg/serdbgio.c \
     serdbg/termios_printk.c serdbg/serdbgcnf.h serdbg/serdbg.h \
@@ -959,6 +964,10 @@ shell/libshell_a-main_mkrfs.$(OBJEXT): shell/$(am__dirstamp) \
 	shell/$(DEPDIR)/$(am__dirstamp)
 shell/libshell_a-main_debugrfs.$(OBJEXT): shell/$(am__dirstamp) \
 	shell/$(DEPDIR)/$(am__dirstamp)
+shell/libshell_a-main_drvmgr.$(OBJEXT): shell/$(am__dirstamp) \
+	shell/$(DEPDIR)/$(am__dirstamp)
+shell/libshell_a-main_pci.$(OBJEXT): shell/$(am__dirstamp) \
+	shell/$(DEPDIR)/$(am__dirstamp)
 shell/libshell_a-main_ifconfig.$(OBJEXT): shell/$(am__dirstamp) \
 	shell/$(DEPDIR)/$(am__dirstamp)
 shell/libshell_a-main_route.$(OBJEXT): shell/$(am__dirstamp) \
@@ -1128,6 +1137,7 @@ mostlyclean-compile:
 	-rm -f shell/libshell_a-main_dd.$(OBJEXT)
 	-rm -f shell/libshell_a-main_debugrfs.$(OBJEXT)
 	-rm -f shell/libshell_a-main_dir.$(OBJEXT)
+	-rm -f shell/libshell_a-main_drvmgr.$(OBJEXT)
 	-rm -f shell/libshell_a-main_echo.$(OBJEXT)
 	-rm -f shell/libshell_a-main_exit.$(OBJEXT)
 	-rm -f shell/libshell_a-main_getenv.$(OBJEXT)
@@ -1152,6 +1162,7 @@ mostlyclean-compile:
 	-rm -f shell/libshell_a-main_mv.$(OBJEXT)
 	-rm -f shell/libshell_a-main_mwdump.$(OBJEXT)
 	-rm -f shell/libshell_a-main_netstats.$(OBJEXT)
+	-rm -f shell/libshell_a-main_pci.$(OBJEXT)
 	-rm -f shell/libshell_a-main_perioduse.$(OBJEXT)
 	-rm -f shell/libshell_a-main_pwd.$(OBJEXT)
 	-rm -f shell/libshell_a-main_rm.$(OBJEXT)
@@ -1285,6 +1296,7 @@ include shell/$(DEPDIR)/libshell_a-main_date.Po
 include shell/$(DEPDIR)/libshell_a-main_dd.Po
 include shell/$(DEPDIR)/libshell_a-main_debugrfs.Po
 include shell/$(DEPDIR)/libshell_a-main_dir.Po
+include shell/$(DEPDIR)/libshell_a-main_drvmgr.Po
 include shell/$(DEPDIR)/libshell_a-main_echo.Po
 include shell/$(DEPDIR)/libshell_a-main_exit.Po
 include shell/$(DEPDIR)/libshell_a-main_getenv.Po
@@ -1309,6 +1321,7 @@ include shell/$(DEPDIR)/libshell_a-main_msdosfmt.Po
 include shell/$(DEPDIR)/libshell_a-main_mv.Po
 include shell/$(DEPDIR)/libshell_a-main_mwdump.Po
 include shell/$(DEPDIR)/libshell_a-main_netstats.Po
+include shell/$(DEPDIR)/libshell_a-main_pci.Po
 include shell/$(DEPDIR)/libshell_a-main_perioduse.Po
 include shell/$(DEPDIR)/libshell_a-main_pwd.Po
 include shell/$(DEPDIR)/libshell_a-main_rm.Po
@@ -2644,6 +2657,34 @@ shell/libshell_a-main_debugrfs.obj: shell/main_debugrfs.c
 #	source='shell/main_debugrfs.c' object='shell/libshell_a-main_debugrfs.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o shell/libshell_a-main_debugrfs.obj `if test -f 'shell/main_debugrfs.c'; then $(CYGPATH_W) 'shell/main_debugrfs.c'; else $(CYGPATH_W) '$(srcdir)/shell/main_debugrfs.c'; fi`
+
+shell/libshell_a-main_drvmgr.o: shell/main_drvmgr.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shell/libshell_a-main_drvmgr.o -MD -MP -MF shell/$(DEPDIR)/libshell_a-main_drvmgr.Tpo -c -o shell/libshell_a-main_drvmgr.o `test -f 'shell/main_drvmgr.c' || echo '$(srcdir)/'`shell/main_drvmgr.c
+	$(am__mv) shell/$(DEPDIR)/libshell_a-main_drvmgr.Tpo shell/$(DEPDIR)/libshell_a-main_drvmgr.Po
+#	source='shell/main_drvmgr.c' object='shell/libshell_a-main_drvmgr.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o shell/libshell_a-main_drvmgr.o `test -f 'shell/main_drvmgr.c' || echo '$(srcdir)/'`shell/main_drvmgr.c
+
+shell/libshell_a-main_drvmgr.obj: shell/main_drvmgr.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shell/libshell_a-main_drvmgr.obj -MD -MP -MF shell/$(DEPDIR)/libshell_a-main_drvmgr.Tpo -c -o shell/libshell_a-main_drvmgr.obj `if test -f 'shell/main_drvmgr.c'; then $(CYGPATH_W) 'shell/main_drvmgr.c'; else $(CYGPATH_W) '$(srcdir)/shell/main_drvmgr.c'; fi`
+	$(am__mv) shell/$(DEPDIR)/libshell_a-main_drvmgr.Tpo shell/$(DEPDIR)/libshell_a-main_drvmgr.Po
+#	source='shell/main_drvmgr.c' object='shell/libshell_a-main_drvmgr.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o shell/libshell_a-main_drvmgr.obj `if test -f 'shell/main_drvmgr.c'; then $(CYGPATH_W) 'shell/main_drvmgr.c'; else $(CYGPATH_W) '$(srcdir)/shell/main_drvmgr.c'; fi`
+
+shell/libshell_a-main_pci.o: shell/main_pci.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shell/libshell_a-main_pci.o -MD -MP -MF shell/$(DEPDIR)/libshell_a-main_pci.Tpo -c -o shell/libshell_a-main_pci.o `test -f 'shell/main_pci.c' || echo '$(srcdir)/'`shell/main_pci.c
+	$(am__mv) shell/$(DEPDIR)/libshell_a-main_pci.Tpo shell/$(DEPDIR)/libshell_a-main_pci.Po
+#	source='shell/main_pci.c' object='shell/libshell_a-main_pci.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o shell/libshell_a-main_pci.o `test -f 'shell/main_pci.c' || echo '$(srcdir)/'`shell/main_pci.c
+
+shell/libshell_a-main_pci.obj: shell/main_pci.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shell/libshell_a-main_pci.obj -MD -MP -MF shell/$(DEPDIR)/libshell_a-main_pci.Tpo -c -o shell/libshell_a-main_pci.obj `if test -f 'shell/main_pci.c'; then $(CYGPATH_W) 'shell/main_pci.c'; else $(CYGPATH_W) '$(srcdir)/shell/main_pci.c'; fi`
+	$(am__mv) shell/$(DEPDIR)/libshell_a-main_pci.Tpo shell/$(DEPDIR)/libshell_a-main_pci.Po
+#	source='shell/main_pci.c' object='shell/libshell_a-main_pci.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o shell/libshell_a-main_pci.obj `if test -f 'shell/main_pci.c'; then $(CYGPATH_W) 'shell/main_pci.c'; else $(CYGPATH_W) '$(srcdir)/shell/main_pci.c'; fi`
 
 shell/libshell_a-main_ifconfig.o: shell/main_ifconfig.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libshell_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shell/libshell_a-main_ifconfig.o -MD -MP -MF shell/$(DEPDIR)/libshell_a-main_ifconfig.Tpo -c -o shell/libshell_a-main_ifconfig.o `test -f 'shell/main_ifconfig.c' || echo '$(srcdir)/'`shell/main_ifconfig.c

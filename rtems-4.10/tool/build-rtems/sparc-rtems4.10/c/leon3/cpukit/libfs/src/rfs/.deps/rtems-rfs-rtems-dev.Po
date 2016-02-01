@@ -1,7 +1,7 @@
 src/rfs/rtems-rfs-rtems-dev.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems-dev.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems-dev.c \
  ../config.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
@@ -153,7 +153,7 @@ src/rfs/rtems-rfs-rtems-dev.o: \
 
 ../config.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
 

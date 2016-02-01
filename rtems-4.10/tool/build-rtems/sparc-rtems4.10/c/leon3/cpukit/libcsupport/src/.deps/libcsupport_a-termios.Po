@@ -1,5 +1,5 @@
 src/libcsupport_a-termios.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/termios.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/termios.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \

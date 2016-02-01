@@ -16,7 +16,7 @@
 
 
 
-VPATH = ../../../../../rtems-4.10.2/c/src/../../cpukit
+VPATH = ../../../../../rtems-4.10/c/src/../../cpukit
 pkgdatadir = $(datadir)/rtems-cpukit
 pkgincludedir = $(includedir)/rtems-cpukit
 pkglibdir = $(libdir)/rtems-cpukit
@@ -38,7 +38,7 @@ host_triplet = sparc-unknown-rtems4.10
 DIST_COMMON = $(am__configure_deps) $(am__include_HEADERS_DIST) \
 	$(am__include_rtems_HEADERS_DIST) \
 	$(am__include_rtems_bsdnet_HEADERS_DIST) \
-	$(am__include_sys_HEADERS_DIST) \
+	$(am__include_sys_HEADERS_DIST) $(include_drvmgr_HEADERS) \
 	$(include_rtems_bsd_sys_HEADERS) $(include_rtems_rfs_HEADERS) \
 	$(include_rtems_rtems_HEADERS) $(include_uuid_HEADERS) \
 	$(srcdir)/../compile $(srcdir)/../config.guess \
@@ -98,6 +98,7 @@ am__aclocal_m4_deps = $(top_srcdir)/aclocal/canonical-target-name.m4 \
 	$(top_srcdir)/aclocal/check-posix.m4 \
 	$(top_srcdir)/aclocal/check-rtems-debug.m4 \
 	$(top_srcdir)/aclocal/check-tool.m4 \
+	$(top_srcdir)/aclocal/enable-drvmgr.m4 \
 	$(top_srcdir)/aclocal/enable-httpd.m4 \
 	$(top_srcdir)/aclocal/enable-itron.m4 \
 	$(top_srcdir)/aclocal/enable-multiprocessing.m4 \
@@ -159,6 +160,7 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(includedir)" \
+	"$(DESTDIR)$(include_drvmgrdir)" \
 	"$(DESTDIR)$(include_rtemsdir)" \
 	"$(DESTDIR)$(include_rtems_bsd_sysdir)" \
 	"$(DESTDIR)$(include_rtems_bsdnetdir)" \
@@ -204,8 +206,8 @@ am__include_sys_HEADERS_DIST = libcsupport/include/sys/ioccom.h \
 	libcsupport/include/sys/termios.h \
 	libcsupport/include/sys/utsname.h libnetworking/sys/uio.h \
 	include/sys/priority.h
-HEADERS = $(include_HEADERS) $(include_rtems_HEADERS) \
-	$(include_rtems_bsd_sys_HEADERS) \
+HEADERS = $(include_HEADERS) $(include_drvmgr_HEADERS) \
+	$(include_rtems_HEADERS) $(include_rtems_bsd_sys_HEADERS) \
 	$(include_rtems_bsdnet_HEADERS) $(include_rtems_rfs_HEADERS) \
 	$(include_rtems_rtems_HEADERS) $(include_sys_HEADERS) \
 	$(include_uuid_HEADERS)
@@ -253,13 +255,13 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10.2/ampolish3
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10/ampolish3
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
 AR = sparc-rtems4.10-ar
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CC = sparc-rtems4.10-gcc --pipe
 CCAS = sparc-rtems4.10-gcc --pipe
@@ -289,7 +291,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 MULTIBUILDTOP = 
 MULTISUBDIR = 
@@ -319,9 +321,9 @@ SHELL = /bin/bash
 STRIP = sparc-rtems4.10-strip
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10.2/c/src/../../cpukit
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10/c/src/../../cpukit
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10.2/c/src/../../cpukit
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10/c/src/../../cpukit
 ac_ct_CC = 
 am__include = include
 am__leading_dot = .
@@ -349,14 +351,14 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = /opt/rtems-4.10/sparc-rtems4.10/leon3/lib/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = /opt/rtems-4.10/sparc-rtems4.10/leon3/lib$(MULTISUBDIR)
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
 mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
-multilib_basedir = ../../../../../rtems-4.10.2/c/src/../../cpukit/..
+multilib_basedir = ../../../../../rtems-4.10/c/src/../../cpukit/..
 oldincludedir = /usr/include
 pdfdir = ${docdir}
 prefix = /opt/rtems-4.10
@@ -366,12 +368,12 @@ project_libdir = $(libdir)
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../../../rtems-4.10.2/c/src/../../cpukit
+srcdir = ../../../../../rtems-4.10/c/src/../../cpukit
 sysconfdir = ${prefix}/etc
 target_alias = sparc-rtems4.10
 top_build_prefix = 
 top_builddir = .
-top_srcdir = ../../../../../rtems-4.10.2/c/src/../../cpukit
+top_srcdir = ../../../../../rtems-4.10/c/src/../../cpukit
 ACLOCAL_AMFLAGS = -I aclocal
 AM_CPPFLAGS = -I$(top_builddir) -I$(PROJECT_INCLUDE)
 AM_CFLAGS = 
@@ -385,8 +387,8 @@ AM_CCASFLAGS = -DASM $(CFLAGS)
 
 # applications
 SUBDIRS = . score rtems sapi posix itron libcsupport libblock libfs \
-	libnetworking librpc libi2c libmisc libmd libgnat wrapup zlib \
-	httpd ftpd telnetd pppd shttpd mghttpd
+	libdrvmgr libnetworking librpc libpci libi2c libmisc libmd \
+	libgnat wrapup zlib httpd ftpd telnetd pppd shttpd mghttpd
 noinst_DATA = preinstall-stamp
 CLEANFILES = preinstall-stamp $(PREINSTALL_FILES)
 include_HEADERS = $(am__append_1)
@@ -454,12 +456,16 @@ include_rtems_rfs_HEADERS = \
    libfs/src/rfs/rtems-rfs-mutex.h \
    libfs/src/rfs/rtems-rfs-trace.h
 
+include_drvmgrdir = $(includedir)/drvmgr
+include_drvmgr_HEADERS = libdrvmgr/drvmgr.h \
+	libdrvmgr/drvmgr_confdefs.h libdrvmgr/drvmgr_list.h
 PREINSTALL_DIRS = $(PROJECT_INCLUDE)/$(dirstamp) \
 	$(PROJECT_INCLUDE)/rtems/$(dirstamp) \
 	$(PROJECT_INCLUDE)/rtems/rtems/$(dirstamp) \
 	$(PROJECT_INCLUDE)/rtems/bsd/sys/$(dirstamp) \
 	$(PROJECT_INCLUDE)/uuid/$(dirstamp) $(am__append_6) \
-	$(am__append_8) $(PROJECT_INCLUDE)/rtems/rfs/$(dirstamp)
+	$(am__append_8) $(PROJECT_INCLUDE)/rtems/rfs/$(dirstamp) \
+	$(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
 DISTCLEANFILES = $(PREINSTALL_DIRS)
 PREINSTALL_FILES = $(PROJECT_INCLUDE)/rtems/bsd/sys/queue.h \
 	$(PROJECT_INCLUDE)/rtems/bsd/sys/cdefs.h \
@@ -515,7 +521,10 @@ PREINSTALL_FILES = $(PROJECT_INCLUDE)/rtems/bsd/sys/queue.h \
 	$(PROJECT_INCLUDE)/rtems/libi2c.h $(am__append_13) \
 	$(PROJECT_INCLUDE)/rtems/stackchk.h \
 	$(PROJECT_INCLUDE)/rtems/untar.h \
-	$(PROJECT_INCLUDE)/rtems/fsmount.h
+	$(PROJECT_INCLUDE)/rtems/fsmount.h \
+	$(PROJECT_INCLUDE)/drvmgr/drvmgr.h \
+	$(PROJECT_INCLUDE)/drvmgr/drvmgr_confdefs.h \
+	$(PROJECT_INCLUDE)/drvmgr/drvmgr_list.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -593,6 +602,26 @@ uninstall-includeHEADERS:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(includedir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(includedir)" && rm -f $$files
+install-include_drvmgrHEADERS: $(include_drvmgr_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(include_drvmgrdir)" || $(MKDIR_P) "$(DESTDIR)$(include_drvmgrdir)"
+	@list='$(include_drvmgr_HEADERS)'; test -n "$(include_drvmgrdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(include_drvmgrdir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(include_drvmgrdir)" || exit $$?; \
+	done
+
+uninstall-include_drvmgrHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(include_drvmgr_HEADERS)'; test -n "$(include_drvmgrdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(include_drvmgrdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(include_drvmgrdir)" && rm -f $$files
 install-include_rtemsHEADERS: $(include_rtems_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(include_rtemsdir)" || $(MKDIR_P) "$(DESTDIR)$(include_rtemsdir)"
@@ -1049,7 +1078,7 @@ check: check-recursive
 all-am: Makefile $(DATA) $(HEADERS) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(includedir)" "$(DESTDIR)$(include_rtemsdir)" "$(DESTDIR)$(include_rtems_bsd_sysdir)" "$(DESTDIR)$(include_rtems_bsdnetdir)" "$(DESTDIR)$(include_rtems_rfsdir)" "$(DESTDIR)$(include_rtems_rtemsdir)" "$(DESTDIR)$(include_sysdir)" "$(DESTDIR)$(include_uuiddir)"; do \
+	for dir in "$(DESTDIR)$(includedir)" "$(DESTDIR)$(include_drvmgrdir)" "$(DESTDIR)$(include_rtemsdir)" "$(DESTDIR)$(include_rtems_bsd_sysdir)" "$(DESTDIR)$(include_rtems_bsdnetdir)" "$(DESTDIR)$(include_rtems_rfsdir)" "$(DESTDIR)$(include_rtems_rtemsdir)" "$(DESTDIR)$(include_sysdir)" "$(DESTDIR)$(include_uuiddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -1100,7 +1129,8 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-includeHEADERS install-include_rtemsHEADERS \
+install-data-am: install-includeHEADERS install-include_drvmgrHEADERS \
+	install-include_rtemsHEADERS \
 	install-include_rtems_bsd_sysHEADERS \
 	install-include_rtems_bsdnetHEADERS \
 	install-include_rtems_rfsHEADERS \
@@ -1151,7 +1181,8 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-includeHEADERS uninstall-include_rtemsHEADERS \
+uninstall-am: uninstall-includeHEADERS uninstall-include_drvmgrHEADERS \
+	uninstall-include_rtemsHEADERS \
 	uninstall-include_rtems_bsd_sysHEADERS \
 	uninstall-include_rtems_bsdnetHEADERS \
 	uninstall-include_rtems_rfsHEADERS \
@@ -1170,7 +1201,8 @@ uninstall-am: uninstall-includeHEADERS uninstall-include_rtemsHEADERS \
 	html-am info info-am install install-am install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am \
-	install-includeHEADERS install-include_rtemsHEADERS \
+	install-includeHEADERS install-include_drvmgrHEADERS \
+	install-include_rtemsHEADERS \
 	install-include_rtems_bsd_sysHEADERS \
 	install-include_rtems_bsdnetHEADERS \
 	install-include_rtems_rfsHEADERS \
@@ -1181,7 +1213,8 @@ uninstall-am: uninstall-includeHEADERS uninstall-include_rtemsHEADERS \
 	installdirs installdirs-am maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
 	pdf-am ps ps-am tags tags-recursive uninstall uninstall-am \
-	uninstall-includeHEADERS uninstall-include_rtemsHEADERS \
+	uninstall-includeHEADERS uninstall-include_drvmgrHEADERS \
+	uninstall-include_rtemsHEADERS \
 	uninstall-include_rtems_bsd_sysHEADERS \
 	uninstall-include_rtems_bsdnetHEADERS \
 	uninstall-include_rtems_rfsHEADERS \
@@ -1486,6 +1519,19 @@ $(PROJECT_INCLUDE)/rtems/untar.h: libmisc/untar/untar.h $(PROJECT_INCLUDE)/rtems
 
 $(PROJECT_INCLUDE)/rtems/fsmount.h: libmisc/fsmount/fsmount.h $(PROJECT_INCLUDE)/rtems/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/rtems/fsmount.h
+
+$(PROJECT_INCLUDE)/drvmgr/$(dirstamp):
+	@$(MKDIR_P) $(PROJECT_INCLUDE)/drvmgr
+	@: > $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+
+$(PROJECT_INCLUDE)/drvmgr/drvmgr.h: libdrvmgr/drvmgr.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/drvmgr.h
+
+$(PROJECT_INCLUDE)/drvmgr/drvmgr_confdefs.h: libdrvmgr/drvmgr_confdefs.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/drvmgr_confdefs.h
+
+$(PROJECT_INCLUDE)/drvmgr/drvmgr_list.h: libdrvmgr/drvmgr_list.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/drvmgr_list.h
 
 preinstall-recursive:
 	@set fnord $(MAKEFLAGS); amf=$$2; \

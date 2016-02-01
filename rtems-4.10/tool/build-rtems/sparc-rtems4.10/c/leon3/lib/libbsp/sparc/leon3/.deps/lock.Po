@@ -1,5 +1,5 @@
 lock.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/shmsupp/lock.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/shmsupp/lock.c \
  ../../../../../.././leon3/lib/include/rtems.h \
  ../../../../../.././leon3/lib/include/rtems/system.h \
  ../../../../../.././leon3/lib/include/rtems/score/cpuopts.h \
@@ -113,8 +113,11 @@ lock.o: \
  ../../../../../.././leon3/lib/include/leon.h \
  ../../../../../.././leon3/lib/include/amba.h \
  ../../../../../.././leon3/lib/include/ambapp.h \
+ ../../../../../.././leon3/lib/include/ambapp_ids.h \
+ ../../../../../.././leon3/lib/include/grlib.h \
  ../../../../../.././leon3/lib/include/rtems/clockdrv.h \
  ../../../../../.././leon3/lib/include/rtems/console.h \
+ ../../../../../.././leon3/lib/include/rtems/irq-extension.h \
  ../../../../../.././leon3/lib/include/shm_driver.h
 
 ../../../../../.././leon3/lib/include/rtems.h:
@@ -343,8 +346,14 @@ lock.o: \
 
 ../../../../../.././leon3/lib/include/ambapp.h:
 
+../../../../../.././leon3/lib/include/ambapp_ids.h:
+
+../../../../../.././leon3/lib/include/grlib.h:
+
 ../../../../../.././leon3/lib/include/rtems/clockdrv.h:
 
 ../../../../../.././leon3/lib/include/rtems/console.h:
+
+../../../../../.././leon3/lib/include/rtems/irq-extension.h:
 
 ../../../../../.././leon3/lib/include/shm_driver.h:

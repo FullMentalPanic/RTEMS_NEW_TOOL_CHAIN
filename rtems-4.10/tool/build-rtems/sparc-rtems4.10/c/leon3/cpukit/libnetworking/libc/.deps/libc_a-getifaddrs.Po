@@ -1,5 +1,5 @@
 libc/libc_a-getifaddrs.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/getifaddrs.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/getifaddrs.c \
  ../config.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
@@ -35,7 +35,7 @@ libc/libc_a-getifaddrs.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/net/route.h \
  ../../cpukit/../../../leon3/lib/include/net/radix.h \
  ../../cpukit/../../../leon3/lib/include/sys/sysctl.h \
@@ -121,7 +121,7 @@ libc/libc_a-getifaddrs.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/net/route.h:
 

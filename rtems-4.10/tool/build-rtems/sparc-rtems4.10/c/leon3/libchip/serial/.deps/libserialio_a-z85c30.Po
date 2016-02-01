@@ -1,5 +1,5 @@
 serial/libserialio_a-z85c30.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/z85c30.c \
+ ../../../../../rtems-4.10/c/src/libchip/serial/z85c30.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -132,7 +132,7 @@ serial/libserialio_a-z85c30.o: \
  ../../../leon3/lib/include/libchip/serial.h \
  ../../../leon3/lib/include/libchip/sersupp.h \
  ../../../leon3/lib/include/rtems/termiostypes.h \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/z85c30_p.h
+ ../../../../../rtems-4.10/c/src/libchip/serial/z85c30_p.h
 
 ../../../leon3/lib/include/rtems.h:
 
@@ -398,4 +398,4 @@ serial/libserialio_a-z85c30.o: \
 
 ../../../leon3/lib/include/rtems/termiostypes.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/serial/z85c30_p.h:
+../../../../../rtems-4.10/c/src/libchip/serial/z85c30_p.h:

@@ -1,5 +1,5 @@
 serial/libserialio_a-mc68681.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/mc68681.c \
+ ../../../../../rtems-4.10/c/src/libchip/serial/mc68681.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -133,7 +133,7 @@ serial/libserialio_a-mc68681.o: \
  ../../../leon3/lib/include/libchip/mc68681.h \
  ../../../leon3/lib/include/libchip/sersupp.h \
  ../../../leon3/lib/include/rtems/termiostypes.h \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/mc68681_p.h
+ ../../../../../rtems-4.10/c/src/libchip/serial/mc68681_p.h
 
 ../../../leon3/lib/include/rtems.h:
 
@@ -401,4 +401,4 @@ serial/libserialio_a-mc68681.o: \
 
 ../../../leon3/lib/include/rtems/termiostypes.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/serial/mc68681_p.h:
+../../../../../rtems-4.10/c/src/libchip/serial/mc68681_p.h:

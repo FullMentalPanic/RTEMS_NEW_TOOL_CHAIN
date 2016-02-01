@@ -1,5 +1,5 @@
 i2c/libi2cio_a-spi-memdrv.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/i2c/spi-memdrv.c \
+ ../../../../../rtems-4.10/c/src/libchip/i2c/spi-memdrv.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

@@ -1,5 +1,5 @@
 src/rpc/librpc_a-rpc_dtablesize.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/librpc/src/rpc/rpc_dtablesize.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/librpc/src/rpc/rpc_dtablesize.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

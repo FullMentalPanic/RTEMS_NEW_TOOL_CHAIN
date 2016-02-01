@@ -1,5 +1,5 @@
 src/rfs/rtems-rfs-trace.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-trace.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-trace.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

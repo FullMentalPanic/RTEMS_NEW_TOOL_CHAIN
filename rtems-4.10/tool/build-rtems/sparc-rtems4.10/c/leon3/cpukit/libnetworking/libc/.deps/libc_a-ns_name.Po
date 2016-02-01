@@ -1,5 +1,5 @@
 libc/libc_a-ns_name.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/ns_name.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/ns_name.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -123,7 +123,7 @@ libc/libc_a-ns_name.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h
 
@@ -373,7 +373,7 @@ libc/libc_a-ns_name.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h:
 

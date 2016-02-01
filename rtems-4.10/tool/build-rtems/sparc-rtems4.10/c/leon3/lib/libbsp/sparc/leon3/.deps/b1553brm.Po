@@ -1,5 +1,5 @@
 b1553brm.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/1553/b1553brm.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/1553/b1553brm.c \
  ../../../../../.././leon3/lib/include/bsp.h \
  ../../../../../.././leon3/lib/include/bspopts.h \
  ../../../../../.././leon3/lib/include/rtems.h \
@@ -113,8 +113,11 @@ b1553brm.o: \
  ../../../../../.././leon3/lib/include/leon.h \
  ../../../../../.././leon3/lib/include/amba.h \
  ../../../../../.././leon3/lib/include/ambapp.h \
+ ../../../../../.././leon3/lib/include/ambapp_ids.h \
+ ../../../../../.././leon3/lib/include/grlib.h \
  ../../../../../.././leon3/lib/include/rtems/clockdrv.h \
  ../../../../../.././leon3/lib/include/rtems/console.h \
+ ../../../../../.././leon3/lib/include/rtems/irq-extension.h \
  ../../../../../.././leon3/lib/include/rtems/libio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stat.h \
  ../../../../../.././leon3/lib/include/sys/ioctl.h \
@@ -140,7 +143,10 @@ b1553brm.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/assert.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h \
- ../../../../../.././leon3/lib/include/b1553brm.h
+ ../../../../../.././leon3/lib/include/drvmgr/drvmgr.h \
+ ../../../../../.././leon3/lib/include/drvmgr/drvmgr_list.h \
+ ../../../../../.././leon3/lib/include/b1553brm.h \
+ ../../../../../.././leon3/lib/include/drvmgr/ambapp_bus.h
 
 ../../../../../.././leon3/lib/include/bsp.h:
 
@@ -368,9 +374,15 @@ b1553brm.o: \
 
 ../../../../../.././leon3/lib/include/ambapp.h:
 
+../../../../../.././leon3/lib/include/ambapp_ids.h:
+
+../../../../../.././leon3/lib/include/grlib.h:
+
 ../../../../../.././leon3/lib/include/rtems/clockdrv.h:
 
 ../../../../../.././leon3/lib/include/rtems/console.h:
+
+../../../../../.././leon3/lib/include/rtems/irq-extension.h:
 
 ../../../../../.././leon3/lib/include/rtems/libio.h:
 
@@ -422,4 +434,10 @@ b1553brm.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h:
 
+../../../../../.././leon3/lib/include/drvmgr/drvmgr.h:
+
+../../../../../.././leon3/lib/include/drvmgr/drvmgr_list.h:
+
 ../../../../../.././leon3/lib/include/b1553brm.h:
+
+../../../../../.././leon3/lib/include/drvmgr/ambapp_bus.h:

@@ -1,5 +1,5 @@
 src/imfs/imfs_chown.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs_chown.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs_chown.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
@@ -132,7 +132,7 @@ src/imfs/imfs_chown.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl \
  ../../cpukit/../../../leon3/lib/include/rtems/userenv.h \
  ../../cpukit/../../../leon3/lib/include/rtems/seterr.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/pipe.h
 
 ../config.h:
@@ -399,6 +399,6 @@ src/imfs/imfs_chown.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/seterr.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/pipe.h:

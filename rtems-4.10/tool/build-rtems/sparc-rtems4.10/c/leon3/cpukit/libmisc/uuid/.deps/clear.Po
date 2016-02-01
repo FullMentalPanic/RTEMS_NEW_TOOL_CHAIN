@@ -1,5 +1,5 @@
 uuid/clear.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/clear.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/clear.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -14,14 +14,14 @@ uuid/clear.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/lock.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuidP.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuidP.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuid.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuid.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/time.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/time.h \
@@ -56,7 +56,7 @@ uuid/clear.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuidP.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuidP.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h:
 
@@ -70,7 +70,7 @@ uuid/clear.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuid.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuid.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h:
 

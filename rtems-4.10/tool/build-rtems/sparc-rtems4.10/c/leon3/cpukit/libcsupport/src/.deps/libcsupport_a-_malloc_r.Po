@@ -1,5 +1,5 @@
 src/libcsupport_a-_malloc_r.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/_malloc_r.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/_malloc_r.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

@@ -1,5 +1,5 @@
 serial/libserialio_a-ns16550.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/ns16550.c \
+ ../../../../../rtems-4.10/c/src/libchip/serial/ns16550.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -136,9 +136,12 @@ serial/libserialio_a-ns16550.o: \
  ../../../leon3/lib/include/bsp.h ../../../leon3/lib/include/bspopts.h \
  ../../../leon3/lib/include/leon.h ../../../leon3/lib/include/amba.h \
  ../../../leon3/lib/include/ambapp.h \
+ ../../../leon3/lib/include/ambapp_ids.h \
+ ../../../leon3/lib/include/grlib.h \
  ../../../leon3/lib/include/rtems/clockdrv.h \
  ../../../leon3/lib/include/rtems/console.h \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/ns16550_p.h
+ ../../../leon3/lib/include/rtems/irq-extension.h \
+ ../../../../../rtems-4.10/c/src/libchip/serial/ns16550_p.h
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h:
 
@@ -416,8 +419,14 @@ serial/libserialio_a-ns16550.o: \
 
 ../../../leon3/lib/include/ambapp.h:
 
+../../../leon3/lib/include/ambapp_ids.h:
+
+../../../leon3/lib/include/grlib.h:
+
 ../../../leon3/lib/include/rtems/clockdrv.h:
 
 ../../../leon3/lib/include/rtems/console.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/serial/ns16550_p.h:
+../../../leon3/lib/include/rtems/irq-extension.h:
+
+../../../../../rtems-4.10/c/src/libchip/serial/ns16550_p.h:

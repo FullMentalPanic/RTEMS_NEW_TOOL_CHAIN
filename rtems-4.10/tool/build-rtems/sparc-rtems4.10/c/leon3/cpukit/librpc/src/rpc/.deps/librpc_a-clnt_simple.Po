@@ -1,5 +1,5 @@
 src/rpc/librpc_a-clnt_simple.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/librpc/src/rpc/clnt_simple.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/librpc/src/rpc/clnt_simple.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \

@@ -1,5 +1,5 @@
 monitor/mon-command.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/monitor/mon-command.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/monitor/mon-command.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

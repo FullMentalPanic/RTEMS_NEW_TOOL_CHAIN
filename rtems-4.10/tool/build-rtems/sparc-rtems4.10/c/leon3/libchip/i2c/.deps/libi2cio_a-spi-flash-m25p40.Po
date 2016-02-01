@@ -1,5 +1,5 @@
 i2c/libi2cio_a-spi-flash-m25p40.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/i2c/spi-flash-m25p40.c \
+ ../../../../../rtems-4.10/c/src/libchip/i2c/spi-flash-m25p40.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

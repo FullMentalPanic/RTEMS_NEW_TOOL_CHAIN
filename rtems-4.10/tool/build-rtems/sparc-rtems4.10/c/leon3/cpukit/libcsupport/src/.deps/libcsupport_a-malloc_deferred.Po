@@ -1,5 +1,5 @@
 src/libcsupport_a-malloc_deferred.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_deferred.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_deferred.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
@@ -17,7 +17,7 @@ src/libcsupport_a-malloc_deferred.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -193,7 +193,7 @@ src/libcsupport_a-malloc_deferred.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems.h:
 

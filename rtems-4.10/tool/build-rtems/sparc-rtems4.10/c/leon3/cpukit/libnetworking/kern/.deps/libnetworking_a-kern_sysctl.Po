@@ -1,7 +1,7 @@
 kern/libnetworking_a-kern_sysctl.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/kern/kern_sysctl.c \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/opt_compat.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/opt_mac.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/kern/kern_sysctl.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/opt_compat.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/opt_mac.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
@@ -32,7 +32,7 @@ kern/libnetworking_a-kern_sysctl.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/sys/systm.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems_bsdnet_internal.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
@@ -138,9 +138,9 @@ kern/libnetworking_a-kern_sysctl.o: \
  ../../cpukit/../../../leon3/lib/include/vm/vm.h \
  ../../cpukit/../../../leon3/lib/include/vm/vm_extern.h
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/opt_compat.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/opt_compat.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/opt_mac.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/opt_mac.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h:
 
@@ -202,7 +202,7 @@ kern/libnetworking_a-kern_sysctl.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/sys/systm.h:
 

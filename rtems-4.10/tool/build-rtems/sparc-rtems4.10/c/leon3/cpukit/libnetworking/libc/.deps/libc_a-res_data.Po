@@ -1,5 +1,5 @@
 libc/libc_a-res_data.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_data.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_data.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -23,7 +23,7 @@ libc/libc_a-res_data.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/sys/socket.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsdnet/_types.h \
@@ -130,7 +130,7 @@ libc/libc_a-res_data.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_config.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_config.h
 
 ../config.h:
 
@@ -178,7 +178,7 @@ libc/libc_a-res_data.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/sys/socket.h:
 
@@ -392,4 +392,4 @@ libc/libc_a-res_data.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_config.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_config.h:

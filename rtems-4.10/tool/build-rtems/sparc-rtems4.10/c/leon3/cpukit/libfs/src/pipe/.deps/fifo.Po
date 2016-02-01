@@ -1,5 +1,5 @@
 src/pipe/fifo.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/pipe/fifo.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/pipe/fifo.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
@@ -17,7 +17,7 @@ src/pipe/fifo.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/pipe/pipe.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/pipe/pipe.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/types.h \
@@ -204,7 +204,7 @@ src/pipe/fifo.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/pipe/pipe.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/pipe/pipe.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/libio.h:
 

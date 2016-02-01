@@ -1,5 +1,5 @@
 start.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/start.S \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/start.S \
  ../../../../../.././leon3/lib/include/rtems/asm.h \
  ../../../../../.././leon3/lib/include/rtems/score/cpuopts.h \
  ../../../../../.././leon3/lib/include/rtems/score/cpu.h \

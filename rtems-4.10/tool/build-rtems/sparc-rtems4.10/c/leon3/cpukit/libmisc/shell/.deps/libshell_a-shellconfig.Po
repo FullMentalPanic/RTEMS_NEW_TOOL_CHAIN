@@ -1,5 +1,5 @@
 shell/libshell_a-shellconfig.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/shellconfig.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/shellconfig.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems/shellconfig.h \
  ../../cpukit/../../../leon3/lib/include/rtems/shell.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \

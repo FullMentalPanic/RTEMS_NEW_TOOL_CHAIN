@@ -1,5 +1,5 @@
 serial/libserialio_a-mc68681_baud.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/mc68681_baud.c \
+ ../../../../../rtems-4.10/c/src/libchip/serial/mc68681_baud.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

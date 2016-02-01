@@ -1,5 +1,5 @@
 occan.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/can/occan.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../sparc/shared/can/occan.c \
  ../../../../../.././leon3/lib/include/rtems/libio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -136,8 +136,14 @@ occan.o: \
  ../../../../../.././leon3/lib/include/leon.h \
  ../../../../../.././leon3/lib/include/amba.h \
  ../../../../../.././leon3/lib/include/ambapp.h \
+ ../../../../../.././leon3/lib/include/ambapp_ids.h \
+ ../../../../../.././leon3/lib/include/grlib.h \
  ../../../../../.././leon3/lib/include/rtems/clockdrv.h \
  ../../../../../.././leon3/lib/include/rtems/console.h \
+ ../../../../../.././leon3/lib/include/rtems/irq-extension.h \
+ ../../../../../.././leon3/lib/include/drvmgr/drvmgr.h \
+ ../../../../../.././leon3/lib/include/drvmgr/drvmgr_list.h \
+ ../../../../../.././leon3/lib/include/drvmgr/ambapp_bus.h \
  ../../../../../.././leon3/lib/include/occan.h
 
 ../../../../../.././leon3/lib/include/rtems/libio.h:
@@ -412,8 +418,20 @@ occan.o: \
 
 ../../../../../.././leon3/lib/include/ambapp.h:
 
+../../../../../.././leon3/lib/include/ambapp_ids.h:
+
+../../../../../.././leon3/lib/include/grlib.h:
+
 ../../../../../.././leon3/lib/include/rtems/clockdrv.h:
 
 ../../../../../.././leon3/lib/include/rtems/console.h:
+
+../../../../../.././leon3/lib/include/rtems/irq-extension.h:
+
+../../../../../.././leon3/lib/include/drvmgr/drvmgr.h:
+
+../../../../../.././leon3/lib/include/drvmgr/drvmgr_list.h:
+
+../../../../../.././leon3/lib/include/drvmgr/ambapp_bus.h:
 
 ../../../../../.././leon3/lib/include/occan.h:

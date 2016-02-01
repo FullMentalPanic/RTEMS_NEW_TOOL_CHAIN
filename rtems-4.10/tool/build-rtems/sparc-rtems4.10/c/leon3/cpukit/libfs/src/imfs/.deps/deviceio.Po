@@ -1,5 +1,5 @@
 src/imfs/deviceio.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/deviceio.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/deviceio.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -129,7 +129,7 @@ src/imfs/deviceio.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/assoc.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/pipe.h
 
 ../config.h:
@@ -392,6 +392,6 @@ src/imfs/deviceio.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/pipe.h:

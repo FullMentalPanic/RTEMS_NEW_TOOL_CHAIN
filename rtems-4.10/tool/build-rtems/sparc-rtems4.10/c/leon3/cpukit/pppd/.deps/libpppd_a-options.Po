@@ -1,5 +1,5 @@
 libpppd_a-options.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/options.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/options.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -131,21 +131,21 @@ libpppd_a-options.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/ratemon.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
  ../../cpukit/../../../leon3/lib/include/arpa/inet.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/endian.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pathnames.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/patchlevel.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/lcp.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ipcp.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/upap.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/chap.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ccp.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pathnames.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/patchlevel.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/lcp.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ipcp.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/upap.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/chap.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ccp.h \
  ../../cpukit/../../../leon3/lib/include/net/ppp_comp.h
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h:
@@ -410,7 +410,7 @@ libpppd_a-options.o: \
 
 ../../cpukit/../../../leon3/lib/include/arpa/inet.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h:
 
@@ -424,20 +424,20 @@ libpppd_a-options.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pathnames.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pathnames.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/patchlevel.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/patchlevel.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/lcp.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/lcp.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ipcp.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ipcp.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/upap.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/upap.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/chap.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/chap.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ccp.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ccp.h:
 
 ../../cpukit/../../../leon3/lib/include/net/ppp_comp.h:

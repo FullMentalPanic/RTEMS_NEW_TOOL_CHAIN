@@ -1,5 +1,5 @@
 shell/libshell_a-main_dir.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/main_dir.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/main_dir.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -129,7 +129,7 @@ shell/libshell_a-main_dir.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/chain.h \
  ../../cpukit/../../../leon3/lib/include/rtems/chain.inl \
  ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/internal.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/internal.h
 
 ../config.h:
 
@@ -391,4 +391,4 @@ shell/libshell_a-main_dir.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/internal.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/internal.h:

@@ -1,5 +1,5 @@
 src/libposix_a-prwlock.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/prwlock.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/posix/src/prwlock.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/syslimits.h \

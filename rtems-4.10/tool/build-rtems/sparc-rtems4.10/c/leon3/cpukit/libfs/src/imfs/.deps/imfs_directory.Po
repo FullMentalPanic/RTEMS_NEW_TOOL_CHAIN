@@ -1,5 +1,5 @@
 src/imfs/imfs_directory.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs_directory.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs_directory.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -55,7 +55,7 @@ src/imfs/imfs_directory.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/syslimits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/syslimits.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/status.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/status.inl \
@@ -256,7 +256,7 @@ src/imfs/imfs_directory.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/syslimits.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems.h:
 

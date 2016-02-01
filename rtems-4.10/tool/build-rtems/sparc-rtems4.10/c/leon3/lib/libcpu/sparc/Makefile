@@ -16,7 +16,7 @@
 
 
 
-VPATH = ../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc
+VPATH = ../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc
 pkgdatadir = $(datadir)/rtems-c-src-lib-libcpu-sparc
 pkgincludedir = $(includedir)/rtems-c-src-lib-libcpu-sparc
 pkglibdir = $(libdir)/rtems-c-src-lib-libcpu-sparc
@@ -53,7 +53,7 @@ DIST_COMMON = $(am__configure_deps) $(include_libcpu_HEADERS) \
 	../../../../../mdate-sh ../../../../../missing \
 	../../../../../texinfo.tex ChangeLog
 noinst_PROGRAMS = cache.rel$(EXEEXT) syscall.rel$(EXEEXT) \
-	reg_win.rel$(EXEEXT)
+	reg_win.rel$(EXEEXT) access.rel$(EXEEXT)
 am__append_1 = -DHAS_INSTRUCTION_CACHE
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -81,6 +81,12 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
+am_access_rel_OBJECTS = access/access_rel-access.$(OBJEXT) \
+	access/access_rel-access_le.$(OBJEXT)
+access_rel_OBJECTS = $(am_access_rel_OBJECTS)
+access_rel_LDADD = $(LDADD)
+access_rel_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(access_rel_LDFLAGS) \
+	$(LDFLAGS) -o $@
 am_cache_rel_OBJECTS = cache/cache_rel-cache.$(OBJEXT) \
 	../shared/src/cache_rel-cache_aligned_malloc.$(OBJEXT) \
 	../shared/src/cache_rel-cache_manager.$(OBJEXT)
@@ -108,10 +114,10 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(cache_rel_SOURCES) $(reg_win_rel_SOURCES) \
-	$(syscall_rel_SOURCES)
-DIST_SOURCES = $(cache_rel_SOURCES) $(reg_win_rel_SOURCES) \
-	$(syscall_rel_SOURCES)
+SOURCES = $(access_rel_SOURCES) $(cache_rel_SOURCES) \
+	$(reg_win_rel_SOURCES) $(syscall_rel_SOURCES)
+DIST_SOURCES = $(access_rel_SOURCES) $(cache_rel_SOURCES) \
+	$(reg_win_rel_SOURCES) $(syscall_rel_SOURCES)
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -148,14 +154,14 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10.2/ampolish3
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10/ampolish3
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
 AR = sparc-rtems4.10-ar
 AS = sparc-rtems4.10-as
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CC = sparc-rtems4.10-gcc --pipe $(GCCSPECS)
 CCAS = sparc-rtems4.10-gcc --pipe $(GCCSPECS)
@@ -185,7 +191,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = rtems-c-src-lib-libcpu-sparc
@@ -216,9 +222,9 @@ SHELL = /bin/bash
 STRIP = sparc-rtems4.10-strip
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libcpu/sparc
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libcpu/sparc/../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libcpu/sparc/../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libcpu/sparc
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libcpu/sparc/../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libcpu/sparc/../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc
 ac_ct_CC = 
 am__include = include
 am__leading_dot = .
@@ -246,7 +252,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${exec_prefix}/leon3/lib/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = ${exec_prefix}/leon3/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -262,12 +268,12 @@ project_libdir = $(libdir)
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc
+srcdir = ../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc
 sysconfdir = ${prefix}/etc
 target_alias = sparc-rtems4.10
 top_build_prefix = 
 top_builddir = .
-top_srcdir = ../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc
+top_srcdir = ../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc
 ACLOCAL_AMFLAGS = -I ../../../aclocal
 CXX = @CXX@ $(GCCSPECS)
 AM_CPPFLAGS = -isystem $(PROJECT_INCLUDE)
@@ -275,7 +281,8 @@ AM_CFLAGS =
 AM_CXXFLAGS = 
 AM_CCASFLAGS = -DASM
 include_libcpudir = $(includedir)/libcpu
-include_libcpu_HEADERS = ../shared/include/cache.h
+include_libcpu_HEADERS = ../shared/include/cache.h \
+	include/libcpu/byteorder.h include/libcpu/access.h
 cache_rel_SOURCES = cache/cache.c cache/cache_.h \
     ../shared/src/cache_aligned_malloc.c ../shared/src/cache_manager.c
 
@@ -287,9 +294,14 @@ syscall_rel_LDFLAGS = $(RTEMS_RELLDFLAGS)
 reg_win_rel_SOURCES = reg_win/window.S
 reg_win_rel_CPPFLAGS = $(AM_CPPFLAGS)
 reg_win_rel_LDFLAGS = $(RTEMS_RELLDFLAGS)
+access_rel_SOURCES = access/access.S access/access_le.c
+access_rel_CPPFLAGS = $(AM_CPPFLAGS)
+access_rel_LDFLAGS = $(RTEMS_RELLDFLAGS)
 PREINSTALL_DIRS = $(PROJECT_INCLUDE)/libcpu/$(dirstamp)
 DISTCLEANFILES = $(PREINSTALL_DIRS)
-PREINSTALL_FILES = $(PROJECT_INCLUDE)/libcpu/cache.h
+PREINSTALL_FILES = $(PROJECT_INCLUDE)/libcpu/cache.h \
+	$(PROJECT_INCLUDE)/libcpu/byteorder.h \
+	$(PROJECT_INCLUDE)/libcpu/access.h
 CLEANFILES = $(PREINSTALL_FILES)
 PROJECT_TOOLS = $(PROJECT_RELEASE)/build-tools
 all: all-am
@@ -333,6 +345,19 @@ $(am__aclocal_m4_deps):
 
 clean-noinstPROGRAMS:
 	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
+access/$(am__dirstamp):
+	@$(MKDIR_P) access
+	@: > access/$(am__dirstamp)
+access/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) access/$(DEPDIR)
+	@: > access/$(DEPDIR)/$(am__dirstamp)
+access/access_rel-access.$(OBJEXT): access/$(am__dirstamp) \
+	access/$(DEPDIR)/$(am__dirstamp)
+access/access_rel-access_le.$(OBJEXT): access/$(am__dirstamp) \
+	access/$(DEPDIR)/$(am__dirstamp)
+access.rel$(EXEEXT): $(access_rel_OBJECTS) $(access_rel_DEPENDENCIES) 
+	@rm -f access.rel$(EXEEXT)
+	$(access_rel_LINK) $(access_rel_OBJECTS) $(access_rel_LDADD) $(LIBS)
 cache/$(am__dirstamp):
 	@$(MKDIR_P) cache
 	@: > cache/$(am__dirstamp)
@@ -383,6 +408,8 @@ mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ../shared/src/cache_rel-cache_aligned_malloc.$(OBJEXT)
 	-rm -f ../shared/src/cache_rel-cache_manager.$(OBJEXT)
+	-rm -f access/access_rel-access.$(OBJEXT)
+	-rm -f access/access_rel-access_le.$(OBJEXT)
 	-rm -f cache/cache_rel-cache.$(OBJEXT)
 	-rm -f reg_win/reg_win_rel-window.$(OBJEXT)
 	-rm -f syscall/syscall_rel-syscall.$(OBJEXT)
@@ -392,6 +419,8 @@ distclean-compile:
 
 include ../shared/src/$(DEPDIR)/cache_rel-cache_aligned_malloc.Po
 include ../shared/src/$(DEPDIR)/cache_rel-cache_manager.Po
+include access/$(DEPDIR)/access_rel-access.Po
+include access/$(DEPDIR)/access_rel-access_le.Po
 include cache/$(DEPDIR)/cache_rel-cache.Po
 include reg_win/$(DEPDIR)/reg_win_rel-window.Po
 include syscall/$(DEPDIR)/syscall_rel-syscall.Po
@@ -411,6 +440,20 @@ include syscall/$(DEPDIR)/syscall_rel-syscall.Po
 #	source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) \
 #	$(CPPASCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+
+access/access_rel-access.o: access/access.S
+	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT access/access_rel-access.o -MD -MP -MF access/$(DEPDIR)/access_rel-access.Tpo -c -o access/access_rel-access.o `test -f 'access/access.S' || echo '$(srcdir)/'`access/access.S
+	$(am__mv) access/$(DEPDIR)/access_rel-access.Tpo access/$(DEPDIR)/access_rel-access.Po
+#	source='access/access.S' object='access/access_rel-access.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) \
+#	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o access/access_rel-access.o `test -f 'access/access.S' || echo '$(srcdir)/'`access/access.S
+
+access/access_rel-access.obj: access/access.S
+	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT access/access_rel-access.obj -MD -MP -MF access/$(DEPDIR)/access_rel-access.Tpo -c -o access/access_rel-access.obj `if test -f 'access/access.S'; then $(CYGPATH_W) 'access/access.S'; else $(CYGPATH_W) '$(srcdir)/access/access.S'; fi`
+	$(am__mv) access/$(DEPDIR)/access_rel-access.Tpo access/$(DEPDIR)/access_rel-access.Po
+#	source='access/access.S' object='access/access_rel-access.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) \
+#	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o access/access_rel-access.obj `if test -f 'access/access.S'; then $(CYGPATH_W) 'access/access.S'; else $(CYGPATH_W) '$(srcdir)/access/access.S'; fi`
 
 reg_win/reg_win_rel-window.o: reg_win/window.S
 	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(reg_win_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT reg_win/reg_win_rel-window.o -MD -MP -MF reg_win/$(DEPDIR)/reg_win_rel-window.Tpo -c -o reg_win/reg_win_rel-window.o `test -f 'reg_win/window.S' || echo '$(srcdir)/'`reg_win/window.S
@@ -455,6 +498,20 @@ syscall/syscall_rel-syscall.obj: syscall/syscall.S
 #	source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+
+access/access_rel-access_le.o: access/access_le.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT access/access_rel-access_le.o -MD -MP -MF access/$(DEPDIR)/access_rel-access_le.Tpo -c -o access/access_rel-access_le.o `test -f 'access/access_le.c' || echo '$(srcdir)/'`access/access_le.c
+	$(am__mv) access/$(DEPDIR)/access_rel-access_le.Tpo access/$(DEPDIR)/access_rel-access_le.Po
+#	source='access/access_le.c' object='access/access_rel-access_le.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o access/access_rel-access_le.o `test -f 'access/access_le.c' || echo '$(srcdir)/'`access/access_le.c
+
+access/access_rel-access_le.obj: access/access_le.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT access/access_rel-access_le.obj -MD -MP -MF access/$(DEPDIR)/access_rel-access_le.Tpo -c -o access/access_rel-access_le.obj `if test -f 'access/access_le.c'; then $(CYGPATH_W) 'access/access_le.c'; else $(CYGPATH_W) '$(srcdir)/access/access_le.c'; fi`
+	$(am__mv) access/$(DEPDIR)/access_rel-access_le.Tpo access/$(DEPDIR)/access_rel-access_le.Po
+#	source='access/access_le.c' object='access/access_rel-access_le.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(access_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o access/access_rel-access_le.obj `if test -f 'access/access_le.c'; then $(CYGPATH_W) 'access/access_le.c'; else $(CYGPATH_W) '$(srcdir)/access/access_le.c'; fi`
 
 cache/cache_rel-cache.o: cache/cache.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cache_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cache/cache_rel-cache.o -MD -MP -MF cache/$(DEPDIR)/cache_rel-cache.Tpo -c -o cache/cache_rel-cache.o `test -f 'cache/cache.c' || echo '$(srcdir)/'`cache/cache.c
@@ -748,6 +805,8 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f ../shared/src/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../shared/src/$(am__dirstamp)
+	-rm -f access/$(DEPDIR)/$(am__dirstamp)
+	-rm -f access/$(am__dirstamp)
 	-rm -f cache/$(DEPDIR)/$(am__dirstamp)
 	-rm -f cache/$(am__dirstamp)
 	-rm -f reg_win/$(DEPDIR)/$(am__dirstamp)
@@ -765,7 +824,7 @@ clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-	-rm -rf ../shared/src/$(DEPDIR) cache/$(DEPDIR) reg_win/$(DEPDIR) syscall/$(DEPDIR)
+	-rm -rf ../shared/src/$(DEPDIR) access/$(DEPDIR) cache/$(DEPDIR) reg_win/$(DEPDIR) syscall/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -813,7 +872,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-	-rm -rf ../shared/src/$(DEPDIR) cache/$(DEPDIR) reg_win/$(DEPDIR) syscall/$(DEPDIR)
+	-rm -rf ../shared/src/$(DEPDIR) access/$(DEPDIR) cache/$(DEPDIR) reg_win/$(DEPDIR) syscall/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -861,6 +920,12 @@ $(PROJECT_INCLUDE)/libcpu/$(dirstamp):
 
 $(PROJECT_INCLUDE)/libcpu/cache.h: ../shared/include/cache.h $(PROJECT_INCLUDE)/libcpu/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/libcpu/cache.h
+
+$(PROJECT_INCLUDE)/libcpu/byteorder.h: include/libcpu/byteorder.h $(PROJECT_INCLUDE)/libcpu/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/libcpu/byteorder.h
+
+$(PROJECT_INCLUDE)/libcpu/access.h: include/libcpu/access.h $(PROJECT_INCLUDE)/libcpu/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/libcpu/access.h
 
 preinstall-am: $(PREINSTALL_FILES)
 preinstall: preinstall-am

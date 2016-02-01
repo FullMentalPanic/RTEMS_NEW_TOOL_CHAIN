@@ -1,5 +1,5 @@
 src/libcsupport_a-malloc_initialize.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_initialize.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_initialize.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -110,7 +110,7 @@ src/libcsupport_a-malloc_initialize.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
  ../../cpukit/../../../leon3/lib/include/rtems/malloc.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/wkspace.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libcsupport.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/protectedheap.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/apimutex.h \
@@ -340,7 +340,7 @@ src/libcsupport_a-malloc_initialize.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/score/wkspace.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/libcsupport.h:
 

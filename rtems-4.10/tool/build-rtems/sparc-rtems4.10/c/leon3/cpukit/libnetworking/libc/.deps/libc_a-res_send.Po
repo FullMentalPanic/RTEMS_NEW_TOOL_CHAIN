@@ -1,5 +1,5 @@
 libc/libc_a-res_send.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_send.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_send.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -23,7 +23,7 @@ libc/libc_a-res_send.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h \
  ../../cpukit/../../../leon3/lib/include/sys/socket.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
@@ -135,7 +135,7 @@ libc/libc_a-res_send.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/strings.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/locale.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_config.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_config.h
 
 ../config.h:
 
@@ -183,7 +183,7 @@ libc/libc_a-res_send.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h:
 
@@ -407,4 +407,4 @@ libc/libc_a-res_send.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/locale.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_config.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_config.h:

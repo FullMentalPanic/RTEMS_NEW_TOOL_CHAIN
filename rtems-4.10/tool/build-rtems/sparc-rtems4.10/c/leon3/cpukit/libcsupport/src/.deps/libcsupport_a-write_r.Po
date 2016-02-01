@@ -1,5 +1,5 @@
 src/libcsupport_a-write_r.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/write_r.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/write_r.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems/libio_.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \

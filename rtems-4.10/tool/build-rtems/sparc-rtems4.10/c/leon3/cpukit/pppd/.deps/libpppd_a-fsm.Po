@@ -1,5 +1,5 @@
 libpppd_a-fsm.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -20,7 +20,7 @@ libpppd_a-fsm.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/syslimits.h \
@@ -38,7 +38,7 @@ libpppd_a-fsm.o: \
  ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h:
 
@@ -80,7 +80,7 @@ libpppd_a-fsm.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
 
@@ -116,4 +116,4 @@ libpppd_a-fsm.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h:

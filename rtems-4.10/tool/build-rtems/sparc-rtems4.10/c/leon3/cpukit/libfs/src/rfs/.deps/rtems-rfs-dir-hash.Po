@@ -1,5 +1,5 @@
 src/rfs/rtems-rfs-dir-hash.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-dir-hash.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-dir-hash.c \
  ../config.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rfs/rtems-rfs-dir-hash.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \

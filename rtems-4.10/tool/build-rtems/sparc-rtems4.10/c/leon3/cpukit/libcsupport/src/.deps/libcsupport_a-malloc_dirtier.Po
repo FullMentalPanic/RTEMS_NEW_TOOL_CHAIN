@@ -1,5 +1,5 @@
 src/libcsupport_a-malloc_dirtier.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_dirtier.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_dirtier.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -109,7 +109,7 @@ src/libcsupport_a-malloc_dirtier.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
  ../../cpukit/../../../leon3/lib/include/rtems/malloc.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libcsupport.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/protectedheap.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/apimutex.h \
@@ -339,7 +339,7 @@ src/libcsupport_a-malloc_dirtier.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/malloc.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/libcsupport.h:
 

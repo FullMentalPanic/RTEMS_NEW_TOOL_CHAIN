@@ -1,6 +1,6 @@
 proto/libnfs_a-mount_prot_xdr.o: \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot_xdr.c \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot_xdr.c \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/rpc.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
@@ -129,7 +129,7 @@ proto/libnfs_a-mount_prot_xdr.o: \
  ../../../../cpukit/../../../leon3/lib/include/rpc/svc_auth.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/rpcent.h
 
-../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h:
+../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h:
 
 ../../../../cpukit/../../../leon3/lib/include/rpc/rpc.h:
 

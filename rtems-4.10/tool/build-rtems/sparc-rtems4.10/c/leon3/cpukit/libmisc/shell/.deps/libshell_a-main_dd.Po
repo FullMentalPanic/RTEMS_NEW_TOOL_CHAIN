@@ -1,5 +1,5 @@
 shell/libshell_a-main_dd.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/main_dd.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/main_dd.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -135,7 +135,7 @@ shell/libshell_a-main_dd.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h \
@@ -149,8 +149,8 @@ shell/libshell_a-main_dd.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/dd.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-dd.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/dd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-dd.h
 
 ../config.h:
 
@@ -424,7 +424,7 @@ shell/libshell_a-main_dd.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h:
 
@@ -452,6 +452,6 @@ shell/libshell_a-main_dd.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/dd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/dd.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-dd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-dd.h:

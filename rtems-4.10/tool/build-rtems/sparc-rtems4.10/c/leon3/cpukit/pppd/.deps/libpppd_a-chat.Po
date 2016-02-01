@@ -1,5 +1,5 @@
 libpppd_a-chat.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/chat.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/chat.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -41,7 +41,7 @@ libpppd_a-chat.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/termios.h \
  ../../cpukit/../../../leon3/lib/include/sys/termios.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/syslimits.h \
@@ -138,7 +138,7 @@ libpppd_a-chat.o: \
 
 ../../cpukit/../../../leon3/lib/include/sys/termios.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
 

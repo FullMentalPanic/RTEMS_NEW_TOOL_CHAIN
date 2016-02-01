@@ -1,5 +1,5 @@
 src/rpcio_rel-rpcio.o: \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.c \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.c \
  ../../../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
@@ -146,7 +146,7 @@ src/rpcio_rel-rpcio.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
  ../../../../cpukit/../../../leon3/lib/include/arpa/inet.h \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/endian.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
@@ -449,7 +449,7 @@ src/rpcio_rel-rpcio.o: \
 
 ../../../../cpukit/../../../leon3/lib/include/arpa/inet.h:
 
-../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h:
+../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h:
 

@@ -14,7 +14,7 @@
 # PARTICULAR PURPOSE.
 
 
-VPATH = ../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc
+VPATH = ../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc
 pkgdatadir = $(datadir)/rtems-c-src-lib-libbsp-sparc
 pkgincludedir = $(includedir)/rtems-c-src-lib-libbsp-sparc
 pkglibdir = $(libdir)/rtems-c-src-lib-libbsp-sparc
@@ -117,12 +117,12 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10.2/ampolish3
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10/ampolish3
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"rtems-c-src-lib-libbsp-sparc\" -DPACKAGE_TARNAME=\"rtems-c-src-lib-libbsp-sparc\" -DPACKAGE_VERSION=\"4.10.2\" -DPACKAGE_STRING=\"rtems-c-src-lib-libbsp-sparc\ 4.10.2\" -DPACKAGE_BUGREPORT=\"http://www.rtems.org/bugzilla\" -DPACKAGE_URL=\"\"
@@ -139,7 +139,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 PACKAGE = rtems-c-src-lib-libbsp-sparc
 PACKAGE_BUGREPORT = http://www.rtems.org/bugzilla
@@ -165,9 +165,9 @@ SHELL = /bin/bash
 STRIP = sparc-rtems4.10-strip
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc
 am__leading_dot = .
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
@@ -192,7 +192,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${exec_prefix}/leon3/lib/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = ${exec_prefix}/leon3/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -208,51 +208,128 @@ project_libdir = $(libdir)
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc
+srcdir = ../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc
 subdirs =  leon3
 sysconfdir = ${prefix}/etc
 target_alias = sparc-rtems4.10
 top_build_prefix = 
 top_builddir = .
-top_srcdir = ../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc
+top_srcdir = ../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc
 ACLOCAL_AMFLAGS = -I ../../../aclocal
 
 # Descend into the leon3 directory
 SUBDIRS = leon3
 
+# Interrupt
+
 # AMBA Plug&Play bus
+
+# Clock Driver and Timer Library
 
 # PCI bus
 
+# PCI target boards
+
 # DEBUG
 
-# SpaceWire (GRSPW)
+# SpaceWire
 
-# UART  (APBUART)
+# UART
 
 # CAN (OC_CAN, GRCAN)
 
+# MEM
+
 # MIL-STD-B1553 (Core1553BRM)
 
+# MIL-STD-B1553 (GR1553B)
+
 # I2C-master (I2CMST)
+
+# SPI
+
+# TIME
+
+# GPIO
+
+# PWM
+
+# ADC and DAC
+
+# GRETH
+
+# Network configuration
+
+# Driver Manager
+
+# GR712
+
+# TMTC
 EXTRA_DIST = shared/bspclean.c shared/bspstart.c shared/gnatcommon.c \
-	shared/start.S shared/include/ambapp.h shared/amba/ambapp.c \
-	shared/include/pci.h shared/pci/pcifinddevice.c \
+	shared/start.S shared/irq/irq-shared.c shared/irq/genirq.c \
+	shared/include/genirq.h shared/include/ahbstat.h \
+	shared/include/ambapp.h shared/include/ambapp_ids.h \
+	shared/include/grlib.h shared/amba/ahbstat.c \
+	shared/amba/ambapp.c shared/amba/ambapp_alloc.c \
+	shared/amba/ambapp_count.c shared/amba/ambapp_depth.c \
+	shared/amba/ambapp_find_by_idx.c shared/amba/ambapp_freq.c \
+	shared/amba/ambapp_parent.c shared/amba/ambapp_names.c \
+	shared/amba/ambapp_old.c shared/amba/ambapp_show.c \
+	shared/include/tlib.h shared/timer/gptimer.c \
+	shared/timer/tlib.c shared/timer/tlib_ckinit.c \
+	shared/include/grpci2.h shared/pci/grpci.c shared/pci/grpci2.c \
+	shared/pci/pcif.c shared/pci/pci_memreg_sparc_le.c \
+	shared/pci/pci_memreg_sparc_be.c shared/include/gr_701.h \
+	shared/include/gr_rasta_adcdac.h shared/include/gr_rasta_io.h \
+	shared/include/gr_rasta_tmtc.h shared/include/gr_tmtc_1553.h \
+	shared/include/gr_leon4_n2x.h shared/pci/gr_701.c \
+	shared/pci/gr_rasta_adcdac.c shared/pci/gr_rasta_io.c \
+	shared/pci/gr_rasta_spw_router.c shared/pci/gr_rasta_tmtc.c \
+	shared/pci/gr_tmtc_1553.c shared/pci/gr_leon4_n2x.c \
 	shared/include/debug_defs.h shared/spw/grspw.c \
-	shared/spw/grspw_pci.c shared/spw/grspw_rasta.c \
-	shared/include/grspw.h shared/include/grspw_pci.h \
-	shared/include/grspw_rasta.h shared/uart/apbuart.c \
-	shared/uart/apbuart_pci.c shared/uart/apbuart_rasta.c \
-	shared/include/apbuart.h shared/include/apbuart_pci.h \
-	shared/include/apbuart_rasta.h shared/can/occan.c \
-	shared/can/occan_pci.c shared/can/grcan.c \
-	shared/can/grcan_rasta.c shared/include/occan.h \
-	shared/include/occan_pci.h shared/include/grcan.h \
-	shared/include/grcan_rasta.h shared/1553/b1553brm.c \
-	shared/1553/b1553brm_pci.c shared/1553/b1553brm_rasta.c \
-	shared/include/b1553brm.h shared/include/b1553brm_pci.h \
-	shared/include/b1553brm_rasta.h shared/i2c/i2cmst.c \
-	shared/include/i2cmst.h
+	shared/spw/grspw_router.c shared/spw/rmap.c \
+	shared/spw/rmap_async.c shared/spw/rmap_common.c \
+	shared/spw/rmap_drv_grspw.c shared/include/grspw.h \
+	shared/include/grspw_router.h shared/include/rmap.h \
+	shared/include/rmap_drv_grspw.h shared/uart/cons.c \
+	shared/uart/apbuart_cons.c shared/include/cons.h \
+	shared/uart/apbuart.c shared/include/apbuart.h \
+	shared/can/occan.c shared/can/grcan.c shared/include/occan.h \
+	shared/include/grcan.h shared/mem/mctrl.c \
+	shared/mem/mctrl_rmap.c shared/1553/b1553brm.c \
+	shared/1553/b1553rt.c shared/include/b1553brm.h \
+	shared/include/b1553rt.h shared/1553/gr1553b.c \
+	shared/1553/gr1553bc.c shared/1553/gr1553bm.c \
+	shared/1553/gr1553rt.c shared/include/gr1553b.h \
+	shared/include/gr1553bc.h shared/include/gr1553bc_list.h \
+	shared/include/gr1553bm.h shared/include/gr1553rt.h \
+	shared/i2c/i2cmst.c shared/include/i2cmst.h \
+	shared/spi/spictrl.c shared/include/spictrl.h \
+	shared/time/spwcuc.c shared/time/spwtdp.c shared/time/grctm.c \
+	shared/include/spwcuc.h shared/include/spwtdp.h \
+	shared/include/grctm.h shared/gpio/grgpio.c \
+	shared/gpio/gpiolib.c shared/include/grgpio.h \
+	shared/include/gpiolib.h shared/pwm/grpwm.c \
+	shared/include/grpwm.h shared/analog/gradcdac.c \
+	shared/include/gradcdac.h shared/net/greth.c \
+	shared/include/greth.h shared/net/network_interface_add.c \
+	shared/include/network_interface_add.h \
+	shared/drvmgr/ambapp_bus.c shared/drvmgr/ambapp_bus_grlib.c \
+	shared/drvmgr/ambapp_bus_leon2.c \
+	shared/drvmgr/ambapp_bus_rmap.c shared/drvmgr/leon2_amba_bus.c \
+	shared/drvmgr/spw_bus.c \
+	shared/include/drvmgr/ambapp_bus_grlib.h \
+	shared/include/drvmgr/ambapp_bus_rmap.h \
+	shared/include/drvmgr/ambapp_bus.h \
+	shared/include/drvmgr/leon2_amba_bus.h \
+	shared/include/drvmgr/spw_bus.h \
+	shared/include/drvmgr/spw_bus_ids.h shared/ascs/grascs.c \
+	shared/include/grascs.h shared/can/satcan.c \
+	shared/include/satcan.h shared/slink/grslink.c \
+	shared/include/grslink.h shared/tmtc/grtc.c \
+	shared/tmtc/grtc_rmap.c shared/include/grtc.h \
+	shared/tmtc/grtm.c shared/tmtc/grtm_rmap.c \
+	shared/include/grtm.h
 PROJECT_TOOLS = $(PROJECT_RELEASE)/build-tools
 all: all-recursive
 

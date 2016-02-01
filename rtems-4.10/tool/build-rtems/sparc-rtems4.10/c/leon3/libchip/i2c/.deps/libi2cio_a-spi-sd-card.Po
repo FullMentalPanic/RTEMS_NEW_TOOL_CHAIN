@@ -1,5 +1,5 @@
 i2c/libi2cio_a-spi-sd-card.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/i2c/spi-sd-card.c \
+ ../../../../../rtems-4.10/c/src/libchip/i2c/spi-sd-card.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \

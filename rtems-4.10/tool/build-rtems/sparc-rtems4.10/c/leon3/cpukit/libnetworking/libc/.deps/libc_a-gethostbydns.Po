@@ -1,5 +1,5 @@
 libc/libc_a-gethostbydns.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/gethostbydns.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/gethostbydns.c \
  ../config.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
@@ -24,7 +24,7 @@ libc/libc_a-gethostbydns.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/sys/socket.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsdnet/_types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
@@ -134,7 +134,7 @@ libc/libc_a-gethostbydns.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
  ../../cpukit/../../../leon3/lib/include/syslog.h \
  ../../cpukit/../../../leon3/lib/include/sys/syslog.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_config.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_config.h
 
 ../config.h:
 
@@ -184,7 +184,7 @@ libc/libc_a-gethostbydns.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/sys/socket.h:
 
@@ -404,4 +404,4 @@ libc/libc_a-gethostbydns.o: \
 
 ../../cpukit/../../../leon3/lib/include/sys/syslog.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/libc/res_config.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/libc/res_config.h:

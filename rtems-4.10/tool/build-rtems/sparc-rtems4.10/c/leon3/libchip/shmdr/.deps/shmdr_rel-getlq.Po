@@ -1,5 +1,5 @@
 shmdr/shmdr_rel-getlq.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/getlq.c \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/getlq.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

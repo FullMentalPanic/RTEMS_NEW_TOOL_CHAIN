@@ -144,7 +144,7 @@ complex complex_multiply(complex a, complex b)
 	return (c);
 }
 
-
+/*
 void FFT(complex *xin)
 {
 	int f, m, i, k, l, j = 0;
@@ -202,7 +202,7 @@ void FFT(complex *xin)
 		}
 	}
 }
-
+*/
 rtems_task Init(
   rtems_task_argument ignored
 )
@@ -223,7 +223,7 @@ rtems_task Init(
 
 	printf("NODE[%d]: is Up!\n", nodeid);
 
-  FFT(src);
+  //FFT(src);
 
   for(i=0;i< FFT_N; i++)
   {

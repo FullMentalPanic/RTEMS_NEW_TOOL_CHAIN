@@ -1,5 +1,5 @@
 shmdr/shmdr_rel-init.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/init.c \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/init.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

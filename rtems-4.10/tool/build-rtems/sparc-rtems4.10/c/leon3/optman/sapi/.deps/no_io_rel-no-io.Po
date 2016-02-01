@@ -1,5 +1,5 @@
 sapi/no_io_rel-no-io.o: \
- ../../../../../rtems-4.10.2/c/src/optman/sapi/no-io.c \
+ ../../../../../rtems-4.10/c/src/optman/sapi/no-io.c \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \

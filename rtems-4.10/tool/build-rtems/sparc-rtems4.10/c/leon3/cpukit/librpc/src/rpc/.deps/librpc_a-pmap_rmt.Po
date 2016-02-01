@@ -1,5 +1,5 @@
 src/rpc/librpc_a-pmap_rmt.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/librpc/src/rpc/pmap_rmt.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/librpc/src/rpc/pmap_rmt.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/sys/ioctl.h \
  ../../cpukit/../../../leon3/lib/include/sys/ttycom.h \
  ../../cpukit/../../../leon3/lib/include/sys/ioccom.h \

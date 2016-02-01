@@ -1,5 +1,5 @@
 shell/libshell_a-cmds.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/cmds.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/cmds.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -135,7 +135,7 @@ shell/libshell_a-cmds.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/chain.h \
  ../../cpukit/../../../leon3/lib/include/rtems/chain.inl \
  ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/internal.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/internal.h
 
 ../config.h:
 
@@ -407,4 +407,4 @@ shell/libshell_a-cmds.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/internal.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/internal.h:

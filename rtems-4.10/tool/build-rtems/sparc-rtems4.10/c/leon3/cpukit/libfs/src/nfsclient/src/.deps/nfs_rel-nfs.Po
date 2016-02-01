@@ -1,5 +1,5 @@
 src/nfs_rel-nfs.o: \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/src/nfs.c \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/src/nfs.c \
  ../../../config.h ../../../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -145,7 +145,7 @@ src/nfs_rel-nfs.o: \
  ../../../../cpukit/../../../leon3/lib/include/netinet/in.h \
  ../../../../cpukit/../../../leon3/lib/include/rtems/endian.h \
  ../../../../cpukit/../../../leon3/lib/include/arpa/inet.h \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/proto/nfs_prot.h \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/proto/nfs_prot.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/rpc.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/types.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/xdr.h \
@@ -161,8 +161,8 @@ src/nfs_rel-nfs.o: \
  ../../../../cpukit/../../../leon3/lib/include/rpc/svc_soc.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/svc_auth.h \
  ../../../../cpukit/../../../leon3/lib/include/rpc/rpcent.h \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h \
- ../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h \
+ ../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/endian.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
@@ -460,7 +460,7 @@ src/nfs_rel-nfs.o: \
 
 ../../../../cpukit/../../../leon3/lib/include/arpa/inet.h:
 
-../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/proto/nfs_prot.h:
+../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/proto/nfs_prot.h:
 
 ../../../../cpukit/../../../leon3/lib/include/rpc/rpc.h:
 
@@ -492,9 +492,9 @@ src/nfs_rel-nfs.o: \
 
 ../../../../cpukit/../../../leon3/lib/include/rpc/rpcent.h:
 
-../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h:
+../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/proto/mount_prot.h:
 
-../../../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h:
+../../../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/nfsclient/src/rpcio.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h:
 

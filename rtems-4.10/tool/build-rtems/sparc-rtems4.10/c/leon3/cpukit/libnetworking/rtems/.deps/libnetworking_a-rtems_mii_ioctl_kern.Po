@@ -1,5 +1,5 @@
 rtems/libnetworking_a-rtems_mii_ioctl_kern.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/rtems/rtems_mii_ioctl_kern.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/rtems/rtems_mii_ioctl_kern.c \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \

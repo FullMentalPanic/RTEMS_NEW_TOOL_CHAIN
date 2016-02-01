@@ -1,5 +1,5 @@
 libpppd_a-rtemspppd.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/rtemspppd.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/rtemspppd.c \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -109,7 +109,7 @@ libpppd_a-rtemspppd.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems_bsdnet.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
@@ -120,7 +120,7 @@ libpppd_a-rtemspppd.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/rtemspppd.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/rtemspppd.h
 
 ../../cpukit/../../../leon3/lib/include/rtems.h:
 
@@ -340,7 +340,7 @@ libpppd_a-rtemspppd.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtems_bsdnet.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h:
 
@@ -362,4 +362,4 @@ libpppd_a-rtemspppd.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/rtemspppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/rtemspppd.h:

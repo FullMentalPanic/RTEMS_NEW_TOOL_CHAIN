@@ -14,7 +14,7 @@
 # PARTICULAR PURPOSE.
 
 
-VPATH = ../../../rtems-4.10.2/c
+VPATH = ../../../rtems-4.10/c
 pkgdatadir = $(datadir)/rtems-c
 pkgincludedir = $(includedir)/rtems-c
 pkglibdir = $(libdir)/rtems-c
@@ -112,11 +112,11 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"rtems-c\" -DPACKAGE_TARNAME=\"rtems-c\" -DPACKAGE_VERSION=\"4.10.2\" -DPACKAGE_STRING=\"rtems-c\ 4.10.2\" -DPACKAGE_BUGREPORT=\"http://www.rtems.org/bugzilla\" -DPACKAGE_URL=\"\"
@@ -133,7 +133,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 PACKAGE = rtems-c
 PACKAGE_BUGREPORT = http://www.rtems.org/bugzilla
@@ -153,9 +153,9 @@ SHELL = /bin/bash
 STRIP = sparc-rtems4.10-strip
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/../../../rtems-4.10.2/c
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/../../../rtems-4.10/c
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/../../../rtems-4.10.2/c
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/../../../rtems-4.10/c
 am__leading_dot = .
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
@@ -179,7 +179,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = /opt/rtems-4.10/sparc-rtems4.10/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -191,10 +191,10 @@ pdfdir = ${docdir}
 prefix = /opt/rtems-4.10
 program_transform_name = s&^&sparc-rtems4.10-&
 psdir = ${docdir}
-rtems_bsp_configure = ../../../../rtems-4.10.2/c/src/configure  '--prefix=/opt/rtems-4.10' '--host=sparc-rtems4.10' '--build=i686-pc-linux-gnu' '--target=sparc-rtems4.10' '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--with-target-subdir=sparc-rtems4.10' '--exec-prefix=/opt/rtems-4.10/sparc-rtems4.10' '--includedir=/opt/rtems-4.10/sparc-rtems4.10/include' 'build_alias=i686-pc-linux-gnu' 'host_alias=sparc-rtems4.10' 'target_alias=sparc-rtems4.10' '--with-project-root=../../' '--with-project-top=../../'
+rtems_bsp_configure = ../../../../rtems-4.10/c/src/configure  '--prefix=/opt/rtems-4.10' '--host=sparc-rtems4.10' '--build=i686-pc-linux-gnu' '--target=sparc-rtems4.10' '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--enable-drvmgr' '--with-target-subdir=sparc-rtems4.10' '--exec-prefix=/opt/rtems-4.10/sparc-rtems4.10' '--includedir=/opt/rtems-4.10/sparc-rtems4.10/include' 'build_alias=i686-pc-linux-gnu' 'host_alias=sparc-rtems4.10' 'target_alias=sparc-rtems4.10' '--with-project-root=../../' '--with-project-top=../../'
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../rtems-4.10.2/c
+srcdir = ../../../rtems-4.10/c
 sysconfdir = ${prefix}/etc
 target = sparc-unknown-rtems4.10
 target_alias = sparc-rtems4.10
@@ -203,7 +203,7 @@ target_os = rtems4.10
 target_vendor = unknown
 top_build_prefix = 
 top_builddir = .
-top_srcdir = ../../../rtems-4.10.2/c
+top_srcdir = ../../../rtems-4.10/c
 ACLOCAL_AMFLAGS = -I ../aclocal
 RTEMS_BSP = $(RTEMS_BSP_LIST)
 SUBDIRS = . $(RTEMS_BSP)

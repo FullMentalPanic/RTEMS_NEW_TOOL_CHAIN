@@ -1,7 +1,7 @@
 src/imfs/imfs_fcntl.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs_fcntl.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs_fcntl.c \
  ../config.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -132,7 +132,7 @@ src/imfs/imfs_fcntl.o: \
 
 ../config.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems.h:
 

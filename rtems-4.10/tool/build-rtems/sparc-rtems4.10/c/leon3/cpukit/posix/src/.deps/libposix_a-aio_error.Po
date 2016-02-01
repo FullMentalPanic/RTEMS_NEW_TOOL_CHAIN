@@ -1,5 +1,5 @@
 src/libposix_a-aio_error.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/aio_error.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/posix/src/aio_error.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/aio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \

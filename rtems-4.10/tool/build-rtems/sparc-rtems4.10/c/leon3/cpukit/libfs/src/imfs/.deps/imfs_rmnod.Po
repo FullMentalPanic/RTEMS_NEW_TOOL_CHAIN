@@ -1,5 +1,5 @@
 src/imfs/imfs_rmnod.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs_rmnod.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs_rmnod.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
@@ -134,7 +134,7 @@ src/imfs/imfs_rmnod.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
  ../../cpukit/../../../leon3/lib/include/rtems/userenv.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/pipe.h
 
 ../config.h:
@@ -405,6 +405,6 @@ src/imfs/imfs_rmnod.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/userenv.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/imfs/imfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/imfs/imfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/pipe.h:

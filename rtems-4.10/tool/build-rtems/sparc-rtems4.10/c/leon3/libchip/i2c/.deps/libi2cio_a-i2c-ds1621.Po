@@ -1,5 +1,5 @@
 i2c/libi2cio_a-i2c-ds1621.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/i2c/i2c-ds1621.c \
+ ../../../../../rtems-4.10/c/src/libchip/i2c/i2c-ds1621.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

@@ -1,5 +1,5 @@
 shmdr/shmdr_rel-dump.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/dump.c \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/dump.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -111,7 +111,7 @@ shmdr/shmdr_rel-dump.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/shm_driver.h \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/shm_driver.h \
  ../../../leon3/lib/include/rtems/clockdrv.h
 
 ../../../leon3/lib/include/rtems.h:
@@ -336,6 +336,6 @@ shmdr/shmdr_rel-dump.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/shmdr/shm_driver.h:
+../../../../../rtems-4.10/c/src/libchip/shmdr/shm_driver.h:
 
 ../../../leon3/lib/include/rtems/clockdrv.h:

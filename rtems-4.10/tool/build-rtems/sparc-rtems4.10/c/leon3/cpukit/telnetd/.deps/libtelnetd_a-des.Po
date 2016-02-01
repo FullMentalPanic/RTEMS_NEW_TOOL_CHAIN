@@ -1,5 +1,5 @@
 libtelnetd_a-des.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/telnetd/des.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/telnetd/des.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/cdefs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \

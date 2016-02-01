@@ -1,5 +1,5 @@
 rtc/librtcio_a-m48t08.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/rtc/m48t08.c \
+ ../../../../../rtems-4.10/c/src/libchip/rtc/m48t08.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

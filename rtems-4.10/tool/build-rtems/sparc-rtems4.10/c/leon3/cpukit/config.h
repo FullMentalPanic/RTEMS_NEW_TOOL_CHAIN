@@ -270,6 +270,9 @@
 /* if RTEMS_DEBUG is enabled */
 /* #undef RTEMS_DEBUG */
 
+/* if driver manager api is supported */
+#define RTEMS_DRVMGR_STARTUP 1
+
 /* if itron api is supported */
 /* #undef RTEMS_ITRON_API */
 

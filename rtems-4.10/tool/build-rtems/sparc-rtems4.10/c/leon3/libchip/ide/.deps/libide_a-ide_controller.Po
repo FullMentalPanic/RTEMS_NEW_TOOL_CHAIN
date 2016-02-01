@@ -1,5 +1,5 @@
 ide/libide_a-ide_controller.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/ide/ide_controller.c \
+ ../../../../../rtems-4.10/c/src/libchip/ide/ide_controller.c \
  ../../../leon3/lib/include/rtems/chain.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

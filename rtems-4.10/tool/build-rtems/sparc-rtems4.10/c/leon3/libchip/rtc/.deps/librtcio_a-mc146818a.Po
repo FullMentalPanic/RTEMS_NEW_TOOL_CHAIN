@@ -1,5 +1,5 @@
 rtc/librtcio_a-mc146818a.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/rtc/mc146818a.c \
+ ../../../../../rtems-4.10/c/src/libchip/rtc/mc146818a.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

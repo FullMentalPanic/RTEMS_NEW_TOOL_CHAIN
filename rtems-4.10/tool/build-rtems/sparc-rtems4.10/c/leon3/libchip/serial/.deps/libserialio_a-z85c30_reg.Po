@@ -1,5 +1,5 @@
 serial/libserialio_a-z85c30_reg.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/serial/z85c30_reg.c \
+ ../../../../../rtems-4.10/c/src/libchip/serial/z85c30_reg.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

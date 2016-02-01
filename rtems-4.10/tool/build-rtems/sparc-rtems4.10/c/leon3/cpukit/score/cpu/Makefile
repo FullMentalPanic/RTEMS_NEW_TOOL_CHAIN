@@ -14,7 +14,7 @@
 # PARTICULAR PURPOSE.
 
 
-VPATH = ../../../../../../../rtems-4.10.2/c/src/../../cpukit/score/cpu
+VPATH = ../../../../../../../rtems-4.10/c/src/../../cpukit/score/cpu
 pkgdatadir = $(datadir)/rtems-cpukit
 pkgincludedir = $(includedir)/rtems-cpukit
 pkglibdir = $(libdir)/rtems-cpukit
@@ -47,6 +47,7 @@ am__aclocal_m4_deps = $(top_srcdir)/aclocal/canonical-target-name.m4 \
 	$(top_srcdir)/aclocal/check-posix.m4 \
 	$(top_srcdir)/aclocal/check-rtems-debug.m4 \
 	$(top_srcdir)/aclocal/check-tool.m4 \
+	$(top_srcdir)/aclocal/enable-drvmgr.m4 \
 	$(top_srcdir)/aclocal/enable-httpd.m4 \
 	$(top_srcdir)/aclocal/enable-itron.m4 \
 	$(top_srcdir)/aclocal/enable-multiprocessing.m4 \
@@ -114,13 +115,13 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10.2/ampolish3
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10/ampolish3
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
 AR = sparc-rtems4.10-ar
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CC = sparc-rtems4.10-gcc --pipe
 CCAS = sparc-rtems4.10-gcc --pipe
@@ -150,7 +151,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 MULTIBUILDTOP = 
 MULTISUBDIR = 
@@ -180,9 +181,9 @@ SHELL = /bin/bash
 STRIP = sparc-rtems4.10-strip
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/score/cpu
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10.2/c/src/../../cpukit/score/cpu
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10/c/src/../../cpukit/score/cpu
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10.2/c/src/../../cpukit
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/cpukit/../../../../../rtems-4.10/c/src/../../cpukit
 ac_ct_CC = 
 am__include = include
 am__leading_dot = .
@@ -210,14 +211,14 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = /opt/rtems-4.10/sparc-rtems4.10/leon3/lib/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = /opt/rtems-4.10/sparc-rtems4.10/leon3/lib$(MULTISUBDIR)
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
 mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
-multilib_basedir = ../../../../../rtems-4.10.2/c/src/../../cpukit/..
+multilib_basedir = ../../../../../rtems-4.10/c/src/../../cpukit/..
 oldincludedir = /usr/include
 pdfdir = ${docdir}
 prefix = /opt/rtems-4.10
@@ -227,12 +228,12 @@ project_libdir = $(libdir)
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../../../../../rtems-4.10.2/c/src/../../cpukit/score/cpu
+srcdir = ../../../../../../../rtems-4.10/c/src/../../cpukit/score/cpu
 sysconfdir = ${prefix}/etc
 target_alias = sparc-rtems4.10
 top_build_prefix = ../../
 top_builddir = ../..
-top_srcdir = ../../../../../../../rtems-4.10.2/c/src/../../cpukit
+top_srcdir = ../../../../../../../rtems-4.10/c/src/../../cpukit
 SUBDIRS = sparc
 DIST_SUBDIRS = arm avr bfin h8300 i386 lm32 m32c m32r m68k mips no_cpu \
 	powerpc sh sparc

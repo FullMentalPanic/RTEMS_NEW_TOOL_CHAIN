@@ -1,5 +1,5 @@
 src/devfs/devclose.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devclose.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devclose.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -108,7 +108,7 @@ src/devfs/devclose.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libio_.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stat.h \
@@ -350,7 +350,7 @@ src/devfs/devclose.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/libio_.h:
 

@@ -1,5 +1,5 @@
 libpppd_a-ccp.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ccp.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ccp.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -16,7 +16,7 @@ libpppd_a-ccp.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
@@ -41,8 +41,8 @@ libpppd_a-ccp.o: \
  ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ccp.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ccp.h \
  ../../cpukit/../../../leon3/lib/include/net/ppp_comp.h
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h:
@@ -77,7 +77,7 @@ libpppd_a-ccp.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
 
@@ -127,8 +127,8 @@ libpppd_a-ccp.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/fsm.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/fsm.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/ccp.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/ccp.h:
 
 ../../cpukit/../../../leon3/lib/include/net/ppp_comp.h:

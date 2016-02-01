@@ -1,5 +1,5 @@
 shell/libshell_a-utils-ls.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/utils-ls.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/utils-ls.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -22,13 +22,13 @@ shell/libshell_a-utils-ls.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/cdefs.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/fts.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/fts.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/syslimits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/limits.h \
@@ -40,8 +40,8 @@ shell/libshell_a-utils-ls.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/vis.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-ls.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/vis.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-ls.h
 
 ../config.h:
 
@@ -87,7 +87,7 @@ shell/libshell_a-utils-ls.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/ctype.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/err.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/err.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ansi.h:
 
@@ -99,7 +99,7 @@ shell/libshell_a-utils-ls.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/fts.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/fts.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/limits.h:
 
@@ -123,6 +123,6 @@ shell/libshell_a-utils-ls.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/vis.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/vis.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/extern-ls.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/extern-ls.h:

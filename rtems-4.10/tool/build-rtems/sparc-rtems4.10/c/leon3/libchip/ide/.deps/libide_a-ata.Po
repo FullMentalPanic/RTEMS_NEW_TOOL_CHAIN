@@ -1,4 +1,4 @@
-ide/libide_a-ata.o: ../../../../../rtems-4.10.2/c/src/libchip/ide/ata.c \
+ide/libide_a-ata.o: ../../../../../rtems-4.10/c/src/libchip/ide/ata.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/reent.h \
@@ -135,7 +135,7 @@ ide/libide_a-ata.o: ../../../../../rtems-4.10.2/c/src/libchip/ide/ata.c \
  ../../../leon3/lib/include/rtems/blkdev.h \
  ../../../leon3/lib/include/libchip/ide_ctrl_io.h \
  ../../../leon3/lib/include/libchip/ide_ctrl_cfg.h \
- ../../../../../rtems-4.10.2/c/src/libchip/ide/ata_internal.h \
+ ../../../../../rtems-4.10/c/src/libchip/ide/ata_internal.h \
  ../../../leon3/lib/include/libchip/ata.h
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h:
@@ -410,6 +410,6 @@ ide/libide_a-ata.o: ../../../../../rtems-4.10.2/c/src/libchip/ide/ata.c \
 
 ../../../leon3/lib/include/libchip/ide_ctrl_cfg.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/ide/ata_internal.h:
+../../../../../rtems-4.10/c/src/libchip/ide/ata_internal.h:
 
 ../../../leon3/lib/include/libchip/ata.h:

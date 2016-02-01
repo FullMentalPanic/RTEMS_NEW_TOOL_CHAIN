@@ -1,9 +1,8 @@
-deflate.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/deflate.c \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/deflate.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zutil.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zlib.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zconf.h \
+deflate.o: ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/deflate.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/deflate.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zutil.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zlib.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zconf.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -29,13 +28,13 @@ deflate.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/deflate.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/zlib/deflate.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zutil.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zutil.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zlib.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zlib.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zconf.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zconf.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h:
 

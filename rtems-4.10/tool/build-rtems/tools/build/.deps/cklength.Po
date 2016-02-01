@@ -1,4 +1,4 @@
-cklength.o: ../../../rtems-4.10.2/tools/build/cklength.c \
+cklength.o: ../../../rtems-4.10/tools/build/cklength.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \

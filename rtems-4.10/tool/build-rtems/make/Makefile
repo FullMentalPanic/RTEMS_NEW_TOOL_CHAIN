@@ -15,7 +15,7 @@
 
 
 
-VPATH = ../../rtems-4.10.2/make
+VPATH = ../../rtems-4.10/make
 pkgdatadir = $(datadir)/rtems
 pkgincludedir = $(includedir)/rtems
 pkglibdir = $(libdir)/rtems
@@ -42,6 +42,7 @@ DIST_COMMON = $(dist_rtems_make_DATA) \
 subdir = make
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/aclocal/enable-cxx.m4 \
+	$(top_srcdir)/aclocal/enable-drvmgr.m4 \
 	$(top_srcdir)/aclocal/enable-itron.m4 \
 	$(top_srcdir)/aclocal/enable-multiprocessing.m4 \
 	$(top_srcdir)/aclocal/enable-networking.m4 \
@@ -87,11 +88,11 @@ am__installdirs = "$(DESTDIR)$(rtems_makedir)" \
 DATA = $(dist_rtems_make_DATA) $(dist_rtems_make_Templates_DATA) \
 	$(dist_rtems_make_custom_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"rtems\" -DPACKAGE_TARNAME=\"rtems\" -DPACKAGE_VERSION=\"4.10.2\" -DPACKAGE_STRING=\"rtems\ 4.10.2\" -DPACKAGE_BUGREPORT=\"http://www.rtems.org/bugzilla\" -DPACKAGE_URL=\"\"
@@ -108,7 +109,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 PACKAGE = rtems
 PACKAGE_BUGREPORT = http://www.rtems.org/bugzilla
@@ -128,9 +129,9 @@ SHELL = /bin/bash
 STRIP = 
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/make
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/../rtems-4.10.2/make
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/../rtems-4.10/make
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/../rtems-4.10.2
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/../rtems-4.10
 am__leading_dot = .
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
@@ -143,7 +144,7 @@ build_cpu = i686
 build_os = linux-gnu
 build_subdir = .
 build_vendor = pc
-buildargs = '--host=i686-pc-linux-gnu' '--build=i686-pc-linux-gnu'  '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--enable-rtemsbsp=leon3' '--target=sparc-rtems4.10'
+buildargs = '--host=i686-pc-linux-gnu' '--build=i686-pc-linux-gnu'  '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--enable-rtemsbsp=leon3' '--enable-drvmgr' '--target=sparc-rtems4.10'
 builddir = .
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
@@ -158,11 +159,11 @@ host_cpu = i686
 host_os = linux-gnu
 host_subdir = 
 host_vendor = pc
-hostargs = '--host=i686-pc-linux-gnu' '--build=i686-pc-linux-gnu' '--target=sparc-rtems4.10'  '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--enable-rtemsbsp=leon3'
+hostargs = '--host=i686-pc-linux-gnu' '--build=i686-pc-linux-gnu' '--target=sparc-rtems4.10'  '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--enable-rtemsbsp=leon3' '--enable-drvmgr'
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -176,7 +177,7 @@ program_transform_name = s&^&sparc-rtems4.10-&
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../rtems-4.10.2/make
+srcdir = ../../rtems-4.10/make
 sysconfdir = ${prefix}/etc
 target = sparc-unknown-rtems4.10
 target_SUBDIRS =  sparc-rtems4.10/c
@@ -186,10 +187,10 @@ target_cpu = sparc
 target_os = rtems4.10
 target_subdir = sparc-rtems4.10
 target_vendor = unknown
-targetargs = '--host=sparc-rtems4.10' '--build=i686-pc-linux-gnu' '--target=sparc-rtems4.10'  '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--enable-rtemsbsp=leon3'
+targetargs = '--host=sparc-rtems4.10' '--build=i686-pc-linux-gnu' '--target=sparc-rtems4.10'  '--disable-itron' '--disable-tests' '--enable-cxx' '--disable-docs' '--enable-multiprocessing' '--enable-rtemsbsp=leon3' '--enable-drvmgr'
 top_build_prefix = ../
 top_builddir = ..
-top_srcdir = ../../rtems-4.10.2
+top_srcdir = ../../rtems-4.10
 rtems_makedir = $(prefix)/make
 dist_rtems_make_DATA = main.cfg leaf.cfg
 EXTRA_DIST = host.cfg.in compilers/gcc-no_bsp.cfg \

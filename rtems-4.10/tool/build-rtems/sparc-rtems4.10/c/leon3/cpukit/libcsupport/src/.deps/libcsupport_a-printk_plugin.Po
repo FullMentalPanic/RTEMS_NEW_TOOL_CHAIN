@@ -1,5 +1,5 @@
 src/libcsupport_a-printk_plugin.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/printk_plugin.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/printk_plugin.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bspIo.h

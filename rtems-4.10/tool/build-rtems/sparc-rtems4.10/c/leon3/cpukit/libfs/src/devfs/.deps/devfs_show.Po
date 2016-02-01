@@ -1,7 +1,7 @@
 src/devfs/devfs_show.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs_show.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs_show.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems/seterr.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libio_.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
@@ -137,7 +137,7 @@ src/devfs/devfs_show.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/seterr.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/devfs/devfs.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/devfs/devfs.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/libio_.h:
 

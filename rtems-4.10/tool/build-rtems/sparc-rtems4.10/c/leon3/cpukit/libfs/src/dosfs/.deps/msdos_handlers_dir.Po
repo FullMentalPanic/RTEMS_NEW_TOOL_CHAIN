@@ -1,5 +1,5 @@
 src/dosfs/msdos_handlers_dir.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/msdos_handlers_dir.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/msdos_handlers_dir.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems/libio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -126,12 +126,12 @@ src/dosfs/msdos_handlers_dir.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/chain.h \
  ../../cpukit/../../../leon3/lib/include/rtems/chain.inl \
  ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/msdos.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/msdos.h \
  ../../cpukit/../../../leon3/lib/include/rtems/libio_.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h \
  ../../cpukit/../../../leon3/lib/include/rtems/userenv.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat.h \
  ../../cpukit/../../../leon3/lib/include/rtems/seterr.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bdbuf.h \
  ../../cpukit/../../../leon3/lib/include/rtems/blkdev.h \
@@ -139,7 +139,7 @@ src/dosfs/msdos_handlers_dir.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat_file.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat_file.h
 
 ../config.h:
 
@@ -395,7 +395,7 @@ src/dosfs/msdos_handlers_dir.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/msdos.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/msdos.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/libio_.h:
 
@@ -405,7 +405,7 @@ src/dosfs/msdos_handlers_dir.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/userenv.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/seterr.h:
 
@@ -421,4 +421,4 @@ src/dosfs/msdos_handlers_dir.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/dosfs/fat_file.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/dosfs/fat_file.h:

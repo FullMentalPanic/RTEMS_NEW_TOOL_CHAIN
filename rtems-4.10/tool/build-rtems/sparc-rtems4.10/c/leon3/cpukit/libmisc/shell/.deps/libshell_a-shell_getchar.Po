@@ -1,5 +1,5 @@
 shell/libshell_a-shell_getchar.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/shell_getchar.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/shell_getchar.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -132,7 +132,7 @@ shell/libshell_a-shell_getchar.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/chain.inl \
  ../../cpukit/../../../leon3/lib/include/rtems/score/chain.inl \
  ../../cpukit/../../../leon3/lib/include/rtems/shellconfig.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/internal.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/internal.h
 
 ../config.h:
 
@@ -398,4 +398,4 @@ shell/libshell_a-shell_getchar.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/shellconfig.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/internal.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/internal.h:

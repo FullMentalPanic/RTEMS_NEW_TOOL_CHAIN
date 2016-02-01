@@ -1,5 +1,5 @@
 shmdr/shmdr_rel-send.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/send.c \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/send.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -108,7 +108,7 @@ shmdr/shmdr_rel-send.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  ../../../leon3/lib/include/rtems/rtems/mp.h \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/shm_driver.h \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/shm_driver.h \
  ../../../leon3/lib/include/rtems/clockdrv.h
 
 ../../../leon3/lib/include/rtems.h:
@@ -327,6 +327,6 @@ shmdr/shmdr_rel-send.o: \
 
 ../../../leon3/lib/include/rtems/rtems/mp.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/shmdr/shm_driver.h:
+../../../../../rtems-4.10/c/src/libchip/shmdr/shm_driver.h:
 
 ../../../leon3/lib/include/rtems/clockdrv.h:

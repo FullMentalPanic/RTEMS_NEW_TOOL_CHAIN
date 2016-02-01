@@ -1,0 +1,29 @@
+access/access_rel-access_le.o: \
+ ../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc/access/access_le.c \
+ ../../../../.././leon3/lib/include/libcpu/byteorder.h \
+ ../../../../.././leon3/lib/include/rtems/system.h \
+ ../../../../.././leon3/lib/include/rtems/score/cpuopts.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
+ ../../../../.././leon3/lib/include/rtems/score/cpu.h \
+ ../../../../.././leon3/lib/include/rtems/score/sparc.h \
+ ../../../../.././leon3/lib/include/rtems/score/types.h \
+ /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h
+
+../../../../.././leon3/lib/include/libcpu/byteorder.h:
+
+../../../../.././leon3/lib/include/rtems/system.h:
+
+../../../../.././leon3/lib/include/rtems/score/cpuopts.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stddef.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
+
+../../../../.././leon3/lib/include/rtems/score/cpu.h:
+
+../../../../.././leon3/lib/include/rtems/score/sparc.h:
+
+../../../../.././leon3/lib/include/rtems/score/types.h:
+
+/opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:

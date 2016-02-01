@@ -1,5 +1,5 @@
 shmdr/shmdr_rel-poll.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/poll.c \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/poll.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -127,7 +127,7 @@ shmdr/shmdr_rel-poll.o: \
  ../../../leon3/lib/include/rtems/chain.inl \
  ../../../leon3/lib/include/rtems/score/chain.inl \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/assert.h \
- ../../../../../rtems-4.10.2/c/src/libchip/shmdr/shm_driver.h \
+ ../../../../../rtems-4.10/c/src/libchip/shmdr/shm_driver.h \
  ../../../leon3/lib/include/rtems/clockdrv.h
 
 ../../../leon3/lib/include/rtems.h:
@@ -384,6 +384,6 @@ shmdr/shmdr_rel-poll.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/assert.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/shmdr/shm_driver.h:
+../../../../../rtems-4.10/c/src/libchip/shmdr/shm_driver.h:
 
 ../../../leon3/lib/include/rtems/clockdrv.h:

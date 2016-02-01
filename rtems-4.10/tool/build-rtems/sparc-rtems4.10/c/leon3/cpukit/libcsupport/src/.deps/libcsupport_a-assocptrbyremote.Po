@@ -1,5 +1,5 @@
 src/libcsupport_a-assocptrbyremote.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/assocptrbyremote.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/assocptrbyremote.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \

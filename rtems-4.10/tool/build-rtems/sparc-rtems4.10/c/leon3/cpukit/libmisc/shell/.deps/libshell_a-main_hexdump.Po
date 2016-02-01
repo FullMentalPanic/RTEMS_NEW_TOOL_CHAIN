@@ -1,5 +1,5 @@
 shell/libshell_a-main_hexdump.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/main_hexdump.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/main_hexdump.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -135,7 +135,7 @@ shell/libshell_a-main_hexdump.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/strings.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexdump.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/hexdump.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/wchar.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/setjmp.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/setjmp.h
@@ -412,7 +412,7 @@ shell/libshell_a-main_hexdump.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/strings.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/shell/hexdump.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/shell/hexdump.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/wchar.h:
 

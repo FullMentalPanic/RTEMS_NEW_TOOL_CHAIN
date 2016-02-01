@@ -1,5 +1,5 @@
 src/libcsupport_a-termios_baud2num.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/termios_baud2num.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/termios_baud2num.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/sys/termios.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

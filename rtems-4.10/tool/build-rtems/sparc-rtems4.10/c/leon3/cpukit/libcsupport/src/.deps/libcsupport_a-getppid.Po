@@ -1,5 +1,5 @@
 src/libcsupport_a-getppid.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/getppid.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/getppid.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/limits.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include-fixed/syslimits.h \

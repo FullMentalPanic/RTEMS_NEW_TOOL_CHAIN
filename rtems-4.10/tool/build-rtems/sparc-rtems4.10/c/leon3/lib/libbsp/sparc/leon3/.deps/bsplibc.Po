@@ -1,5 +1,5 @@
 bsplibc.o: \
- ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3/../../shared/bsplibc.c \
+ ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3/../../shared/bsplibc.c \
  ../../../../../.././leon3/lib/include/rtems.h \
  ../../../../../.././leon3/lib/include/rtems/system.h \
  ../../../../../.././leon3/lib/include/rtems/score/cpuopts.h \

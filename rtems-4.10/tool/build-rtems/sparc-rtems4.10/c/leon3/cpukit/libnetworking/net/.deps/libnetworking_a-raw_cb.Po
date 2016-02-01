@@ -1,5 +1,5 @@
 net/libnetworking_a-raw_cb.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/net/raw_cb.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/net/raw_cb.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/param.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/config.h \
@@ -31,7 +31,7 @@ net/libnetworking_a-raw_cb.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/queue.h \
  ../../cpukit/../../../leon3/lib/include/sys/systm.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems_bsdnet_internal.h \
@@ -206,7 +206,7 @@ net/libnetworking_a-raw_cb.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/queue.h:
 

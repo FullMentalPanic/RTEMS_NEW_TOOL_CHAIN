@@ -1,5 +1,5 @@
 lib/lib_a-getprotoby.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/lib/getprotoby.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/lib/getprotoby.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/netdb.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/bsdnet/_types.h \

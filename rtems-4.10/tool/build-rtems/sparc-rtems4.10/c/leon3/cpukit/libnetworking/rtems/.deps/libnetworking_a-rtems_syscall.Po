@@ -1,5 +1,5 @@
 rtems/libnetworking_a-rtems_syscall.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/rtems/rtems_syscall.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/rtems/rtems_syscall.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -139,7 +139,7 @@ rtems/libnetworking_a-rtems_syscall.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/bsd/sys/cdefs.h \
  ../../cpukit/../../../leon3/lib/include/sys/priority.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h \
  ../../cpukit/../../../leon3/lib/include/sys/mbuf.h \
  ../../cpukit/../../../leon3/lib/include/sys/malloc.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems_bsdnet_internal.h \
@@ -438,7 +438,7 @@ rtems/libnetworking_a-rtems_syscall.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/param.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libnetworking/machine/limits.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libnetworking/machine/limits.h:
 
 ../../cpukit/../../../leon3/lib/include/sys/mbuf.h:
 

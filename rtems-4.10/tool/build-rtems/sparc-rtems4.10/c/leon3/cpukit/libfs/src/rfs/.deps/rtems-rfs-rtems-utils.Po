@@ -1,5 +1,5 @@
 src/rfs/rtems-rfs-rtems-utils.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems-utils.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems-utils.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -24,7 +24,7 @@ src/rfs/rtems-rfs-rtems-utils.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
@@ -199,7 +199,7 @@ src/rfs/rtems-rfs-rtems-utils.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libfs/src/rfs/rtems-rfs-rtems.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdbool.h:
 

@@ -80,6 +80,12 @@ extern rtems_shell_cmd_t rtems_shell_MALLOC_INFO_Command;
   extern rtems_shell_cmd_t rtems_shell_NETSTATS_Command;
 #endif
 
+/*
+ *  Extern for System commands
+ */
+extern rtems_shell_cmd_t rtems_shell_DRVMGR_Command;
+extern rtems_shell_cmd_t rtems_shell_PCI_Command;
+
 extern rtems_shell_cmd_t *rtems_shell_Initial_commands[];
 
 /*
@@ -422,6 +428,25 @@ extern rtems_shell_alias_t *rtems_shell_Initial_aliases[];
           && !defined(CONFIGURE_SHELL_NO_COMMAND_RTC)) \
         || defined(CONFIGURE_SHELL_COMMAND_RTC)
       &rtems_shell_RTC_Command,
+    #endif
+
+    /*
+     *  System related commands
+     */
+    #if defined(RTEMS_DRVMGR_STARTUP) || defined(CONFIGURE_SHELL_COMMAND_DRVMGR)
+      #if (defined(CONFIGURE_SHELL_COMMANDS_ALL) && \
+           !defined(CONFIGURE_SHELL_NO_COMMAND_DRVMGR)) || \
+          defined(CONFIGURE_SHELL_COMMAND_DRVMGR)
+        &rtems_shell_DRVMGR_Command,
+      #endif
+    #endif
+
+    #if defined(RTEMS_PCI_CONFIG_LIB)
+      #if (defined(CONFIGURE_SHELL_COMMANDS_ALL) && \
+           !defined(CONFIGURE_SHELL_NO_COMMAND_PCI)) || \
+          defined(CONFIGURE_SHELL_COMMAND_PCI)
+        &rtems_shell_PCI_Command,
+      #endif
     #endif
 
     /*

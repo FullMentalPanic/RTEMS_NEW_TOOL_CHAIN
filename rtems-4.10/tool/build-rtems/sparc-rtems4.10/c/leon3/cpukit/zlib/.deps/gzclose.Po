@@ -1,6 +1,5 @@
-gzclose.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/gzclose.c \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/gzguts.h \
+gzclose.o: ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/gzclose.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/gzguts.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -19,8 +18,8 @@ gzclose.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/features.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/sched.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zlib.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zconf.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zlib.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zconf.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/unistd.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
@@ -43,7 +42,7 @@ gzclose.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/errno.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/errno.h
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/gzguts.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/zlib/gzguts.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h:
 
@@ -81,9 +80,9 @@ gzclose.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/stdio.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zlib.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zlib.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/zlib/zconf.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/zlib/zconf.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/unistd.h:
 

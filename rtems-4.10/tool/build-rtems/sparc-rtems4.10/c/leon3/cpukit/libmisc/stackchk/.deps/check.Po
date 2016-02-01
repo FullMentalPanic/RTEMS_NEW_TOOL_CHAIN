@@ -1,5 +1,5 @@
 stackchk/check.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/stackchk/check.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/stackchk/check.c \
  ../config.h ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -114,7 +114,7 @@ stackchk/check.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
  ../../cpukit/../../../leon3/lib/include/rtems/stackchk.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/stackchk/internal.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/stackchk/internal.h
 
 ../config.h:
 
@@ -346,4 +346,4 @@ stackchk/check.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/stackchk.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/stackchk/internal.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/stackchk/internal.h:

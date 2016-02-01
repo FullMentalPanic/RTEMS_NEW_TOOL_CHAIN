@@ -1,7 +1,7 @@
 src/libcsupport_a-realloc.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/realloc.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/realloc.c \
  ../config.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -161,7 +161,7 @@ src/libcsupport_a-realloc.o: \
 
 ../config.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/malloc_p.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/malloc_p.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems.h:
 

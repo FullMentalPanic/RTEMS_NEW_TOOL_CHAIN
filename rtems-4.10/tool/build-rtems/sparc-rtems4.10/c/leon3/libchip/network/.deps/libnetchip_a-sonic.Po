@@ -1,5 +1,5 @@
 network/libnetchip_a-sonic.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/network/sonic.c \
+ ../../../../../rtems-4.10/c/src/libchip/network/sonic.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

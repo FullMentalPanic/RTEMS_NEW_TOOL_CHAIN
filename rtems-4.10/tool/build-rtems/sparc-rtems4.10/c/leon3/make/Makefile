@@ -15,7 +15,7 @@
 
 
 
-VPATH = ../../../../../rtems-4.10.2/c/src/make
+VPATH = ../../../../../rtems-4.10/c/src/make
 pkgdatadir = $(datadir)/rtems-c-src-make
 pkgincludedir = $(includedir)/rtems-c-src-make
 pkglibdir = $(libdir)/rtems-c-src-make
@@ -59,6 +59,7 @@ am__aclocal_m4_deps =  \
 	$(top_srcdir)/../aclocal/check-posix.m4 \
 	$(top_srcdir)/../aclocal/check-tool.m4 \
 	$(top_srcdir)/../aclocal/enable-cxx.m4 \
+	$(top_srcdir)/../aclocal/enable-drvmgr.m4 \
 	$(top_srcdir)/../aclocal/enable-multiprocessing.m4 \
 	$(top_srcdir)/../aclocal/enable-networking.m4 \
 	$(top_srcdir)/../aclocal/enable-posix.m4 \
@@ -124,14 +125,14 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10.2/ampolish3
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10/ampolish3
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
 AR = sparc-rtems4.10-ar
 AS = sparc-rtems4.10-as
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CAT = /bin/cat
 CC = sparc-rtems4.10-gcc --pipe
@@ -176,7 +177,7 @@ LTLIBOBJS =
 M4 = /usr/bin/m4
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 MV = /bin/mv
 NM = sparc-rtems4.10-nm
@@ -218,9 +219,9 @@ STRIP = sparc-rtems4.10-strip
 TOUCH = /usr/bin/touch
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/make
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/make/../../../../../rtems-4.10.2/c/src/make
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/make/../../../../../rtems-4.10/c/src/make
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/make
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/make/../../../../../rtems-4.10.2/c/src/make
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/make/../../../../../rtems-4.10/c/src/make
 ac_ct_CC = 
 ac_ct_CXX = 
 am__include = include
@@ -250,7 +251,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${exec_prefix}/leon3/lib/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = ${exec_prefix}/leon3/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -268,12 +269,12 @@ psdir = ${docdir}
 rtems_cv_prog_cc_cross = 
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../../../rtems-4.10.2/c/src/make
+srcdir = ../../../../../rtems-4.10/c/src/make
 sysconfdir = ${prefix}/etc
 target_alias = sparc-rtems4.10
 top_build_prefix = 
 top_builddir = .
-top_srcdir = ../../../../../rtems-4.10.2/c/src/make
+top_srcdir = ../../../../../rtems-4.10/c/src/make
 ACLOCAL_AMFLAGS = -I aclocal -I ../aclocal
 rtems_makedir = $(prefix)/make
 GENERIC_FILES = host.cfg

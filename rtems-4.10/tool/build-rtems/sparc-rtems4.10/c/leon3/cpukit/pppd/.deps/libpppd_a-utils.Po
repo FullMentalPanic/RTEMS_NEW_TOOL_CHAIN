@@ -1,5 +1,5 @@
 libpppd_a-utils.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/utils.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/utils.c \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/newlib.h \
@@ -137,7 +137,7 @@ libpppd_a-utils.o: \
  ../../cpukit/../../../leon3/lib/include/rtems/fatal.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/ratemon.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h \
  ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h \
  ../../cpukit/../../../leon3/lib/include/rtems/rtemsdialer.h
 
@@ -415,7 +415,7 @@ libpppd_a-utils.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/rtems/mp.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/pppd/pppd.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/pppd/pppd.h:
 
 ../../cpukit/../../../leon3/lib/include/net/ppp_defs.h:
 

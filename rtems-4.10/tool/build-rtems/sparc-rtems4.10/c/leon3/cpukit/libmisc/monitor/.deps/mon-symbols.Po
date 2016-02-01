@@ -1,5 +1,5 @@
 monitor/mon-symbols.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/monitor/mon-symbols.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/monitor/mon-symbols.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -156,7 +156,7 @@ monitor/mon-symbols.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h \
  ../../cpukit/../../../leon3/lib/include/rtems/monitor.h \
  ../../cpukit/../../../leon3/lib/include/rtems/error.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/monitor/symbols.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/monitor/symbols.h
 
 ../config.h:
 
@@ -470,4 +470,4 @@ monitor/mon-symbols.o: \
 
 ../../cpukit/../../../leon3/lib/include/rtems/error.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/monitor/symbols.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/monitor/symbols.h:

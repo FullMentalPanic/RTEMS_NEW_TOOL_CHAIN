@@ -32,6 +32,7 @@ extern "C" {
 #include <leon.h>
 #include <rtems/clockdrv.h>
 #include <rtems/console.h>
+#include <rtems/irq-extension.h>
 
 /* SPARC CPU variant: LEON3 */
 #define LEON3 1
@@ -41,6 +42,9 @@ extern "C" {
  */
 void *bsp_idle_thread( uintptr_t ignored );
 #define BSP_IDLE_TASK_BODY bsp_idle_thread
+
+/* Maximum supported APBUARTs by BSP */
+#define BSP_NUMBER_OF_TERMIOS_PORTS 8
 
 /*
  * Network driver configuration
@@ -71,6 +75,10 @@ extern int rtems_leon_greth_driver_attach(
 #define RTEMS_BSP_NETWORK_DRIVER_ATTACH RTEMS_BSP_NETWORK_DRIVER_ATTACH_GRETH
 #endif
 
+/* Configure GRETH driver */
+#define GRETH_SUPPORTED
+#define GRETH_MEM_LOAD(addr) leon_r32_no_cache(addr)
+
 extern int   CPU_SPARC_HAS_SNOOPING;
 
 
@@ -94,6 +102,10 @@ extern int   end;        /* last address in the program */
 
 /* miscellaneous stuff assumed to exist */
 
+/* set_vec type */
+#define SET_VECTOR_RAW  0  /* Raw trap handler */
+#define SET_VECTOR_INT  1  /* Trap handler with _ISR_Handler interrupt handler */
+
 rtems_isr_entry set_vector(                     /* returns old vector */
     rtems_isr_entry     handler,                /* isr routine        */
     rtems_vector_number vector,                 /* vector number      */
@@ -103,6 +115,125 @@ rtems_isr_entry set_vector(                     /* returns old vector */
 void BSP_fatal_return( void );
 
 void bsp_spurious_initialize( void );
+
+/* Allocate 8-byte aligned non-freeable pre-malloc memory */
+void *bsp_early_malloc(int size);
+
+/* Interrupt Service Routine (ISR) pointer */
+typedef void (*bsp_shared_isr)(void *arg);
+
+/* Initializes the Shared System Interrupt service */
+extern int BSP_shared_interrupt_init(void);
+
+/* Registers a shared IRQ handler, and enable it at IRQ controller. Multiple
+ * interrupt handlers may use the same IRQ number, all ISRs will be called
+ * when an interrupt on that line is fired.
+ *
+ * Arguments
+ *  irq       System IRQ number
+ *  info      Optional Name of IRQ source
+ *  isr       Function pointer to the ISR
+ *  arg       Second argument to function isr
+ */
+static __inline__ int BSP_shared_interrupt_register
+	(
+	int irq,
+	const char *info,
+	bsp_shared_isr isr,
+	void *arg
+	)
+{
+	return rtems_interrupt_handler_install(irq, info,
+					RTEMS_INTERRUPT_SHARED,	isr, arg);
+}
+
+/* Unregister previously registered shared IRQ handler.
+ *
+ * Arguments
+ *  irq       System IRQ number
+ *  isr       Function pointer to the ISR
+ *  arg       Second argument to function isr
+ */
+static __inline__ int BSP_shared_interrupt_unregister
+	(
+	int irq,
+	bsp_shared_isr isr,
+	void *arg
+	)
+{
+	return rtems_interrupt_handler_remove(irq, isr, arg);
+}
+
+/* Clear interrupt pending on IRQ controller, this is typically done on a 
+ * level triggered interrupt source such as PCI to avoid taking double IRQs.
+ * In such a case the interrupt source must be cleared first on LEON, before 
+ * acknowledging the IRQ with this function.
+ *
+ * Arguments
+ *  irq       System IRQ number
+ */
+extern void BSP_shared_interrupt_clear(int irq);
+
+/* Enable Interrupt. This function will unmask the IRQ at the interrupt
+ * controller. This is normally done by _register(). Note that this will
+ * affect all ISRs on this IRQ.
+ *
+ * Arguments
+ *  irq       System IRQ number
+ */
+extern void BSP_shared_interrupt_unmask(int irq);
+
+/* Disable Interrupt. This function will mask one IRQ at the interrupt
+ * controller. This is normally done by _unregister().  Note that this will
+ * affect all ISRs on this IRQ.
+ *
+ * Arguments
+ *  irq         System IRQ number
+ */
+extern void BSP_shared_interrupt_mask(int irq);
+
+/* BSP PCI Interrupt support */
+#define BSP_PCI_shared_interrupt_register    BSP_shared_interrupt_register
+#define BSP_PCI_shared_interrupt_unregister  BSP_shared_interrupt_unregister
+#define BSP_PCI_shared_interrupt_unmask      BSP_shared_interrupt_unmask
+#define BSP_PCI_shared_interrupt_mask        BSP_shared_interrupt_mask
+#define BSP_PCI_shared_interrupt_clear       BSP_shared_interrupt_clear
+
+/* Initialize BSP watchdog routines. Returns number of watchdog timers found.
+ * Currently only one is supported.
+ */
+extern int bsp_watchdog_init(void);
+
+/* Reload watchdog (last timer on the first GPTIMER core), all systems does not
+ * feature a watchdog, it is expected that if this function is called the
+ * user knows that there is a watchdog available.
+ *
+ * The prescaler is normally set to number of MHz of system, this is to
+ * make the system clock tick be stable.
+ *
+ * Arguments
+ *  watchdog       - Always 0 for now
+ *  reload_value   - Number of timer clocks (after prescaler) to count before 
+ *                   watchdog is woken.
+ */
+extern void bsp_watchdog_reload(int watchdog, unsigned int reload_value);
+
+/* Stop watchdog timer */
+extern void bsp_watchdog_stop(int watchdog);
+
+/* Use watchdog0 timer to reset the system */
+extern void bsp_watchdog_system_reset(void);
+
+/* Common driver build-time configurations. On small systems undefine
+ * [DRIVER]_INFO_AVAIL to avoid info routines get dragged in. It is good
+ * for debugging and printing information about the system, but makes the
+ * image bigger.
+ */
+#define AMBAPPBUS_INFO_AVAIL          /* AMBAPP Bus driver */
+#define APBUART_INFO_AVAIL            /* APBUART Console driver */
+#define GPTIMER_INFO_AVAIL            /* GPTIMER Timer driver */
+#define GRETH_INFO_AVAIL              /* GRETH Ethernet driver */
+#define GRTC_RMAP_INFO_AVAIL          /* GRTC over SpaceWire/RMAP driver */
 
 #ifdef __cplusplus
 }

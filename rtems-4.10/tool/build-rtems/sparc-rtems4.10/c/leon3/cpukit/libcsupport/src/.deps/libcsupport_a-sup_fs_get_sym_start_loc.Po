@@ -1,5 +1,5 @@
 src/libcsupport_a-sup_fs_get_sym_start_loc.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libcsupport/src/sup_fs_get_sym_start_loc.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libcsupport/src/sup_fs_get_sym_start_loc.c \
  ../../cpukit/../../../leon3/lib/include/rtems/libio_.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \

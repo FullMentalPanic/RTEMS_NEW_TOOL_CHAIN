@@ -1,5 +1,5 @@
 uuid/uuid_time.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuid_time.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuid_time.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -28,10 +28,10 @@ uuid/uuid_time.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/time.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/signal.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuidP.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuidP.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuid.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuid.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h
 
 ../config.h:
@@ -90,12 +90,12 @@ uuid/uuid_time.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/signal.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuidP.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuidP.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/inttypes.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdint.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/uuid/uuid.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/uuid/uuid.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/time.h:

@@ -1,5 +1,5 @@
 capture/capture.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/capture/capture.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/capture/capture.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/ieeefp.h \
@@ -17,7 +17,7 @@ capture/capture.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/string.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/capture/capture.h \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/capture/capture.h \
  ../../cpukit/../../../leon3/lib/include/rtems.h \
  ../../cpukit/../../../leon3/lib/include/rtems/system.h \
  ../../cpukit/../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -151,7 +151,7 @@ capture/capture.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/libmisc/capture/capture.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/libmisc/capture/capture.h:
 
 ../../cpukit/../../../leon3/lib/include/rtems.h:
 

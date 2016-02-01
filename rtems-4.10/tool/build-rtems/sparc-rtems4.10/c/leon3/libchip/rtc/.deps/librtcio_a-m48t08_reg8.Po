@@ -1,6 +1,6 @@
 rtc/librtcio_a-m48t08_reg8.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/rtc/m48t08_reg8.c \
- ../../../../../rtems-4.10.2/c/src/libchip/rtc/m48t08_reg.c \
+ ../../../../../rtems-4.10/c/src/libchip/rtc/m48t08_reg8.c \
+ ../../../../../rtems-4.10/c/src/libchip/rtc/m48t08_reg.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -110,7 +110,7 @@ rtc/librtcio_a-m48t08_reg8.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  ../../../leon3/lib/include/rtems/rtems/mp.h
 
-../../../../../rtems-4.10.2/c/src/libchip/rtc/m48t08_reg.c:
+../../../../../rtems-4.10/c/src/libchip/rtc/m48t08_reg.c:
 
 ../../../leon3/lib/include/rtems.h:
 

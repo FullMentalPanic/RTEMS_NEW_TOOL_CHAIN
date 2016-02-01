@@ -1,5 +1,5 @@
 src/libposix_a-mqueueopen.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/mqueueopen.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/posix/src/mqueueopen.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/include/stdarg.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/pthread.h \

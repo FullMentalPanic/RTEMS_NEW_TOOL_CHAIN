@@ -1,5 +1,5 @@
 rtc/librtcio_a-icm7170.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/rtc/icm7170.c \
+ ../../../../../rtems-4.10/c/src/libchip/rtc/icm7170.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \

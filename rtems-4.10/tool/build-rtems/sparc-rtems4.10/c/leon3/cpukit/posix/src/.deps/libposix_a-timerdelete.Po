@@ -1,5 +1,5 @@
 src/libposix_a-timerdelete.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/posix/src/timerdelete.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/posix/src/timerdelete.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/time.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \

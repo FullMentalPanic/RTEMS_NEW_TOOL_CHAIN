@@ -1,5 +1,5 @@
 ../shared/src/cache_rel-cache_manager.o: \
- ../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc/../shared/src/cache_manager.c \
+ ../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc/../shared/src/cache_manager.c \
  ../../../../.././leon3/lib/include/rtems.h \
  ../../../../.././leon3/lib/include/rtems/system.h \
  ../../../../.././leon3/lib/include/rtems/score/cpuopts.h \
@@ -109,7 +109,7 @@
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/string.h \
  ../../../../.././leon3/lib/include/rtems/rtems/mp.h \
  ../../../../.././leon3/lib/include/libcpu/cache.h \
- ../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc/cache/cache_.h
+ ../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc/cache/cache_.h
 
 ../../../../.././leon3/lib/include/rtems.h:
 
@@ -329,4 +329,4 @@
 
 ../../../../.././leon3/lib/include/libcpu/cache.h:
 
-../../../../../../../rtems-4.10.2/c/src/lib/libcpu/sparc/cache/cache_.h:
+../../../../../../../rtems-4.10/c/src/lib/libcpu/sparc/cache/cache_.h:

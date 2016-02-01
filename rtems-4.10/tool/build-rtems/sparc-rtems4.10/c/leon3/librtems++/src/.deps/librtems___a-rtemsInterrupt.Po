@@ -1,5 +1,5 @@
 src/librtems___a-rtemsInterrupt.o: \
- ../../../../../rtems-4.10.2/c/src/librtems++/src/rtemsInterrupt.cc \
+ ../../../../../rtems-4.10/c/src/librtems++/src/rtemsInterrupt.cc \
  ../../.././leon3/lib/include/rtems++/rtemsInterrupt.h \
  ../../.././leon3/lib/include/rtems++/rtemsStatusCode.h \
  ../../.././leon3/lib/include/rtems.h \

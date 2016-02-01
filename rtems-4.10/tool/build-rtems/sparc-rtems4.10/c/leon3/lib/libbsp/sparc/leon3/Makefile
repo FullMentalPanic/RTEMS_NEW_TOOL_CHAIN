@@ -18,7 +18,7 @@
 
 
 
-VPATH = ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3
+VPATH = ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3
 pkgdatadir = $(datadir)/rtems-c-src-lib-libbsp-sparc-leon3
 pkgincludedir = $(includedir)/rtems-c-src-lib-libbsp-sparc-leon3
 pkglibdir = $(libdir)/rtems-c-src-lib-libbsp-sparc-leon3
@@ -37,8 +37,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = i686-pc-linux-gnu
 host_triplet = sparc-unknown-rtems4.10
-DIST_COMMON = README $(am__configure_deps) $(dist_project_lib_DATA) \
-	$(include_HEADERS) $(srcdir)/../../../../../../config.guess \
+DIST_COMMON = README $(am__configure_deps) $(am__include_HEADERS_DIST) \
+	$(dist_project_lib_DATA) $(include_bsp_HEADERS) \
+	$(include_drvmgr_HEADERS) \
+	$(srcdir)/../../../../../../config.guess \
 	$(srcdir)/../../../../../../config.sub \
 	$(srcdir)/../../../../../../depcomp \
 	$(srcdir)/../../../../../../install-sh \
@@ -57,12 +59,21 @@ DIST_COMMON = README $(am__configure_deps) $(dist_project_lib_DATA) \
 noinst_PROGRAMS = $(am__EXEEXT_1)
 am__append_1 = leon_smc91111.rel \
 	leon_open_eth.rel leon_greth.rel
+am__append_2 = leon_greth/leon_greth.c \
+	../../sparc/shared/net/network_interface_add.c
+
+# BSP Network configuration
+am__append_3 =  \
+	../../sparc/shared/include/greth.h \
+	../../sparc/shared/include/network_interface_add.h
 # shmsupp
-am__append_2 = shmsupp/addrconv.c shmsupp/getcfg.c shmsupp/lock.c \
+am__append_4 = shmsupp/addrconv.c shmsupp/getcfg.c shmsupp/lock.c \
     shmsupp/mpisr.c
 
-am__append_3 = leon_open_eth.rel leon_greth.rel \
+am__append_5 = leon_open_eth.rel leon_greth.rel \
 	leon_smc91111.rel
+am__append_6 = $(PROJECT_INCLUDE)/greth.h \
+	$(PROJECT_INCLUDE)/network_interface_add.h
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps =  \
@@ -104,46 +115,135 @@ CONFIG_CLEAN_VPATH_FILES =
 LIBRARIES = $(noinst_LIBRARIES)
 ARFLAGS = cru
 libbsp_a_AR = $(AR) $(ARFLAGS)
-libbsp_a_DEPENDENCIES = ../../../libcpu/sparc/cache.rel \
+libbsp_a_DEPENDENCIES = ../../../libcpu/sparc/access.rel \
+	../../../libcpu/sparc/cache.rel \
 	../../../libcpu/sparc/reg_win.rel \
-	../../../libcpu/sparc/syscall.rel $(am__append_3)
+	../../../libcpu/sparc/syscall.rel $(am__append_5)
 am__libbsp_a_SOURCES_DIST = ../../shared/bspclean.c \
 	../../shared/bsplibc.c ../../shared/bsppost.c \
 	../../shared/bootcard.c startup/bspstart.c \
-	../../sparc/shared/bsppretaskinghook.c \
-	../../shared/bsppredriverhook.c \
+	../../sparc/shared/bsppretaskinghook.c startup/bsppredriver.c \
 	../../sparc/shared/bspgetworkarea.c ../../shared/sbrk.c \
-	startup/setvec.c startup/spurious.c startup/bspidle.S \
-	gnatsupp/gnatsupp.c ../../sparc/shared/gnatcommon.c \
-	amba/amba.c ../../sparc/shared/amba/ambapp.c console/console.c \
-	console/debugputs.c clock/ckinit.c \
-	../../../shared/clockdrv_shell.h pci/pci.c \
-	../../sparc/shared/pci/pcifinddevice.c \
+	startup/setvec.c ../../sparc/shared/startup/early_malloc.c \
+	startup/spurious.c startup/bspidle.S gnatsupp/gnatsupp.c \
+	../../sparc/shared/gnatcommon.c amba/amba.c \
+	../../sparc/shared/amba/ambapp.c \
+	../../sparc/shared/amba/ambapp_alloc.c \
+	../../sparc/shared/amba/ambapp_count.c \
+	../../sparc/shared/amba/ambapp_depth.c \
+	../../sparc/shared/amba/ambapp_find_by_idx.c \
+	../../sparc/shared/amba/ambapp_freq.c \
+	../../sparc/shared/amba/ambapp_parent.c \
+	../../sparc/shared/amba/ambapp_old.c \
+	../../sparc/shared/amba/ambapp_names.c \
+	../../sparc/shared/amba/ambapp_show.c \
+	../../sparc/shared/amba/ahbstat.c \
+	../../sparc/shared/timer/gptimer.c \
+	../../sparc/shared/timer/tlib.c \
+	../../sparc/shared/timer/tlib_ckinit.c clock/ckinit.c \
+	../../../shared/clockdrv_shell.h console/console.c \
+	../../sparc/shared/uart/cons.c \
+	../../sparc/shared/uart/apbuart_cons.c console/debugputs.c \
+	startup/eirq.c ../../sparc/shared/irq/genirq.c \
+	../../sparc/shared/irq/irq-shared.c \
+	../../shared/src/irq-generic.c ../../shared/src/irq-legacy.c \
+	../../shared/src/irq-info.c ../../shared/src/irq-shell.c \
+	../../shared/src/irq-server.c ../../sparc/shared/pci/grpci.c \
+	../../sparc/shared/pci/grpci2.c ../../sparc/shared/pci/pcif.c \
+	../../sparc/shared/pci/pci_memreg_sparc_le.c \
+	../../sparc/shared/pci/pci_memreg_sparc_be.c \
+	../../sparc/shared/pci/gr_701.c \
+	../../sparc/shared/pci/gr_rasta_adcdac.c \
+	../../sparc/shared/pci/gr_rasta_io.c \
+	../../sparc/shared/pci/gr_rasta_spw_router.c \
+	../../sparc/shared/pci/gr_rasta_tmtc.c \
+	../../sparc/shared/pci/gr_tmtc_1553.c \
+	../../sparc/shared/pci/gr_leon4_n2x.c \
 	../../sparc/shared/1553/b1553brm.c \
-	../../sparc/shared/1553/b1553brm_pci.c \
-	../../sparc/shared/can/occan.c \
-	../../sparc/shared/can/occan_pci.c \
-	../../sparc/shared/can/grcan.c ../../sparc/shared/spw/grspw.c \
-	../../sparc/shared/spw/grspw_pci.c \
+	../../sparc/shared/1553/b1553rt.c \
+	../../sparc/shared/1553/gr1553b.c \
+	../../sparc/shared/1553/gr1553bc.c \
+	../../sparc/shared/1553/gr1553bm.c \
+	../../sparc/shared/1553/gr1553rt.c \
+	../../sparc/shared/can/occan.c ../../sparc/shared/can/grcan.c \
+	../../sparc/shared/spw/grspw.c \
+	../../sparc/shared/spw/grspw_pkt.c \
+	../../sparc/shared/spw/grspw_router.c \
+	../../sparc/shared/spw/rmap.c \
+	../../sparc/shared/spw/rmap_async.c \
+	../../sparc/shared/spw/rmap_common.c \
+	../../sparc/shared/spw/rmap_drv_grspw.c \
 	../../sparc/shared/uart/apbuart.c \
-	../../sparc/shared/uart/apbuart_pci.c \
-	../../sparc/shared/i2c/i2cmst.c timer/timer.c \
+	../../sparc/shared/i2c/i2cmst.c \
+	../../sparc/shared/spi/spictrl.c \
+	../../sparc/shared/time/spwcuc.c \
+	../../sparc/shared/time/spwtdp.c \
+	../../sparc/shared/time/grctm.c \
+	../../sparc/shared/gpio/grgpio.c \
+	../../sparc/shared/gpio/gpiolib.c \
+	../../sparc/shared/graes/graes.c \
+	../../sparc/shared/grpwrx/grpwrx.c \
+	../../sparc/shared/pwm/grpwm.c \
+	../../sparc/shared/analog/gradcdac.c \
+	../../sparc/shared/mem/mctrl.c \
+	../../sparc/shared/mem/mctrl_rmap.c timer/timer.c \
+	timer/watchdog.c ../../sparc/shared/ascs/grascs.c \
+	../../sparc/shared/can/satcan.c \
+	../../sparc/shared/can/canmux.c \
+	../../sparc/shared/slink/grslink.c \
+	../../sparc/shared/tmtc/grtc.c \
+	../../sparc/shared/tmtc/grtc_rmap.c \
+	../../sparc/shared/tmtc/grtm.c \
+	../../sparc/shared/tmtc/grtm_rmap.c \
+	../../sparc/shared/drvmgr/ambapp_bus.c \
+	../../sparc/shared/drvmgr/ambapp_bus_grlib.c \
+	../../sparc/shared/drvmgr/ambapp_bus_rmap.c \
+	../../sparc/shared/drvmgr/spw_bus.c leon_greth/leon_greth.c \
+	../../sparc/shared/net/network_interface_add.c \
 	shmsupp/addrconv.c shmsupp/getcfg.c shmsupp/lock.c \
 	shmsupp/mpisr.c
-am__objects_1 = addrconv.$(OBJEXT) getcfg.$(OBJEXT) \
+am__objects_1 = leon_greth.$(OBJEXT) \
+	network_interface_add.$(OBJEXT)
+am__objects_2 = addrconv.$(OBJEXT) getcfg.$(OBJEXT) \
 	lock.$(OBJEXT) mpisr.$(OBJEXT)
 am_libbsp_a_OBJECTS = bspclean.$(OBJEXT) bsplibc.$(OBJEXT) \
 	bsppost.$(OBJEXT) bootcard.$(OBJEXT) bspstart.$(OBJEXT) \
-	bsppretaskinghook.$(OBJEXT) bsppredriverhook.$(OBJEXT) \
+	bsppretaskinghook.$(OBJEXT) bsppredriver.$(OBJEXT) \
 	bspgetworkarea.$(OBJEXT) sbrk.$(OBJEXT) setvec.$(OBJEXT) \
-	spurious.$(OBJEXT) bspidle.$(OBJEXT) gnatsupp.$(OBJEXT) \
-	gnatcommon.$(OBJEXT) amba.$(OBJEXT) ambapp.$(OBJEXT) \
-	console.$(OBJEXT) debugputs.$(OBJEXT) ckinit.$(OBJEXT) \
-	pci.$(OBJEXT) pcifinddevice.$(OBJEXT) b1553brm.$(OBJEXT) \
-	b1553brm_pci.$(OBJEXT) occan.$(OBJEXT) occan_pci.$(OBJEXT) \
-	grcan.$(OBJEXT) grspw.$(OBJEXT) grspw_pci.$(OBJEXT) \
-	apbuart.$(OBJEXT) apbuart_pci.$(OBJEXT) i2cmst.$(OBJEXT) \
-	timer.$(OBJEXT) $(am__objects_1)
+	early_malloc.$(OBJEXT) spurious.$(OBJEXT) bspidle.$(OBJEXT) \
+	gnatsupp.$(OBJEXT) gnatcommon.$(OBJEXT) amba.$(OBJEXT) \
+	ambapp.$(OBJEXT) ambapp_alloc.$(OBJEXT) ambapp_count.$(OBJEXT) \
+	ambapp_depth.$(OBJEXT) ambapp_find_by_idx.$(OBJEXT) \
+	ambapp_freq.$(OBJEXT) ambapp_parent.$(OBJEXT) \
+	ambapp_old.$(OBJEXT) ambapp_names.$(OBJEXT) \
+	ambapp_show.$(OBJEXT) ahbstat.$(OBJEXT) gptimer.$(OBJEXT) \
+	tlib.$(OBJEXT) tlib_ckinit.$(OBJEXT) ckinit.$(OBJEXT) \
+	console.$(OBJEXT) cons.$(OBJEXT) apbuart_cons.$(OBJEXT) \
+	debugputs.$(OBJEXT) eirq.$(OBJEXT) genirq.$(OBJEXT) \
+	irq-shared.$(OBJEXT) irq-generic.$(OBJEXT) \
+	irq-legacy.$(OBJEXT) irq-info.$(OBJEXT) irq-shell.$(OBJEXT) \
+	irq-server.$(OBJEXT) grpci.$(OBJEXT) grpci2.$(OBJEXT) \
+	pcif.$(OBJEXT) pci_memreg_sparc_le.$(OBJEXT) \
+	pci_memreg_sparc_be.$(OBJEXT) gr_701.$(OBJEXT) \
+	gr_rasta_adcdac.$(OBJEXT) gr_rasta_io.$(OBJEXT) \
+	gr_rasta_spw_router.$(OBJEXT) gr_rasta_tmtc.$(OBJEXT) \
+	gr_tmtc_1553.$(OBJEXT) gr_leon4_n2x.$(OBJEXT) \
+	b1553brm.$(OBJEXT) b1553rt.$(OBJEXT) gr1553b.$(OBJEXT) \
+	gr1553bc.$(OBJEXT) gr1553bm.$(OBJEXT) gr1553rt.$(OBJEXT) \
+	occan.$(OBJEXT) grcan.$(OBJEXT) grspw.$(OBJEXT) \
+	grspw_pkt.$(OBJEXT) grspw_router.$(OBJEXT) rmap.$(OBJEXT) \
+	rmap_async.$(OBJEXT) rmap_common.$(OBJEXT) \
+	rmap_drv_grspw.$(OBJEXT) apbuart.$(OBJEXT) i2cmst.$(OBJEXT) \
+	spictrl.$(OBJEXT) spwcuc.$(OBJEXT) spwtdp.$(OBJEXT) \
+	grctm.$(OBJEXT) grgpio.$(OBJEXT) gpiolib.$(OBJEXT) \
+	graes.$(OBJEXT) grpwrx.$(OBJEXT) grpwm.$(OBJEXT) \
+	gradcdac.$(OBJEXT) mctrl.$(OBJEXT) mctrl_rmap.$(OBJEXT) \
+	timer.$(OBJEXT) watchdog.$(OBJEXT) grascs.$(OBJEXT) \
+	satcan.$(OBJEXT) canmux.$(OBJEXT) grslink.$(OBJEXT) \
+	grtc.$(OBJEXT) grtc_rmap.$(OBJEXT) grtm.$(OBJEXT) \
+	grtm_rmap.$(OBJEXT) ambapp_bus.$(OBJEXT) \
+	ambapp_bus_grlib.$(OBJEXT) ambapp_bus_rmap.$(OBJEXT) \
+	spw_bus.$(OBJEXT) $(am__objects_1) $(am__objects_2)
 libbsp_a_OBJECTS = $(am_libbsp_a_OBJECTS)
 libbspstart_a_AR = $(AR) $(ARFLAGS)
 libbspstart_a_LIBADD =
@@ -153,9 +253,9 @@ am__EXEEXT_1 = leon_smc91111.rel$(EXEEXT) \
 	leon_open_eth.rel$(EXEEXT) \
 	leon_greth.rel$(EXEEXT)
 PROGRAMS = $(noinst_PROGRAMS)
-am__leon_greth_rel_SOURCES_DIST = leon_greth/leon_greth.c
+am__leon_greth_rel_SOURCES_DIST = ../../sparc/shared/net/greth.c
 am_leon_greth_rel_OBJECTS =  \
-	leon_greth_rel-leon_greth.$(OBJEXT)
+	leon_greth_rel-greth.$(OBJEXT)
 leon_greth_rel_OBJECTS = $(am_leon_greth_rel_OBJECTS)
 leon_greth_rel_LDADD = $(LDADD)
 leon_greth_rel_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
@@ -219,9 +319,62 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(project_libdir)" \
 	"$(DESTDIR)$(project_libdir)" "$(DESTDIR)$(includedir)" \
+	"$(DESTDIR)$(include_bspdir)" "$(DESTDIR)$(include_drvmgrdir)" \
 	"$(DESTDIR)$(includedir)" "$(DESTDIR)$(include_bspdir)"
 DATA = $(dist_project_lib_DATA) $(project_lib_DATA)
-HEADERS = $(include_HEADERS) $(nodist_include_HEADERS) \
+am__include_HEADERS_DIST = include/bsp.h include/tm27.h \
+	../../sparc/shared/include/debug_defs.h include/leon.h \
+	../../shared/include/coverhd.h include/amba.h \
+	../../sparc/shared/include/ambapp.h \
+	../../sparc/shared/include/ambapp_ids.h \
+	../../sparc/shared/include/grlib.h \
+	../../sparc/shared/include/ahbstat.h \
+	../../sparc/shared/include/tlib.h \
+	../../sparc/shared/include/cons.h \
+	../../sparc/shared/include/genirq.h \
+	../../sparc/shared/include/grpci2.h \
+	../../sparc/shared/include/gr_701.h \
+	../../sparc/shared/include/gr_rasta_adcdac.h \
+	../../sparc/shared/include/gr_rasta_io.h \
+	../../sparc/shared/include/gr_rasta_tmtc.h \
+	../../sparc/shared/include/gr_tmtc_1553.h \
+	../../sparc/shared/include/gr_leon4_n2x.h \
+	../../sparc/shared/include/b1553brm.h \
+	../../sparc/shared/include/b1553rt.h \
+	../../sparc/shared/include/gr1553b.h \
+	../../sparc/shared/include/gr1553bc.h \
+	../../sparc/shared/include/gr1553bc_list.h \
+	../../sparc/shared/include/gr1553bm.h \
+	../../sparc/shared/include/gr1553rt.h \
+	../../sparc/shared/include/occan.h \
+	../../sparc/shared/include/grcan.h \
+	../../sparc/shared/include/grspw.h \
+	../../sparc/shared/include/grspw_pkt.h \
+	../../sparc/shared/include/grspw_router.h \
+	../../sparc/shared/include/rmap.h \
+	../../sparc/shared/include/rmap_drv_grspw.h \
+	../../sparc/shared/include/apbuart.h \
+	../../sparc/shared/include/i2cmst.h \
+	../../sparc/shared/include/spictrl.h \
+	../../sparc/shared/include/spwcuc.h \
+	../../sparc/shared/include/spwtdp.h \
+	../../sparc/shared/include/grctm.h \
+	../../sparc/shared/include/grgpio.h \
+	../../sparc/shared/include/gpiolib.h \
+	../../sparc/shared/include/graes.h \
+	../../sparc/shared/include/grpwrx.h \
+	../../sparc/shared/include/grpwm.h \
+	../../sparc/shared/include/gradcdac.h \
+	../../sparc/shared/include/grascs.h \
+	../../sparc/shared/include/satcan.h \
+	../../sparc/shared/include/canmux.h \
+	../../sparc/shared/include/grslink.h \
+	../../sparc/shared/include/grtc.h \
+	../../sparc/shared/include/grtm.h \
+	../../sparc/shared/include/greth.h \
+	../../sparc/shared/include/network_interface_add.h
+HEADERS = $(include_HEADERS) $(include_bsp_HEADERS) \
+	$(include_drvmgr_HEADERS) $(nodist_include_HEADERS) \
 	$(nodist_include_bsp_HEADERS)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
@@ -267,14 +420,14 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run aclocal-1.11
-AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10.2/ampolish3
-AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run tar
+ACLOCAL = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run aclocal-1.11
+AMPOLISH3 = $(PERL) /opt/rtems-4.10/tool/rtems-4.10/ampolish3
+AMTAR = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run tar
 AR = sparc-rtems4.10-ar
 AS = sparc-rtems4.10-as
-AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run automake-1.11
+AUTOCONF = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run automake-1.11
 AWK = mawk
 CC = sparc-rtems4.10-gcc --pipe $(GCCSPECS)
 CCAS = sparc-rtems4.10-gcc --pipe $(GCCSPECS)
@@ -305,7 +458,7 @@ LIBS =
 LTLIBOBJS = 
 MAINT = #
 MAKE = make
-MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = rtems-c-src-lib-libbsp-sparc-leon3
@@ -337,9 +490,9 @@ SHELL = /bin/bash
 STRIP = sparc-rtems4.10-strip
 VERSION = 4.10.2
 abs_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/leon3
-abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/leon3/../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3
+abs_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/leon3/../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3
 abs_top_builddir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/leon3
-abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/leon3/../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3
+abs_top_srcdir = /opt/rtems-4.10/tool/build-rtems/sparc-rtems4.10/c/leon3/lib/libbsp/sparc/leon3/../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3
 ac_ct_CC = 
 am__include = include
 am__leading_dot = .
@@ -367,7 +520,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${exec_prefix}/leon3/lib/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10.2/install-sh
+install_sh = ${SHELL} /opt/rtems-4.10/tool/rtems-4.10/install-sh
 libdir = ${exec_prefix}/leon3/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -383,12 +536,12 @@ project_libdir = $(libdir)
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3
+srcdir = ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3
 sysconfdir = ${prefix}/etc
 target_alias = sparc-rtems4.10
 top_build_prefix = 
 top_builddir = .
-top_srcdir = ../../../../../../../../rtems-4.10.2/c/src/lib/libbsp/sparc/leon3
+top_srcdir = ../../../../../../../../rtems-4.10/c/src/lib/libbsp/sparc/leon3
 ACLOCAL_AMFLAGS = -I ../../../../aclocal
 CXX = @CXX@ $(GCCSPECS)
 AM_CPPFLAGS = -isystem $(PROJECT_INCLUDE)
@@ -397,11 +550,20 @@ AM_CXXFLAGS =
 AM_CCASFLAGS = -DASM
 include_bspdir = $(includedir)/bsp
 dist_project_lib_DATA = bsp_specs startup/linkcmds \
-	../shared/startup/linkcmds.base
-# amba
+	startup/linkcmds_ngmp ../shared/startup/linkcmds.base
+# AMBA bus
+
+# Clock Driver and Timer Library
+
+# IRQ
+
 # PCI
 
+# PCI target devices
+
 # B1553BRM
+
+# GR1553B
 
 # CAN
 
@@ -410,21 +572,73 @@ dist_project_lib_DATA = bsp_specs startup/linkcmds \
 # UART
 
 # I2CMST
+
+# SPI
+
+# TIME
+
+# GPIO
+
+# GRAES
+
+# GRPWRX
+
+# PWM
+
+# ADC and DAC
+
+# GR712
+
+# TM/TC
 include_HEADERS = include/bsp.h include/tm27.h \
 	../../sparc/shared/include/debug_defs.h include/leon.h \
 	../../shared/include/coverhd.h include/amba.h \
 	../../sparc/shared/include/ambapp.h \
-	../../sparc/shared/include/pci.h \
+	../../sparc/shared/include/ambapp_ids.h \
+	../../sparc/shared/include/grlib.h \
+	../../sparc/shared/include/ahbstat.h \
+	../../sparc/shared/include/tlib.h \
+	../../sparc/shared/include/cons.h \
+	../../sparc/shared/include/genirq.h \
+	../../sparc/shared/include/grpci2.h \
+	../../sparc/shared/include/gr_701.h \
+	../../sparc/shared/include/gr_rasta_adcdac.h \
+	../../sparc/shared/include/gr_rasta_io.h \
+	../../sparc/shared/include/gr_rasta_tmtc.h \
+	../../sparc/shared/include/gr_tmtc_1553.h \
+	../../sparc/shared/include/gr_leon4_n2x.h \
 	../../sparc/shared/include/b1553brm.h \
-	../../sparc/shared/include/b1553brm_pci.h \
+	../../sparc/shared/include/b1553rt.h \
+	../../sparc/shared/include/gr1553b.h \
+	../../sparc/shared/include/gr1553bc.h \
+	../../sparc/shared/include/gr1553bc_list.h \
+	../../sparc/shared/include/gr1553bm.h \
+	../../sparc/shared/include/gr1553rt.h \
 	../../sparc/shared/include/occan.h \
-	../../sparc/shared/include/occan_pci.h \
 	../../sparc/shared/include/grcan.h \
 	../../sparc/shared/include/grspw.h \
-	../../sparc/shared/include/grspw_pci.h \
+	../../sparc/shared/include/grspw_pkt.h \
+	../../sparc/shared/include/grspw_router.h \
+	../../sparc/shared/include/rmap.h \
+	../../sparc/shared/include/rmap_drv_grspw.h \
 	../../sparc/shared/include/apbuart.h \
-	../../sparc/shared/include/apbuart_pci.h \
-	../../sparc/shared/include/i2cmst.h
+	../../sparc/shared/include/i2cmst.h \
+	../../sparc/shared/include/spictrl.h \
+	../../sparc/shared/include/spwcuc.h \
+	../../sparc/shared/include/spwtdp.h \
+	../../sparc/shared/include/grctm.h \
+	../../sparc/shared/include/grgpio.h \
+	../../sparc/shared/include/gpiolib.h \
+	../../sparc/shared/include/graes.h \
+	../../sparc/shared/include/grpwrx.h \
+	../../sparc/shared/include/grpwm.h \
+	../../sparc/shared/include/gradcdac.h \
+	../../sparc/shared/include/grascs.h \
+	../../sparc/shared/include/satcan.h \
+	../../sparc/shared/include/canmux.h \
+	../../sparc/shared/include/grslink.h \
+	../../sparc/shared/include/grtc.h \
+	../../sparc/shared/include/grtm.h $(am__append_3)
 nodist_include_HEADERS = include/bspopts.h
 nodist_include_bsp_HEADERS = ../../shared/include/bootcard.h
 DISTCLEANFILES = include/bspopts.h $(PREINSTALL_DIRS)
@@ -438,31 +652,109 @@ project_lib_DATA = start.$(OBJEXT)
 
 # startup
 # gnatsupp
+# non-Driver Manager Clock Implementation
+
 # console
 # debugio
-# clock
+
+# Memory controllers
 
 # timer
 libbsp_a_SOURCES = ../../shared/bspclean.c ../../shared/bsplibc.c \
 	../../shared/bsppost.c ../../shared/bootcard.c \
 	startup/bspstart.c ../../sparc/shared/bsppretaskinghook.c \
-	../../shared/bsppredriverhook.c \
-	../../sparc/shared/bspgetworkarea.c ../../shared/sbrk.c \
-	startup/setvec.c startup/spurious.c startup/bspidle.S \
-	gnatsupp/gnatsupp.c ../../sparc/shared/gnatcommon.c \
-	amba/amba.c ../../sparc/shared/amba/ambapp.c console/console.c \
-	console/debugputs.c clock/ckinit.c \
-	../../../shared/clockdrv_shell.h pci/pci.c \
-	../../sparc/shared/pci/pcifinddevice.c \
+	startup/bsppredriver.c ../../sparc/shared/bspgetworkarea.c \
+	../../shared/sbrk.c startup/setvec.c \
+	../../sparc/shared/startup/early_malloc.c startup/spurious.c \
+	startup/bspidle.S gnatsupp/gnatsupp.c \
+	../../sparc/shared/gnatcommon.c amba/amba.c \
+	../../sparc/shared/amba/ambapp.c \
+	../../sparc/shared/amba/ambapp_alloc.c \
+	../../sparc/shared/amba/ambapp_count.c \
+	../../sparc/shared/amba/ambapp_depth.c \
+	../../sparc/shared/amba/ambapp_find_by_idx.c \
+	../../sparc/shared/amba/ambapp_freq.c \
+	../../sparc/shared/amba/ambapp_parent.c \
+	../../sparc/shared/amba/ambapp_old.c \
+	../../sparc/shared/amba/ambapp_names.c \
+	../../sparc/shared/amba/ambapp_show.c \
+	../../sparc/shared/amba/ahbstat.c \
+	../../sparc/shared/timer/gptimer.c \
+	../../sparc/shared/timer/tlib.c \
+	../../sparc/shared/timer/tlib_ckinit.c clock/ckinit.c \
+	../../../shared/clockdrv_shell.h console/console.c \
+	../../sparc/shared/uart/cons.c \
+	../../sparc/shared/uart/apbuart_cons.c console/debugputs.c \
+	startup/eirq.c ../../sparc/shared/irq/genirq.c \
+	../../sparc/shared/irq/irq-shared.c \
+	../../shared/src/irq-generic.c ../../shared/src/irq-legacy.c \
+	../../shared/src/irq-info.c ../../shared/src/irq-shell.c \
+	../../shared/src/irq-server.c ../../sparc/shared/pci/grpci.c \
+	../../sparc/shared/pci/grpci2.c ../../sparc/shared/pci/pcif.c \
+	../../sparc/shared/pci/pci_memreg_sparc_le.c \
+	../../sparc/shared/pci/pci_memreg_sparc_be.c \
+	../../sparc/shared/pci/gr_701.c \
+	../../sparc/shared/pci/gr_rasta_adcdac.c \
+	../../sparc/shared/pci/gr_rasta_io.c \
+	../../sparc/shared/pci/gr_rasta_spw_router.c \
+	../../sparc/shared/pci/gr_rasta_tmtc.c \
+	../../sparc/shared/pci/gr_tmtc_1553.c \
+	../../sparc/shared/pci/gr_leon4_n2x.c \
 	../../sparc/shared/1553/b1553brm.c \
-	../../sparc/shared/1553/b1553brm_pci.c \
-	../../sparc/shared/can/occan.c \
-	../../sparc/shared/can/occan_pci.c \
-	../../sparc/shared/can/grcan.c ../../sparc/shared/spw/grspw.c \
-	../../sparc/shared/spw/grspw_pci.c \
+	../../sparc/shared/1553/b1553rt.c \
+	../../sparc/shared/1553/gr1553b.c \
+	../../sparc/shared/1553/gr1553bc.c \
+	../../sparc/shared/1553/gr1553bm.c \
+	../../sparc/shared/1553/gr1553rt.c \
+	../../sparc/shared/can/occan.c ../../sparc/shared/can/grcan.c \
+	../../sparc/shared/spw/grspw.c \
+	../../sparc/shared/spw/grspw_pkt.c \
+	../../sparc/shared/spw/grspw_router.c \
+	../../sparc/shared/spw/rmap.c \
+	../../sparc/shared/spw/rmap_async.c \
+	../../sparc/shared/spw/rmap_common.c \
+	../../sparc/shared/spw/rmap_drv_grspw.c \
 	../../sparc/shared/uart/apbuart.c \
-	../../sparc/shared/uart/apbuart_pci.c \
-	../../sparc/shared/i2c/i2cmst.c timer/timer.c $(am__append_2)
+	../../sparc/shared/i2c/i2cmst.c \
+	../../sparc/shared/spi/spictrl.c \
+	../../sparc/shared/time/spwcuc.c \
+	../../sparc/shared/time/spwtdp.c \
+	../../sparc/shared/time/grctm.c \
+	../../sparc/shared/gpio/grgpio.c \
+	../../sparc/shared/gpio/gpiolib.c \
+	../../sparc/shared/graes/graes.c \
+	../../sparc/shared/grpwrx/grpwrx.c \
+	../../sparc/shared/pwm/grpwm.c \
+	../../sparc/shared/analog/gradcdac.c \
+	../../sparc/shared/mem/mctrl.c \
+	../../sparc/shared/mem/mctrl_rmap.c timer/timer.c \
+	timer/watchdog.c ../../sparc/shared/ascs/grascs.c \
+	../../sparc/shared/can/satcan.c \
+	../../sparc/shared/can/canmux.c \
+	../../sparc/shared/slink/grslink.c \
+	../../sparc/shared/tmtc/grtc.c \
+	../../sparc/shared/tmtc/grtc_rmap.c \
+	../../sparc/shared/tmtc/grtm.c \
+	../../sparc/shared/tmtc/grtm_rmap.c \
+	../../sparc/shared/drvmgr/ambapp_bus.c \
+	../../sparc/shared/drvmgr/ambapp_bus_grlib.c \
+	../../sparc/shared/drvmgr/ambapp_bus_rmap.c \
+	../../sparc/shared/drvmgr/spw_bus.c $(am__append_2) \
+	$(am__append_4)
+include_bsp_HEADERS = \
+    ../../shared/include/irq-generic.h \
+    ../../shared/include/irq-info.h \
+    include/bsp/irq.h
+
+
+# Driver Manager 
+include_drvmgrdir = $(includedir)/drvmgr
+include_drvmgr_HEADERS =  \
+	../../sparc/shared/include/drvmgr/ambapp_bus_grlib.h \
+	../../sparc/shared/include/drvmgr/ambapp_bus_rmap.h \
+	../../sparc/shared/include/drvmgr/ambapp_bus.h \
+	../../sparc/shared/include/drvmgr/spw_bus.h \
+	../../sparc/shared/include/drvmgr/spw_bus_ids.h
 leon_smc91111_rel_SOURCES = leon_smc91111/leon_smc91111.c
 leon_smc91111_rel_CPPFLAGS = $(AM_CPPFLAGS) \
 	-D__INSIDE_RTEMS_BSD_TCPIP_STACK__
@@ -471,31 +763,61 @@ leon_open_eth_rel_SOURCES = leon_open_eth/leon_open_eth.c
 leon_open_eth_rel_CPPFLAGS = $(AM_CPPFLAGS) \
 	-D__INSIDE_RTEMS_BSD_TCPIP_STACK__
 leon_open_eth_rel_LDFLAGS = $(RTEMS_RELLDFLAGS)
-leon_greth_rel_SOURCES = leon_greth/leon_greth.c
+leon_greth_rel_SOURCES = ../../sparc/shared/net/greth.c
 leon_greth_rel_CPPFLAGS = $(AM_CPPFLAGS) \
 	-D__INSIDE_RTEMS_BSD_TCPIP_STACK__
 leon_greth_rel_LDFLAGS = $(RTEMS_RELLDFLAGS)
 EXTRA_DIST = shmsupp/README times
-libbsp_a_LIBADD = ../../../libcpu/sparc/cache.rel \
+libbsp_a_LIBADD = ../../../libcpu/sparc/access.rel \
+	../../../libcpu/sparc/cache.rel \
 	../../../libcpu/sparc/reg_win.rel \
-	../../../libcpu/sparc/syscall.rel $(am__append_3)
+	../../../libcpu/sparc/syscall.rel $(am__append_5)
 PREINSTALL_DIRS = $(PROJECT_LIB)/$(dirstamp) \
 	$(PROJECT_INCLUDE)/$(dirstamp) \
-	$(PROJECT_INCLUDE)/bsp/$(dirstamp)
+	$(PROJECT_INCLUDE)/bsp/$(dirstamp) \
+	$(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
 TMPINSTALL_FILES = $(PROJECT_LIB)/start.$(OBJEXT)
 CLEANFILES = $(TMPINSTALL_FILES) $(PREINSTALL_FILES)
 PREINSTALL_FILES = $(PROJECT_LIB)/bsp_specs $(PROJECT_INCLUDE)/bsp.h \
 	$(PROJECT_INCLUDE)/tm27.h $(PROJECT_INCLUDE)/debug_defs.h \
 	$(PROJECT_INCLUDE)/bspopts.h $(PROJECT_INCLUDE)/bsp/bootcard.h \
 	$(PROJECT_INCLUDE)/leon.h $(PROJECT_INCLUDE)/coverhd.h \
-	$(PROJECT_LIB)/linkcmds $(PROJECT_LIB)/linkcmds.base \
-	$(PROJECT_INCLUDE)/amba.h $(PROJECT_INCLUDE)/ambapp.h \
-	$(PROJECT_INCLUDE)/pci.h $(PROJECT_INCLUDE)/b1553brm.h \
-	$(PROJECT_INCLUDE)/b1553brm_pci.h $(PROJECT_INCLUDE)/occan.h \
-	$(PROJECT_INCLUDE)/occan_pci.h $(PROJECT_INCLUDE)/grcan.h \
-	$(PROJECT_INCLUDE)/grspw.h $(PROJECT_INCLUDE)/grspw_pci.h \
-	$(PROJECT_INCLUDE)/apbuart.h $(PROJECT_INCLUDE)/apbuart_pci.h \
-	$(PROJECT_INCLUDE)/i2cmst.h
+	$(PROJECT_LIB)/linkcmds $(PROJECT_LIB)/linkcmds_ngmp \
+	$(PROJECT_LIB)/linkcmds.base $(PROJECT_INCLUDE)/amba.h \
+	$(PROJECT_INCLUDE)/ambapp.h $(PROJECT_INCLUDE)/ambapp_ids.h \
+	$(PROJECT_INCLUDE)/grlib.h $(PROJECT_INCLUDE)/ahbstat.h \
+	$(PROJECT_INCLUDE)/tlib.h $(PROJECT_INCLUDE)/cons.h \
+	$(PROJECT_INCLUDE)/genirq.h \
+	$(PROJECT_INCLUDE)/bsp/irq-generic.h \
+	$(PROJECT_INCLUDE)/bsp/irq-info.h $(PROJECT_INCLUDE)/bsp/irq.h \
+	$(PROJECT_INCLUDE)/grpci2.h $(PROJECT_INCLUDE)/gr_701.h \
+	$(PROJECT_INCLUDE)/gr_rasta_adcdac.h \
+	$(PROJECT_INCLUDE)/gr_rasta_io.h \
+	$(PROJECT_INCLUDE)/gr_rasta_tmtc.h \
+	$(PROJECT_INCLUDE)/gr_tmtc_1553.h \
+	$(PROJECT_INCLUDE)/gr_leon4_n2x.h \
+	$(PROJECT_INCLUDE)/b1553brm.h $(PROJECT_INCLUDE)/b1553rt.h \
+	$(PROJECT_INCLUDE)/gr1553b.h $(PROJECT_INCLUDE)/gr1553bc.h \
+	$(PROJECT_INCLUDE)/gr1553bc_list.h \
+	$(PROJECT_INCLUDE)/gr1553bm.h $(PROJECT_INCLUDE)/gr1553rt.h \
+	$(PROJECT_INCLUDE)/occan.h $(PROJECT_INCLUDE)/grcan.h \
+	$(PROJECT_INCLUDE)/grspw.h $(PROJECT_INCLUDE)/grspw_pkt.h \
+	$(PROJECT_INCLUDE)/grspw_router.h $(PROJECT_INCLUDE)/rmap.h \
+	$(PROJECT_INCLUDE)/rmap_drv_grspw.h \
+	$(PROJECT_INCLUDE)/apbuart.h $(PROJECT_INCLUDE)/i2cmst.h \
+	$(PROJECT_INCLUDE)/spictrl.h $(PROJECT_INCLUDE)/spwcuc.h \
+	$(PROJECT_INCLUDE)/spwtdp.h $(PROJECT_INCLUDE)/grctm.h \
+	$(PROJECT_INCLUDE)/grgpio.h $(PROJECT_INCLUDE)/gpiolib.h \
+	$(PROJECT_INCLUDE)/graes.h $(PROJECT_INCLUDE)/grpwrx.h \
+	$(PROJECT_INCLUDE)/grpwm.h $(PROJECT_INCLUDE)/gradcdac.h \
+	$(PROJECT_INCLUDE)/grascs.h $(PROJECT_INCLUDE)/satcan.h \
+	$(PROJECT_INCLUDE)/canmux.h $(PROJECT_INCLUDE)/grslink.h \
+	$(PROJECT_INCLUDE)/grtc.h $(PROJECT_INCLUDE)/grtm.h \
+	$(PROJECT_INCLUDE)/drvmgr/ambapp_bus_grlib.h \
+	$(PROJECT_INCLUDE)/drvmgr/ambapp_bus_rmap.h \
+	$(PROJECT_INCLUDE)/drvmgr/ambapp_bus.h \
+	$(PROJECT_INCLUDE)/drvmgr/spw_bus.h \
+	$(PROJECT_INCLUDE)/drvmgr/spw_bus_ids.h $(am__append_6)
 PROJECT_TOOLS = $(PROJECT_RELEASE)/build-tools
 all: all-recursive
 
@@ -583,45 +905,113 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/addrconv.Po
+include ./$(DEPDIR)/ahbstat.Po
 include ./$(DEPDIR)/amba.Po
 include ./$(DEPDIR)/ambapp.Po
+include ./$(DEPDIR)/ambapp_alloc.Po
+include ./$(DEPDIR)/ambapp_bus.Po
+include ./$(DEPDIR)/ambapp_bus_grlib.Po
+include ./$(DEPDIR)/ambapp_bus_rmap.Po
+include ./$(DEPDIR)/ambapp_count.Po
+include ./$(DEPDIR)/ambapp_depth.Po
+include ./$(DEPDIR)/ambapp_find_by_idx.Po
+include ./$(DEPDIR)/ambapp_freq.Po
+include ./$(DEPDIR)/ambapp_names.Po
+include ./$(DEPDIR)/ambapp_old.Po
+include ./$(DEPDIR)/ambapp_parent.Po
+include ./$(DEPDIR)/ambapp_show.Po
 include ./$(DEPDIR)/apbuart.Po
-include ./$(DEPDIR)/apbuart_pci.Po
+include ./$(DEPDIR)/apbuart_cons.Po
 include ./$(DEPDIR)/b1553brm.Po
-include ./$(DEPDIR)/b1553brm_pci.Po
+include ./$(DEPDIR)/b1553rt.Po
 include ./$(DEPDIR)/bootcard.Po
 include ./$(DEPDIR)/bspclean.Po
 include ./$(DEPDIR)/bspgetworkarea.Po
 include ./$(DEPDIR)/bspidle.Po
 include ./$(DEPDIR)/bsplibc.Po
 include ./$(DEPDIR)/bsppost.Po
-include ./$(DEPDIR)/bsppredriverhook.Po
+include ./$(DEPDIR)/bsppredriver.Po
 include ./$(DEPDIR)/bsppretaskinghook.Po
 include ./$(DEPDIR)/bspstart.Po
+include ./$(DEPDIR)/canmux.Po
 include ./$(DEPDIR)/ckinit.Po
+include ./$(DEPDIR)/cons.Po
 include ./$(DEPDIR)/console.Po
 include ./$(DEPDIR)/debugputs.Po
+include ./$(DEPDIR)/early_malloc.Po
+include ./$(DEPDIR)/eirq.Po
+include ./$(DEPDIR)/genirq.Po
 include ./$(DEPDIR)/getcfg.Po
 include ./$(DEPDIR)/gnatcommon.Po
 include ./$(DEPDIR)/gnatsupp.Po
+include ./$(DEPDIR)/gpiolib.Po
+include ./$(DEPDIR)/gptimer.Po
+include ./$(DEPDIR)/gr1553b.Po
+include ./$(DEPDIR)/gr1553bc.Po
+include ./$(DEPDIR)/gr1553bm.Po
+include ./$(DEPDIR)/gr1553rt.Po
+include ./$(DEPDIR)/gr_701.Po
+include ./$(DEPDIR)/gr_leon4_n2x.Po
+include ./$(DEPDIR)/gr_rasta_adcdac.Po
+include ./$(DEPDIR)/gr_rasta_io.Po
+include ./$(DEPDIR)/gr_rasta_spw_router.Po
+include ./$(DEPDIR)/gr_rasta_tmtc.Po
+include ./$(DEPDIR)/gr_tmtc_1553.Po
+include ./$(DEPDIR)/gradcdac.Po
+include ./$(DEPDIR)/graes.Po
+include ./$(DEPDIR)/grascs.Po
 include ./$(DEPDIR)/grcan.Po
+include ./$(DEPDIR)/grctm.Po
+include ./$(DEPDIR)/grgpio.Po
+include ./$(DEPDIR)/grpci.Po
+include ./$(DEPDIR)/grpci2.Po
+include ./$(DEPDIR)/grpwm.Po
+include ./$(DEPDIR)/grpwrx.Po
+include ./$(DEPDIR)/grslink.Po
 include ./$(DEPDIR)/grspw.Po
-include ./$(DEPDIR)/grspw_pci.Po
+include ./$(DEPDIR)/grspw_pkt.Po
+include ./$(DEPDIR)/grspw_router.Po
+include ./$(DEPDIR)/grtc.Po
+include ./$(DEPDIR)/grtc_rmap.Po
+include ./$(DEPDIR)/grtm.Po
+include ./$(DEPDIR)/grtm_rmap.Po
 include ./$(DEPDIR)/i2cmst.Po
-include ./$(DEPDIR)/leon_greth_rel-leon_greth.Po
+include ./$(DEPDIR)/irq-generic.Po
+include ./$(DEPDIR)/irq-info.Po
+include ./$(DEPDIR)/irq-legacy.Po
+include ./$(DEPDIR)/irq-server.Po
+include ./$(DEPDIR)/irq-shared.Po
+include ./$(DEPDIR)/irq-shell.Po
+include ./$(DEPDIR)/leon_greth.Po
+include ./$(DEPDIR)/leon_greth_rel-greth.Po
 include ./$(DEPDIR)/leon_open_eth_rel-leon_open_eth.Po
 include ./$(DEPDIR)/leon_smc91111_rel-leon_smc91111.Po
 include ./$(DEPDIR)/lock.Po
+include ./$(DEPDIR)/mctrl.Po
+include ./$(DEPDIR)/mctrl_rmap.Po
 include ./$(DEPDIR)/mpisr.Po
+include ./$(DEPDIR)/network_interface_add.Po
 include ./$(DEPDIR)/occan.Po
-include ./$(DEPDIR)/occan_pci.Po
-include ./$(DEPDIR)/pci.Po
-include ./$(DEPDIR)/pcifinddevice.Po
+include ./$(DEPDIR)/pci_memreg_sparc_be.Po
+include ./$(DEPDIR)/pci_memreg_sparc_le.Po
+include ./$(DEPDIR)/pcif.Po
+include ./$(DEPDIR)/rmap.Po
+include ./$(DEPDIR)/rmap_async.Po
+include ./$(DEPDIR)/rmap_common.Po
+include ./$(DEPDIR)/rmap_drv_grspw.Po
+include ./$(DEPDIR)/satcan.Po
 include ./$(DEPDIR)/sbrk.Po
 include ./$(DEPDIR)/setvec.Po
+include ./$(DEPDIR)/spictrl.Po
 include ./$(DEPDIR)/spurious.Po
+include ./$(DEPDIR)/spw_bus.Po
+include ./$(DEPDIR)/spwcuc.Po
+include ./$(DEPDIR)/spwtdp.Po
 include ./$(DEPDIR)/start.Po
 include ./$(DEPDIR)/timer.Po
+include ./$(DEPDIR)/tlib.Po
+include ./$(DEPDIR)/tlib_ckinit.Po
+include ./$(DEPDIR)/watchdog.Po
 
 .S.o:
 	$(CPPASCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -763,19 +1153,19 @@ bsppretaskinghook.obj: ../../sparc/shared/bsppretaskinghook.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o bsppretaskinghook.obj `if test -f '../../sparc/shared/bsppretaskinghook.c'; then $(CYGPATH_W) '../../sparc/shared/bsppretaskinghook.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/bsppretaskinghook.c'; fi`
 
-bsppredriverhook.o: ../../shared/bsppredriverhook.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT bsppredriverhook.o -MD -MP -MF $(DEPDIR)/bsppredriverhook.Tpo -c -o bsppredriverhook.o `test -f '../../shared/bsppredriverhook.c' || echo '$(srcdir)/'`../../shared/bsppredriverhook.c
-	$(am__mv) $(DEPDIR)/bsppredriverhook.Tpo $(DEPDIR)/bsppredriverhook.Po
-#	source='../../shared/bsppredriverhook.c' object='bsppredriverhook.o' libtool=no \
+bsppredriver.o: startup/bsppredriver.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT bsppredriver.o -MD -MP -MF $(DEPDIR)/bsppredriver.Tpo -c -o bsppredriver.o `test -f 'startup/bsppredriver.c' || echo '$(srcdir)/'`startup/bsppredriver.c
+	$(am__mv) $(DEPDIR)/bsppredriver.Tpo $(DEPDIR)/bsppredriver.Po
+#	source='startup/bsppredriver.c' object='bsppredriver.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o bsppredriverhook.o `test -f '../../shared/bsppredriverhook.c' || echo '$(srcdir)/'`../../shared/bsppredriverhook.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o bsppredriver.o `test -f 'startup/bsppredriver.c' || echo '$(srcdir)/'`startup/bsppredriver.c
 
-bsppredriverhook.obj: ../../shared/bsppredriverhook.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT bsppredriverhook.obj -MD -MP -MF $(DEPDIR)/bsppredriverhook.Tpo -c -o bsppredriverhook.obj `if test -f '../../shared/bsppredriverhook.c'; then $(CYGPATH_W) '../../shared/bsppredriverhook.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/bsppredriverhook.c'; fi`
-	$(am__mv) $(DEPDIR)/bsppredriverhook.Tpo $(DEPDIR)/bsppredriverhook.Po
-#	source='../../shared/bsppredriverhook.c' object='bsppredriverhook.obj' libtool=no \
+bsppredriver.obj: startup/bsppredriver.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT bsppredriver.obj -MD -MP -MF $(DEPDIR)/bsppredriver.Tpo -c -o bsppredriver.obj `if test -f 'startup/bsppredriver.c'; then $(CYGPATH_W) 'startup/bsppredriver.c'; else $(CYGPATH_W) '$(srcdir)/startup/bsppredriver.c'; fi`
+	$(am__mv) $(DEPDIR)/bsppredriver.Tpo $(DEPDIR)/bsppredriver.Po
+#	source='startup/bsppredriver.c' object='bsppredriver.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o bsppredriverhook.obj `if test -f '../../shared/bsppredriverhook.c'; then $(CYGPATH_W) '../../shared/bsppredriverhook.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/bsppredriverhook.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o bsppredriver.obj `if test -f 'startup/bsppredriver.c'; then $(CYGPATH_W) 'startup/bsppredriver.c'; else $(CYGPATH_W) '$(srcdir)/startup/bsppredriver.c'; fi`
 
 bspgetworkarea.o: ../../sparc/shared/bspgetworkarea.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT bspgetworkarea.o -MD -MP -MF $(DEPDIR)/bspgetworkarea.Tpo -c -o bspgetworkarea.o `test -f '../../sparc/shared/bspgetworkarea.c' || echo '$(srcdir)/'`../../sparc/shared/bspgetworkarea.c
@@ -818,6 +1208,20 @@ setvec.obj: startup/setvec.c
 #	source='startup/setvec.c' object='setvec.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o setvec.obj `if test -f 'startup/setvec.c'; then $(CYGPATH_W) 'startup/setvec.c'; else $(CYGPATH_W) '$(srcdir)/startup/setvec.c'; fi`
+
+early_malloc.o: ../../sparc/shared/startup/early_malloc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT early_malloc.o -MD -MP -MF $(DEPDIR)/early_malloc.Tpo -c -o early_malloc.o `test -f '../../sparc/shared/startup/early_malloc.c' || echo '$(srcdir)/'`../../sparc/shared/startup/early_malloc.c
+	$(am__mv) $(DEPDIR)/early_malloc.Tpo $(DEPDIR)/early_malloc.Po
+#	source='../../sparc/shared/startup/early_malloc.c' object='early_malloc.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o early_malloc.o `test -f '../../sparc/shared/startup/early_malloc.c' || echo '$(srcdir)/'`../../sparc/shared/startup/early_malloc.c
+
+early_malloc.obj: ../../sparc/shared/startup/early_malloc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT early_malloc.obj -MD -MP -MF $(DEPDIR)/early_malloc.Tpo -c -o early_malloc.obj `if test -f '../../sparc/shared/startup/early_malloc.c'; then $(CYGPATH_W) '../../sparc/shared/startup/early_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/startup/early_malloc.c'; fi`
+	$(am__mv) $(DEPDIR)/early_malloc.Tpo $(DEPDIR)/early_malloc.Po
+#	source='../../sparc/shared/startup/early_malloc.c' object='early_malloc.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o early_malloc.obj `if test -f '../../sparc/shared/startup/early_malloc.c'; then $(CYGPATH_W) '../../sparc/shared/startup/early_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/startup/early_malloc.c'; fi`
 
 spurious.o: startup/spurious.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spurious.o -MD -MP -MF $(DEPDIR)/spurious.Tpo -c -o spurious.o `test -f 'startup/spurious.c' || echo '$(srcdir)/'`startup/spurious.c
@@ -889,33 +1293,187 @@ ambapp.obj: ../../sparc/shared/amba/ambapp.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp.obj `if test -f '../../sparc/shared/amba/ambapp.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp.c'; fi`
 
-console.o: console/console.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT console.o -MD -MP -MF $(DEPDIR)/console.Tpo -c -o console.o `test -f 'console/console.c' || echo '$(srcdir)/'`console/console.c
-	$(am__mv) $(DEPDIR)/console.Tpo $(DEPDIR)/console.Po
-#	source='console/console.c' object='console.o' libtool=no \
+ambapp_alloc.o: ../../sparc/shared/amba/ambapp_alloc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_alloc.o -MD -MP -MF $(DEPDIR)/ambapp_alloc.Tpo -c -o ambapp_alloc.o `test -f '../../sparc/shared/amba/ambapp_alloc.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_alloc.c
+	$(am__mv) $(DEPDIR)/ambapp_alloc.Tpo $(DEPDIR)/ambapp_alloc.Po
+#	source='../../sparc/shared/amba/ambapp_alloc.c' object='ambapp_alloc.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o console.o `test -f 'console/console.c' || echo '$(srcdir)/'`console/console.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_alloc.o `test -f '../../sparc/shared/amba/ambapp_alloc.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_alloc.c
 
-console.obj: console/console.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT console.obj -MD -MP -MF $(DEPDIR)/console.Tpo -c -o console.obj `if test -f 'console/console.c'; then $(CYGPATH_W) 'console/console.c'; else $(CYGPATH_W) '$(srcdir)/console/console.c'; fi`
-	$(am__mv) $(DEPDIR)/console.Tpo $(DEPDIR)/console.Po
-#	source='console/console.c' object='console.obj' libtool=no \
+ambapp_alloc.obj: ../../sparc/shared/amba/ambapp_alloc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_alloc.obj -MD -MP -MF $(DEPDIR)/ambapp_alloc.Tpo -c -o ambapp_alloc.obj `if test -f '../../sparc/shared/amba/ambapp_alloc.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_alloc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_alloc.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_alloc.Tpo $(DEPDIR)/ambapp_alloc.Po
+#	source='../../sparc/shared/amba/ambapp_alloc.c' object='ambapp_alloc.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o console.obj `if test -f 'console/console.c'; then $(CYGPATH_W) 'console/console.c'; else $(CYGPATH_W) '$(srcdir)/console/console.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_alloc.obj `if test -f '../../sparc/shared/amba/ambapp_alloc.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_alloc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_alloc.c'; fi`
 
-debugputs.o: console/debugputs.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT debugputs.o -MD -MP -MF $(DEPDIR)/debugputs.Tpo -c -o debugputs.o `test -f 'console/debugputs.c' || echo '$(srcdir)/'`console/debugputs.c
-	$(am__mv) $(DEPDIR)/debugputs.Tpo $(DEPDIR)/debugputs.Po
-#	source='console/debugputs.c' object='debugputs.o' libtool=no \
+ambapp_count.o: ../../sparc/shared/amba/ambapp_count.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_count.o -MD -MP -MF $(DEPDIR)/ambapp_count.Tpo -c -o ambapp_count.o `test -f '../../sparc/shared/amba/ambapp_count.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_count.c
+	$(am__mv) $(DEPDIR)/ambapp_count.Tpo $(DEPDIR)/ambapp_count.Po
+#	source='../../sparc/shared/amba/ambapp_count.c' object='ambapp_count.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o debugputs.o `test -f 'console/debugputs.c' || echo '$(srcdir)/'`console/debugputs.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_count.o `test -f '../../sparc/shared/amba/ambapp_count.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_count.c
 
-debugputs.obj: console/debugputs.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT debugputs.obj -MD -MP -MF $(DEPDIR)/debugputs.Tpo -c -o debugputs.obj `if test -f 'console/debugputs.c'; then $(CYGPATH_W) 'console/debugputs.c'; else $(CYGPATH_W) '$(srcdir)/console/debugputs.c'; fi`
-	$(am__mv) $(DEPDIR)/debugputs.Tpo $(DEPDIR)/debugputs.Po
-#	source='console/debugputs.c' object='debugputs.obj' libtool=no \
+ambapp_count.obj: ../../sparc/shared/amba/ambapp_count.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_count.obj -MD -MP -MF $(DEPDIR)/ambapp_count.Tpo -c -o ambapp_count.obj `if test -f '../../sparc/shared/amba/ambapp_count.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_count.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_count.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_count.Tpo $(DEPDIR)/ambapp_count.Po
+#	source='../../sparc/shared/amba/ambapp_count.c' object='ambapp_count.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o debugputs.obj `if test -f 'console/debugputs.c'; then $(CYGPATH_W) 'console/debugputs.c'; else $(CYGPATH_W) '$(srcdir)/console/debugputs.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_count.obj `if test -f '../../sparc/shared/amba/ambapp_count.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_count.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_count.c'; fi`
+
+ambapp_depth.o: ../../sparc/shared/amba/ambapp_depth.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_depth.o -MD -MP -MF $(DEPDIR)/ambapp_depth.Tpo -c -o ambapp_depth.o `test -f '../../sparc/shared/amba/ambapp_depth.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_depth.c
+	$(am__mv) $(DEPDIR)/ambapp_depth.Tpo $(DEPDIR)/ambapp_depth.Po
+#	source='../../sparc/shared/amba/ambapp_depth.c' object='ambapp_depth.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_depth.o `test -f '../../sparc/shared/amba/ambapp_depth.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_depth.c
+
+ambapp_depth.obj: ../../sparc/shared/amba/ambapp_depth.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_depth.obj -MD -MP -MF $(DEPDIR)/ambapp_depth.Tpo -c -o ambapp_depth.obj `if test -f '../../sparc/shared/amba/ambapp_depth.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_depth.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_depth.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_depth.Tpo $(DEPDIR)/ambapp_depth.Po
+#	source='../../sparc/shared/amba/ambapp_depth.c' object='ambapp_depth.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_depth.obj `if test -f '../../sparc/shared/amba/ambapp_depth.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_depth.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_depth.c'; fi`
+
+ambapp_find_by_idx.o: ../../sparc/shared/amba/ambapp_find_by_idx.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_find_by_idx.o -MD -MP -MF $(DEPDIR)/ambapp_find_by_idx.Tpo -c -o ambapp_find_by_idx.o `test -f '../../sparc/shared/amba/ambapp_find_by_idx.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_find_by_idx.c
+	$(am__mv) $(DEPDIR)/ambapp_find_by_idx.Tpo $(DEPDIR)/ambapp_find_by_idx.Po
+#	source='../../sparc/shared/amba/ambapp_find_by_idx.c' object='ambapp_find_by_idx.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_find_by_idx.o `test -f '../../sparc/shared/amba/ambapp_find_by_idx.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_find_by_idx.c
+
+ambapp_find_by_idx.obj: ../../sparc/shared/amba/ambapp_find_by_idx.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_find_by_idx.obj -MD -MP -MF $(DEPDIR)/ambapp_find_by_idx.Tpo -c -o ambapp_find_by_idx.obj `if test -f '../../sparc/shared/amba/ambapp_find_by_idx.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_find_by_idx.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_find_by_idx.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_find_by_idx.Tpo $(DEPDIR)/ambapp_find_by_idx.Po
+#	source='../../sparc/shared/amba/ambapp_find_by_idx.c' object='ambapp_find_by_idx.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_find_by_idx.obj `if test -f '../../sparc/shared/amba/ambapp_find_by_idx.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_find_by_idx.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_find_by_idx.c'; fi`
+
+ambapp_freq.o: ../../sparc/shared/amba/ambapp_freq.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_freq.o -MD -MP -MF $(DEPDIR)/ambapp_freq.Tpo -c -o ambapp_freq.o `test -f '../../sparc/shared/amba/ambapp_freq.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_freq.c
+	$(am__mv) $(DEPDIR)/ambapp_freq.Tpo $(DEPDIR)/ambapp_freq.Po
+#	source='../../sparc/shared/amba/ambapp_freq.c' object='ambapp_freq.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_freq.o `test -f '../../sparc/shared/amba/ambapp_freq.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_freq.c
+
+ambapp_freq.obj: ../../sparc/shared/amba/ambapp_freq.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_freq.obj -MD -MP -MF $(DEPDIR)/ambapp_freq.Tpo -c -o ambapp_freq.obj `if test -f '../../sparc/shared/amba/ambapp_freq.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_freq.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_freq.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_freq.Tpo $(DEPDIR)/ambapp_freq.Po
+#	source='../../sparc/shared/amba/ambapp_freq.c' object='ambapp_freq.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_freq.obj `if test -f '../../sparc/shared/amba/ambapp_freq.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_freq.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_freq.c'; fi`
+
+ambapp_parent.o: ../../sparc/shared/amba/ambapp_parent.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_parent.o -MD -MP -MF $(DEPDIR)/ambapp_parent.Tpo -c -o ambapp_parent.o `test -f '../../sparc/shared/amba/ambapp_parent.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_parent.c
+	$(am__mv) $(DEPDIR)/ambapp_parent.Tpo $(DEPDIR)/ambapp_parent.Po
+#	source='../../sparc/shared/amba/ambapp_parent.c' object='ambapp_parent.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_parent.o `test -f '../../sparc/shared/amba/ambapp_parent.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_parent.c
+
+ambapp_parent.obj: ../../sparc/shared/amba/ambapp_parent.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_parent.obj -MD -MP -MF $(DEPDIR)/ambapp_parent.Tpo -c -o ambapp_parent.obj `if test -f '../../sparc/shared/amba/ambapp_parent.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_parent.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_parent.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_parent.Tpo $(DEPDIR)/ambapp_parent.Po
+#	source='../../sparc/shared/amba/ambapp_parent.c' object='ambapp_parent.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_parent.obj `if test -f '../../sparc/shared/amba/ambapp_parent.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_parent.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_parent.c'; fi`
+
+ambapp_old.o: ../../sparc/shared/amba/ambapp_old.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_old.o -MD -MP -MF $(DEPDIR)/ambapp_old.Tpo -c -o ambapp_old.o `test -f '../../sparc/shared/amba/ambapp_old.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_old.c
+	$(am__mv) $(DEPDIR)/ambapp_old.Tpo $(DEPDIR)/ambapp_old.Po
+#	source='../../sparc/shared/amba/ambapp_old.c' object='ambapp_old.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_old.o `test -f '../../sparc/shared/amba/ambapp_old.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_old.c
+
+ambapp_old.obj: ../../sparc/shared/amba/ambapp_old.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_old.obj -MD -MP -MF $(DEPDIR)/ambapp_old.Tpo -c -o ambapp_old.obj `if test -f '../../sparc/shared/amba/ambapp_old.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_old.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_old.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_old.Tpo $(DEPDIR)/ambapp_old.Po
+#	source='../../sparc/shared/amba/ambapp_old.c' object='ambapp_old.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_old.obj `if test -f '../../sparc/shared/amba/ambapp_old.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_old.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_old.c'; fi`
+
+ambapp_names.o: ../../sparc/shared/amba/ambapp_names.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_names.o -MD -MP -MF $(DEPDIR)/ambapp_names.Tpo -c -o ambapp_names.o `test -f '../../sparc/shared/amba/ambapp_names.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_names.c
+	$(am__mv) $(DEPDIR)/ambapp_names.Tpo $(DEPDIR)/ambapp_names.Po
+#	source='../../sparc/shared/amba/ambapp_names.c' object='ambapp_names.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_names.o `test -f '../../sparc/shared/amba/ambapp_names.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_names.c
+
+ambapp_names.obj: ../../sparc/shared/amba/ambapp_names.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_names.obj -MD -MP -MF $(DEPDIR)/ambapp_names.Tpo -c -o ambapp_names.obj `if test -f '../../sparc/shared/amba/ambapp_names.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_names.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_names.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_names.Tpo $(DEPDIR)/ambapp_names.Po
+#	source='../../sparc/shared/amba/ambapp_names.c' object='ambapp_names.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_names.obj `if test -f '../../sparc/shared/amba/ambapp_names.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_names.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_names.c'; fi`
+
+ambapp_show.o: ../../sparc/shared/amba/ambapp_show.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_show.o -MD -MP -MF $(DEPDIR)/ambapp_show.Tpo -c -o ambapp_show.o `test -f '../../sparc/shared/amba/ambapp_show.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_show.c
+	$(am__mv) $(DEPDIR)/ambapp_show.Tpo $(DEPDIR)/ambapp_show.Po
+#	source='../../sparc/shared/amba/ambapp_show.c' object='ambapp_show.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_show.o `test -f '../../sparc/shared/amba/ambapp_show.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ambapp_show.c
+
+ambapp_show.obj: ../../sparc/shared/amba/ambapp_show.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_show.obj -MD -MP -MF $(DEPDIR)/ambapp_show.Tpo -c -o ambapp_show.obj `if test -f '../../sparc/shared/amba/ambapp_show.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_show.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_show.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_show.Tpo $(DEPDIR)/ambapp_show.Po
+#	source='../../sparc/shared/amba/ambapp_show.c' object='ambapp_show.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_show.obj `if test -f '../../sparc/shared/amba/ambapp_show.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ambapp_show.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ambapp_show.c'; fi`
+
+ahbstat.o: ../../sparc/shared/amba/ahbstat.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ahbstat.o -MD -MP -MF $(DEPDIR)/ahbstat.Tpo -c -o ahbstat.o `test -f '../../sparc/shared/amba/ahbstat.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ahbstat.c
+	$(am__mv) $(DEPDIR)/ahbstat.Tpo $(DEPDIR)/ahbstat.Po
+#	source='../../sparc/shared/amba/ahbstat.c' object='ahbstat.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ahbstat.o `test -f '../../sparc/shared/amba/ahbstat.c' || echo '$(srcdir)/'`../../sparc/shared/amba/ahbstat.c
+
+ahbstat.obj: ../../sparc/shared/amba/ahbstat.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ahbstat.obj -MD -MP -MF $(DEPDIR)/ahbstat.Tpo -c -o ahbstat.obj `if test -f '../../sparc/shared/amba/ahbstat.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ahbstat.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ahbstat.c'; fi`
+	$(am__mv) $(DEPDIR)/ahbstat.Tpo $(DEPDIR)/ahbstat.Po
+#	source='../../sparc/shared/amba/ahbstat.c' object='ahbstat.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ahbstat.obj `if test -f '../../sparc/shared/amba/ahbstat.c'; then $(CYGPATH_W) '../../sparc/shared/amba/ahbstat.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/amba/ahbstat.c'; fi`
+
+gptimer.o: ../../sparc/shared/timer/gptimer.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gptimer.o -MD -MP -MF $(DEPDIR)/gptimer.Tpo -c -o gptimer.o `test -f '../../sparc/shared/timer/gptimer.c' || echo '$(srcdir)/'`../../sparc/shared/timer/gptimer.c
+	$(am__mv) $(DEPDIR)/gptimer.Tpo $(DEPDIR)/gptimer.Po
+#	source='../../sparc/shared/timer/gptimer.c' object='gptimer.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gptimer.o `test -f '../../sparc/shared/timer/gptimer.c' || echo '$(srcdir)/'`../../sparc/shared/timer/gptimer.c
+
+gptimer.obj: ../../sparc/shared/timer/gptimer.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gptimer.obj -MD -MP -MF $(DEPDIR)/gptimer.Tpo -c -o gptimer.obj `if test -f '../../sparc/shared/timer/gptimer.c'; then $(CYGPATH_W) '../../sparc/shared/timer/gptimer.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/timer/gptimer.c'; fi`
+	$(am__mv) $(DEPDIR)/gptimer.Tpo $(DEPDIR)/gptimer.Po
+#	source='../../sparc/shared/timer/gptimer.c' object='gptimer.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gptimer.obj `if test -f '../../sparc/shared/timer/gptimer.c'; then $(CYGPATH_W) '../../sparc/shared/timer/gptimer.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/timer/gptimer.c'; fi`
+
+tlib.o: ../../sparc/shared/timer/tlib.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tlib.o -MD -MP -MF $(DEPDIR)/tlib.Tpo -c -o tlib.o `test -f '../../sparc/shared/timer/tlib.c' || echo '$(srcdir)/'`../../sparc/shared/timer/tlib.c
+	$(am__mv) $(DEPDIR)/tlib.Tpo $(DEPDIR)/tlib.Po
+#	source='../../sparc/shared/timer/tlib.c' object='tlib.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o tlib.o `test -f '../../sparc/shared/timer/tlib.c' || echo '$(srcdir)/'`../../sparc/shared/timer/tlib.c
+
+tlib.obj: ../../sparc/shared/timer/tlib.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tlib.obj -MD -MP -MF $(DEPDIR)/tlib.Tpo -c -o tlib.obj `if test -f '../../sparc/shared/timer/tlib.c'; then $(CYGPATH_W) '../../sparc/shared/timer/tlib.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/timer/tlib.c'; fi`
+	$(am__mv) $(DEPDIR)/tlib.Tpo $(DEPDIR)/tlib.Po
+#	source='../../sparc/shared/timer/tlib.c' object='tlib.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o tlib.obj `if test -f '../../sparc/shared/timer/tlib.c'; then $(CYGPATH_W) '../../sparc/shared/timer/tlib.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/timer/tlib.c'; fi`
+
+tlib_ckinit.o: ../../sparc/shared/timer/tlib_ckinit.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tlib_ckinit.o -MD -MP -MF $(DEPDIR)/tlib_ckinit.Tpo -c -o tlib_ckinit.o `test -f '../../sparc/shared/timer/tlib_ckinit.c' || echo '$(srcdir)/'`../../sparc/shared/timer/tlib_ckinit.c
+	$(am__mv) $(DEPDIR)/tlib_ckinit.Tpo $(DEPDIR)/tlib_ckinit.Po
+#	source='../../sparc/shared/timer/tlib_ckinit.c' object='tlib_ckinit.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o tlib_ckinit.o `test -f '../../sparc/shared/timer/tlib_ckinit.c' || echo '$(srcdir)/'`../../sparc/shared/timer/tlib_ckinit.c
+
+tlib_ckinit.obj: ../../sparc/shared/timer/tlib_ckinit.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tlib_ckinit.obj -MD -MP -MF $(DEPDIR)/tlib_ckinit.Tpo -c -o tlib_ckinit.obj `if test -f '../../sparc/shared/timer/tlib_ckinit.c'; then $(CYGPATH_W) '../../sparc/shared/timer/tlib_ckinit.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/timer/tlib_ckinit.c'; fi`
+	$(am__mv) $(DEPDIR)/tlib_ckinit.Tpo $(DEPDIR)/tlib_ckinit.Po
+#	source='../../sparc/shared/timer/tlib_ckinit.c' object='tlib_ckinit.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o tlib_ckinit.obj `if test -f '../../sparc/shared/timer/tlib_ckinit.c'; then $(CYGPATH_W) '../../sparc/shared/timer/tlib_ckinit.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/timer/tlib_ckinit.c'; fi`
 
 ckinit.o: clock/ckinit.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ckinit.o -MD -MP -MF $(DEPDIR)/ckinit.Tpo -c -o ckinit.o `test -f 'clock/ckinit.c' || echo '$(srcdir)/'`clock/ckinit.c
@@ -931,33 +1489,341 @@ ckinit.obj: clock/ckinit.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ckinit.obj `if test -f 'clock/ckinit.c'; then $(CYGPATH_W) 'clock/ckinit.c'; else $(CYGPATH_W) '$(srcdir)/clock/ckinit.c'; fi`
 
-pci.o: pci/pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pci.o -MD -MP -MF $(DEPDIR)/pci.Tpo -c -o pci.o `test -f 'pci/pci.c' || echo '$(srcdir)/'`pci/pci.c
-	$(am__mv) $(DEPDIR)/pci.Tpo $(DEPDIR)/pci.Po
-#	source='pci/pci.c' object='pci.o' libtool=no \
+console.o: console/console.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT console.o -MD -MP -MF $(DEPDIR)/console.Tpo -c -o console.o `test -f 'console/console.c' || echo '$(srcdir)/'`console/console.c
+	$(am__mv) $(DEPDIR)/console.Tpo $(DEPDIR)/console.Po
+#	source='console/console.c' object='console.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pci.o `test -f 'pci/pci.c' || echo '$(srcdir)/'`pci/pci.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o console.o `test -f 'console/console.c' || echo '$(srcdir)/'`console/console.c
 
-pci.obj: pci/pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pci.obj -MD -MP -MF $(DEPDIR)/pci.Tpo -c -o pci.obj `if test -f 'pci/pci.c'; then $(CYGPATH_W) 'pci/pci.c'; else $(CYGPATH_W) '$(srcdir)/pci/pci.c'; fi`
-	$(am__mv) $(DEPDIR)/pci.Tpo $(DEPDIR)/pci.Po
-#	source='pci/pci.c' object='pci.obj' libtool=no \
+console.obj: console/console.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT console.obj -MD -MP -MF $(DEPDIR)/console.Tpo -c -o console.obj `if test -f 'console/console.c'; then $(CYGPATH_W) 'console/console.c'; else $(CYGPATH_W) '$(srcdir)/console/console.c'; fi`
+	$(am__mv) $(DEPDIR)/console.Tpo $(DEPDIR)/console.Po
+#	source='console/console.c' object='console.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pci.obj `if test -f 'pci/pci.c'; then $(CYGPATH_W) 'pci/pci.c'; else $(CYGPATH_W) '$(srcdir)/pci/pci.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o console.obj `if test -f 'console/console.c'; then $(CYGPATH_W) 'console/console.c'; else $(CYGPATH_W) '$(srcdir)/console/console.c'; fi`
 
-pcifinddevice.o: ../../sparc/shared/pci/pcifinddevice.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pcifinddevice.o -MD -MP -MF $(DEPDIR)/pcifinddevice.Tpo -c -o pcifinddevice.o `test -f '../../sparc/shared/pci/pcifinddevice.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pcifinddevice.c
-	$(am__mv) $(DEPDIR)/pcifinddevice.Tpo $(DEPDIR)/pcifinddevice.Po
-#	source='../../sparc/shared/pci/pcifinddevice.c' object='pcifinddevice.o' libtool=no \
+cons.o: ../../sparc/shared/uart/cons.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cons.o -MD -MP -MF $(DEPDIR)/cons.Tpo -c -o cons.o `test -f '../../sparc/shared/uart/cons.c' || echo '$(srcdir)/'`../../sparc/shared/uart/cons.c
+	$(am__mv) $(DEPDIR)/cons.Tpo $(DEPDIR)/cons.Po
+#	source='../../sparc/shared/uart/cons.c' object='cons.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pcifinddevice.o `test -f '../../sparc/shared/pci/pcifinddevice.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pcifinddevice.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cons.o `test -f '../../sparc/shared/uart/cons.c' || echo '$(srcdir)/'`../../sparc/shared/uart/cons.c
 
-pcifinddevice.obj: ../../sparc/shared/pci/pcifinddevice.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pcifinddevice.obj -MD -MP -MF $(DEPDIR)/pcifinddevice.Tpo -c -o pcifinddevice.obj `if test -f '../../sparc/shared/pci/pcifinddevice.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pcifinddevice.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pcifinddevice.c'; fi`
-	$(am__mv) $(DEPDIR)/pcifinddevice.Tpo $(DEPDIR)/pcifinddevice.Po
-#	source='../../sparc/shared/pci/pcifinddevice.c' object='pcifinddevice.obj' libtool=no \
+cons.obj: ../../sparc/shared/uart/cons.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cons.obj -MD -MP -MF $(DEPDIR)/cons.Tpo -c -o cons.obj `if test -f '../../sparc/shared/uart/cons.c'; then $(CYGPATH_W) '../../sparc/shared/uart/cons.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/uart/cons.c'; fi`
+	$(am__mv) $(DEPDIR)/cons.Tpo $(DEPDIR)/cons.Po
+#	source='../../sparc/shared/uart/cons.c' object='cons.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pcifinddevice.obj `if test -f '../../sparc/shared/pci/pcifinddevice.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pcifinddevice.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pcifinddevice.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cons.obj `if test -f '../../sparc/shared/uart/cons.c'; then $(CYGPATH_W) '../../sparc/shared/uart/cons.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/uart/cons.c'; fi`
+
+apbuart_cons.o: ../../sparc/shared/uart/apbuart_cons.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT apbuart_cons.o -MD -MP -MF $(DEPDIR)/apbuart_cons.Tpo -c -o apbuart_cons.o `test -f '../../sparc/shared/uart/apbuart_cons.c' || echo '$(srcdir)/'`../../sparc/shared/uart/apbuart_cons.c
+	$(am__mv) $(DEPDIR)/apbuart_cons.Tpo $(DEPDIR)/apbuart_cons.Po
+#	source='../../sparc/shared/uart/apbuart_cons.c' object='apbuart_cons.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o apbuart_cons.o `test -f '../../sparc/shared/uart/apbuart_cons.c' || echo '$(srcdir)/'`../../sparc/shared/uart/apbuart_cons.c
+
+apbuart_cons.obj: ../../sparc/shared/uart/apbuart_cons.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT apbuart_cons.obj -MD -MP -MF $(DEPDIR)/apbuart_cons.Tpo -c -o apbuart_cons.obj `if test -f '../../sparc/shared/uart/apbuart_cons.c'; then $(CYGPATH_W) '../../sparc/shared/uart/apbuart_cons.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/uart/apbuart_cons.c'; fi`
+	$(am__mv) $(DEPDIR)/apbuart_cons.Tpo $(DEPDIR)/apbuart_cons.Po
+#	source='../../sparc/shared/uart/apbuart_cons.c' object='apbuart_cons.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o apbuart_cons.obj `if test -f '../../sparc/shared/uart/apbuart_cons.c'; then $(CYGPATH_W) '../../sparc/shared/uart/apbuart_cons.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/uart/apbuart_cons.c'; fi`
+
+debugputs.o: console/debugputs.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT debugputs.o -MD -MP -MF $(DEPDIR)/debugputs.Tpo -c -o debugputs.o `test -f 'console/debugputs.c' || echo '$(srcdir)/'`console/debugputs.c
+	$(am__mv) $(DEPDIR)/debugputs.Tpo $(DEPDIR)/debugputs.Po
+#	source='console/debugputs.c' object='debugputs.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o debugputs.o `test -f 'console/debugputs.c' || echo '$(srcdir)/'`console/debugputs.c
+
+debugputs.obj: console/debugputs.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT debugputs.obj -MD -MP -MF $(DEPDIR)/debugputs.Tpo -c -o debugputs.obj `if test -f 'console/debugputs.c'; then $(CYGPATH_W) 'console/debugputs.c'; else $(CYGPATH_W) '$(srcdir)/console/debugputs.c'; fi`
+	$(am__mv) $(DEPDIR)/debugputs.Tpo $(DEPDIR)/debugputs.Po
+#	source='console/debugputs.c' object='debugputs.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o debugputs.obj `if test -f 'console/debugputs.c'; then $(CYGPATH_W) 'console/debugputs.c'; else $(CYGPATH_W) '$(srcdir)/console/debugputs.c'; fi`
+
+eirq.o: startup/eirq.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT eirq.o -MD -MP -MF $(DEPDIR)/eirq.Tpo -c -o eirq.o `test -f 'startup/eirq.c' || echo '$(srcdir)/'`startup/eirq.c
+	$(am__mv) $(DEPDIR)/eirq.Tpo $(DEPDIR)/eirq.Po
+#	source='startup/eirq.c' object='eirq.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o eirq.o `test -f 'startup/eirq.c' || echo '$(srcdir)/'`startup/eirq.c
+
+eirq.obj: startup/eirq.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT eirq.obj -MD -MP -MF $(DEPDIR)/eirq.Tpo -c -o eirq.obj `if test -f 'startup/eirq.c'; then $(CYGPATH_W) 'startup/eirq.c'; else $(CYGPATH_W) '$(srcdir)/startup/eirq.c'; fi`
+	$(am__mv) $(DEPDIR)/eirq.Tpo $(DEPDIR)/eirq.Po
+#	source='startup/eirq.c' object='eirq.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o eirq.obj `if test -f 'startup/eirq.c'; then $(CYGPATH_W) 'startup/eirq.c'; else $(CYGPATH_W) '$(srcdir)/startup/eirq.c'; fi`
+
+genirq.o: ../../sparc/shared/irq/genirq.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT genirq.o -MD -MP -MF $(DEPDIR)/genirq.Tpo -c -o genirq.o `test -f '../../sparc/shared/irq/genirq.c' || echo '$(srcdir)/'`../../sparc/shared/irq/genirq.c
+	$(am__mv) $(DEPDIR)/genirq.Tpo $(DEPDIR)/genirq.Po
+#	source='../../sparc/shared/irq/genirq.c' object='genirq.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o genirq.o `test -f '../../sparc/shared/irq/genirq.c' || echo '$(srcdir)/'`../../sparc/shared/irq/genirq.c
+
+genirq.obj: ../../sparc/shared/irq/genirq.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT genirq.obj -MD -MP -MF $(DEPDIR)/genirq.Tpo -c -o genirq.obj `if test -f '../../sparc/shared/irq/genirq.c'; then $(CYGPATH_W) '../../sparc/shared/irq/genirq.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/irq/genirq.c'; fi`
+	$(am__mv) $(DEPDIR)/genirq.Tpo $(DEPDIR)/genirq.Po
+#	source='../../sparc/shared/irq/genirq.c' object='genirq.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o genirq.obj `if test -f '../../sparc/shared/irq/genirq.c'; then $(CYGPATH_W) '../../sparc/shared/irq/genirq.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/irq/genirq.c'; fi`
+
+irq-shared.o: ../../sparc/shared/irq/irq-shared.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-shared.o -MD -MP -MF $(DEPDIR)/irq-shared.Tpo -c -o irq-shared.o `test -f '../../sparc/shared/irq/irq-shared.c' || echo '$(srcdir)/'`../../sparc/shared/irq/irq-shared.c
+	$(am__mv) $(DEPDIR)/irq-shared.Tpo $(DEPDIR)/irq-shared.Po
+#	source='../../sparc/shared/irq/irq-shared.c' object='irq-shared.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-shared.o `test -f '../../sparc/shared/irq/irq-shared.c' || echo '$(srcdir)/'`../../sparc/shared/irq/irq-shared.c
+
+irq-shared.obj: ../../sparc/shared/irq/irq-shared.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-shared.obj -MD -MP -MF $(DEPDIR)/irq-shared.Tpo -c -o irq-shared.obj `if test -f '../../sparc/shared/irq/irq-shared.c'; then $(CYGPATH_W) '../../sparc/shared/irq/irq-shared.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/irq/irq-shared.c'; fi`
+	$(am__mv) $(DEPDIR)/irq-shared.Tpo $(DEPDIR)/irq-shared.Po
+#	source='../../sparc/shared/irq/irq-shared.c' object='irq-shared.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-shared.obj `if test -f '../../sparc/shared/irq/irq-shared.c'; then $(CYGPATH_W) '../../sparc/shared/irq/irq-shared.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/irq/irq-shared.c'; fi`
+
+irq-generic.o: ../../shared/src/irq-generic.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-generic.o -MD -MP -MF $(DEPDIR)/irq-generic.Tpo -c -o irq-generic.o `test -f '../../shared/src/irq-generic.c' || echo '$(srcdir)/'`../../shared/src/irq-generic.c
+	$(am__mv) $(DEPDIR)/irq-generic.Tpo $(DEPDIR)/irq-generic.Po
+#	source='../../shared/src/irq-generic.c' object='irq-generic.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-generic.o `test -f '../../shared/src/irq-generic.c' || echo '$(srcdir)/'`../../shared/src/irq-generic.c
+
+irq-generic.obj: ../../shared/src/irq-generic.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-generic.obj -MD -MP -MF $(DEPDIR)/irq-generic.Tpo -c -o irq-generic.obj `if test -f '../../shared/src/irq-generic.c'; then $(CYGPATH_W) '../../shared/src/irq-generic.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-generic.c'; fi`
+	$(am__mv) $(DEPDIR)/irq-generic.Tpo $(DEPDIR)/irq-generic.Po
+#	source='../../shared/src/irq-generic.c' object='irq-generic.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-generic.obj `if test -f '../../shared/src/irq-generic.c'; then $(CYGPATH_W) '../../shared/src/irq-generic.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-generic.c'; fi`
+
+irq-legacy.o: ../../shared/src/irq-legacy.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-legacy.o -MD -MP -MF $(DEPDIR)/irq-legacy.Tpo -c -o irq-legacy.o `test -f '../../shared/src/irq-legacy.c' || echo '$(srcdir)/'`../../shared/src/irq-legacy.c
+	$(am__mv) $(DEPDIR)/irq-legacy.Tpo $(DEPDIR)/irq-legacy.Po
+#	source='../../shared/src/irq-legacy.c' object='irq-legacy.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-legacy.o `test -f '../../shared/src/irq-legacy.c' || echo '$(srcdir)/'`../../shared/src/irq-legacy.c
+
+irq-legacy.obj: ../../shared/src/irq-legacy.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-legacy.obj -MD -MP -MF $(DEPDIR)/irq-legacy.Tpo -c -o irq-legacy.obj `if test -f '../../shared/src/irq-legacy.c'; then $(CYGPATH_W) '../../shared/src/irq-legacy.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-legacy.c'; fi`
+	$(am__mv) $(DEPDIR)/irq-legacy.Tpo $(DEPDIR)/irq-legacy.Po
+#	source='../../shared/src/irq-legacy.c' object='irq-legacy.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-legacy.obj `if test -f '../../shared/src/irq-legacy.c'; then $(CYGPATH_W) '../../shared/src/irq-legacy.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-legacy.c'; fi`
+
+irq-info.o: ../../shared/src/irq-info.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-info.o -MD -MP -MF $(DEPDIR)/irq-info.Tpo -c -o irq-info.o `test -f '../../shared/src/irq-info.c' || echo '$(srcdir)/'`../../shared/src/irq-info.c
+	$(am__mv) $(DEPDIR)/irq-info.Tpo $(DEPDIR)/irq-info.Po
+#	source='../../shared/src/irq-info.c' object='irq-info.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-info.o `test -f '../../shared/src/irq-info.c' || echo '$(srcdir)/'`../../shared/src/irq-info.c
+
+irq-info.obj: ../../shared/src/irq-info.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-info.obj -MD -MP -MF $(DEPDIR)/irq-info.Tpo -c -o irq-info.obj `if test -f '../../shared/src/irq-info.c'; then $(CYGPATH_W) '../../shared/src/irq-info.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-info.c'; fi`
+	$(am__mv) $(DEPDIR)/irq-info.Tpo $(DEPDIR)/irq-info.Po
+#	source='../../shared/src/irq-info.c' object='irq-info.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-info.obj `if test -f '../../shared/src/irq-info.c'; then $(CYGPATH_W) '../../shared/src/irq-info.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-info.c'; fi`
+
+irq-shell.o: ../../shared/src/irq-shell.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-shell.o -MD -MP -MF $(DEPDIR)/irq-shell.Tpo -c -o irq-shell.o `test -f '../../shared/src/irq-shell.c' || echo '$(srcdir)/'`../../shared/src/irq-shell.c
+	$(am__mv) $(DEPDIR)/irq-shell.Tpo $(DEPDIR)/irq-shell.Po
+#	source='../../shared/src/irq-shell.c' object='irq-shell.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-shell.o `test -f '../../shared/src/irq-shell.c' || echo '$(srcdir)/'`../../shared/src/irq-shell.c
+
+irq-shell.obj: ../../shared/src/irq-shell.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-shell.obj -MD -MP -MF $(DEPDIR)/irq-shell.Tpo -c -o irq-shell.obj `if test -f '../../shared/src/irq-shell.c'; then $(CYGPATH_W) '../../shared/src/irq-shell.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-shell.c'; fi`
+	$(am__mv) $(DEPDIR)/irq-shell.Tpo $(DEPDIR)/irq-shell.Po
+#	source='../../shared/src/irq-shell.c' object='irq-shell.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-shell.obj `if test -f '../../shared/src/irq-shell.c'; then $(CYGPATH_W) '../../shared/src/irq-shell.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-shell.c'; fi`
+
+irq-server.o: ../../shared/src/irq-server.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-server.o -MD -MP -MF $(DEPDIR)/irq-server.Tpo -c -o irq-server.o `test -f '../../shared/src/irq-server.c' || echo '$(srcdir)/'`../../shared/src/irq-server.c
+	$(am__mv) $(DEPDIR)/irq-server.Tpo $(DEPDIR)/irq-server.Po
+#	source='../../shared/src/irq-server.c' object='irq-server.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-server.o `test -f '../../shared/src/irq-server.c' || echo '$(srcdir)/'`../../shared/src/irq-server.c
+
+irq-server.obj: ../../shared/src/irq-server.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT irq-server.obj -MD -MP -MF $(DEPDIR)/irq-server.Tpo -c -o irq-server.obj `if test -f '../../shared/src/irq-server.c'; then $(CYGPATH_W) '../../shared/src/irq-server.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-server.c'; fi`
+	$(am__mv) $(DEPDIR)/irq-server.Tpo $(DEPDIR)/irq-server.Po
+#	source='../../shared/src/irq-server.c' object='irq-server.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o irq-server.obj `if test -f '../../shared/src/irq-server.c'; then $(CYGPATH_W) '../../shared/src/irq-server.c'; else $(CYGPATH_W) '$(srcdir)/../../shared/src/irq-server.c'; fi`
+
+grpci.o: ../../sparc/shared/pci/grpci.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpci.o -MD -MP -MF $(DEPDIR)/grpci.Tpo -c -o grpci.o `test -f '../../sparc/shared/pci/grpci.c' || echo '$(srcdir)/'`../../sparc/shared/pci/grpci.c
+	$(am__mv) $(DEPDIR)/grpci.Tpo $(DEPDIR)/grpci.Po
+#	source='../../sparc/shared/pci/grpci.c' object='grpci.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpci.o `test -f '../../sparc/shared/pci/grpci.c' || echo '$(srcdir)/'`../../sparc/shared/pci/grpci.c
+
+grpci.obj: ../../sparc/shared/pci/grpci.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpci.obj -MD -MP -MF $(DEPDIR)/grpci.Tpo -c -o grpci.obj `if test -f '../../sparc/shared/pci/grpci.c'; then $(CYGPATH_W) '../../sparc/shared/pci/grpci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/grpci.c'; fi`
+	$(am__mv) $(DEPDIR)/grpci.Tpo $(DEPDIR)/grpci.Po
+#	source='../../sparc/shared/pci/grpci.c' object='grpci.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpci.obj `if test -f '../../sparc/shared/pci/grpci.c'; then $(CYGPATH_W) '../../sparc/shared/pci/grpci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/grpci.c'; fi`
+
+grpci2.o: ../../sparc/shared/pci/grpci2.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpci2.o -MD -MP -MF $(DEPDIR)/grpci2.Tpo -c -o grpci2.o `test -f '../../sparc/shared/pci/grpci2.c' || echo '$(srcdir)/'`../../sparc/shared/pci/grpci2.c
+	$(am__mv) $(DEPDIR)/grpci2.Tpo $(DEPDIR)/grpci2.Po
+#	source='../../sparc/shared/pci/grpci2.c' object='grpci2.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpci2.o `test -f '../../sparc/shared/pci/grpci2.c' || echo '$(srcdir)/'`../../sparc/shared/pci/grpci2.c
+
+grpci2.obj: ../../sparc/shared/pci/grpci2.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpci2.obj -MD -MP -MF $(DEPDIR)/grpci2.Tpo -c -o grpci2.obj `if test -f '../../sparc/shared/pci/grpci2.c'; then $(CYGPATH_W) '../../sparc/shared/pci/grpci2.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/grpci2.c'; fi`
+	$(am__mv) $(DEPDIR)/grpci2.Tpo $(DEPDIR)/grpci2.Po
+#	source='../../sparc/shared/pci/grpci2.c' object='grpci2.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpci2.obj `if test -f '../../sparc/shared/pci/grpci2.c'; then $(CYGPATH_W) '../../sparc/shared/pci/grpci2.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/grpci2.c'; fi`
+
+pcif.o: ../../sparc/shared/pci/pcif.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pcif.o -MD -MP -MF $(DEPDIR)/pcif.Tpo -c -o pcif.o `test -f '../../sparc/shared/pci/pcif.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pcif.c
+	$(am__mv) $(DEPDIR)/pcif.Tpo $(DEPDIR)/pcif.Po
+#	source='../../sparc/shared/pci/pcif.c' object='pcif.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pcif.o `test -f '../../sparc/shared/pci/pcif.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pcif.c
+
+pcif.obj: ../../sparc/shared/pci/pcif.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pcif.obj -MD -MP -MF $(DEPDIR)/pcif.Tpo -c -o pcif.obj `if test -f '../../sparc/shared/pci/pcif.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pcif.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pcif.c'; fi`
+	$(am__mv) $(DEPDIR)/pcif.Tpo $(DEPDIR)/pcif.Po
+#	source='../../sparc/shared/pci/pcif.c' object='pcif.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pcif.obj `if test -f '../../sparc/shared/pci/pcif.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pcif.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pcif.c'; fi`
+
+pci_memreg_sparc_le.o: ../../sparc/shared/pci/pci_memreg_sparc_le.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pci_memreg_sparc_le.o -MD -MP -MF $(DEPDIR)/pci_memreg_sparc_le.Tpo -c -o pci_memreg_sparc_le.o `test -f '../../sparc/shared/pci/pci_memreg_sparc_le.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pci_memreg_sparc_le.c
+	$(am__mv) $(DEPDIR)/pci_memreg_sparc_le.Tpo $(DEPDIR)/pci_memreg_sparc_le.Po
+#	source='../../sparc/shared/pci/pci_memreg_sparc_le.c' object='pci_memreg_sparc_le.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pci_memreg_sparc_le.o `test -f '../../sparc/shared/pci/pci_memreg_sparc_le.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pci_memreg_sparc_le.c
+
+pci_memreg_sparc_le.obj: ../../sparc/shared/pci/pci_memreg_sparc_le.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pci_memreg_sparc_le.obj -MD -MP -MF $(DEPDIR)/pci_memreg_sparc_le.Tpo -c -o pci_memreg_sparc_le.obj `if test -f '../../sparc/shared/pci/pci_memreg_sparc_le.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pci_memreg_sparc_le.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pci_memreg_sparc_le.c'; fi`
+	$(am__mv) $(DEPDIR)/pci_memreg_sparc_le.Tpo $(DEPDIR)/pci_memreg_sparc_le.Po
+#	source='../../sparc/shared/pci/pci_memreg_sparc_le.c' object='pci_memreg_sparc_le.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pci_memreg_sparc_le.obj `if test -f '../../sparc/shared/pci/pci_memreg_sparc_le.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pci_memreg_sparc_le.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pci_memreg_sparc_le.c'; fi`
+
+pci_memreg_sparc_be.o: ../../sparc/shared/pci/pci_memreg_sparc_be.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pci_memreg_sparc_be.o -MD -MP -MF $(DEPDIR)/pci_memreg_sparc_be.Tpo -c -o pci_memreg_sparc_be.o `test -f '../../sparc/shared/pci/pci_memreg_sparc_be.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pci_memreg_sparc_be.c
+	$(am__mv) $(DEPDIR)/pci_memreg_sparc_be.Tpo $(DEPDIR)/pci_memreg_sparc_be.Po
+#	source='../../sparc/shared/pci/pci_memreg_sparc_be.c' object='pci_memreg_sparc_be.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pci_memreg_sparc_be.o `test -f '../../sparc/shared/pci/pci_memreg_sparc_be.c' || echo '$(srcdir)/'`../../sparc/shared/pci/pci_memreg_sparc_be.c
+
+pci_memreg_sparc_be.obj: ../../sparc/shared/pci/pci_memreg_sparc_be.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pci_memreg_sparc_be.obj -MD -MP -MF $(DEPDIR)/pci_memreg_sparc_be.Tpo -c -o pci_memreg_sparc_be.obj `if test -f '../../sparc/shared/pci/pci_memreg_sparc_be.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pci_memreg_sparc_be.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pci_memreg_sparc_be.c'; fi`
+	$(am__mv) $(DEPDIR)/pci_memreg_sparc_be.Tpo $(DEPDIR)/pci_memreg_sparc_be.Po
+#	source='../../sparc/shared/pci/pci_memreg_sparc_be.c' object='pci_memreg_sparc_be.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pci_memreg_sparc_be.obj `if test -f '../../sparc/shared/pci/pci_memreg_sparc_be.c'; then $(CYGPATH_W) '../../sparc/shared/pci/pci_memreg_sparc_be.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/pci_memreg_sparc_be.c'; fi`
+
+gr_701.o: ../../sparc/shared/pci/gr_701.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_701.o -MD -MP -MF $(DEPDIR)/gr_701.Tpo -c -o gr_701.o `test -f '../../sparc/shared/pci/gr_701.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_701.c
+	$(am__mv) $(DEPDIR)/gr_701.Tpo $(DEPDIR)/gr_701.Po
+#	source='../../sparc/shared/pci/gr_701.c' object='gr_701.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_701.o `test -f '../../sparc/shared/pci/gr_701.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_701.c
+
+gr_701.obj: ../../sparc/shared/pci/gr_701.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_701.obj -MD -MP -MF $(DEPDIR)/gr_701.Tpo -c -o gr_701.obj `if test -f '../../sparc/shared/pci/gr_701.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_701.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_701.c'; fi`
+	$(am__mv) $(DEPDIR)/gr_701.Tpo $(DEPDIR)/gr_701.Po
+#	source='../../sparc/shared/pci/gr_701.c' object='gr_701.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_701.obj `if test -f '../../sparc/shared/pci/gr_701.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_701.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_701.c'; fi`
+
+gr_rasta_adcdac.o: ../../sparc/shared/pci/gr_rasta_adcdac.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_adcdac.o -MD -MP -MF $(DEPDIR)/gr_rasta_adcdac.Tpo -c -o gr_rasta_adcdac.o `test -f '../../sparc/shared/pci/gr_rasta_adcdac.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_adcdac.c
+	$(am__mv) $(DEPDIR)/gr_rasta_adcdac.Tpo $(DEPDIR)/gr_rasta_adcdac.Po
+#	source='../../sparc/shared/pci/gr_rasta_adcdac.c' object='gr_rasta_adcdac.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_adcdac.o `test -f '../../sparc/shared/pci/gr_rasta_adcdac.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_adcdac.c
+
+gr_rasta_adcdac.obj: ../../sparc/shared/pci/gr_rasta_adcdac.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_adcdac.obj -MD -MP -MF $(DEPDIR)/gr_rasta_adcdac.Tpo -c -o gr_rasta_adcdac.obj `if test -f '../../sparc/shared/pci/gr_rasta_adcdac.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_adcdac.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_adcdac.c'; fi`
+	$(am__mv) $(DEPDIR)/gr_rasta_adcdac.Tpo $(DEPDIR)/gr_rasta_adcdac.Po
+#	source='../../sparc/shared/pci/gr_rasta_adcdac.c' object='gr_rasta_adcdac.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_adcdac.obj `if test -f '../../sparc/shared/pci/gr_rasta_adcdac.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_adcdac.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_adcdac.c'; fi`
+
+gr_rasta_io.o: ../../sparc/shared/pci/gr_rasta_io.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_io.o -MD -MP -MF $(DEPDIR)/gr_rasta_io.Tpo -c -o gr_rasta_io.o `test -f '../../sparc/shared/pci/gr_rasta_io.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_io.c
+	$(am__mv) $(DEPDIR)/gr_rasta_io.Tpo $(DEPDIR)/gr_rasta_io.Po
+#	source='../../sparc/shared/pci/gr_rasta_io.c' object='gr_rasta_io.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_io.o `test -f '../../sparc/shared/pci/gr_rasta_io.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_io.c
+
+gr_rasta_io.obj: ../../sparc/shared/pci/gr_rasta_io.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_io.obj -MD -MP -MF $(DEPDIR)/gr_rasta_io.Tpo -c -o gr_rasta_io.obj `if test -f '../../sparc/shared/pci/gr_rasta_io.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_io.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_io.c'; fi`
+	$(am__mv) $(DEPDIR)/gr_rasta_io.Tpo $(DEPDIR)/gr_rasta_io.Po
+#	source='../../sparc/shared/pci/gr_rasta_io.c' object='gr_rasta_io.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_io.obj `if test -f '../../sparc/shared/pci/gr_rasta_io.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_io.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_io.c'; fi`
+
+gr_rasta_spw_router.o: ../../sparc/shared/pci/gr_rasta_spw_router.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_spw_router.o -MD -MP -MF $(DEPDIR)/gr_rasta_spw_router.Tpo -c -o gr_rasta_spw_router.o `test -f '../../sparc/shared/pci/gr_rasta_spw_router.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_spw_router.c
+	$(am__mv) $(DEPDIR)/gr_rasta_spw_router.Tpo $(DEPDIR)/gr_rasta_spw_router.Po
+#	source='../../sparc/shared/pci/gr_rasta_spw_router.c' object='gr_rasta_spw_router.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_spw_router.o `test -f '../../sparc/shared/pci/gr_rasta_spw_router.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_spw_router.c
+
+gr_rasta_spw_router.obj: ../../sparc/shared/pci/gr_rasta_spw_router.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_spw_router.obj -MD -MP -MF $(DEPDIR)/gr_rasta_spw_router.Tpo -c -o gr_rasta_spw_router.obj `if test -f '../../sparc/shared/pci/gr_rasta_spw_router.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_spw_router.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_spw_router.c'; fi`
+	$(am__mv) $(DEPDIR)/gr_rasta_spw_router.Tpo $(DEPDIR)/gr_rasta_spw_router.Po
+#	source='../../sparc/shared/pci/gr_rasta_spw_router.c' object='gr_rasta_spw_router.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_spw_router.obj `if test -f '../../sparc/shared/pci/gr_rasta_spw_router.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_spw_router.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_spw_router.c'; fi`
+
+gr_rasta_tmtc.o: ../../sparc/shared/pci/gr_rasta_tmtc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_tmtc.o -MD -MP -MF $(DEPDIR)/gr_rasta_tmtc.Tpo -c -o gr_rasta_tmtc.o `test -f '../../sparc/shared/pci/gr_rasta_tmtc.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_tmtc.c
+	$(am__mv) $(DEPDIR)/gr_rasta_tmtc.Tpo $(DEPDIR)/gr_rasta_tmtc.Po
+#	source='../../sparc/shared/pci/gr_rasta_tmtc.c' object='gr_rasta_tmtc.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_tmtc.o `test -f '../../sparc/shared/pci/gr_rasta_tmtc.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_rasta_tmtc.c
+
+gr_rasta_tmtc.obj: ../../sparc/shared/pci/gr_rasta_tmtc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_rasta_tmtc.obj -MD -MP -MF $(DEPDIR)/gr_rasta_tmtc.Tpo -c -o gr_rasta_tmtc.obj `if test -f '../../sparc/shared/pci/gr_rasta_tmtc.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_tmtc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_tmtc.c'; fi`
+	$(am__mv) $(DEPDIR)/gr_rasta_tmtc.Tpo $(DEPDIR)/gr_rasta_tmtc.Po
+#	source='../../sparc/shared/pci/gr_rasta_tmtc.c' object='gr_rasta_tmtc.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_rasta_tmtc.obj `if test -f '../../sparc/shared/pci/gr_rasta_tmtc.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_rasta_tmtc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_rasta_tmtc.c'; fi`
+
+gr_tmtc_1553.o: ../../sparc/shared/pci/gr_tmtc_1553.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_tmtc_1553.o -MD -MP -MF $(DEPDIR)/gr_tmtc_1553.Tpo -c -o gr_tmtc_1553.o `test -f '../../sparc/shared/pci/gr_tmtc_1553.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_tmtc_1553.c
+	$(am__mv) $(DEPDIR)/gr_tmtc_1553.Tpo $(DEPDIR)/gr_tmtc_1553.Po
+#	source='../../sparc/shared/pci/gr_tmtc_1553.c' object='gr_tmtc_1553.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_tmtc_1553.o `test -f '../../sparc/shared/pci/gr_tmtc_1553.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_tmtc_1553.c
+
+gr_tmtc_1553.obj: ../../sparc/shared/pci/gr_tmtc_1553.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_tmtc_1553.obj -MD -MP -MF $(DEPDIR)/gr_tmtc_1553.Tpo -c -o gr_tmtc_1553.obj `if test -f '../../sparc/shared/pci/gr_tmtc_1553.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_tmtc_1553.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_tmtc_1553.c'; fi`
+	$(am__mv) $(DEPDIR)/gr_tmtc_1553.Tpo $(DEPDIR)/gr_tmtc_1553.Po
+#	source='../../sparc/shared/pci/gr_tmtc_1553.c' object='gr_tmtc_1553.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_tmtc_1553.obj `if test -f '../../sparc/shared/pci/gr_tmtc_1553.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_tmtc_1553.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_tmtc_1553.c'; fi`
+
+gr_leon4_n2x.o: ../../sparc/shared/pci/gr_leon4_n2x.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_leon4_n2x.o -MD -MP -MF $(DEPDIR)/gr_leon4_n2x.Tpo -c -o gr_leon4_n2x.o `test -f '../../sparc/shared/pci/gr_leon4_n2x.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_leon4_n2x.c
+	$(am__mv) $(DEPDIR)/gr_leon4_n2x.Tpo $(DEPDIR)/gr_leon4_n2x.Po
+#	source='../../sparc/shared/pci/gr_leon4_n2x.c' object='gr_leon4_n2x.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_leon4_n2x.o `test -f '../../sparc/shared/pci/gr_leon4_n2x.c' || echo '$(srcdir)/'`../../sparc/shared/pci/gr_leon4_n2x.c
+
+gr_leon4_n2x.obj: ../../sparc/shared/pci/gr_leon4_n2x.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr_leon4_n2x.obj -MD -MP -MF $(DEPDIR)/gr_leon4_n2x.Tpo -c -o gr_leon4_n2x.obj `if test -f '../../sparc/shared/pci/gr_leon4_n2x.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_leon4_n2x.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_leon4_n2x.c'; fi`
+	$(am__mv) $(DEPDIR)/gr_leon4_n2x.Tpo $(DEPDIR)/gr_leon4_n2x.Po
+#	source='../../sparc/shared/pci/gr_leon4_n2x.c' object='gr_leon4_n2x.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr_leon4_n2x.obj `if test -f '../../sparc/shared/pci/gr_leon4_n2x.c'; then $(CYGPATH_W) '../../sparc/shared/pci/gr_leon4_n2x.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pci/gr_leon4_n2x.c'; fi`
 
 b1553brm.o: ../../sparc/shared/1553/b1553brm.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT b1553brm.o -MD -MP -MF $(DEPDIR)/b1553brm.Tpo -c -o b1553brm.o `test -f '../../sparc/shared/1553/b1553brm.c' || echo '$(srcdir)/'`../../sparc/shared/1553/b1553brm.c
@@ -973,19 +1839,75 @@ b1553brm.obj: ../../sparc/shared/1553/b1553brm.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o b1553brm.obj `if test -f '../../sparc/shared/1553/b1553brm.c'; then $(CYGPATH_W) '../../sparc/shared/1553/b1553brm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/b1553brm.c'; fi`
 
-b1553brm_pci.o: ../../sparc/shared/1553/b1553brm_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT b1553brm_pci.o -MD -MP -MF $(DEPDIR)/b1553brm_pci.Tpo -c -o b1553brm_pci.o `test -f '../../sparc/shared/1553/b1553brm_pci.c' || echo '$(srcdir)/'`../../sparc/shared/1553/b1553brm_pci.c
-	$(am__mv) $(DEPDIR)/b1553brm_pci.Tpo $(DEPDIR)/b1553brm_pci.Po
-#	source='../../sparc/shared/1553/b1553brm_pci.c' object='b1553brm_pci.o' libtool=no \
+b1553rt.o: ../../sparc/shared/1553/b1553rt.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT b1553rt.o -MD -MP -MF $(DEPDIR)/b1553rt.Tpo -c -o b1553rt.o `test -f '../../sparc/shared/1553/b1553rt.c' || echo '$(srcdir)/'`../../sparc/shared/1553/b1553rt.c
+	$(am__mv) $(DEPDIR)/b1553rt.Tpo $(DEPDIR)/b1553rt.Po
+#	source='../../sparc/shared/1553/b1553rt.c' object='b1553rt.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o b1553brm_pci.o `test -f '../../sparc/shared/1553/b1553brm_pci.c' || echo '$(srcdir)/'`../../sparc/shared/1553/b1553brm_pci.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o b1553rt.o `test -f '../../sparc/shared/1553/b1553rt.c' || echo '$(srcdir)/'`../../sparc/shared/1553/b1553rt.c
 
-b1553brm_pci.obj: ../../sparc/shared/1553/b1553brm_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT b1553brm_pci.obj -MD -MP -MF $(DEPDIR)/b1553brm_pci.Tpo -c -o b1553brm_pci.obj `if test -f '../../sparc/shared/1553/b1553brm_pci.c'; then $(CYGPATH_W) '../../sparc/shared/1553/b1553brm_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/b1553brm_pci.c'; fi`
-	$(am__mv) $(DEPDIR)/b1553brm_pci.Tpo $(DEPDIR)/b1553brm_pci.Po
-#	source='../../sparc/shared/1553/b1553brm_pci.c' object='b1553brm_pci.obj' libtool=no \
+b1553rt.obj: ../../sparc/shared/1553/b1553rt.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT b1553rt.obj -MD -MP -MF $(DEPDIR)/b1553rt.Tpo -c -o b1553rt.obj `if test -f '../../sparc/shared/1553/b1553rt.c'; then $(CYGPATH_W) '../../sparc/shared/1553/b1553rt.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/b1553rt.c'; fi`
+	$(am__mv) $(DEPDIR)/b1553rt.Tpo $(DEPDIR)/b1553rt.Po
+#	source='../../sparc/shared/1553/b1553rt.c' object='b1553rt.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o b1553brm_pci.obj `if test -f '../../sparc/shared/1553/b1553brm_pci.c'; then $(CYGPATH_W) '../../sparc/shared/1553/b1553brm_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/b1553brm_pci.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o b1553rt.obj `if test -f '../../sparc/shared/1553/b1553rt.c'; then $(CYGPATH_W) '../../sparc/shared/1553/b1553rt.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/b1553rt.c'; fi`
+
+gr1553b.o: ../../sparc/shared/1553/gr1553b.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553b.o -MD -MP -MF $(DEPDIR)/gr1553b.Tpo -c -o gr1553b.o `test -f '../../sparc/shared/1553/gr1553b.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553b.c
+	$(am__mv) $(DEPDIR)/gr1553b.Tpo $(DEPDIR)/gr1553b.Po
+#	source='../../sparc/shared/1553/gr1553b.c' object='gr1553b.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553b.o `test -f '../../sparc/shared/1553/gr1553b.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553b.c
+
+gr1553b.obj: ../../sparc/shared/1553/gr1553b.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553b.obj -MD -MP -MF $(DEPDIR)/gr1553b.Tpo -c -o gr1553b.obj `if test -f '../../sparc/shared/1553/gr1553b.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553b.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553b.c'; fi`
+	$(am__mv) $(DEPDIR)/gr1553b.Tpo $(DEPDIR)/gr1553b.Po
+#	source='../../sparc/shared/1553/gr1553b.c' object='gr1553b.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553b.obj `if test -f '../../sparc/shared/1553/gr1553b.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553b.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553b.c'; fi`
+
+gr1553bc.o: ../../sparc/shared/1553/gr1553bc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553bc.o -MD -MP -MF $(DEPDIR)/gr1553bc.Tpo -c -o gr1553bc.o `test -f '../../sparc/shared/1553/gr1553bc.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553bc.c
+	$(am__mv) $(DEPDIR)/gr1553bc.Tpo $(DEPDIR)/gr1553bc.Po
+#	source='../../sparc/shared/1553/gr1553bc.c' object='gr1553bc.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553bc.o `test -f '../../sparc/shared/1553/gr1553bc.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553bc.c
+
+gr1553bc.obj: ../../sparc/shared/1553/gr1553bc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553bc.obj -MD -MP -MF $(DEPDIR)/gr1553bc.Tpo -c -o gr1553bc.obj `if test -f '../../sparc/shared/1553/gr1553bc.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553bc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553bc.c'; fi`
+	$(am__mv) $(DEPDIR)/gr1553bc.Tpo $(DEPDIR)/gr1553bc.Po
+#	source='../../sparc/shared/1553/gr1553bc.c' object='gr1553bc.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553bc.obj `if test -f '../../sparc/shared/1553/gr1553bc.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553bc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553bc.c'; fi`
+
+gr1553bm.o: ../../sparc/shared/1553/gr1553bm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553bm.o -MD -MP -MF $(DEPDIR)/gr1553bm.Tpo -c -o gr1553bm.o `test -f '../../sparc/shared/1553/gr1553bm.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553bm.c
+	$(am__mv) $(DEPDIR)/gr1553bm.Tpo $(DEPDIR)/gr1553bm.Po
+#	source='../../sparc/shared/1553/gr1553bm.c' object='gr1553bm.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553bm.o `test -f '../../sparc/shared/1553/gr1553bm.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553bm.c
+
+gr1553bm.obj: ../../sparc/shared/1553/gr1553bm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553bm.obj -MD -MP -MF $(DEPDIR)/gr1553bm.Tpo -c -o gr1553bm.obj `if test -f '../../sparc/shared/1553/gr1553bm.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553bm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553bm.c'; fi`
+	$(am__mv) $(DEPDIR)/gr1553bm.Tpo $(DEPDIR)/gr1553bm.Po
+#	source='../../sparc/shared/1553/gr1553bm.c' object='gr1553bm.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553bm.obj `if test -f '../../sparc/shared/1553/gr1553bm.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553bm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553bm.c'; fi`
+
+gr1553rt.o: ../../sparc/shared/1553/gr1553rt.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553rt.o -MD -MP -MF $(DEPDIR)/gr1553rt.Tpo -c -o gr1553rt.o `test -f '../../sparc/shared/1553/gr1553rt.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553rt.c
+	$(am__mv) $(DEPDIR)/gr1553rt.Tpo $(DEPDIR)/gr1553rt.Po
+#	source='../../sparc/shared/1553/gr1553rt.c' object='gr1553rt.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553rt.o `test -f '../../sparc/shared/1553/gr1553rt.c' || echo '$(srcdir)/'`../../sparc/shared/1553/gr1553rt.c
+
+gr1553rt.obj: ../../sparc/shared/1553/gr1553rt.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gr1553rt.obj -MD -MP -MF $(DEPDIR)/gr1553rt.Tpo -c -o gr1553rt.obj `if test -f '../../sparc/shared/1553/gr1553rt.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553rt.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553rt.c'; fi`
+	$(am__mv) $(DEPDIR)/gr1553rt.Tpo $(DEPDIR)/gr1553rt.Po
+#	source='../../sparc/shared/1553/gr1553rt.c' object='gr1553rt.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gr1553rt.obj `if test -f '../../sparc/shared/1553/gr1553rt.c'; then $(CYGPATH_W) '../../sparc/shared/1553/gr1553rt.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/1553/gr1553rt.c'; fi`
 
 occan.o: ../../sparc/shared/can/occan.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT occan.o -MD -MP -MF $(DEPDIR)/occan.Tpo -c -o occan.o `test -f '../../sparc/shared/can/occan.c' || echo '$(srcdir)/'`../../sparc/shared/can/occan.c
@@ -1000,20 +1922,6 @@ occan.obj: ../../sparc/shared/can/occan.c
 #	source='../../sparc/shared/can/occan.c' object='occan.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o occan.obj `if test -f '../../sparc/shared/can/occan.c'; then $(CYGPATH_W) '../../sparc/shared/can/occan.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/can/occan.c'; fi`
-
-occan_pci.o: ../../sparc/shared/can/occan_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT occan_pci.o -MD -MP -MF $(DEPDIR)/occan_pci.Tpo -c -o occan_pci.o `test -f '../../sparc/shared/can/occan_pci.c' || echo '$(srcdir)/'`../../sparc/shared/can/occan_pci.c
-	$(am__mv) $(DEPDIR)/occan_pci.Tpo $(DEPDIR)/occan_pci.Po
-#	source='../../sparc/shared/can/occan_pci.c' object='occan_pci.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o occan_pci.o `test -f '../../sparc/shared/can/occan_pci.c' || echo '$(srcdir)/'`../../sparc/shared/can/occan_pci.c
-
-occan_pci.obj: ../../sparc/shared/can/occan_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT occan_pci.obj -MD -MP -MF $(DEPDIR)/occan_pci.Tpo -c -o occan_pci.obj `if test -f '../../sparc/shared/can/occan_pci.c'; then $(CYGPATH_W) '../../sparc/shared/can/occan_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/can/occan_pci.c'; fi`
-	$(am__mv) $(DEPDIR)/occan_pci.Tpo $(DEPDIR)/occan_pci.Po
-#	source='../../sparc/shared/can/occan_pci.c' object='occan_pci.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o occan_pci.obj `if test -f '../../sparc/shared/can/occan_pci.c'; then $(CYGPATH_W) '../../sparc/shared/can/occan_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/can/occan_pci.c'; fi`
 
 grcan.o: ../../sparc/shared/can/grcan.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grcan.o -MD -MP -MF $(DEPDIR)/grcan.Tpo -c -o grcan.o `test -f '../../sparc/shared/can/grcan.c' || echo '$(srcdir)/'`../../sparc/shared/can/grcan.c
@@ -1043,19 +1951,89 @@ grspw.obj: ../../sparc/shared/spw/grspw.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grspw.obj `if test -f '../../sparc/shared/spw/grspw.c'; then $(CYGPATH_W) '../../sparc/shared/spw/grspw.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/grspw.c'; fi`
 
-grspw_pci.o: ../../sparc/shared/spw/grspw_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grspw_pci.o -MD -MP -MF $(DEPDIR)/grspw_pci.Tpo -c -o grspw_pci.o `test -f '../../sparc/shared/spw/grspw_pci.c' || echo '$(srcdir)/'`../../sparc/shared/spw/grspw_pci.c
-	$(am__mv) $(DEPDIR)/grspw_pci.Tpo $(DEPDIR)/grspw_pci.Po
-#	source='../../sparc/shared/spw/grspw_pci.c' object='grspw_pci.o' libtool=no \
+grspw_pkt.o: ../../sparc/shared/spw/grspw_pkt.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grspw_pkt.o -MD -MP -MF $(DEPDIR)/grspw_pkt.Tpo -c -o grspw_pkt.o `test -f '../../sparc/shared/spw/grspw_pkt.c' || echo '$(srcdir)/'`../../sparc/shared/spw/grspw_pkt.c
+	$(am__mv) $(DEPDIR)/grspw_pkt.Tpo $(DEPDIR)/grspw_pkt.Po
+#	source='../../sparc/shared/spw/grspw_pkt.c' object='grspw_pkt.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grspw_pci.o `test -f '../../sparc/shared/spw/grspw_pci.c' || echo '$(srcdir)/'`../../sparc/shared/spw/grspw_pci.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grspw_pkt.o `test -f '../../sparc/shared/spw/grspw_pkt.c' || echo '$(srcdir)/'`../../sparc/shared/spw/grspw_pkt.c
 
-grspw_pci.obj: ../../sparc/shared/spw/grspw_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grspw_pci.obj -MD -MP -MF $(DEPDIR)/grspw_pci.Tpo -c -o grspw_pci.obj `if test -f '../../sparc/shared/spw/grspw_pci.c'; then $(CYGPATH_W) '../../sparc/shared/spw/grspw_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/grspw_pci.c'; fi`
-	$(am__mv) $(DEPDIR)/grspw_pci.Tpo $(DEPDIR)/grspw_pci.Po
-#	source='../../sparc/shared/spw/grspw_pci.c' object='grspw_pci.obj' libtool=no \
+grspw_pkt.obj: ../../sparc/shared/spw/grspw_pkt.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grspw_pkt.obj -MD -MP -MF $(DEPDIR)/grspw_pkt.Tpo -c -o grspw_pkt.obj `if test -f '../../sparc/shared/spw/grspw_pkt.c'; then $(CYGPATH_W) '../../sparc/shared/spw/grspw_pkt.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/grspw_pkt.c'; fi`
+	$(am__mv) $(DEPDIR)/grspw_pkt.Tpo $(DEPDIR)/grspw_pkt.Po
+#	source='../../sparc/shared/spw/grspw_pkt.c' object='grspw_pkt.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grspw_pci.obj `if test -f '../../sparc/shared/spw/grspw_pci.c'; then $(CYGPATH_W) '../../sparc/shared/spw/grspw_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/grspw_pci.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grspw_pkt.obj `if test -f '../../sparc/shared/spw/grspw_pkt.c'; then $(CYGPATH_W) '../../sparc/shared/spw/grspw_pkt.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/grspw_pkt.c'; fi`
+
+grspw_router.o: ../../sparc/shared/spw/grspw_router.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grspw_router.o -MD -MP -MF $(DEPDIR)/grspw_router.Tpo -c -o grspw_router.o `test -f '../../sparc/shared/spw/grspw_router.c' || echo '$(srcdir)/'`../../sparc/shared/spw/grspw_router.c
+	$(am__mv) $(DEPDIR)/grspw_router.Tpo $(DEPDIR)/grspw_router.Po
+#	source='../../sparc/shared/spw/grspw_router.c' object='grspw_router.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grspw_router.o `test -f '../../sparc/shared/spw/grspw_router.c' || echo '$(srcdir)/'`../../sparc/shared/spw/grspw_router.c
+
+grspw_router.obj: ../../sparc/shared/spw/grspw_router.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grspw_router.obj -MD -MP -MF $(DEPDIR)/grspw_router.Tpo -c -o grspw_router.obj `if test -f '../../sparc/shared/spw/grspw_router.c'; then $(CYGPATH_W) '../../sparc/shared/spw/grspw_router.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/grspw_router.c'; fi`
+	$(am__mv) $(DEPDIR)/grspw_router.Tpo $(DEPDIR)/grspw_router.Po
+#	source='../../sparc/shared/spw/grspw_router.c' object='grspw_router.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grspw_router.obj `if test -f '../../sparc/shared/spw/grspw_router.c'; then $(CYGPATH_W) '../../sparc/shared/spw/grspw_router.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/grspw_router.c'; fi`
+
+rmap.o: ../../sparc/shared/spw/rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap.o -MD -MP -MF $(DEPDIR)/rmap.Tpo -c -o rmap.o `test -f '../../sparc/shared/spw/rmap.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap.c
+	$(am__mv) $(DEPDIR)/rmap.Tpo $(DEPDIR)/rmap.Po
+#	source='../../sparc/shared/spw/rmap.c' object='rmap.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap.o `test -f '../../sparc/shared/spw/rmap.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap.c
+
+rmap.obj: ../../sparc/shared/spw/rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap.obj -MD -MP -MF $(DEPDIR)/rmap.Tpo -c -o rmap.obj `if test -f '../../sparc/shared/spw/rmap.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap.c'; fi`
+	$(am__mv) $(DEPDIR)/rmap.Tpo $(DEPDIR)/rmap.Po
+#	source='../../sparc/shared/spw/rmap.c' object='rmap.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap.obj `if test -f '../../sparc/shared/spw/rmap.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap.c'; fi`
+
+rmap_async.o: ../../sparc/shared/spw/rmap_async.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap_async.o -MD -MP -MF $(DEPDIR)/rmap_async.Tpo -c -o rmap_async.o `test -f '../../sparc/shared/spw/rmap_async.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap_async.c
+	$(am__mv) $(DEPDIR)/rmap_async.Tpo $(DEPDIR)/rmap_async.Po
+#	source='../../sparc/shared/spw/rmap_async.c' object='rmap_async.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap_async.o `test -f '../../sparc/shared/spw/rmap_async.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap_async.c
+
+rmap_async.obj: ../../sparc/shared/spw/rmap_async.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap_async.obj -MD -MP -MF $(DEPDIR)/rmap_async.Tpo -c -o rmap_async.obj `if test -f '../../sparc/shared/spw/rmap_async.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap_async.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap_async.c'; fi`
+	$(am__mv) $(DEPDIR)/rmap_async.Tpo $(DEPDIR)/rmap_async.Po
+#	source='../../sparc/shared/spw/rmap_async.c' object='rmap_async.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap_async.obj `if test -f '../../sparc/shared/spw/rmap_async.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap_async.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap_async.c'; fi`
+
+rmap_common.o: ../../sparc/shared/spw/rmap_common.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap_common.o -MD -MP -MF $(DEPDIR)/rmap_common.Tpo -c -o rmap_common.o `test -f '../../sparc/shared/spw/rmap_common.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap_common.c
+	$(am__mv) $(DEPDIR)/rmap_common.Tpo $(DEPDIR)/rmap_common.Po
+#	source='../../sparc/shared/spw/rmap_common.c' object='rmap_common.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap_common.o `test -f '../../sparc/shared/spw/rmap_common.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap_common.c
+
+rmap_common.obj: ../../sparc/shared/spw/rmap_common.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap_common.obj -MD -MP -MF $(DEPDIR)/rmap_common.Tpo -c -o rmap_common.obj `if test -f '../../sparc/shared/spw/rmap_common.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap_common.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap_common.c'; fi`
+	$(am__mv) $(DEPDIR)/rmap_common.Tpo $(DEPDIR)/rmap_common.Po
+#	source='../../sparc/shared/spw/rmap_common.c' object='rmap_common.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap_common.obj `if test -f '../../sparc/shared/spw/rmap_common.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap_common.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap_common.c'; fi`
+
+rmap_drv_grspw.o: ../../sparc/shared/spw/rmap_drv_grspw.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap_drv_grspw.o -MD -MP -MF $(DEPDIR)/rmap_drv_grspw.Tpo -c -o rmap_drv_grspw.o `test -f '../../sparc/shared/spw/rmap_drv_grspw.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap_drv_grspw.c
+	$(am__mv) $(DEPDIR)/rmap_drv_grspw.Tpo $(DEPDIR)/rmap_drv_grspw.Po
+#	source='../../sparc/shared/spw/rmap_drv_grspw.c' object='rmap_drv_grspw.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap_drv_grspw.o `test -f '../../sparc/shared/spw/rmap_drv_grspw.c' || echo '$(srcdir)/'`../../sparc/shared/spw/rmap_drv_grspw.c
+
+rmap_drv_grspw.obj: ../../sparc/shared/spw/rmap_drv_grspw.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT rmap_drv_grspw.obj -MD -MP -MF $(DEPDIR)/rmap_drv_grspw.Tpo -c -o rmap_drv_grspw.obj `if test -f '../../sparc/shared/spw/rmap_drv_grspw.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap_drv_grspw.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap_drv_grspw.c'; fi`
+	$(am__mv) $(DEPDIR)/rmap_drv_grspw.Tpo $(DEPDIR)/rmap_drv_grspw.Po
+#	source='../../sparc/shared/spw/rmap_drv_grspw.c' object='rmap_drv_grspw.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o rmap_drv_grspw.obj `if test -f '../../sparc/shared/spw/rmap_drv_grspw.c'; then $(CYGPATH_W) '../../sparc/shared/spw/rmap_drv_grspw.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spw/rmap_drv_grspw.c'; fi`
 
 apbuart.o: ../../sparc/shared/uart/apbuart.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT apbuart.o -MD -MP -MF $(DEPDIR)/apbuart.Tpo -c -o apbuart.o `test -f '../../sparc/shared/uart/apbuart.c' || echo '$(srcdir)/'`../../sparc/shared/uart/apbuart.c
@@ -1071,20 +2049,6 @@ apbuart.obj: ../../sparc/shared/uart/apbuart.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o apbuart.obj `if test -f '../../sparc/shared/uart/apbuart.c'; then $(CYGPATH_W) '../../sparc/shared/uart/apbuart.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/uart/apbuart.c'; fi`
 
-apbuart_pci.o: ../../sparc/shared/uart/apbuart_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT apbuart_pci.o -MD -MP -MF $(DEPDIR)/apbuart_pci.Tpo -c -o apbuart_pci.o `test -f '../../sparc/shared/uart/apbuart_pci.c' || echo '$(srcdir)/'`../../sparc/shared/uart/apbuart_pci.c
-	$(am__mv) $(DEPDIR)/apbuart_pci.Tpo $(DEPDIR)/apbuart_pci.Po
-#	source='../../sparc/shared/uart/apbuart_pci.c' object='apbuart_pci.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o apbuart_pci.o `test -f '../../sparc/shared/uart/apbuart_pci.c' || echo '$(srcdir)/'`../../sparc/shared/uart/apbuart_pci.c
-
-apbuart_pci.obj: ../../sparc/shared/uart/apbuart_pci.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT apbuart_pci.obj -MD -MP -MF $(DEPDIR)/apbuart_pci.Tpo -c -o apbuart_pci.obj `if test -f '../../sparc/shared/uart/apbuart_pci.c'; then $(CYGPATH_W) '../../sparc/shared/uart/apbuart_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/uart/apbuart_pci.c'; fi`
-	$(am__mv) $(DEPDIR)/apbuart_pci.Tpo $(DEPDIR)/apbuart_pci.Po
-#	source='../../sparc/shared/uart/apbuart_pci.c' object='apbuart_pci.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o apbuart_pci.obj `if test -f '../../sparc/shared/uart/apbuart_pci.c'; then $(CYGPATH_W) '../../sparc/shared/uart/apbuart_pci.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/uart/apbuart_pci.c'; fi`
-
 i2cmst.o: ../../sparc/shared/i2c/i2cmst.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT i2cmst.o -MD -MP -MF $(DEPDIR)/i2cmst.Tpo -c -o i2cmst.o `test -f '../../sparc/shared/i2c/i2cmst.c' || echo '$(srcdir)/'`../../sparc/shared/i2c/i2cmst.c
 	$(am__mv) $(DEPDIR)/i2cmst.Tpo $(DEPDIR)/i2cmst.Po
@@ -1099,6 +2063,174 @@ i2cmst.obj: ../../sparc/shared/i2c/i2cmst.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o i2cmst.obj `if test -f '../../sparc/shared/i2c/i2cmst.c'; then $(CYGPATH_W) '../../sparc/shared/i2c/i2cmst.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/i2c/i2cmst.c'; fi`
 
+spictrl.o: ../../sparc/shared/spi/spictrl.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spictrl.o -MD -MP -MF $(DEPDIR)/spictrl.Tpo -c -o spictrl.o `test -f '../../sparc/shared/spi/spictrl.c' || echo '$(srcdir)/'`../../sparc/shared/spi/spictrl.c
+	$(am__mv) $(DEPDIR)/spictrl.Tpo $(DEPDIR)/spictrl.Po
+#	source='../../sparc/shared/spi/spictrl.c' object='spictrl.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spictrl.o `test -f '../../sparc/shared/spi/spictrl.c' || echo '$(srcdir)/'`../../sparc/shared/spi/spictrl.c
+
+spictrl.obj: ../../sparc/shared/spi/spictrl.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spictrl.obj -MD -MP -MF $(DEPDIR)/spictrl.Tpo -c -o spictrl.obj `if test -f '../../sparc/shared/spi/spictrl.c'; then $(CYGPATH_W) '../../sparc/shared/spi/spictrl.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spi/spictrl.c'; fi`
+	$(am__mv) $(DEPDIR)/spictrl.Tpo $(DEPDIR)/spictrl.Po
+#	source='../../sparc/shared/spi/spictrl.c' object='spictrl.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spictrl.obj `if test -f '../../sparc/shared/spi/spictrl.c'; then $(CYGPATH_W) '../../sparc/shared/spi/spictrl.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/spi/spictrl.c'; fi`
+
+spwcuc.o: ../../sparc/shared/time/spwcuc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spwcuc.o -MD -MP -MF $(DEPDIR)/spwcuc.Tpo -c -o spwcuc.o `test -f '../../sparc/shared/time/spwcuc.c' || echo '$(srcdir)/'`../../sparc/shared/time/spwcuc.c
+	$(am__mv) $(DEPDIR)/spwcuc.Tpo $(DEPDIR)/spwcuc.Po
+#	source='../../sparc/shared/time/spwcuc.c' object='spwcuc.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spwcuc.o `test -f '../../sparc/shared/time/spwcuc.c' || echo '$(srcdir)/'`../../sparc/shared/time/spwcuc.c
+
+spwcuc.obj: ../../sparc/shared/time/spwcuc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spwcuc.obj -MD -MP -MF $(DEPDIR)/spwcuc.Tpo -c -o spwcuc.obj `if test -f '../../sparc/shared/time/spwcuc.c'; then $(CYGPATH_W) '../../sparc/shared/time/spwcuc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/time/spwcuc.c'; fi`
+	$(am__mv) $(DEPDIR)/spwcuc.Tpo $(DEPDIR)/spwcuc.Po
+#	source='../../sparc/shared/time/spwcuc.c' object='spwcuc.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spwcuc.obj `if test -f '../../sparc/shared/time/spwcuc.c'; then $(CYGPATH_W) '../../sparc/shared/time/spwcuc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/time/spwcuc.c'; fi`
+
+spwtdp.o: ../../sparc/shared/time/spwtdp.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spwtdp.o -MD -MP -MF $(DEPDIR)/spwtdp.Tpo -c -o spwtdp.o `test -f '../../sparc/shared/time/spwtdp.c' || echo '$(srcdir)/'`../../sparc/shared/time/spwtdp.c
+	$(am__mv) $(DEPDIR)/spwtdp.Tpo $(DEPDIR)/spwtdp.Po
+#	source='../../sparc/shared/time/spwtdp.c' object='spwtdp.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spwtdp.o `test -f '../../sparc/shared/time/spwtdp.c' || echo '$(srcdir)/'`../../sparc/shared/time/spwtdp.c
+
+spwtdp.obj: ../../sparc/shared/time/spwtdp.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spwtdp.obj -MD -MP -MF $(DEPDIR)/spwtdp.Tpo -c -o spwtdp.obj `if test -f '../../sparc/shared/time/spwtdp.c'; then $(CYGPATH_W) '../../sparc/shared/time/spwtdp.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/time/spwtdp.c'; fi`
+	$(am__mv) $(DEPDIR)/spwtdp.Tpo $(DEPDIR)/spwtdp.Po
+#	source='../../sparc/shared/time/spwtdp.c' object='spwtdp.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spwtdp.obj `if test -f '../../sparc/shared/time/spwtdp.c'; then $(CYGPATH_W) '../../sparc/shared/time/spwtdp.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/time/spwtdp.c'; fi`
+
+grctm.o: ../../sparc/shared/time/grctm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grctm.o -MD -MP -MF $(DEPDIR)/grctm.Tpo -c -o grctm.o `test -f '../../sparc/shared/time/grctm.c' || echo '$(srcdir)/'`../../sparc/shared/time/grctm.c
+	$(am__mv) $(DEPDIR)/grctm.Tpo $(DEPDIR)/grctm.Po
+#	source='../../sparc/shared/time/grctm.c' object='grctm.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grctm.o `test -f '../../sparc/shared/time/grctm.c' || echo '$(srcdir)/'`../../sparc/shared/time/grctm.c
+
+grctm.obj: ../../sparc/shared/time/grctm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grctm.obj -MD -MP -MF $(DEPDIR)/grctm.Tpo -c -o grctm.obj `if test -f '../../sparc/shared/time/grctm.c'; then $(CYGPATH_W) '../../sparc/shared/time/grctm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/time/grctm.c'; fi`
+	$(am__mv) $(DEPDIR)/grctm.Tpo $(DEPDIR)/grctm.Po
+#	source='../../sparc/shared/time/grctm.c' object='grctm.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grctm.obj `if test -f '../../sparc/shared/time/grctm.c'; then $(CYGPATH_W) '../../sparc/shared/time/grctm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/time/grctm.c'; fi`
+
+grgpio.o: ../../sparc/shared/gpio/grgpio.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grgpio.o -MD -MP -MF $(DEPDIR)/grgpio.Tpo -c -o grgpio.o `test -f '../../sparc/shared/gpio/grgpio.c' || echo '$(srcdir)/'`../../sparc/shared/gpio/grgpio.c
+	$(am__mv) $(DEPDIR)/grgpio.Tpo $(DEPDIR)/grgpio.Po
+#	source='../../sparc/shared/gpio/grgpio.c' object='grgpio.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grgpio.o `test -f '../../sparc/shared/gpio/grgpio.c' || echo '$(srcdir)/'`../../sparc/shared/gpio/grgpio.c
+
+grgpio.obj: ../../sparc/shared/gpio/grgpio.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grgpio.obj -MD -MP -MF $(DEPDIR)/grgpio.Tpo -c -o grgpio.obj `if test -f '../../sparc/shared/gpio/grgpio.c'; then $(CYGPATH_W) '../../sparc/shared/gpio/grgpio.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/gpio/grgpio.c'; fi`
+	$(am__mv) $(DEPDIR)/grgpio.Tpo $(DEPDIR)/grgpio.Po
+#	source='../../sparc/shared/gpio/grgpio.c' object='grgpio.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grgpio.obj `if test -f '../../sparc/shared/gpio/grgpio.c'; then $(CYGPATH_W) '../../sparc/shared/gpio/grgpio.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/gpio/grgpio.c'; fi`
+
+gpiolib.o: ../../sparc/shared/gpio/gpiolib.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gpiolib.o -MD -MP -MF $(DEPDIR)/gpiolib.Tpo -c -o gpiolib.o `test -f '../../sparc/shared/gpio/gpiolib.c' || echo '$(srcdir)/'`../../sparc/shared/gpio/gpiolib.c
+	$(am__mv) $(DEPDIR)/gpiolib.Tpo $(DEPDIR)/gpiolib.Po
+#	source='../../sparc/shared/gpio/gpiolib.c' object='gpiolib.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gpiolib.o `test -f '../../sparc/shared/gpio/gpiolib.c' || echo '$(srcdir)/'`../../sparc/shared/gpio/gpiolib.c
+
+gpiolib.obj: ../../sparc/shared/gpio/gpiolib.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gpiolib.obj -MD -MP -MF $(DEPDIR)/gpiolib.Tpo -c -o gpiolib.obj `if test -f '../../sparc/shared/gpio/gpiolib.c'; then $(CYGPATH_W) '../../sparc/shared/gpio/gpiolib.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/gpio/gpiolib.c'; fi`
+	$(am__mv) $(DEPDIR)/gpiolib.Tpo $(DEPDIR)/gpiolib.Po
+#	source='../../sparc/shared/gpio/gpiolib.c' object='gpiolib.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gpiolib.obj `if test -f '../../sparc/shared/gpio/gpiolib.c'; then $(CYGPATH_W) '../../sparc/shared/gpio/gpiolib.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/gpio/gpiolib.c'; fi`
+
+graes.o: ../../sparc/shared/graes/graes.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT graes.o -MD -MP -MF $(DEPDIR)/graes.Tpo -c -o graes.o `test -f '../../sparc/shared/graes/graes.c' || echo '$(srcdir)/'`../../sparc/shared/graes/graes.c
+	$(am__mv) $(DEPDIR)/graes.Tpo $(DEPDIR)/graes.Po
+#	source='../../sparc/shared/graes/graes.c' object='graes.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o graes.o `test -f '../../sparc/shared/graes/graes.c' || echo '$(srcdir)/'`../../sparc/shared/graes/graes.c
+
+graes.obj: ../../sparc/shared/graes/graes.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT graes.obj -MD -MP -MF $(DEPDIR)/graes.Tpo -c -o graes.obj `if test -f '../../sparc/shared/graes/graes.c'; then $(CYGPATH_W) '../../sparc/shared/graes/graes.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/graes/graes.c'; fi`
+	$(am__mv) $(DEPDIR)/graes.Tpo $(DEPDIR)/graes.Po
+#	source='../../sparc/shared/graes/graes.c' object='graes.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o graes.obj `if test -f '../../sparc/shared/graes/graes.c'; then $(CYGPATH_W) '../../sparc/shared/graes/graes.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/graes/graes.c'; fi`
+
+grpwrx.o: ../../sparc/shared/grpwrx/grpwrx.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpwrx.o -MD -MP -MF $(DEPDIR)/grpwrx.Tpo -c -o grpwrx.o `test -f '../../sparc/shared/grpwrx/grpwrx.c' || echo '$(srcdir)/'`../../sparc/shared/grpwrx/grpwrx.c
+	$(am__mv) $(DEPDIR)/grpwrx.Tpo $(DEPDIR)/grpwrx.Po
+#	source='../../sparc/shared/grpwrx/grpwrx.c' object='grpwrx.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpwrx.o `test -f '../../sparc/shared/grpwrx/grpwrx.c' || echo '$(srcdir)/'`../../sparc/shared/grpwrx/grpwrx.c
+
+grpwrx.obj: ../../sparc/shared/grpwrx/grpwrx.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpwrx.obj -MD -MP -MF $(DEPDIR)/grpwrx.Tpo -c -o grpwrx.obj `if test -f '../../sparc/shared/grpwrx/grpwrx.c'; then $(CYGPATH_W) '../../sparc/shared/grpwrx/grpwrx.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/grpwrx/grpwrx.c'; fi`
+	$(am__mv) $(DEPDIR)/grpwrx.Tpo $(DEPDIR)/grpwrx.Po
+#	source='../../sparc/shared/grpwrx/grpwrx.c' object='grpwrx.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpwrx.obj `if test -f '../../sparc/shared/grpwrx/grpwrx.c'; then $(CYGPATH_W) '../../sparc/shared/grpwrx/grpwrx.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/grpwrx/grpwrx.c'; fi`
+
+grpwm.o: ../../sparc/shared/pwm/grpwm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpwm.o -MD -MP -MF $(DEPDIR)/grpwm.Tpo -c -o grpwm.o `test -f '../../sparc/shared/pwm/grpwm.c' || echo '$(srcdir)/'`../../sparc/shared/pwm/grpwm.c
+	$(am__mv) $(DEPDIR)/grpwm.Tpo $(DEPDIR)/grpwm.Po
+#	source='../../sparc/shared/pwm/grpwm.c' object='grpwm.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpwm.o `test -f '../../sparc/shared/pwm/grpwm.c' || echo '$(srcdir)/'`../../sparc/shared/pwm/grpwm.c
+
+grpwm.obj: ../../sparc/shared/pwm/grpwm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grpwm.obj -MD -MP -MF $(DEPDIR)/grpwm.Tpo -c -o grpwm.obj `if test -f '../../sparc/shared/pwm/grpwm.c'; then $(CYGPATH_W) '../../sparc/shared/pwm/grpwm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pwm/grpwm.c'; fi`
+	$(am__mv) $(DEPDIR)/grpwm.Tpo $(DEPDIR)/grpwm.Po
+#	source='../../sparc/shared/pwm/grpwm.c' object='grpwm.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grpwm.obj `if test -f '../../sparc/shared/pwm/grpwm.c'; then $(CYGPATH_W) '../../sparc/shared/pwm/grpwm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/pwm/grpwm.c'; fi`
+
+gradcdac.o: ../../sparc/shared/analog/gradcdac.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gradcdac.o -MD -MP -MF $(DEPDIR)/gradcdac.Tpo -c -o gradcdac.o `test -f '../../sparc/shared/analog/gradcdac.c' || echo '$(srcdir)/'`../../sparc/shared/analog/gradcdac.c
+	$(am__mv) $(DEPDIR)/gradcdac.Tpo $(DEPDIR)/gradcdac.Po
+#	source='../../sparc/shared/analog/gradcdac.c' object='gradcdac.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gradcdac.o `test -f '../../sparc/shared/analog/gradcdac.c' || echo '$(srcdir)/'`../../sparc/shared/analog/gradcdac.c
+
+gradcdac.obj: ../../sparc/shared/analog/gradcdac.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gradcdac.obj -MD -MP -MF $(DEPDIR)/gradcdac.Tpo -c -o gradcdac.obj `if test -f '../../sparc/shared/analog/gradcdac.c'; then $(CYGPATH_W) '../../sparc/shared/analog/gradcdac.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/analog/gradcdac.c'; fi`
+	$(am__mv) $(DEPDIR)/gradcdac.Tpo $(DEPDIR)/gradcdac.Po
+#	source='../../sparc/shared/analog/gradcdac.c' object='gradcdac.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gradcdac.obj `if test -f '../../sparc/shared/analog/gradcdac.c'; then $(CYGPATH_W) '../../sparc/shared/analog/gradcdac.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/analog/gradcdac.c'; fi`
+
+mctrl.o: ../../sparc/shared/mem/mctrl.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mctrl.o -MD -MP -MF $(DEPDIR)/mctrl.Tpo -c -o mctrl.o `test -f '../../sparc/shared/mem/mctrl.c' || echo '$(srcdir)/'`../../sparc/shared/mem/mctrl.c
+	$(am__mv) $(DEPDIR)/mctrl.Tpo $(DEPDIR)/mctrl.Po
+#	source='../../sparc/shared/mem/mctrl.c' object='mctrl.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mctrl.o `test -f '../../sparc/shared/mem/mctrl.c' || echo '$(srcdir)/'`../../sparc/shared/mem/mctrl.c
+
+mctrl.obj: ../../sparc/shared/mem/mctrl.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mctrl.obj -MD -MP -MF $(DEPDIR)/mctrl.Tpo -c -o mctrl.obj `if test -f '../../sparc/shared/mem/mctrl.c'; then $(CYGPATH_W) '../../sparc/shared/mem/mctrl.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/mem/mctrl.c'; fi`
+	$(am__mv) $(DEPDIR)/mctrl.Tpo $(DEPDIR)/mctrl.Po
+#	source='../../sparc/shared/mem/mctrl.c' object='mctrl.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mctrl.obj `if test -f '../../sparc/shared/mem/mctrl.c'; then $(CYGPATH_W) '../../sparc/shared/mem/mctrl.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/mem/mctrl.c'; fi`
+
+mctrl_rmap.o: ../../sparc/shared/mem/mctrl_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mctrl_rmap.o -MD -MP -MF $(DEPDIR)/mctrl_rmap.Tpo -c -o mctrl_rmap.o `test -f '../../sparc/shared/mem/mctrl_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/mem/mctrl_rmap.c
+	$(am__mv) $(DEPDIR)/mctrl_rmap.Tpo $(DEPDIR)/mctrl_rmap.Po
+#	source='../../sparc/shared/mem/mctrl_rmap.c' object='mctrl_rmap.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mctrl_rmap.o `test -f '../../sparc/shared/mem/mctrl_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/mem/mctrl_rmap.c
+
+mctrl_rmap.obj: ../../sparc/shared/mem/mctrl_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mctrl_rmap.obj -MD -MP -MF $(DEPDIR)/mctrl_rmap.Tpo -c -o mctrl_rmap.obj `if test -f '../../sparc/shared/mem/mctrl_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/mem/mctrl_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/mem/mctrl_rmap.c'; fi`
+	$(am__mv) $(DEPDIR)/mctrl_rmap.Tpo $(DEPDIR)/mctrl_rmap.Po
+#	source='../../sparc/shared/mem/mctrl_rmap.c' object='mctrl_rmap.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mctrl_rmap.obj `if test -f '../../sparc/shared/mem/mctrl_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/mem/mctrl_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/mem/mctrl_rmap.c'; fi`
+
 timer.o: timer/timer.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT timer.o -MD -MP -MF $(DEPDIR)/timer.Tpo -c -o timer.o `test -f 'timer/timer.c' || echo '$(srcdir)/'`timer/timer.c
 	$(am__mv) $(DEPDIR)/timer.Tpo $(DEPDIR)/timer.Po
@@ -1112,6 +2244,216 @@ timer.obj: timer/timer.c
 #	source='timer/timer.c' object='timer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o timer.obj `if test -f 'timer/timer.c'; then $(CYGPATH_W) 'timer/timer.c'; else $(CYGPATH_W) '$(srcdir)/timer/timer.c'; fi`
+
+watchdog.o: timer/watchdog.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT watchdog.o -MD -MP -MF $(DEPDIR)/watchdog.Tpo -c -o watchdog.o `test -f 'timer/watchdog.c' || echo '$(srcdir)/'`timer/watchdog.c
+	$(am__mv) $(DEPDIR)/watchdog.Tpo $(DEPDIR)/watchdog.Po
+#	source='timer/watchdog.c' object='watchdog.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o watchdog.o `test -f 'timer/watchdog.c' || echo '$(srcdir)/'`timer/watchdog.c
+
+watchdog.obj: timer/watchdog.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT watchdog.obj -MD -MP -MF $(DEPDIR)/watchdog.Tpo -c -o watchdog.obj `if test -f 'timer/watchdog.c'; then $(CYGPATH_W) 'timer/watchdog.c'; else $(CYGPATH_W) '$(srcdir)/timer/watchdog.c'; fi`
+	$(am__mv) $(DEPDIR)/watchdog.Tpo $(DEPDIR)/watchdog.Po
+#	source='timer/watchdog.c' object='watchdog.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o watchdog.obj `if test -f 'timer/watchdog.c'; then $(CYGPATH_W) 'timer/watchdog.c'; else $(CYGPATH_W) '$(srcdir)/timer/watchdog.c'; fi`
+
+grascs.o: ../../sparc/shared/ascs/grascs.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grascs.o -MD -MP -MF $(DEPDIR)/grascs.Tpo -c -o grascs.o `test -f '../../sparc/shared/ascs/grascs.c' || echo '$(srcdir)/'`../../sparc/shared/ascs/grascs.c
+	$(am__mv) $(DEPDIR)/grascs.Tpo $(DEPDIR)/grascs.Po
+#	source='../../sparc/shared/ascs/grascs.c' object='grascs.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grascs.o `test -f '../../sparc/shared/ascs/grascs.c' || echo '$(srcdir)/'`../../sparc/shared/ascs/grascs.c
+
+grascs.obj: ../../sparc/shared/ascs/grascs.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grascs.obj -MD -MP -MF $(DEPDIR)/grascs.Tpo -c -o grascs.obj `if test -f '../../sparc/shared/ascs/grascs.c'; then $(CYGPATH_W) '../../sparc/shared/ascs/grascs.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/ascs/grascs.c'; fi`
+	$(am__mv) $(DEPDIR)/grascs.Tpo $(DEPDIR)/grascs.Po
+#	source='../../sparc/shared/ascs/grascs.c' object='grascs.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grascs.obj `if test -f '../../sparc/shared/ascs/grascs.c'; then $(CYGPATH_W) '../../sparc/shared/ascs/grascs.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/ascs/grascs.c'; fi`
+
+satcan.o: ../../sparc/shared/can/satcan.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT satcan.o -MD -MP -MF $(DEPDIR)/satcan.Tpo -c -o satcan.o `test -f '../../sparc/shared/can/satcan.c' || echo '$(srcdir)/'`../../sparc/shared/can/satcan.c
+	$(am__mv) $(DEPDIR)/satcan.Tpo $(DEPDIR)/satcan.Po
+#	source='../../sparc/shared/can/satcan.c' object='satcan.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o satcan.o `test -f '../../sparc/shared/can/satcan.c' || echo '$(srcdir)/'`../../sparc/shared/can/satcan.c
+
+satcan.obj: ../../sparc/shared/can/satcan.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT satcan.obj -MD -MP -MF $(DEPDIR)/satcan.Tpo -c -o satcan.obj `if test -f '../../sparc/shared/can/satcan.c'; then $(CYGPATH_W) '../../sparc/shared/can/satcan.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/can/satcan.c'; fi`
+	$(am__mv) $(DEPDIR)/satcan.Tpo $(DEPDIR)/satcan.Po
+#	source='../../sparc/shared/can/satcan.c' object='satcan.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o satcan.obj `if test -f '../../sparc/shared/can/satcan.c'; then $(CYGPATH_W) '../../sparc/shared/can/satcan.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/can/satcan.c'; fi`
+
+canmux.o: ../../sparc/shared/can/canmux.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT canmux.o -MD -MP -MF $(DEPDIR)/canmux.Tpo -c -o canmux.o `test -f '../../sparc/shared/can/canmux.c' || echo '$(srcdir)/'`../../sparc/shared/can/canmux.c
+	$(am__mv) $(DEPDIR)/canmux.Tpo $(DEPDIR)/canmux.Po
+#	source='../../sparc/shared/can/canmux.c' object='canmux.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o canmux.o `test -f '../../sparc/shared/can/canmux.c' || echo '$(srcdir)/'`../../sparc/shared/can/canmux.c
+
+canmux.obj: ../../sparc/shared/can/canmux.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT canmux.obj -MD -MP -MF $(DEPDIR)/canmux.Tpo -c -o canmux.obj `if test -f '../../sparc/shared/can/canmux.c'; then $(CYGPATH_W) '../../sparc/shared/can/canmux.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/can/canmux.c'; fi`
+	$(am__mv) $(DEPDIR)/canmux.Tpo $(DEPDIR)/canmux.Po
+#	source='../../sparc/shared/can/canmux.c' object='canmux.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o canmux.obj `if test -f '../../sparc/shared/can/canmux.c'; then $(CYGPATH_W) '../../sparc/shared/can/canmux.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/can/canmux.c'; fi`
+
+grslink.o: ../../sparc/shared/slink/grslink.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grslink.o -MD -MP -MF $(DEPDIR)/grslink.Tpo -c -o grslink.o `test -f '../../sparc/shared/slink/grslink.c' || echo '$(srcdir)/'`../../sparc/shared/slink/grslink.c
+	$(am__mv) $(DEPDIR)/grslink.Tpo $(DEPDIR)/grslink.Po
+#	source='../../sparc/shared/slink/grslink.c' object='grslink.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grslink.o `test -f '../../sparc/shared/slink/grslink.c' || echo '$(srcdir)/'`../../sparc/shared/slink/grslink.c
+
+grslink.obj: ../../sparc/shared/slink/grslink.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grslink.obj -MD -MP -MF $(DEPDIR)/grslink.Tpo -c -o grslink.obj `if test -f '../../sparc/shared/slink/grslink.c'; then $(CYGPATH_W) '../../sparc/shared/slink/grslink.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/slink/grslink.c'; fi`
+	$(am__mv) $(DEPDIR)/grslink.Tpo $(DEPDIR)/grslink.Po
+#	source='../../sparc/shared/slink/grslink.c' object='grslink.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grslink.obj `if test -f '../../sparc/shared/slink/grslink.c'; then $(CYGPATH_W) '../../sparc/shared/slink/grslink.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/slink/grslink.c'; fi`
+
+grtc.o: ../../sparc/shared/tmtc/grtc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtc.o -MD -MP -MF $(DEPDIR)/grtc.Tpo -c -o grtc.o `test -f '../../sparc/shared/tmtc/grtc.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtc.c
+	$(am__mv) $(DEPDIR)/grtc.Tpo $(DEPDIR)/grtc.Po
+#	source='../../sparc/shared/tmtc/grtc.c' object='grtc.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtc.o `test -f '../../sparc/shared/tmtc/grtc.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtc.c
+
+grtc.obj: ../../sparc/shared/tmtc/grtc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtc.obj -MD -MP -MF $(DEPDIR)/grtc.Tpo -c -o grtc.obj `if test -f '../../sparc/shared/tmtc/grtc.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtc.c'; fi`
+	$(am__mv) $(DEPDIR)/grtc.Tpo $(DEPDIR)/grtc.Po
+#	source='../../sparc/shared/tmtc/grtc.c' object='grtc.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtc.obj `if test -f '../../sparc/shared/tmtc/grtc.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtc.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtc.c'; fi`
+
+grtc_rmap.o: ../../sparc/shared/tmtc/grtc_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtc_rmap.o -MD -MP -MF $(DEPDIR)/grtc_rmap.Tpo -c -o grtc_rmap.o `test -f '../../sparc/shared/tmtc/grtc_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtc_rmap.c
+	$(am__mv) $(DEPDIR)/grtc_rmap.Tpo $(DEPDIR)/grtc_rmap.Po
+#	source='../../sparc/shared/tmtc/grtc_rmap.c' object='grtc_rmap.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtc_rmap.o `test -f '../../sparc/shared/tmtc/grtc_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtc_rmap.c
+
+grtc_rmap.obj: ../../sparc/shared/tmtc/grtc_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtc_rmap.obj -MD -MP -MF $(DEPDIR)/grtc_rmap.Tpo -c -o grtc_rmap.obj `if test -f '../../sparc/shared/tmtc/grtc_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtc_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtc_rmap.c'; fi`
+	$(am__mv) $(DEPDIR)/grtc_rmap.Tpo $(DEPDIR)/grtc_rmap.Po
+#	source='../../sparc/shared/tmtc/grtc_rmap.c' object='grtc_rmap.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtc_rmap.obj `if test -f '../../sparc/shared/tmtc/grtc_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtc_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtc_rmap.c'; fi`
+
+grtm.o: ../../sparc/shared/tmtc/grtm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtm.o -MD -MP -MF $(DEPDIR)/grtm.Tpo -c -o grtm.o `test -f '../../sparc/shared/tmtc/grtm.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtm.c
+	$(am__mv) $(DEPDIR)/grtm.Tpo $(DEPDIR)/grtm.Po
+#	source='../../sparc/shared/tmtc/grtm.c' object='grtm.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtm.o `test -f '../../sparc/shared/tmtc/grtm.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtm.c
+
+grtm.obj: ../../sparc/shared/tmtc/grtm.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtm.obj -MD -MP -MF $(DEPDIR)/grtm.Tpo -c -o grtm.obj `if test -f '../../sparc/shared/tmtc/grtm.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtm.c'; fi`
+	$(am__mv) $(DEPDIR)/grtm.Tpo $(DEPDIR)/grtm.Po
+#	source='../../sparc/shared/tmtc/grtm.c' object='grtm.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtm.obj `if test -f '../../sparc/shared/tmtc/grtm.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtm.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtm.c'; fi`
+
+grtm_rmap.o: ../../sparc/shared/tmtc/grtm_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtm_rmap.o -MD -MP -MF $(DEPDIR)/grtm_rmap.Tpo -c -o grtm_rmap.o `test -f '../../sparc/shared/tmtc/grtm_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtm_rmap.c
+	$(am__mv) $(DEPDIR)/grtm_rmap.Tpo $(DEPDIR)/grtm_rmap.Po
+#	source='../../sparc/shared/tmtc/grtm_rmap.c' object='grtm_rmap.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtm_rmap.o `test -f '../../sparc/shared/tmtc/grtm_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/tmtc/grtm_rmap.c
+
+grtm_rmap.obj: ../../sparc/shared/tmtc/grtm_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT grtm_rmap.obj -MD -MP -MF $(DEPDIR)/grtm_rmap.Tpo -c -o grtm_rmap.obj `if test -f '../../sparc/shared/tmtc/grtm_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtm_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtm_rmap.c'; fi`
+	$(am__mv) $(DEPDIR)/grtm_rmap.Tpo $(DEPDIR)/grtm_rmap.Po
+#	source='../../sparc/shared/tmtc/grtm_rmap.c' object='grtm_rmap.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o grtm_rmap.obj `if test -f '../../sparc/shared/tmtc/grtm_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/tmtc/grtm_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/tmtc/grtm_rmap.c'; fi`
+
+ambapp_bus.o: ../../sparc/shared/drvmgr/ambapp_bus.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_bus.o -MD -MP -MF $(DEPDIR)/ambapp_bus.Tpo -c -o ambapp_bus.o `test -f '../../sparc/shared/drvmgr/ambapp_bus.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/ambapp_bus.c
+	$(am__mv) $(DEPDIR)/ambapp_bus.Tpo $(DEPDIR)/ambapp_bus.Po
+#	source='../../sparc/shared/drvmgr/ambapp_bus.c' object='ambapp_bus.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_bus.o `test -f '../../sparc/shared/drvmgr/ambapp_bus.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/ambapp_bus.c
+
+ambapp_bus.obj: ../../sparc/shared/drvmgr/ambapp_bus.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_bus.obj -MD -MP -MF $(DEPDIR)/ambapp_bus.Tpo -c -o ambapp_bus.obj `if test -f '../../sparc/shared/drvmgr/ambapp_bus.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/ambapp_bus.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/ambapp_bus.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_bus.Tpo $(DEPDIR)/ambapp_bus.Po
+#	source='../../sparc/shared/drvmgr/ambapp_bus.c' object='ambapp_bus.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_bus.obj `if test -f '../../sparc/shared/drvmgr/ambapp_bus.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/ambapp_bus.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/ambapp_bus.c'; fi`
+
+ambapp_bus_grlib.o: ../../sparc/shared/drvmgr/ambapp_bus_grlib.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_bus_grlib.o -MD -MP -MF $(DEPDIR)/ambapp_bus_grlib.Tpo -c -o ambapp_bus_grlib.o `test -f '../../sparc/shared/drvmgr/ambapp_bus_grlib.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/ambapp_bus_grlib.c
+	$(am__mv) $(DEPDIR)/ambapp_bus_grlib.Tpo $(DEPDIR)/ambapp_bus_grlib.Po
+#	source='../../sparc/shared/drvmgr/ambapp_bus_grlib.c' object='ambapp_bus_grlib.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_bus_grlib.o `test -f '../../sparc/shared/drvmgr/ambapp_bus_grlib.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/ambapp_bus_grlib.c
+
+ambapp_bus_grlib.obj: ../../sparc/shared/drvmgr/ambapp_bus_grlib.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_bus_grlib.obj -MD -MP -MF $(DEPDIR)/ambapp_bus_grlib.Tpo -c -o ambapp_bus_grlib.obj `if test -f '../../sparc/shared/drvmgr/ambapp_bus_grlib.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/ambapp_bus_grlib.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/ambapp_bus_grlib.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_bus_grlib.Tpo $(DEPDIR)/ambapp_bus_grlib.Po
+#	source='../../sparc/shared/drvmgr/ambapp_bus_grlib.c' object='ambapp_bus_grlib.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_bus_grlib.obj `if test -f '../../sparc/shared/drvmgr/ambapp_bus_grlib.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/ambapp_bus_grlib.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/ambapp_bus_grlib.c'; fi`
+
+ambapp_bus_rmap.o: ../../sparc/shared/drvmgr/ambapp_bus_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_bus_rmap.o -MD -MP -MF $(DEPDIR)/ambapp_bus_rmap.Tpo -c -o ambapp_bus_rmap.o `test -f '../../sparc/shared/drvmgr/ambapp_bus_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/ambapp_bus_rmap.c
+	$(am__mv) $(DEPDIR)/ambapp_bus_rmap.Tpo $(DEPDIR)/ambapp_bus_rmap.Po
+#	source='../../sparc/shared/drvmgr/ambapp_bus_rmap.c' object='ambapp_bus_rmap.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_bus_rmap.o `test -f '../../sparc/shared/drvmgr/ambapp_bus_rmap.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/ambapp_bus_rmap.c
+
+ambapp_bus_rmap.obj: ../../sparc/shared/drvmgr/ambapp_bus_rmap.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ambapp_bus_rmap.obj -MD -MP -MF $(DEPDIR)/ambapp_bus_rmap.Tpo -c -o ambapp_bus_rmap.obj `if test -f '../../sparc/shared/drvmgr/ambapp_bus_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/ambapp_bus_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/ambapp_bus_rmap.c'; fi`
+	$(am__mv) $(DEPDIR)/ambapp_bus_rmap.Tpo $(DEPDIR)/ambapp_bus_rmap.Po
+#	source='../../sparc/shared/drvmgr/ambapp_bus_rmap.c' object='ambapp_bus_rmap.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ambapp_bus_rmap.obj `if test -f '../../sparc/shared/drvmgr/ambapp_bus_rmap.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/ambapp_bus_rmap.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/ambapp_bus_rmap.c'; fi`
+
+spw_bus.o: ../../sparc/shared/drvmgr/spw_bus.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spw_bus.o -MD -MP -MF $(DEPDIR)/spw_bus.Tpo -c -o spw_bus.o `test -f '../../sparc/shared/drvmgr/spw_bus.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/spw_bus.c
+	$(am__mv) $(DEPDIR)/spw_bus.Tpo $(DEPDIR)/spw_bus.Po
+#	source='../../sparc/shared/drvmgr/spw_bus.c' object='spw_bus.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spw_bus.o `test -f '../../sparc/shared/drvmgr/spw_bus.c' || echo '$(srcdir)/'`../../sparc/shared/drvmgr/spw_bus.c
+
+spw_bus.obj: ../../sparc/shared/drvmgr/spw_bus.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT spw_bus.obj -MD -MP -MF $(DEPDIR)/spw_bus.Tpo -c -o spw_bus.obj `if test -f '../../sparc/shared/drvmgr/spw_bus.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/spw_bus.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/spw_bus.c'; fi`
+	$(am__mv) $(DEPDIR)/spw_bus.Tpo $(DEPDIR)/spw_bus.Po
+#	source='../../sparc/shared/drvmgr/spw_bus.c' object='spw_bus.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spw_bus.obj `if test -f '../../sparc/shared/drvmgr/spw_bus.c'; then $(CYGPATH_W) '../../sparc/shared/drvmgr/spw_bus.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/drvmgr/spw_bus.c'; fi`
+
+leon_greth.o: leon_greth/leon_greth.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT leon_greth.o -MD -MP -MF $(DEPDIR)/leon_greth.Tpo -c -o leon_greth.o `test -f 'leon_greth/leon_greth.c' || echo '$(srcdir)/'`leon_greth/leon_greth.c
+	$(am__mv) $(DEPDIR)/leon_greth.Tpo $(DEPDIR)/leon_greth.Po
+#	source='leon_greth/leon_greth.c' object='leon_greth.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o leon_greth.o `test -f 'leon_greth/leon_greth.c' || echo '$(srcdir)/'`leon_greth/leon_greth.c
+
+leon_greth.obj: leon_greth/leon_greth.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT leon_greth.obj -MD -MP -MF $(DEPDIR)/leon_greth.Tpo -c -o leon_greth.obj `if test -f 'leon_greth/leon_greth.c'; then $(CYGPATH_W) 'leon_greth/leon_greth.c'; else $(CYGPATH_W) '$(srcdir)/leon_greth/leon_greth.c'; fi`
+	$(am__mv) $(DEPDIR)/leon_greth.Tpo $(DEPDIR)/leon_greth.Po
+#	source='leon_greth/leon_greth.c' object='leon_greth.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o leon_greth.obj `if test -f 'leon_greth/leon_greth.c'; then $(CYGPATH_W) 'leon_greth/leon_greth.c'; else $(CYGPATH_W) '$(srcdir)/leon_greth/leon_greth.c'; fi`
+
+network_interface_add.o: ../../sparc/shared/net/network_interface_add.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT network_interface_add.o -MD -MP -MF $(DEPDIR)/network_interface_add.Tpo -c -o network_interface_add.o `test -f '../../sparc/shared/net/network_interface_add.c' || echo '$(srcdir)/'`../../sparc/shared/net/network_interface_add.c
+	$(am__mv) $(DEPDIR)/network_interface_add.Tpo $(DEPDIR)/network_interface_add.Po
+#	source='../../sparc/shared/net/network_interface_add.c' object='network_interface_add.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o network_interface_add.o `test -f '../../sparc/shared/net/network_interface_add.c' || echo '$(srcdir)/'`../../sparc/shared/net/network_interface_add.c
+
+network_interface_add.obj: ../../sparc/shared/net/network_interface_add.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT network_interface_add.obj -MD -MP -MF $(DEPDIR)/network_interface_add.Tpo -c -o network_interface_add.obj `if test -f '../../sparc/shared/net/network_interface_add.c'; then $(CYGPATH_W) '../../sparc/shared/net/network_interface_add.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/net/network_interface_add.c'; fi`
+	$(am__mv) $(DEPDIR)/network_interface_add.Tpo $(DEPDIR)/network_interface_add.Po
+#	source='../../sparc/shared/net/network_interface_add.c' object='network_interface_add.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o network_interface_add.obj `if test -f '../../sparc/shared/net/network_interface_add.c'; then $(CYGPATH_W) '../../sparc/shared/net/network_interface_add.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/net/network_interface_add.c'; fi`
 
 addrconv.o: shmsupp/addrconv.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT addrconv.o -MD -MP -MF $(DEPDIR)/addrconv.Tpo -c -o addrconv.o `test -f 'shmsupp/addrconv.c' || echo '$(srcdir)/'`shmsupp/addrconv.c
@@ -1169,19 +2511,19 @@ mpisr.obj: shmsupp/mpisr.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mpisr.obj `if test -f 'shmsupp/mpisr.c'; then $(CYGPATH_W) 'shmsupp/mpisr.c'; else $(CYGPATH_W) '$(srcdir)/shmsupp/mpisr.c'; fi`
 
-leon_greth_rel-leon_greth.o: leon_greth/leon_greth.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT leon_greth_rel-leon_greth.o -MD -MP -MF $(DEPDIR)/leon_greth_rel-leon_greth.Tpo -c -o leon_greth_rel-leon_greth.o `test -f 'leon_greth/leon_greth.c' || echo '$(srcdir)/'`leon_greth/leon_greth.c
-	$(am__mv) $(DEPDIR)/leon_greth_rel-leon_greth.Tpo $(DEPDIR)/leon_greth_rel-leon_greth.Po
-#	source='leon_greth/leon_greth.c' object='leon_greth_rel-leon_greth.o' libtool=no \
+leon_greth_rel-greth.o: ../../sparc/shared/net/greth.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT leon_greth_rel-greth.o -MD -MP -MF $(DEPDIR)/leon_greth_rel-greth.Tpo -c -o leon_greth_rel-greth.o `test -f '../../sparc/shared/net/greth.c' || echo '$(srcdir)/'`../../sparc/shared/net/greth.c
+	$(am__mv) $(DEPDIR)/leon_greth_rel-greth.Tpo $(DEPDIR)/leon_greth_rel-greth.Po
+#	source='../../sparc/shared/net/greth.c' object='leon_greth_rel-greth.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o leon_greth_rel-leon_greth.o `test -f 'leon_greth/leon_greth.c' || echo '$(srcdir)/'`leon_greth/leon_greth.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o leon_greth_rel-greth.o `test -f '../../sparc/shared/net/greth.c' || echo '$(srcdir)/'`../../sparc/shared/net/greth.c
 
-leon_greth_rel-leon_greth.obj: leon_greth/leon_greth.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT leon_greth_rel-leon_greth.obj -MD -MP -MF $(DEPDIR)/leon_greth_rel-leon_greth.Tpo -c -o leon_greth_rel-leon_greth.obj `if test -f 'leon_greth/leon_greth.c'; then $(CYGPATH_W) 'leon_greth/leon_greth.c'; else $(CYGPATH_W) '$(srcdir)/leon_greth/leon_greth.c'; fi`
-	$(am__mv) $(DEPDIR)/leon_greth_rel-leon_greth.Tpo $(DEPDIR)/leon_greth_rel-leon_greth.Po
-#	source='leon_greth/leon_greth.c' object='leon_greth_rel-leon_greth.obj' libtool=no \
+leon_greth_rel-greth.obj: ../../sparc/shared/net/greth.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT leon_greth_rel-greth.obj -MD -MP -MF $(DEPDIR)/leon_greth_rel-greth.Tpo -c -o leon_greth_rel-greth.obj `if test -f '../../sparc/shared/net/greth.c'; then $(CYGPATH_W) '../../sparc/shared/net/greth.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/net/greth.c'; fi`
+	$(am__mv) $(DEPDIR)/leon_greth_rel-greth.Tpo $(DEPDIR)/leon_greth_rel-greth.Po
+#	source='../../sparc/shared/net/greth.c' object='leon_greth_rel-greth.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o leon_greth_rel-leon_greth.obj `if test -f 'leon_greth/leon_greth.c'; then $(CYGPATH_W) 'leon_greth/leon_greth.c'; else $(CYGPATH_W) '$(srcdir)/leon_greth/leon_greth.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_greth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o leon_greth_rel-greth.obj `if test -f '../../sparc/shared/net/greth.c'; then $(CYGPATH_W) '../../sparc/shared/net/greth.c'; else $(CYGPATH_W) '$(srcdir)/../../sparc/shared/net/greth.c'; fi`
 
 leon_open_eth_rel-leon_open_eth.o: leon_open_eth/leon_open_eth.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(leon_open_eth_rel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT leon_open_eth_rel-leon_open_eth.o -MD -MP -MF $(DEPDIR)/leon_open_eth_rel-leon_open_eth.Tpo -c -o leon_open_eth_rel-leon_open_eth.o `test -f 'leon_open_eth/leon_open_eth.c' || echo '$(srcdir)/'`leon_open_eth/leon_open_eth.c
@@ -1270,6 +2612,46 @@ uninstall-includeHEADERS:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(includedir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(includedir)" && rm -f $$files
+install-include_bspHEADERS: $(include_bsp_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(include_bspdir)" || $(MKDIR_P) "$(DESTDIR)$(include_bspdir)"
+	@list='$(include_bsp_HEADERS)'; test -n "$(include_bspdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(include_bspdir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(include_bspdir)" || exit $$?; \
+	done
+
+uninstall-include_bspHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(include_bsp_HEADERS)'; test -n "$(include_bspdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(include_bspdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(include_bspdir)" && rm -f $$files
+install-include_drvmgrHEADERS: $(include_drvmgr_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(include_drvmgrdir)" || $(MKDIR_P) "$(DESTDIR)$(include_drvmgrdir)"
+	@list='$(include_drvmgr_HEADERS)'; test -n "$(include_drvmgrdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(include_drvmgrdir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(include_drvmgrdir)" || exit $$?; \
+	done
+
+uninstall-include_drvmgrHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(include_drvmgr_HEADERS)'; test -n "$(include_drvmgrdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(include_drvmgrdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(include_drvmgrdir)" && rm -f $$files
 install-nodist_includeHEADERS: $(nodist_include_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
@@ -1626,7 +3008,7 @@ check: check-recursive
 all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(DATA) $(HEADERS) all-local
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(project_libdir)" "$(DESTDIR)$(project_libdir)" "$(DESTDIR)$(includedir)" "$(DESTDIR)$(includedir)" "$(DESTDIR)$(include_bspdir)"; do \
+	for dir in "$(DESTDIR)$(project_libdir)" "$(DESTDIR)$(project_libdir)" "$(DESTDIR)$(includedir)" "$(DESTDIR)$(include_bspdir)" "$(DESTDIR)$(include_drvmgrdir)" "$(DESTDIR)$(includedir)" "$(DESTDIR)$(include_bspdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -1681,6 +3063,7 @@ info: info-recursive
 info-am:
 
 install-data-am: install-dist_project_libDATA install-includeHEADERS \
+	install-include_bspHEADERS install-include_drvmgrHEADERS \
 	install-nodist_includeHEADERS \
 	install-nodist_include_bspHEADERS install-project_libDATA
 
@@ -1730,6 +3113,7 @@ ps: ps-recursive
 ps-am:
 
 uninstall-am: uninstall-dist_project_libDATA uninstall-includeHEADERS \
+	uninstall-include_bspHEADERS uninstall-include_drvmgrHEADERS \
 	uninstall-nodist_includeHEADERS \
 	uninstall-nodist_include_bspHEADERS uninstall-project_libDATA
 
@@ -1747,6 +3131,7 @@ uninstall-am: uninstall-dist_project_libDATA uninstall-includeHEADERS \
 	install-data install-data-am install-dist_project_libDATA \
 	install-dvi install-dvi-am install-exec install-exec-am \
 	install-html install-html-am install-includeHEADERS \
+	install-include_bspHEADERS install-include_drvmgrHEADERS \
 	install-info install-info-am install-man \
 	install-nodist_includeHEADERS \
 	install-nodist_include_bspHEADERS install-pdf install-pdf-am \
@@ -1756,6 +3141,7 @@ uninstall-am: uninstall-dist_project_libDATA uninstall-includeHEADERS \
 	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
 	tags tags-recursive uninstall uninstall-am \
 	uninstall-dist_project_libDATA uninstall-includeHEADERS \
+	uninstall-include_bspHEADERS uninstall-include_drvmgrHEADERS \
 	uninstall-nodist_includeHEADERS \
 	uninstall-nodist_include_bspHEADERS uninstall-project_libDATA
 
@@ -1809,6 +3195,9 @@ $(PROJECT_LIB)/start.$(OBJEXT): start.$(OBJEXT) $(PROJECT_LIB)/$(dirstamp)
 $(PROJECT_LIB)/linkcmds: startup/linkcmds $(PROJECT_LIB)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_LIB)/linkcmds
 
+$(PROJECT_LIB)/linkcmds_ngmp: startup/linkcmds_ngmp $(PROJECT_LIB)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_LIB)/linkcmds_ngmp
+
 $(PROJECT_LIB)/linkcmds.base: ../shared/startup/linkcmds.base $(PROJECT_LIB)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_LIB)/linkcmds.base
 
@@ -1818,20 +3207,77 @@ $(PROJECT_INCLUDE)/amba.h: include/amba.h $(PROJECT_INCLUDE)/$(dirstamp)
 $(PROJECT_INCLUDE)/ambapp.h: ../../sparc/shared/include/ambapp.h $(PROJECT_INCLUDE)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/ambapp.h
 
-$(PROJECT_INCLUDE)/pci.h: ../../sparc/shared/include/pci.h $(PROJECT_INCLUDE)/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/pci.h
+$(PROJECT_INCLUDE)/ambapp_ids.h: ../../sparc/shared/include/ambapp_ids.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/ambapp_ids.h
+
+$(PROJECT_INCLUDE)/grlib.h: ../../sparc/shared/include/grlib.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grlib.h
+
+$(PROJECT_INCLUDE)/ahbstat.h: ../../sparc/shared/include/ahbstat.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/ahbstat.h
+
+$(PROJECT_INCLUDE)/tlib.h: ../../sparc/shared/include/tlib.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/tlib.h
+
+$(PROJECT_INCLUDE)/cons.h: ../../sparc/shared/include/cons.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/cons.h
+
+$(PROJECT_INCLUDE)/genirq.h: ../../sparc/shared/include/genirq.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/genirq.h
+
+$(PROJECT_INCLUDE)/bsp/irq-generic.h: ../../shared/include/irq-generic.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/irq-generic.h
+
+$(PROJECT_INCLUDE)/bsp/irq-info.h: ../../shared/include/irq-info.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/irq-info.h
+
+$(PROJECT_INCLUDE)/bsp/irq.h: include/bsp/irq.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/irq.h
+
+$(PROJECT_INCLUDE)/grpci2.h: ../../sparc/shared/include/grpci2.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grpci2.h
+
+$(PROJECT_INCLUDE)/gr_701.h: ../../sparc/shared/include/gr_701.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr_701.h
+
+$(PROJECT_INCLUDE)/gr_rasta_adcdac.h: ../../sparc/shared/include/gr_rasta_adcdac.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr_rasta_adcdac.h
+
+$(PROJECT_INCLUDE)/gr_rasta_io.h: ../../sparc/shared/include/gr_rasta_io.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr_rasta_io.h
+
+$(PROJECT_INCLUDE)/gr_rasta_tmtc.h: ../../sparc/shared/include/gr_rasta_tmtc.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr_rasta_tmtc.h
+
+$(PROJECT_INCLUDE)/gr_tmtc_1553.h: ../../sparc/shared/include/gr_tmtc_1553.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr_tmtc_1553.h
+
+$(PROJECT_INCLUDE)/gr_leon4_n2x.h: ../../sparc/shared/include/gr_leon4_n2x.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr_leon4_n2x.h
 
 $(PROJECT_INCLUDE)/b1553brm.h: ../../sparc/shared/include/b1553brm.h $(PROJECT_INCLUDE)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/b1553brm.h
 
-$(PROJECT_INCLUDE)/b1553brm_pci.h: ../../sparc/shared/include/b1553brm_pci.h $(PROJECT_INCLUDE)/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/b1553brm_pci.h
+$(PROJECT_INCLUDE)/b1553rt.h: ../../sparc/shared/include/b1553rt.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/b1553rt.h
+
+$(PROJECT_INCLUDE)/gr1553b.h: ../../sparc/shared/include/gr1553b.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr1553b.h
+
+$(PROJECT_INCLUDE)/gr1553bc.h: ../../sparc/shared/include/gr1553bc.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr1553bc.h
+
+$(PROJECT_INCLUDE)/gr1553bc_list.h: ../../sparc/shared/include/gr1553bc_list.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr1553bc_list.h
+
+$(PROJECT_INCLUDE)/gr1553bm.h: ../../sparc/shared/include/gr1553bm.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr1553bm.h
+
+$(PROJECT_INCLUDE)/gr1553rt.h: ../../sparc/shared/include/gr1553rt.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gr1553rt.h
 
 $(PROJECT_INCLUDE)/occan.h: ../../sparc/shared/include/occan.h $(PROJECT_INCLUDE)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/occan.h
-
-$(PROJECT_INCLUDE)/occan_pci.h: ../../sparc/shared/include/occan_pci.h $(PROJECT_INCLUDE)/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/occan_pci.h
 
 $(PROJECT_INCLUDE)/grcan.h: ../../sparc/shared/include/grcan.h $(PROJECT_INCLUDE)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grcan.h
@@ -1839,17 +3285,95 @@ $(PROJECT_INCLUDE)/grcan.h: ../../sparc/shared/include/grcan.h $(PROJECT_INCLUDE
 $(PROJECT_INCLUDE)/grspw.h: ../../sparc/shared/include/grspw.h $(PROJECT_INCLUDE)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grspw.h
 
-$(PROJECT_INCLUDE)/grspw_pci.h: ../../sparc/shared/include/grspw_pci.h $(PROJECT_INCLUDE)/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grspw_pci.h
+$(PROJECT_INCLUDE)/grspw_pkt.h: ../../sparc/shared/include/grspw_pkt.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grspw_pkt.h
+
+$(PROJECT_INCLUDE)/grspw_router.h: ../../sparc/shared/include/grspw_router.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grspw_router.h
+
+$(PROJECT_INCLUDE)/rmap.h: ../../sparc/shared/include/rmap.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/rmap.h
+
+$(PROJECT_INCLUDE)/rmap_drv_grspw.h: ../../sparc/shared/include/rmap_drv_grspw.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/rmap_drv_grspw.h
 
 $(PROJECT_INCLUDE)/apbuart.h: ../../sparc/shared/include/apbuart.h $(PROJECT_INCLUDE)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/apbuart.h
 
-$(PROJECT_INCLUDE)/apbuart_pci.h: ../../sparc/shared/include/apbuart_pci.h $(PROJECT_INCLUDE)/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/apbuart_pci.h
-
 $(PROJECT_INCLUDE)/i2cmst.h: ../../sparc/shared/include/i2cmst.h $(PROJECT_INCLUDE)/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/i2cmst.h
+
+$(PROJECT_INCLUDE)/spictrl.h: ../../sparc/shared/include/spictrl.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/spictrl.h
+
+$(PROJECT_INCLUDE)/spwcuc.h: ../../sparc/shared/include/spwcuc.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/spwcuc.h
+
+$(PROJECT_INCLUDE)/spwtdp.h: ../../sparc/shared/include/spwtdp.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/spwtdp.h
+
+$(PROJECT_INCLUDE)/grctm.h: ../../sparc/shared/include/grctm.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grctm.h
+
+$(PROJECT_INCLUDE)/grgpio.h: ../../sparc/shared/include/grgpio.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grgpio.h
+
+$(PROJECT_INCLUDE)/gpiolib.h: ../../sparc/shared/include/gpiolib.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gpiolib.h
+
+$(PROJECT_INCLUDE)/graes.h: ../../sparc/shared/include/graes.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/graes.h
+
+$(PROJECT_INCLUDE)/grpwrx.h: ../../sparc/shared/include/grpwrx.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grpwrx.h
+
+$(PROJECT_INCLUDE)/grpwm.h: ../../sparc/shared/include/grpwm.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grpwm.h
+
+$(PROJECT_INCLUDE)/gradcdac.h: ../../sparc/shared/include/gradcdac.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/gradcdac.h
+
+$(PROJECT_INCLUDE)/grascs.h: ../../sparc/shared/include/grascs.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grascs.h
+
+$(PROJECT_INCLUDE)/satcan.h: ../../sparc/shared/include/satcan.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/satcan.h
+
+$(PROJECT_INCLUDE)/canmux.h: ../../sparc/shared/include/canmux.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/canmux.h
+
+$(PROJECT_INCLUDE)/grslink.h: ../../sparc/shared/include/grslink.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grslink.h
+
+$(PROJECT_INCLUDE)/grtc.h: ../../sparc/shared/include/grtc.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grtc.h
+
+$(PROJECT_INCLUDE)/grtm.h: ../../sparc/shared/include/grtm.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/grtm.h
+
+$(PROJECT_INCLUDE)/drvmgr/$(dirstamp):
+	@$(MKDIR_P) $(PROJECT_INCLUDE)/drvmgr
+	@: > $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+
+$(PROJECT_INCLUDE)/drvmgr/ambapp_bus_grlib.h: ../../sparc/shared/include/drvmgr/ambapp_bus_grlib.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/ambapp_bus_grlib.h
+
+$(PROJECT_INCLUDE)/drvmgr/ambapp_bus_rmap.h: ../../sparc/shared/include/drvmgr/ambapp_bus_rmap.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/ambapp_bus_rmap.h
+
+$(PROJECT_INCLUDE)/drvmgr/ambapp_bus.h: ../../sparc/shared/include/drvmgr/ambapp_bus.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/ambapp_bus.h
+
+$(PROJECT_INCLUDE)/drvmgr/spw_bus.h: ../../sparc/shared/include/drvmgr/spw_bus.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/spw_bus.h
+
+$(PROJECT_INCLUDE)/drvmgr/spw_bus_ids.h: ../../sparc/shared/include/drvmgr/spw_bus_ids.h $(PROJECT_INCLUDE)/drvmgr/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/drvmgr/spw_bus_ids.h
+
+$(PROJECT_INCLUDE)/greth.h: ../../sparc/shared/include/greth.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/greth.h
+$(PROJECT_INCLUDE)/network_interface_add.h: ../../sparc/shared/include/network_interface_add.h $(PROJECT_INCLUDE)/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/network_interface_add.h
 
 preinstall-am: $(PREINSTALL_FILES)
 preinstall: preinstall-am

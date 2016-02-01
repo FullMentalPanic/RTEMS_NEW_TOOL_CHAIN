@@ -1,5 +1,5 @@
 libmghttpd_a-mongoose.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/mghttpd/mongoose.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/mghttpd/mongoose.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/types.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
@@ -137,7 +137,7 @@ libmghttpd_a-mongoose.o: \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/dirent.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/sys/dirent.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/pthread.h \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/mghttpd/mongoose.h
+ ../../../../../../rtems-4.10/c/src/../../cpukit/mghttpd/mongoose.h
 
 ../config.h:
 
@@ -413,4 +413,4 @@ libmghttpd_a-mongoose.o: \
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/pthread.h:
 
-../../../../../../rtems-4.10.2/c/src/../../cpukit/mghttpd/mongoose.h:
+../../../../../../rtems-4.10/c/src/../../cpukit/mghttpd/mongoose.h:

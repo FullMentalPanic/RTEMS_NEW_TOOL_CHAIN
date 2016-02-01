@@ -1,5 +1,5 @@
 network/libnetchip_a-smc91111.o: \
- ../../../../../rtems-4.10.2/c/src/libchip/network/smc91111.c \
+ ../../../../../rtems-4.10/c/src/libchip/network/smc91111.c \
  ../../../leon3/lib/include/rtems.h \
  ../../../leon3/lib/include/rtems/system.h \
  ../../../leon3/lib/include/rtems/score/cpuopts.h \
@@ -113,8 +113,11 @@ network/libnetchip_a-smc91111.o: \
  ../../../leon3/lib/include/bsp.h ../../../leon3/lib/include/bspopts.h \
  ../../../leon3/lib/include/leon.h ../../../leon3/lib/include/amba.h \
  ../../../leon3/lib/include/ambapp.h \
+ ../../../leon3/lib/include/ambapp_ids.h \
+ ../../../leon3/lib/include/grlib.h \
  ../../../leon3/lib/include/rtems/clockdrv.h \
  ../../../leon3/lib/include/rtems/console.h \
+ ../../../leon3/lib/include/rtems/irq-extension.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/machine/stdlib.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/alloca.h \
@@ -149,7 +152,7 @@ network/libnetchip_a-smc91111.o: \
  ../../../leon3/lib/include/netinet/if_ether.h \
  ../../../leon3/lib/include/net/ethernet.h \
  ../../../leon3/lib/include/net/if_arp.h \
- ../../../../../rtems-4.10.2/c/src/libchip/network/smc91111config.h \
+ ../../../../../rtems-4.10/c/src/libchip/network/smc91111config.h \
  ../../../leon3/lib/include/libchip/smc91111.h \
  ../../../leon3/lib/include/libchip/smc91111exp.h
 
@@ -383,9 +386,15 @@ network/libnetchip_a-smc91111.o: \
 
 ../../../leon3/lib/include/ambapp.h:
 
+../../../leon3/lib/include/ambapp_ids.h:
+
+../../../leon3/lib/include/grlib.h:
+
 ../../../leon3/lib/include/rtems/clockdrv.h:
 
 ../../../leon3/lib/include/rtems/console.h:
+
+../../../leon3/lib/include/rtems/irq-extension.h:
 
 /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdlib.h:
 
@@ -455,7 +464,7 @@ network/libnetchip_a-smc91111.o: \
 
 ../../../leon3/lib/include/net/if_arp.h:
 
-../../../../../rtems-4.10.2/c/src/libchip/network/smc91111config.h:
+../../../../../rtems-4.10/c/src/libchip/network/smc91111config.h:
 
 ../../../leon3/lib/include/libchip/smc91111.h:
 

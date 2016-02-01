@@ -1,5 +1,5 @@
 src/xdr/libxdr_a-xdr_rec.o: \
- ../../../../../../rtems-4.10.2/c/src/../../cpukit/librpc/src/xdr/xdr_rec.c \
+ ../../../../../../rtems-4.10/c/src/../../cpukit/librpc/src/xdr/xdr_rec.c \
  ../config.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/stdio.h \
  /opt/rtems-4.10/lib/gcc/sparc-rtems4.10/4.4.7/../../../../sparc-rtems4.10/include/_ansi.h \
